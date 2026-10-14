@@ -1,0 +1,1903 @@
+[
+ {
+  "id": "w1-01",
+  "w": 1,
+  "topic": "Definición de IA",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según la definición de John McCarthy (2007) mostrada en clase, ¿cuál afirmación es correcta?",
+  "options": [
+   "La IA debe imitar exactamente el funcionamiento del cerebro biológico",
+   "La IA no tiene que limitarse a métodos que sean biológicamente observables",
+   "La IA solo incluye programas que aprenden a partir de datos",
+   "La IA es una subdisciplina de la ciencia de datos"
+  ],
+  "answer": 1,
+  "explain": "McCarthy: la IA es la ciencia e ingeniería de crear máquinas inteligentes; se relaciona con entender la inteligencia humana, pero «no tiene que confinarse a métodos biológicamente observables».",
+  "src": "Week 1 · Artificial intelligence - definition",
+  "page": 7
+ },
+ {
+  "id": "w1-02",
+  "w": 1,
+  "topic": "Historia de la IA",
+  "type": "order",
+  "pts": 4,
+  "q": "Ordena estos hitos de la línea de tiempo de la IA del más antiguo al más reciente.",
+  "items": [
+   "Prueba de Turing",
+   "Nace el término «inteligencia artificial» (propuesta de Dartmouth)",
+   "Deep Blue vence a Garry Kasparov",
+   "AlphaGo vence a Lee Sedol",
+   "Lanzamiento de ChatGPT"
+  ],
+  "explain": "1950 Turing Test → 1956 AI term born → 1997 Deep Blue → 2016 AlphaGo → 2022 ChatGPT.",
+  "src": "Week 1 · AI History Timeline",
+  "page": 9
+ },
+ {
+  "id": "w1-03",
+  "w": 1,
+  "topic": "Inviernos de la IA",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál de estas causas corresponde al SEGUNDO invierno de la IA (finales de los 80 – 90)?",
+  "options": [
+   "La poca capacidad de cómputo que frenaba el progreso",
+   "El declive de los sistemas expertos, que eran caros, inflexibles y difíciles de mantener",
+   "Expectativas no cumplidas por los primeros sistemas de IA de los años 60",
+   "La aparición del deep learning, que desplazó a la IA clásica"
+  ],
+  "answer": 1,
+  "explain": "El segundo invierno se debió al declive de los sistemas expertos (caros, inflexibles, difíciles de mantener), su alto costo y baja escalabilidad. La poca capacidad de cómputo y las expectativas no cumplidas son causas del primer invierno.",
+  "src": "Week 1 · AI Winter",
+  "page": 10
+ },
+ {
+  "id": "w1-04",
+  "w": 1,
+  "topic": "Inviernos de la IA",
+  "type": "multi",
+  "pts": 4,
+  "q": "Selecciona TODAS las causas del PRIMER invierno de la IA (años 70) según las diapositivas.",
+  "options": [
+   "Expectativas no cumplidas de los primeros sistemas de IA",
+   "Capacidad de cómputo limitada",
+   "Recortes de financiamiento por el avance lento",
+   "Sistemas expertos caros y difíciles de mantener",
+   "Baja escalabilidad de las aplicaciones comerciales de IA"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "Primer invierno: expectativas no cumplidas, poco poder de cómputo y recortes de fondos por el lento avance. Los sistemas expertos costosos y la baja escalabilidad pertenecen al segundo invierno.",
+  "src": "Week 1 · AI Winter",
+  "page": 10
+ },
+ {
+  "id": "w1-05",
+  "w": 1,
+  "topic": "Evolución de la IA",
+  "type": "match",
+  "pts": 3,
+  "q": "Relaciona cada enfoque con el período en que predominó, según la diapositiva de evolución.",
+  "pairs": [
+   [
+    "Inteligencia artificial (basada en reglas)",
+    "1950 – 1980"
+   ],
+   [
+    "Machine learning",
+    "1980 – 2010"
+   ],
+   [
+    "Deep learning",
+    "2010 – presente"
+   ]
+  ],
+  "explain": "AI (1950-1980) → Machine learning (1980-2010) → Deep learning (2010-presente). Cada etapa está contenida en la anterior.",
+  "src": "Week 1 · Artificial intelligence - evolution",
+  "page": 12
+ },
+ {
+  "id": "w1-06",
+  "w": 1,
+  "topic": "Prueba de Turing",
+  "type": "mc",
+  "pts": 3,
+  "q": "En una prueba de Turing, el interrogador (jugador C) no logra distinguir si las respuestas vienen de la computadora o de la persona. ¿Qué se puede concluir?",
+  "options": [
+   "Que la máquina pasó la prueba de Turing",
+   "Que la máquina tiene mente y conciencia",
+   "Que la máquina es un ejemplo de IA fuerte",
+   "Que la prueba no es válida y debe repetirse con otro interrogador"
+  ],
+  "answer": 0,
+  "explain": "La prueba de Turing determina si uno conversa con una máquina o con una persona: si no se distinguen, la máquina pasa. Que tenga mente es justo lo que cuestiona el argumento de la habitación china (Week 2).",
+  "src": "Week 1 · Alan Turing / Turing Test",
+  "page": 15
+ },
+ {
+  "id": "w1-07",
+  "w": 1,
+  "topic": "Hitos de la IA",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué diferencia principal hay entre Deep Blue (1997) y AlphaGo (2016), según los ejemplos de clase?",
+  "options": [
+   "Deep Blue aprendió jugando contra sí mismo; AlphaGo usaba fuerza bruta",
+   "Deep Blue evaluaba millones de posiciones con reglas programadas; AlphaGo aprendió de partidas y jugando contra sí mismo",
+   "Ambos usaban exactamente la misma técnica, solo cambió el juego",
+   "AlphaGo solo podía jugar ajedrez y Deep Blue solo Go"
+  ],
+  "answer": 1,
+  "explain": "Deep Blue: fuerza bruta + reglas de expertos (≈200 millones de posiciones por segundo). AlphaGo: el Go tiene demasiadas posiciones para la fuerza bruta, así que aprendió de partidas humanas y jugando contra sí mismo.",
+  "src": "Week 1 · Ejemplo: tres hitos",
+  "page": 20
+ },
+ {
+  "id": "w1-08",
+  "w": 1,
+  "topic": "Hitos de la IA",
+  "type": "mc",
+  "pts": 2,
+  "q": "¿Qué problema resuelve AlphaFold?",
+  "options": [
+   "Vencer a campeones humanos en juegos de estrategia",
+   "Predecir la estructura 3D de las proteínas",
+   "Generar imágenes de personas que no existen",
+   "Traducir texto entre idiomas sin sesgos"
+  ],
+  "answer": 1,
+  "explain": "AlphaFold (2018) predice la estructura tridimensional de las proteínas; ha revelado millones de estructuras.",
+  "src": "Week 1 · Alphafold (2018)",
+  "page": 19
+ },
+ {
+  "id": "w1-09",
+  "w": 1,
+  "topic": "IA generativa",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál de estos sistemas NO es un ejemplo de IA generativa?",
+  "options": [
+   "StyleGAN",
+   "DALL-E",
+   "ChatGPT",
+   "Deep Blue"
+  ],
+  "answer": 3,
+  "explain": "La IA generativa crea contenido original (imágenes, texto, música, video). StyleGAN, ChatGPT y DALL-E son los ejemplos de la diapositiva; Deep Blue jugaba ajedrez, no generaba contenido.",
+  "src": "Week 1 · Generative AI",
+  "page": 21
+ },
+ {
+  "id": "w1-10",
+  "w": 1,
+  "topic": "IA generativa",
+  "type": "mc",
+  "pts": 2,
+  "q": "Según la gráfica de casos de uso de la IA generativa, ¿cuál fue el uso número 1 en 2025?",
+  "options": [
+   "Generar ideas",
+   "Terapia / compañía",
+   "Generar código",
+   "Búsquedas específicas"
+  ],
+  "answer": 1,
+  "explain": "En 2025 el #1 fue Therapy/companionship (seguido de organizar la vida y encontrar propósito). «Generar ideas» era el #1 en 2024.",
+  "src": "Week 1 · Generative AI - use cases",
+  "page": 23
+ },
+ {
+  "id": "w1-11",
+  "w": 1,
+  "topic": "Ética de la IA",
+  "type": "mc",
+  "pts": 3,
+  "q": "Google Translate traducía la frase turca neutra «o bir doktor» como «he is a doctor». ¿Qué dilema ético ilustra este caso?",
+  "options": [
+   "Privacidad",
+   "Sesgos (de género)",
+   "Propiedad intelectual",
+   "Impacto ambiental"
+  ],
+  "answer": 1,
+  "explain": "El turco no marca género y el traductor asumía «he»: es un sesgo de género aprendido de los datos. Luego se corrigió mostrando ambas opciones (she/he).",
+  "src": "Week 1 · Google translate",
+  "page": 36
+ },
+ {
+  "id": "w1-12",
+  "w": 1,
+  "topic": "Ética de la IA",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Por qué el chatbot Tay de Microsoft terminó publicando mensajes racistas y xenófobos?",
+  "options": [
+   "Porque fue programado con reglas ofensivas por sus creadores",
+   "Porque aprendía de las interacciones con los usuarios y copió lo que le enseñaron",
+   "Porque fue hackeado y le cambiaron el código",
+   "Porque usaba un diccionario de traducción con errores"
+  ],
+  "answer": 1,
+  "explain": "Tay aprendía de las conversaciones; algunos usuarios le enseñaron contenido ofensivo y lo repitió. Un modelo aprende lo que ve en los datos.",
+  "src": "Week 1 · Microsoft Tay - robot",
+  "page": 35
+ },
+ {
+  "id": "w1-13",
+  "w": 1,
+  "topic": "Implicaciones de la IA",
+  "type": "mc",
+  "pts": 3,
+  "q": "Un estudio mostró que una IA puede adivinar contraseñas escuchando el sonido del teclado. ¿Con qué dilema ético se relaciona más directamente?",
+  "options": [
+   "Privacidad",
+   "Sesgos",
+   "Propiedad intelectual",
+   "Impacto ambiental"
+  ],
+  "answer": 0,
+  "explain": "Obtener contraseñas a partir del sonido de las teclas es un ataque a la privacidad y la seguridad de las personas.",
+  "src": "Week 1 · Implications of artificial intelligence",
+  "page": 39
+ },
+ {
+  "id": "w2-01",
+  "w": 2,
+  "topic": "Habitación china",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué busca demostrar el argumento de la habitación china de John Searle?",
+  "options": [
+   "Que las máquinas nunca podrán pasar la prueba de Turing",
+   "Que aunque una máquina pase la prueba de Turing, eso no significa que entienda o tenga mente",
+   "Que el idioma chino es demasiado complejo para una computadora",
+   "Que la IA débil no existe"
+  ],
+  "answer": 1,
+  "explain": "La persona de la habitación responde correctamente usando un manual sin saber chino. Si una máquina parece inteligente (p. ej. pasa la prueba de Turing), no significa que tenga una «mente».",
+  "src": "Week 2 · The chinese room argument",
+  "page": 46
+ },
+ {
+  "id": "w2-02",
+  "w": 2,
+  "topic": "IA débil vs fuerte",
+  "type": "multi",
+  "pts": 3,
+  "q": "Selecciona TODOS los ejemplos de IA débil mencionados en las diapositivas.",
+  "options": [
+   "Chatbots",
+   "Filtros de spam en el correo",
+   "Google Maps",
+   "Siri y Alexa",
+   "Una máquina que aprende cualquier habilidad nueva por su cuenta y se adapta a imprevistos"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "La IA débil realiza tareas específicas: chatbots, filtros de spam, Google Maps, Siri y Alexa. Aprender cualquier habilidad y adaptarse a imprevistos describe a la IA fuerte.",
+  "src": "Week 2 · Weak AI / Strong AI",
+  "page": 48
+ },
+ {
+  "id": "w2-03",
+  "w": 2,
+  "topic": "IA débil vs fuerte",
+  "type": "tf",
+  "pts": 2,
+  "q": "Siri y Alexa son ejemplos de IA fuerte porque pueden conversar sobre muchos temas.",
+  "answer": false,
+  "explain": "Falso. Las diapositivas los ponen como ejemplos de IA débil: se enfocan en tareas específicas. La IA fuerte actuaría como un humano, aprendiendo habilidades nuevas por su cuenta.",
+  "src": "Week 2 · Weak AI",
+  "page": 48
+ },
+ {
+  "id": "w2-04",
+  "w": 2,
+  "topic": "DS vs ML vs IA",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según el diagrama «Data science vs machine learning vs AI», ¿cómo se ubica el machine learning?",
+  "options": [
+   "Es lo mismo que la ciencia de datos",
+   "Es un subconjunto de la IA y una herramienta de la ciencia de datos",
+   "Es una disciplina más amplia que contiene a la IA",
+   "Es independiente de la estadística y de la IA"
+  ],
+  "answer": 1,
+  "explain": "Machine learning: algoritmos que permiten a las máquinas mejorar (supervisado, no supervisado, por refuerzo); es subconjunto de la IA y herramienta de la ciencia de datos.",
+  "src": "Week 2 · Data science vs machine learning vs AI",
+  "page": 54
+ },
+ {
+  "id": "w2-05",
+  "w": 2,
+  "topic": "Dato e información",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según el esquema de la clase, la información es igual a:",
+  "options": [
+   "Datos + algoritmos",
+   "Datos + contexto + significado",
+   "Datos crudos sin procesar",
+   "Contexto + unidad de medida"
+  ],
+  "answer": 1,
+  "explain": "INFORMATION = DATA + CONTEXT + MEANING. El dato son hechos y cifras crudas; la información es el dato procesado en un contexto para darle significado.",
+  "src": "Week 2 · Information and context",
+  "page": 61
+ },
+ {
+  "id": "w2-06",
+  "w": 2,
+  "topic": "Dato e información",
+  "type": "mc",
+  "pts": 3,
+  "q": "En el ejemplo de clase «cabello negro», ¿cuál es el dato?",
+  "options": [
+   "Cabello",
+   "Negro",
+   "Cabello negro, completo",
+   "Ninguno: es solo contexto"
+  ],
+  "answer": 1,
+  "explain": "«Black hair -> hair (context) - black (data)». El contexto es cabello y el dato es negro.",
+  "src": "Week 2 · Information and context",
+  "page": 60
+ },
+ {
+  "id": "w2-07",
+  "w": 2,
+  "topic": "Tipos de datos",
+  "type": "match",
+  "pts": 5,
+  "q": "Clasifica cada variable según su tipo de dato estadístico.",
+  "pairs": [
+   [
+    "Número de estudiantes en un aula",
+    "Cuantitativa discreta"
+   ],
+   [
+    "Estatura de una persona (1.72 m)",
+    "Cuantitativa continua"
+   ],
+   [
+    "Nivel: bajo, medio, alto",
+    "Cualitativa ordinal"
+   ],
+   [
+    "Ciudad natal",
+    "Cualitativa nominal"
+   ]
+  ],
+  "explain": "Discreta = enteros; continua = valores con decimales; ordinal = categorías con orden; nominal = categorías sin orden.",
+  "src": "Week 2 · Statistical data types",
+  "page": 63
+ },
+ {
+  "id": "w2-08",
+  "w": 2,
+  "topic": "Tipos de datos",
+  "type": "mc",
+  "pts": 4,
+  "q": "Una columna guarda el número de celular de cada estudiante (p. ej. 0991234567). ¿Qué tipo de dato es?",
+  "options": [
+   "Cuantitativo discreto, porque son números enteros",
+   "Cuantitativo continuo",
+   "Cualitativo nominal, porque el número no tiene significado matemático",
+   "Cualitativo ordinal"
+  ],
+  "answer": 2,
+  "explain": "Los datos cualitativos pueden tener valores numéricos que carecen de significado matemático: promediar celulares no tiene sentido y no hay un orden. Es nominal.",
+  "src": "Week 2 · Statistical data types (y ejemplo)",
+  "page": 64
+ },
+ {
+  "id": "w2-09",
+  "w": 2,
+  "topic": "Gráficos por tipo de dato",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada tipo de dato con el gráfico recomendado en clase (un gráfico puede repetirse).",
+  "pairs": [
+   [
+    "Nominal",
+    "Gráfico de pastel"
+   ],
+   [
+    "Ordinal",
+    "Gráfico de barras"
+   ],
+   [
+    "Discreto",
+    "Gráfico de barras"
+   ],
+   [
+    "Continuo",
+    "Histograma"
+   ]
+  ],
+  "explain": "Nominal → pie chart; ordinal → bar graph; discreto → bar graph; continuo → histogram.",
+  "src": "Week 2 · Graphs according to the data type",
+  "page": 69
+ },
+ {
+  "id": "w2-10",
+  "w": 2,
+  "topic": "Estructura de datos",
+  "type": "mc",
+  "pts": 3,
+  "q": "Un archivo JSON con los pedidos de una tienda (claves como \"orderno\", \"date\", \"customer\") es un ejemplo de dato:",
+  "options": [
+   "Estructurado",
+   "Semiestructurado",
+   "No estructurado",
+   "Experimental"
+  ],
+  "answer": 1,
+  "explain": "Los datos semiestructurados usan etiquetas para organizar la información (emails, JSON, XML), lo que facilita jerarquías y grupos.",
+  "src": "Week 2 · Semi-structured data",
+  "page": 75
+ },
+ {
+  "id": "w2-11",
+  "w": 2,
+  "topic": "Estructura de datos",
+  "type": "multi",
+  "pts": 4,
+  "q": "Selecciona TODAS las fuentes de datos NO estructurados según las diapositivas.",
+  "options": [
+   "Publicaciones en redes sociales",
+   "Videos",
+   "Transcripciones de llamadas",
+   "Una hoja de Excel",
+   "Un archivo XML"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "No estructurados: redes sociales, videos, comentarios, transcripciones de llamadas. Excel es estructurado (filas y columnas) y XML es semiestructurado.",
+  "src": "Week 2 · Unstructured data",
+  "page": 74
+ },
+ {
+  "id": "w2-12",
+  "w": 2,
+  "topic": "Métodos de recolección",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Por qué un test A/B para evaluar el diseño de una página web es un método experimental?",
+  "options": [
+   "Porque usa datos de redes sociales",
+   "Porque los datos se recolectan bajo condiciones controladas",
+   "Porque observa a las personas sin alterar ninguna variable",
+   "Porque solo usa datos numéricos"
+  ],
+  "answer": 1,
+  "explain": "Experimental = datos recolectados bajo condiciones controladas (se cambia deliberadamente una variable, p. ej. el diseño). Observar sin alterar nada es observacional.",
+  "src": "Week 2 · Data according to the collection method",
+  "page": 77
+ },
+ {
+  "id": "w2-13",
+  "w": 2,
+  "topic": "Estudios observacionales",
+  "type": "mc",
+  "pts": 4,
+  "q": "Investigadores comparan personas con cáncer de colon y personas sin cáncer, examinando sus hábitos de dieta para ver si una dieta alta en grasas contribuye a la enfermedad. ¿Qué tipo de estudio es?",
+  "options": [
+   "Transversal",
+   "Casos y controles",
+   "Cohorte",
+   "Experimental"
+  ],
+  "answer": 1,
+  "explain": "Casos y controles: compara un grupo con la condición (casos) y otro sin ella (controles) para identificar factores que contribuyen. Es el ejemplo exacto de la diapositiva.",
+  "src": "Week 2 · Case-control study",
+  "page": 81
+ },
+ {
+  "id": "w2-14",
+  "w": 2,
+  "topic": "Estudios observacionales",
+  "type": "mc",
+  "pts": 4,
+  "q": "Se quiere saber qué tan común es una enfermedad en una población, observando distintos grupos en un período específico de tiempo. ¿Qué tipo de estudio es?",
+  "options": [
+   "Transversal",
+   "Longitudinal",
+   "Cohorte",
+   "Casos y controles"
+  ],
+  "answer": 0,
+  "explain": "El estudio transversal observa grupos en un período específico (una «foto»), p. ej. la predominancia de una enfermedad.",
+  "src": "Week 2 · Cross-sectional study",
+  "page": 80
+ },
+ {
+  "id": "w2-15",
+  "w": 2,
+  "topic": "Estudios observacionales",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un grupo de mujeres se divide según su dieta, estilo de vida y uso de medicamentos, y cada grupo se sigue en el tiempo para comparar los efectos en su salud. ¿Qué tipo de estudio es?",
+  "options": [
+   "Transversal",
+   "Casos y controles",
+   "Cohorte",
+   "Experimental (A/B)"
+  ],
+  "answer": 2,
+  "explain": "Cohorte: se observa un grupo en el tiempo, dividido en subgrupos que comparten exposiciones (comportamientos, factores ambientales), y luego se comparan.",
+  "src": "Week 2 · Cohort study",
+  "page": 82
+ },
+ {
+  "id": "w3-01",
+  "w": 3,
+  "topic": "Jupyter Notebook",
+  "type": "mc",
+  "pts": 3,
+  "q": "En Jupyter Notebook, ¿qué es el kernel?",
+  "options": [
+   "El archivo donde se guarda el notebook",
+   "El motor computacional que ejecuta el código; para Python se llama IPython",
+   "La celda de texto que usa Markdown",
+   "El navegador web donde se abre el notebook"
+  ],
+  "answer": 1,
+  "explain": "La ejecución del código es posible gracias a un kernel, que funciona como motor computacional. Hay kernels para varios lenguajes; para Python es IPython.",
+  "src": "Week 3 · Jupyter Notebook",
+  "page": 89
+ },
+ {
+  "id": "w3-02",
+  "w": 3,
+  "topic": "Celdas en Colab",
+  "type": "mc",
+  "pts": 3,
+  "q": "Una celda de código en Colab muestra [7] a su izquierda. ¿Qué significa ese número?",
+  "options": [
+   "Que la celda tiene 7 líneas",
+   "Que es la séptima celda de arriba hacia abajo",
+   "El orden de ejecución de esa celda respecto a las demás",
+   "Que la celda tardó 7 segundos en ejecutarse"
+  ],
+  "answer": 2,
+  "explain": "Al ejecutarse, la celda muestra un número que indica su orden de ejecución respecto a las otras celdas, no su posición en la página.",
+  "src": "Week 3 · Code cell",
+  "page": 99
+ },
+ {
+  "id": "w3-03",
+  "w": 3,
+  "topic": "Orden de ejecución",
+  "type": "input",
+  "pts": 4,
+  "q": "En un notebook tienes tres celdas:\nA: x = 10\nB: x = x + 5\nC: print(x)\nEjecutas A, luego B, luego B otra vez y finalmente C. ¿Qué se imprime?",
+  "answer": [
+   "20"
+  ],
+  "placeholder": "Escribe el valor",
+  "explain": "A deja x = 10; la primera ejecución de B da 15; la segunda, 20. El notebook recuerda las variables y lo que importa es el orden en que ejecutas.",
+  "src": "Week 3 · Ejemplo: orden de ejecución",
+  "page": 101
+ },
+ {
+  "id": "w3-04",
+  "w": 3,
+  "topic": "Markdown",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada sintaxis de Markdown con lo que produce en una celda de texto.",
+  "pairs": [
+   [
+    "# Mi título",
+    "Un título (encabezado)"
+   ],
+   [
+    "**notas**",
+    "Texto en negrita"
+   ],
+   [
+    "*Python*",
+    "Texto en cursiva"
+   ],
+   [
+    "[Colab](https://colab.google)",
+    "Un enlace"
+   ]
+  ],
+  "explain": "# = encabezado, **texto** = negrita, *texto* = cursiva, [texto](url) = enlace. Markdown fue creado por John Gruber en 2004.",
+  "src": "Week 3 · Markdown code",
+  "page": 94
+ },
+ {
+  "id": "w3-05",
+  "w": 3,
+  "topic": "Python",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál característica de Python se menciona en las diapositivas?",
+  "options": [
+   "Es un lenguaje compilado de bajo nivel",
+   "Los bloques de código se definen con indentación y no requieren llaves {}",
+   "Solo funciona en un sistema operativo",
+   "Fue creado por Google en 2017"
+  ],
+  "answer": 1,
+  "explain": "Python: creado por Guido van Rossum a finales de los 80; alto nivel, interpretado, multiplataforma; bloques definidos por indentación, sin llaves. (Google creó Colab en 2017.)",
+  "src": "Week 3 · Python",
+  "page": 103
+ },
+ {
+  "id": "w3-06",
+  "w": 3,
+  "topic": "range y for",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué imprime este código?",
+  "code": "for num in range(1, 10, 4):\n    print(num)",
+  "options": [
+   "1  5  9",
+   "1  5  9  13",
+   "1  4  7",
+   "5  9"
+  ],
+  "answer": 0,
+  "explain": "range(start, end, step): empieza en 1, avanza de 4 en 4 y se detiene antes de 10 → 1, 5, 9.",
+  "src": "Week 3 · The range function / for loop",
+  "page": 110
+ },
+ {
+  "id": "w3-07",
+  "w": 3,
+  "topic": "range",
+  "type": "input",
+  "pts": 3,
+  "q": "¿Cuántos números genera range(3, 15, 3)?",
+  "answer": [
+   "4",
+   "cuatro"
+  ],
+  "placeholder": "Cantidad",
+  "explain": "Genera 3, 6, 9, 12. El 15 (end) no se incluye.",
+  "src": "Week 3 · The range function",
+  "page": 108
+ },
+ {
+  "id": "w3-08",
+  "w": 3,
+  "topic": "if-elif-else",
+  "type": "mc",
+  "pts": 4,
+  "q": "Con el código de la clase, ¿qué se imprime si num vale 10?",
+  "code": "num = 10\nif num < 0:\n    print(\"The number is negative\")\nelif num > 10:\n    print(\"The number is greater than 10\")\nelse:\n    print(\"The number is greater than 0 and less than 10\")",
+  "options": [
+   "The number is negative",
+   "The number is greater than 10",
+   "The number is greater than 0 and less than 10",
+   "No se imprime nada"
+  ],
+  "answer": 2,
+  "explain": "10 no es menor que 0 ni MAYOR que 10 (la condición es > 10, no >= 10), así que entra al else.",
+  "src": "Week 3 · If-elif-else statements",
+  "page": 112
+ },
+ {
+  "id": "w3-09",
+  "w": 3,
+  "topic": "Funciones",
+  "type": "mc",
+  "pts": 4,
+  "q": "Usando la función calculateOperation de la clase, ¿qué imprime calculateOperation(3, 2, \"/\")?",
+  "code": "def calculateOperation(num1, num2, op=\"+\"):\n    if op == \"-\":\n        res = num1 - num2\n    elif op == \"*\":\n        res = num1 * num2\n    elif op == \"/\":\n        res = num1 / num2\n    else:\n        res = num1 + num2\n    print(\"The result is: \", res)",
+  "options": [
+   "The result is: 1",
+   "The result is: 1.5",
+   "The result is: 5",
+   "The result is: 6"
+  ],
+  "answer": 1,
+  "explain": "op es \"/\", así que res = 3 / 2 = 1.5 (la división con / da decimales).",
+  "src": "Week 3 · Functions in Python",
+  "page": 115
+ },
+ {
+  "id": "w3-10",
+  "w": 3,
+  "topic": "Funciones",
+  "type": "mc",
+  "pts": 4,
+  "q": "Con la misma función calculateOperation, ¿qué imprime calculateOperation(3, 2, \"%\")?",
+  "options": [
+   "The result is: 1",
+   "Un error, porque \"%\" no está definido",
+   "The result is: 5",
+   "The result is: 6"
+  ],
+  "answer": 2,
+  "explain": "\"%\" no coincide con \"-\", \"*\" ni \"/\", así que entra al else y suma: 3 + 2 = 5.",
+  "src": "Week 3 · Functions in Python",
+  "page": 115
+ },
+ {
+  "id": "w3-11",
+  "w": 3,
+  "topic": "print()",
+  "type": "mc",
+  "pts": 3,
+  "q": "Si edad = 20, ¿cuál de estas líneas produce un error?",
+  "options": [
+   "print(\"Edad:\", edad)",
+   "print(f\"Edad: {edad}\")",
+   "print(\"Edad: \" + str(edad))",
+   "print(\"Edad: \" + edad)"
+  ],
+  "answer": 3,
+  "explain": "Con + todo debe ser texto: unir un str con un int da TypeError. Por eso se usa str(edad), comas o f-strings.",
+  "src": "Week 3 · Different formats to show values using print()",
+  "page": 106
+ },
+ {
+  "id": "w3-12",
+  "w": 3,
+  "topic": "f-strings",
+  "type": "input",
+  "pts": 4,
+  "q": "¿Qué imprime este código?",
+  "code": "nombre = \"Ana\"\nedad = 20\nprint(f\"{nombre} tiene {edad + 1} años\")",
+  "answer": [
+   "Ana tiene 21 años"
+  ],
+  "placeholder": "Salida exacta",
+  "explain": "En un f-string lo que va entre llaves se evalúa: edad + 1 = 21.",
+  "src": "Week 3 · print() con f-string",
+  "page": 107
+ },
+ {
+  "id": "w3-13",
+  "w": 3,
+  "topic": "Listas",
+  "type": "input",
+  "pts": 4,
+  "q": "¿Qué valor devuelve la expresión?",
+  "code": "lst = [1, 3, 5, 7]\nlst[-1] + len(lst)",
+  "answer": [
+   "11"
+  ],
+  "placeholder": "Resultado",
+  "explain": "lst[-1] es el último elemento (7) y len(lst) es 4 → 7 + 4 = 11.",
+  "src": "Week 3 · Lists in Python",
+  "page": 119
+ },
+ {
+  "id": "w3-14",
+  "w": 3,
+  "topic": "Tuplas",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué ocurre al ejecutar este código?",
+  "code": "tpl = (2, 4, 5, 6)\ntpl[1] = 10",
+  "options": [
+   "tpl pasa a ser (2, 10, 5, 6)",
+   "tpl pasa a ser (10, 4, 5, 6)",
+   "Se produce un TypeError porque las tuplas son inmutables",
+   "Se agrega el 10 al final de la tupla"
+  ],
+  "answer": 2,
+  "explain": "Las tuplas no se pueden modificar una vez creadas: asignar a un índice da TypeError.",
+  "src": "Week 3 · Tuples",
+  "page": 122
+ },
+ {
+  "id": "w3-15",
+  "w": 3,
+  "topic": "Slicing",
+  "type": "mc",
+  "pts": 5,
+  "q": "Según el ejemplo de slicing de la clase, ¿qué imprime la última línea?",
+  "code": "lst = [10, 8, 6, 4, 2]\nlst2 = lst[:]   # a copy of lst\nlst2[1] = 10\nprint(lst2[1:-1])",
+  "options": [
+   "[8, 6, 4]",
+   "[10, 6, 4]",
+   "[10, 6, 4, 2]",
+   "[10, 10, 6, 4]"
+  ],
+  "answer": 1,
+  "explain": "lst2 queda [10, 10, 6, 4, 2]. [1:-1] va del índice 1 hasta antes del último → [10, 6, 4].",
+  "src": "Week 3 · Slicing in Python - example",
+  "page": 126
+ },
+ {
+  "id": "w3-16",
+  "w": 3,
+  "topic": "Slicing",
+  "type": "mc",
+  "pts": 4,
+  "q": "Con el mismo lst2 = [10, 10, 6, 4, 2], ¿qué imprime print(lst2[-1:1])?",
+  "options": [
+   "[2, 4, 6, 10]",
+   "[2]",
+   "[]",
+   "[10]"
+  ],
+  "answer": 2,
+  "explain": "Empieza en el último elemento y, con paso 1, avanza hacia la derecha: nunca llega al índice 1, así que la lista resultante está vacía.",
+  "src": "Week 3 · Slicing in Python - example",
+  "page": 127
+ },
+ {
+  "id": "w3-17",
+  "w": 3,
+  "topic": "Slicing",
+  "type": "mc",
+  "pts": 4,
+  "q": "En el mismo ejemplo, después de lst2 = lst[:] y lst2[1] = 10, ¿qué imprime print(lst)?",
+  "options": [
+   "[10, 10, 6, 4, 2]",
+   "[10, 8, 6, 4, 2]",
+   "[8, 6, 4, 2]",
+   "Un error, porque lst fue reemplazada"
+  ],
+  "answer": 1,
+  "explain": "lst[:] crea una copia, así que modificar lst2 no cambia lst.",
+  "src": "Week 3 · Slicing in Python - example",
+  "page": 127
+ },
+ {
+  "id": "w3-18",
+  "w": 3,
+  "topic": "Slicing",
+  "type": "input",
+  "pts": 4,
+  "q": "¿Qué devuelve la expresión?",
+  "code": "palabra = \"PYTHON\"\npalabra[1:4]",
+  "answer": [
+   "YTH",
+   "'YTH'"
+  ],
+  "placeholder": "Texto resultante",
+  "explain": "Toma los índices 1, 2 y 3 (el 4 no se incluye): Y, T, H.",
+  "src": "Week 3 · Slicing (sintaxis start:stop:step)",
+  "page": 125
+ },
+ {
+  "id": "w3-19",
+  "w": 3,
+  "topic": "Diccionarios",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué devuelve dic1.get('id')?",
+  "code": "dic1 = {'user1': 'abohr', 'id': 100}",
+  "options": [
+   "'abohr'",
+   "100",
+   "'id'",
+   "Un error, porque los diccionarios no tienen índices"
+  ],
+  "answer": 1,
+  "explain": "get busca por clave y devuelve su valor: la clave 'id' tiene el valor 100.",
+  "src": "Week 3 · Dictionaries in Python",
+  "page": 132
+ },
+ {
+  "id": "w3-20",
+  "w": 3,
+  "topic": "Diccionarios",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué contiene d después de ejecutar esta línea?",
+  "code": "d = {\"a\": 1, \"a\": 2}",
+  "options": [
+   "{'a': 1, 'a': 2}",
+   "{'a': 1}",
+   "{'a': 2}",
+   "Un error por clave repetida"
+  ],
+  "answer": 2,
+  "explain": "Las claves de un diccionario son únicas: si se repite, se queda el último valor.",
+  "src": "Week 3 · Dictionaries (keys are unique)",
+  "page": 130
+ },
+ {
+  "id": "w4-01",
+  "w": 4,
+  "topic": "Algoritmo vs modelo",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál afirmación describe correctamente la relación entre algoritmo y modelo?",
+  "options": [
+   "El modelo es el procedimiento y el algoritmo es su resultado",
+   "El modelo es la salida de un algoritmo después de ejecutarse sobre un dataset",
+   "Algoritmo y modelo son sinónimos",
+   "El algoritmo depende de los datos, pero el modelo no"
+  ],
+  "answer": 1,
+  "explain": "Algoritmo = procedimiento que se ejecuta sobre los datos. Modelo = su salida, la representación matemática de lo aprendido; depende de los datos usados.",
+  "src": "Week 4 · Algorithms / Model in machine learning",
+  "page": 139
+ },
+ {
+  "id": "w4-02",
+  "w": 4,
+  "topic": "Algoritmo vs modelo",
+  "type": "mc",
+  "pts": 4,
+  "q": "Entrenas una regresión lineal con datos de casas de Quito y luego, por separado, con datos de casas de Guayaquil. ¿Qué cambia?",
+  "options": [
+   "El algoritmo, porque cada ciudad necesita uno distinto",
+   "El modelo: el algoritmo es el mismo, pero los datos producen modelos diferentes",
+   "Nada: con el mismo algoritmo siempre se obtiene el mismo modelo",
+   "Solo cambia el dataset de prueba"
+  ],
+  "answer": 1,
+  "explain": "La generación de un modelo depende de los datos que usa el algoritmo para aprender: mismo algoritmo, datos distintos → modelos distintos.",
+  "src": "Week 4 · Model in machine learning (y ejemplo)",
+  "page": 140
+ },
+ {
+  "id": "w4-03",
+  "w": 4,
+  "topic": "Técnicas de ML",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada situación con la técnica de machine learning que corresponde.",
+  "pairs": [
+   [
+    "Detectar una compra inusual con una tarjeta de crédito",
+    "Detección de anomalías"
+   ],
+   [
+    "«Quien compra pan suele comprar mantequilla»",
+    "Asociaciones"
+   ],
+   [
+    "Agrupar clientes con hábitos parecidos sin categorías previas",
+    "Clustering"
+   ],
+   [
+    "Sugerir canciones según lo que el usuario escuchó",
+    "Sistemas de recomendación"
+   ]
+  ],
+  "extra": [
+   "Regresión",
+   "Reducción de dimensión"
+  ],
+  "explain": "Técnicas listadas: regresión, clasificación, clustering, asociaciones, detección de anomalías, minería de secuencias, reducción de dimensión y sistemas de recomendación.",
+  "src": "Week 4 · Machine learning techniques",
+  "page": 142
+ },
+ {
+  "id": "w4-04",
+  "w": 4,
+  "topic": "División del dataset",
+  "type": "mc",
+  "pts": 4,
+  "q": "Según las diapositivas, ¿para qué sirve el dataset de VALIDACIÓN?",
+  "options": [
+   "Para entrenar el modelo desde cero",
+   "Para verificar la precisión y el error del modelo antes del test y ajustar sus hiperparámetros",
+   "Para medir el desempeño final con casos completamente nuevos",
+   "Para limpiar los datos antes del entrenamiento"
+  ],
+  "answer": 1,
+  "explain": "Validación: datos similares al entrenamiento que permiten verificar precisión y error antes del test y facilitan ajustar hiperparámetros (responde «¿qué modelo es el mejor?»).",
+  "src": "Week 4 · Validation dataset",
+  "page": 146
+ },
+ {
+  "id": "w4-05",
+  "w": 4,
+  "topic": "División del dataset",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un modelo se evaluó con los mismos datos con los que fue entrenado y obtuvo 100 % de aciertos. ¿Qué problema señalan las diapositivas?",
+  "options": [
+   "Ninguno: 100 % significa que el modelo es perfecto",
+   "Los modelos deben evaluarse con un conjunto de datos distinto para medir su desempeño en casos nuevos",
+   "Debió usarse aprendizaje no supervisado",
+   "El dataset de entrenamiento era demasiado pequeño, por eso acertó todo"
+  ],
+  "answer": 1,
+  "explain": "«The models created must be evaluated with a different set of data to assess their performance in new cases.» Evaluar con los datos de entrenamiento solo mide memoria.",
+  "src": "Week 4 · Machine learning algorithms / Test dataset",
+  "page": 141
+ },
+ {
+  "id": "w4-06",
+  "w": 4,
+  "topic": "Pasos para crear un modelo",
+  "type": "order",
+  "pts": 4,
+  "q": "Ordena los pasos para crear un modelo de machine learning.",
+  "items": [
+   "Manage data (recolectar, explorar, limpiar, preparar, dividir)",
+   "Train models (elegir la tarea, crear features, seleccionar algoritmos)",
+   "Evaluate models (medir desempeño, comparar alternativas)",
+   "Deploy model (aplicar a datos nuevos, monitorear, mejorar)"
+  ],
+  "explain": "Manage Data → Train Models → Evaluate Models → Deploy Model, y se actualiza con nuevos datos (ciclo).",
+  "src": "Week 4 · Steps to create a machine learning model",
+  "page": 149
+ },
+ {
+  "id": "w4-07",
+  "w": 4,
+  "topic": "Pasos para crear un modelo",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál de estas acciones pertenece al paso «Manage Data»?",
+  "options": [
+   "Split (dividir el dataset)",
+   "Score models (puntuar modelos)",
+   "Select algorithms (seleccionar algoritmos)",
+   "Monitor outcomes (monitorear resultados)"
+  ],
+  "answer": 0,
+  "explain": "Manage Data: collect, explore, cleanse, prepare, split. Score → Evaluate; Select algorithms → Train; Monitor → Deploy.",
+  "src": "Week 4 · Steps to create a machine learning model",
+  "page": 149
+ },
+ {
+  "id": "w4-08",
+  "w": 4,
+  "topic": "Tipos de aprendizaje",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada caso con el tipo de aprendizaje que corresponde.",
+  "pairs": [
+   [
+    "Predecir la temperatura de mañana en °C con datos históricos etiquetados",
+    "Supervisado · regresión"
+   ],
+   [
+    "Decidir si una transacción es fraude o no, con historial etiquetado",
+    "Supervisado · clasificación"
+   ],
+   [
+    "Agrupar noticias por temas sin etiquetas previas",
+    "No supervisado"
+   ],
+   [
+    "Un agente aprende a moverse en un laberinto según las recompensas que recibe",
+    "Por refuerzo"
+   ]
+  ],
+  "explain": "Regresión = valor continuo; clasificación = categoría; sin etiquetas = no supervisado; agente + recompensas = refuerzo.",
+  "src": "Week 4 · Types of machine learning",
+  "page": 152
+ },
+ {
+  "id": "w4-09",
+  "w": 4,
+  "topic": "Aprendizaje supervisado",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué caracteriza a los datos de entrenamiento en el aprendizaje supervisado?",
+  "options": [
+   "No tienen etiquetas",
+   "Contienen tanto la entrada como la salida (etiqueta)",
+   "No existen: el agente aprende por recompensas",
+   "Solo contienen la salida que se desea predecir"
+  ],
+  "answer": 1,
+  "explain": "Supervisado: dataset etiquetado con entrada y salida; se busca una función que asigne a cada entrada su etiqueta.",
+  "src": "Week 4 · Supervised learning",
+  "page": 153
+ },
+ {
+  "id": "w4-10",
+  "w": 4,
+  "topic": "Aprendizaje por refuerzo",
+  "type": "tf",
+  "pts": 3,
+  "q": "El aprendizaje por refuerzo necesita un dataset etiquetado para entrenar.",
+  "answer": false,
+  "explain": "Falso. Según la diapositiva, no requiere datos para el entrenamiento: aprende por la experiencia de un agente en su entorno, recibiendo recompensas por sus acciones.",
+  "src": "Week 4 · Reinforcement learning",
+  "page": 160
+ },
+ {
+  "id": "w4-11",
+  "w": 4,
+  "topic": "Aprendizaje por refuerzo",
+  "type": "mc",
+  "pts": 4,
+  "q": "En el aprendizaje por refuerzo, ¿qué es la «política» (policy)?",
+  "options": [
+   "La recompensa total obtenida al final",
+   "La asociación entre la observación y la acción que lleva a una recompensa",
+   "El entorno donde se mueve el agente",
+   "El dataset etiquetado que usa el agente"
+  ],
+  "answer": 1,
+  "explain": "El objetivo es asociar la observación con la acción (policy) que conduce a una recompensa.",
+  "src": "Week 4 · Reinforcement learning",
+  "page": 160
+ },
+ {
+  "id": "w4-12",
+  "w": 4,
+  "topic": "Aprendizaje no supervisado",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según las diapositivas, ¿para qué se usa el aprendizaje no supervisado?",
+  "options": [
+   "Para predecir valores continuos con datos etiquetados",
+   "Para agrupar datos en categorías y detectar anomalías",
+   "Para entrenar agentes con recompensas",
+   "Para dividir el dataset en entrenamiento y prueba"
+  ],
+  "answer": 1,
+  "explain": "No supervisado: entrena con datos sin etiquetas (puede dar predicciones menos precisas) y se usa para agrupar datos y detectar anomalías.",
+  "src": "Week 4 · Unsupervised learning",
+  "page": 157
+ },
+ {
+  "id": "w4-13",
+  "w": 4,
+  "topic": "Aprendizaje no supervisado",
+  "type": "mc",
+  "pts": 4,
+  "q": "Le das a un modelo miles de fotos de perros y gatos SIN etiquetas y las separa en dos grupos. ¿Qué sabe el modelo sobre esos grupos?",
+  "options": [
+   "Que el grupo 1 son perros y el grupo 2 son gatos",
+   "Solo que las imágenes de cada grupo se parecen entre sí; no sabe qué es un «perro»",
+   "Cuál es la raza de cada animal",
+   "Nada, porque sin etiquetas no se puede entrenar"
+  ],
+  "answer": 1,
+  "explain": "Sin etiquetas, el modelo solo agrupa por similitud; las personas interpretan y nombran los grupos.",
+  "src": "Week 4 · Unsupervised learning (diagrama)",
+  "page": 158
+ },
+ {
+  "id": "w5-01",
+  "w": 5,
+  "topic": "Módulos",
+  "type": "mc",
+  "pts": 3,
+  "q": "Después de ejecutar import statistics as st, ¿cuál línea calcula correctamente el promedio?",
+  "options": [
+   "mean([85, 92, 78])",
+   "st.mean([85, 92, 78])",
+   "statistics.mean([85, 92, 78])",
+   "import.mean([85, 92, 78])"
+  ],
+  "answer": 1,
+  "explain": "Con «import módulo as alias» se usa el alias: st.mean(...). El nombre statistics no queda definido y mean sin prefijo tampoco.",
+  "src": "Week 5 · Modules in Python",
+  "page": 166
+ },
+ {
+  "id": "w5-02",
+  "w": 5,
+  "topic": "read_csv",
+  "type": "mc",
+  "pts": 4,
+  "q": "Lees con pd.read_csv(\"notas.csv\") un archivo cuyos valores están separados por punto y coma (;). ¿Qué pasa y cómo se corrige?",
+  "options": [
+   "Funciona igual, read_csv detecta el separador",
+   "Todo queda en una sola columna porque el separador por defecto es la coma; se corrige con sep=\";\"",
+   "Da error porque read_csv solo lee archivos de Excel",
+   "Se crean columnas vacías; se corrige con df.drop()"
+  ],
+  "answer": 1,
+  "explain": "pd.read_csv(filepath, sep): el separador por defecto es la coma. Si el archivo usa ;, hay que indicarlo con sep=\";\".",
+  "src": "Week 5 · Pandas - the read_csv() method",
+  "page": 170
+ },
+ {
+  "id": "w5-03",
+  "w": 5,
+  "topic": "Métodos de Pandas",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada método de Pandas con lo que devuelve.",
+  "pairs": [
+   [
+    "df.info()",
+    "Información del DataFrame (columnas, no nulos, tipos)"
+   ],
+   [
+    "df.describe()",
+    "Resumen estadístico: min, max, promedio, conteo, desviación"
+   ],
+   [
+    "df[\"col\"].unique()",
+    "Los valores únicos de esa columna"
+   ],
+   [
+    "df.count()",
+    "El número de celdas no vacías"
+   ]
+  ],
+  "explain": "Tabla «Common methods in Pandas» de la clase.",
+  "src": "Week 5 · Common methods in Pandas",
+  "page": 173
+ },
+ {
+  "id": "w5-04",
+  "w": 5,
+  "topic": "count / NaN",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un DataFrame tiene 6 filas y en la columna nota hay un valor vacío (NaN). ¿Qué muestra df.count() para nota?",
+  "options": [
+   "6",
+   "5",
+   "1",
+   "NaN"
+  ],
+  "answer": 1,
+  "explain": "count() devuelve el número de celdas no vacías: 6 − 1 = 5.",
+  "src": "Week 5 · Common methods (y ejemplo)",
+  "page": 174
+ },
+ {
+  "id": "w5-05",
+  "w": 5,
+  "topic": "describe",
+  "type": "mc",
+  "pts": 4,
+  "q": "En el dataset de salarios, df.describe() mostró un salario anual máximo de 6.000070e+09. ¿Qué sugiere ese valor?",
+  "options": [
+   "Que el salario promedio es de 6 mil millones",
+   "Probablemente un dato mal ingresado (valor atípico)",
+   "Que la columna no es numérica",
+   "Que hay 6 mil millones de filas"
+  ],
+  "answer": 1,
+  "explain": "describe() resume min, max, promedio, etc. Un máximo absurdo como 6×10⁹ revela un error de ingreso; es un uso típico de describe para detectar datos raros.",
+  "src": "Week 5 · Basic statistics of the dataframe",
+  "page": 180
+ },
+ {
+  "id": "w5-06",
+  "w": 5,
+  "topic": "head / tail",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un DataFrame tiene 8 filas con índices del 0 al 7. ¿Qué índices aparecen con df.tail(2)?",
+  "options": [
+   "0 y 1",
+   "6 y 7",
+   "7 y 8",
+   "1 y 2"
+  ],
+  "answer": 1,
+  "explain": "tail devuelve los últimos registros y conserva el índice original: 6 y 7.",
+  "src": "Week 5 · Tail function",
+  "page": 182
+ },
+ {
+  "id": "w5-07",
+  "w": 5,
+  "topic": "drop",
+  "type": "mc",
+  "pts": 4,
+  "q": "En df.drop(['timestamp'], axis=1, inplace=True), ¿qué indican axis=1 e inplace=True?",
+  "options": [
+   "axis=1: borra una fila; inplace=True: devuelve una copia",
+   "axis=1: borra una columna; inplace=True: modifica el DataFrame original",
+   "axis=1: borra la primera fila; inplace=True: pide confirmación",
+   "axis=1: ordena las columnas; inplace=True: guarda en CSV"
+  ],
+  "answer": 1,
+  "explain": "axis=1 opera sobre columnas (axis=0 sobre filas) e inplace=True aplica el cambio al mismo DataFrame.",
+  "src": "Week 5 · Delete a column",
+  "page": 184
+ },
+ {
+  "id": "w5-08",
+  "w": 5,
+  "topic": "drop",
+  "type": "mc",
+  "pts": 5,
+  "q": "Ejecutas df.drop(['edad'], axis=1) (sin inplace y sin asignar el resultado) y luego df.columns. ¿Aparece todavía 'edad'?",
+  "options": [
+   "No, drop la eliminó",
+   "Sí, porque drop devolvió una copia y df no cambió",
+   "No, y además se borró la primera fila",
+   "Da error porque falta inplace"
+  ],
+  "answer": 1,
+  "explain": "Sin inplace=True ni df = df.drop(...), el DataFrame original queda intacto.",
+  "src": "Week 5 · Ejemplo: drop()",
+  "page": 185
+ },
+ {
+  "id": "w5-09",
+  "w": 5,
+  "topic": "Valores nulos",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué diferencia hay entre df.isna() y df.isnull()?",
+  "options": [
+   "isna() cuenta los vacíos e isnull() los elimina",
+   "Ninguna: ambos marcan con True los valores vacíos",
+   "isnull() solo funciona con números",
+   "isna() devuelve el total por columna"
+  ],
+  "answer": 1,
+  "explain": "Ambos devuelven una tabla de True/False marcando los vacíos; son equivalentes.",
+  "src": "Week 5 · Check null values with isna() / isnull()",
+  "page": 187
+ },
+ {
+  "id": "w5-10",
+  "w": 5,
+  "topic": "Valores nulos",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué devuelve df.isnull().sum()?",
+  "options": [
+   "El número total de filas",
+   "El total de valores vacíos en cada columna",
+   "La suma de los valores numéricos",
+   "Solo las filas que tienen vacíos"
+  ],
+  "answer": 1,
+  "explain": "isnull() marca True en cada vacío y sum() los cuenta por columna (True vale 1).",
+  "src": "Week 5 · Check total null values",
+  "page": 188
+ },
+ {
+  "id": "w5-11",
+  "w": 5,
+  "topic": "Limpieza de datos",
+  "type": "mc",
+  "pts": 4,
+  "q": "df['country'].unique() muestra 'United States', 'USA', 'US', 'U.S.' y más variantes. ¿Qué hizo la clase para unificar valores?",
+  "options": [
+   "df['country'].drop('United States')",
+   "df['country'] = df['country'].str.replace('United States', 'USA')",
+   "df['country'].value_counts('USA')",
+   "df.rename(columns={'United States': 'USA'})"
+  ],
+  "answer": 1,
+  "explain": "Se usó str.replace sobre la columna y se reasignó el resultado; luego se revisó unique() otra vez.",
+  "src": "Week 5 · Remove spaces in column values",
+  "page": 193
+ },
+ {
+  "id": "w5-12",
+  "w": 5,
+  "topic": "value_counts vs unique",
+  "type": "mc",
+  "pts": 4,
+  "q": "Quieres saber cuántas personas trabajan en cada industria. ¿Qué usas?",
+  "options": [
+   "df['industry'].unique()",
+   "df['industry'].value_counts()",
+   "df['industry'].count()",
+   "df.describe()"
+  ],
+  "answer": 1,
+  "explain": "value_counts() cuenta cuántas veces aparece cada valor (p. ej. Computing or Tech: 4725). unique() solo lista los valores distintos.",
+  "src": "Week 5 · Value counts of a column",
+  "page": 191
+ },
+ {
+  "id": "w5-13",
+  "w": 5,
+  "topic": "iloc",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué selecciona df.iloc[0, 14]?",
+  "options": [
+   "Las filas de la 0 a la 14",
+   "El valor de la fila en la posición 0 y la columna en la posición 14",
+   "La columna llamada '14' de la fila 0",
+   "Las primeras 14 columnas"
+  ],
+  "answer": 1,
+  "explain": "dataframe.iloc[idx_row, idx_col] usa posiciones. En el dataset de salarios devolvió 'Master's degree'.",
+  "src": "Week 5 · Selecting values by position (iloc)",
+  "page": 195
+ },
+ {
+  "id": "w5-14",
+  "w": 5,
+  "topic": "iloc",
+  "type": "mc",
+  "pts": 5,
+  "q": "¿Cuántas filas devuelve df['job_title'].iloc[0:15] y cuáles son?",
+  "options": [
+   "15 filas: de la 0 a la 14",
+   "16 filas: de la 0 a la 15",
+   "15 filas: de la 1 a la 15",
+   "14 filas: de la 1 a la 14"
+  ],
+  "answer": 0,
+  "explain": "Como en el slicing, el final no se incluye: posiciones 0 a 14, es decir 15 filas.",
+  "src": "Week 5 · Show certain rows using iloc[]",
+  "page": 197
+ },
+ {
+  "id": "w5-15",
+  "w": 5,
+  "topic": "loc",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué hace df.loc[df['country'] == 'Ecuador']?",
+  "options": [
+   "Cambia el país de todas las filas a Ecuador",
+   "Devuelve solo las filas cuyo país es Ecuador",
+   "Cuenta cuántas veces aparece Ecuador",
+   "Elimina las filas de Ecuador"
+  ],
+  "answer": 1,
+  "explain": "loc permite seleccionar filas según una condición; en clase devolvió las 2 personas de Ecuador.",
+  "src": "Week 5 · Selecting rows based on a condition (loc)",
+  "page": 199
+ },
+ {
+  "id": "w6-01",
+  "w": 6,
+  "topic": "Feature y label",
+  "type": "mc",
+  "pts": 3,
+  "q": "Un modelo debe predecir qué animal hay en una foto (gato, perro, tortuga). En ese problema, ¿qué es el label?",
+  "options": [
+   "El tamaño de la imagen",
+   "El animal que aparece (gato, perro, tortuga)",
+   "Los píxeles de la foto",
+   "La salida aleatoria del modelo"
+  ],
+  "answer": 1,
+  "explain": "Label = la característica que se predice a partir de las demás; en el ejemplo de clase, el animal de la foto.",
+  "src": "Week 6 · Important concepts in machine learning",
+  "page": 204
+ },
+ {
+  "id": "w6-02",
+  "w": 6,
+  "topic": "Feature, label, predicción",
+  "type": "match",
+  "pts": 4,
+  "q": "En un modelo de precios de casas, relaciona cada elemento con su rol.",
+  "pairs": [
+   [
+    "Metros cuadrados de la casa",
+    "Feature"
+   ],
+   [
+    "Número de habitaciones",
+    "Feature"
+   ],
+   [
+    "Precio de venta conocido en los datos de entrenamiento",
+    "Label"
+   ],
+   [
+    "El precio que el modelo calcula para una casa nueva",
+    "Predicción"
+   ]
+  ],
+  "explain": "Features = características de entrada; label = lo que se quiere predecir; predicción = la salida (adivinanza) del modelo.",
+  "src": "Week 6 · Important concepts (y ejemplo)",
+  "page": 205
+ },
+ {
+  "id": "w6-03",
+  "w": 6,
+  "topic": "Ejercicio perros y gatos",
+  "type": "mc",
+  "pts": 4,
+  "q": "En el ejercicio de clase, los animales están etiquetados con su peso en libras (18 pounds, 12 pounds…). ¿Qué tipo de tarea es y qué saldrá ante un animal nuevo?",
+  "options": [
+   "Clasificación: dirá «Dog» o «Cat»",
+   "Regresión: predecirá un número, su peso",
+   "Clustering: formará grupos sin nombre",
+   "Refuerzo: recibirá una recompensa"
+  ],
+  "answer": 1,
+  "explain": "La etiqueta es un número continuo (peso), así que es aprendizaje supervisado de regresión.",
+  "src": "Week 6 · Exercise (outputs in three cases)",
+  "page": 206
+ },
+ {
+  "id": "w6-04",
+  "w": 6,
+  "topic": "Variables",
+  "type": "mc",
+  "pts": 3,
+  "q": "Se estudian las ventas de helados según la temperatura del día. ¿Cuál es la variable independiente (X)?",
+  "options": [
+   "Las ventas de helados",
+   "La temperatura del día",
+   "Ambas",
+   "Ninguna, porque no hay una función"
+  ],
+  "answer": 1,
+  "explain": "Y = f(X): las ventas (Y, dependiente) dependen de la temperatura (X, independiente).",
+  "src": "Week 6 · Dependent and independent variable",
+  "page": 210
+ },
+ {
+  "id": "w6-05",
+  "w": 6,
+  "topic": "Aprendizaje supervisado",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Por qué en las diapositivas el aprendizaje supervisado se escribe como f(input) + error = output?",
+  "options": [
+   "Porque los datos siempre tienen errores de tipeo",
+   "Porque un modelo no es totalmente preciso, así que siempre tiene un error",
+   "Porque el error es una variable independiente más",
+   "Porque así se calcula el número de features"
+  ],
+  "answer": 1,
+  "explain": "«A model is not entirely accurate so it always has an error.»",
+  "src": "Week 6 · Supervised learning",
+  "page": 214
+ },
+ {
+  "id": "w6-06",
+  "w": 6,
+  "topic": "Regresión",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál de estas tareas NO es un ejemplo de regresión?",
+  "options": [
+   "Estimar el salario de una persona",
+   "Estimar la intensidad de la lluvia",
+   "Decidir si un correo es spam o no spam",
+   "Estimar el tiempo que alguien pasa navegando en un sitio web"
+  ],
+  "answer": 2,
+  "explain": "La regresión predice una variable continua. Spam/no spam es una categoría (clasificación).",
+  "src": "Week 6 · Regression / Examples of applications",
+  "page": 216
+ },
+ {
+  "id": "w6-07",
+  "w": 6,
+  "topic": "Tipos de regresión",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un modelo predice el precio de una casa usando metros cuadrados, número de habitaciones y años de antigüedad. ¿Qué tipo de regresión es?",
+  "options": [
+   "Regresión simple",
+   "Regresión múltiple",
+   "Clasificación",
+   "Clustering"
+  ],
+  "answer": 1,
+  "explain": "Múltiple = más de una variable independiente; simple = una sola.",
+  "src": "Week 6 · Types of regression models",
+  "page": 218
+ },
+ {
+  "id": "w6-08",
+  "w": 6,
+  "topic": "Error en regresión",
+  "type": "mc",
+  "pts": 4,
+  "q": "En la diapositiva de regresión lineal, el dato real es x=60 → y=12, pero el modelo dice x=60 → y=14. ¿Cuál es el error y − ŷ?",
+  "options": [
+   "2",
+   "−2",
+   "14",
+   "26"
+  ],
+  "answer": 1,
+  "explain": "error = valor observado − predicción = 12 − 14 = −2 (el modelo se pasó).",
+  "src": "Week 6 · Linear regression model / Week 7 · error",
+  "page": 220
+ },
+ {
+  "id": "w6-09",
+  "w": 6,
+  "topic": "Pendiente e intercepto",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada concepto de la recta con su equivalente en el modelo de regresión.",
+  "pairs": [
+   [
+    "Pendiente (slope)",
+    "Peso (weight) asociado a una característica"
+   ],
+   [
+    "Intercepto (intercept)",
+    "Bias"
+   ],
+   [
+    "Salida del modelo",
+    "Predicción"
+   ]
+  ],
+  "explain": "La pendiente corresponde al peso de una característica; el intercepto, donde la recta corta el eje vertical, corresponde al bias.",
+  "src": "Week 6 · Slope and intercept",
+  "page": 222
+ },
+ {
+  "id": "w6-10",
+  "w": 6,
+  "topic": "Regresión lineal",
+  "type": "input",
+  "pts": 5,
+  "q": "Un modelo es precio = 1200 · m² + 15 000. ¿Qué precio predice para una casa de 80 m²? (solo el número)",
+  "answer": [
+   "111000"
+  ],
+  "numeric": true,
+  "placeholder": "Precio en dólares",
+  "explain": "1200 · 80 = 96 000; + 15 000 (bias) = 111 000.",
+  "src": "Week 6 · Ejemplo: regresión simple",
+  "page": 219
+ },
+ {
+  "id": "w6-11",
+  "w": 6,
+  "topic": "Matplotlib",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada función de matplotlib.pyplot con lo que hace.",
+  "pairs": [
+   [
+    "plt.plot(x, y)",
+    "Gráfico de líneas"
+   ],
+   [
+    "plt.scatter(x, y)",
+    "Gráfico de dispersión"
+   ],
+   [
+    "plt.pie(valores, labels=...)",
+    "Gráfico de pastel"
+   ],
+   [
+    "plt.xlabel('Time(s)')",
+    "Nombre del eje X"
+   ]
+  ],
+  "extra": [
+   "Histograma"
+  ],
+  "explain": "Ejemplos de la clase: line plot, scatter plot y pie chart; xlabel/ylabel nombran los ejes y show() muestra el gráfico.",
+  "src": "Week 6 · Line / Scatter / Pie chart in Python",
+  "page": 226
+ },
+ {
+  "id": "w6-12",
+  "w": 6,
+  "topic": "Matplotlib",
+  "type": "mc",
+  "pts": 4,
+  "q": "Con el código del gráfico de pastel de la clase, ¿qué texto aparece en la porción de 'traditional'?",
+  "code": "food = ['italian', 'traditional', 'mexican', 'chinese']\nprefPerc = [15, 30, 45, 10]\nplt.pie(prefPerc, labels=food, autopct='%1.1f%%')",
+  "options": [
+   "30",
+   "30%",
+   "30.0%",
+   "0.3"
+  ],
+  "answer": 2,
+  "explain": "autopct='%1.1f%%' muestra el porcentaje con un decimal y el signo %: 30.0%.",
+  "src": "Week 6 · Pie chart in Python",
+  "page": 228
+ },
+ {
+  "id": "w6-13",
+  "w": 6,
+  "topic": "NumPy",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según las diapositivas, ¿qué ventaja tienen los arrays de NumPy frente a las listas?",
+  "options": [
+   "Pueden guardar diccionarios dentro",
+   "Son más rápidos y tienen métodos para realizar operaciones",
+   "Se escriben con llaves {}",
+   "No necesitan importar ninguna librería"
+  ],
+  "answer": 1,
+  "explain": "«Compared to lists, arrays are faster and contain methods to perform operations.»",
+  "src": "Week 6 · Arrays in Numpy",
+  "page": 232
+ },
+ {
+  "id": "w6-14",
+  "w": 6,
+  "topic": "NumPy",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué resultado da np.arange(0, 10, 2)?",
+  "options": [
+   "[0 2 4 6 8 10]",
+   "[0 2 4 6 8]",
+   "[0 2.5 5 7.5 10]",
+   "[2 4 6 8 10]"
+  ],
+  "answer": 1,
+  "explain": "arange crea valores igualmente espaciados dentro de un rango con un paso dado; el final (10) no se incluye. (linspace, en cambio, elige cuántos números hay entre dos valores.)",
+  "src": "Week 6 · Useful functions in numpy",
+  "page": 234
+ },
+ {
+  "id": "w6-15",
+  "w": 6,
+  "topic": "NumPy",
+  "type": "mc",
+  "pts": 5,
+  "q": "Para la matriz de la clase, ¿qué devuelven B.shape, B.size y B.ndim?",
+  "code": "B = np.array([[1, 2, 3], [2, 4, 6]])",
+  "options": [
+   "(2, 3), 6, 2",
+   "(3, 2), 6, 2",
+   "(2, 3), 5, 2",
+   "(2, 3), 6, 3"
+  ],
+  "answer": 0,
+  "explain": "2 filas y 3 columnas → shape (2, 3); 6 elementos → size 6; filas y columnas → ndim 2.",
+  "src": "Week 6 · Numpy matrix - example",
+  "page": 238
+ },
+ {
+  "id": "w6-16",
+  "w": 6,
+  "topic": "NumPy",
+  "type": "mc",
+  "pts": 5,
+  "q": "Con la misma B, ¿qué devuelve B.reshape(3, 2)?",
+  "options": [
+   "array([[1, 2], [2, 4], [3, 6]])",
+   "array([[1, 2], [3, 2], [4, 6]])",
+   "array([[1, 2, 3], [2, 4, 6]])",
+   "Un error, porque B tiene 2 filas"
+  ],
+  "answer": 1,
+  "explain": "reshape cambia la forma sin cambiar los datos: toma 1, 2, 3, 2, 4, 6 en orden y los acomoda en 3 filas de 2. La opción [[1,2],[2,4],[3,6]] sería la transpuesta.",
+  "src": "Week 6 · Numpy matrix - example",
+  "page": 238
+ },
+ {
+  "id": "w6-17",
+  "w": 6,
+  "topic": "NumPy",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué devuelve np.ravel(B) para B = np.array([[1, 2, 3], [2, 4, 6]])?",
+  "options": [
+   "[1 2 3 2 4 6]",
+   "[1 2 2 4 3 6]",
+   "[[1 2 3] [2 4 6]]",
+   "[1 2 3]"
+  ],
+  "answer": 0,
+  "explain": "ravel aplana un arreglo multidimensional a 1D, recorriendo fila por fila.",
+  "src": "Week 6 · Useful functions in numpy",
+  "page": 235
+ },
+ {
+  "id": "w7-01",
+  "w": 7,
+  "topic": "Loss vs cost",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál es la diferencia entre la función de pérdida (loss) y la función de costo (cost)?",
+  "options": [
+   "Son sinónimos exactos",
+   "La loss es el error de una sola muestra; el cost es el promedio de la loss en todo el dataset de entrenamiento",
+   "La loss es el promedio y el cost es el error de una muestra",
+   "El cost mide el dinero que cuesta entrenar el modelo"
+  ],
+  "answer": 1,
+  "explain": "Loss function: error para una sola muestra de entrenamiento. Cost function: promedio de la loss en todo el dataset.",
+  "src": "Week 7 · Loss function vs cost function",
+  "page": 248
+ },
+ {
+  "id": "w7-02",
+  "w": 7,
+  "topic": "Residuo",
+  "type": "input",
+  "pts": 4,
+  "q": "Para un dato con x = 30, el valor observado es y = 12 y la predicción del modelo es ŷ = 15. ¿Cuál es el error (residuo) y − ŷ?",
+  "answer": [
+   "-3"
+  ],
+  "numeric": true,
+  "placeholder": "Número",
+  "explain": "error = y − ŷ = 12 − 15 = −3 (el modelo se pasó; el punto está debajo de la recta).",
+  "src": "Week 7 · How to find the best fit?",
+  "page": 244
+ },
+ {
+  "id": "w7-03",
+  "w": 7,
+  "topic": "Cost (MSE)",
+  "type": "mc",
+  "pts": 5,
+  "q": "Un modelo tiene, para 4 datos, losses (errores al cuadrado) de 4, 1, 4 y 1. ¿Cuál es el valor de la función de costo (promedio)?",
+  "options": [
+   "10",
+   "2.5",
+   "4",
+   "1.5"
+  ],
+  "answer": 1,
+  "explain": "Cost = promedio de las losses = (4 + 1 + 4 + 1) / 4 = 2.5. Ese promedio de errores al cuadrado es el MSE.",
+  "src": "Week 7 · Ejemplo: loss vs cost",
+  "page": 249
+ },
+ {
+  "id": "w7-04",
+  "w": 7,
+  "topic": "Errores",
+  "type": "mc",
+  "pts": 4,
+  "q": "Los errores de un modelo son +2, −1, +2 y −1. ¿Por qué sumar los errores directamente es engañoso?",
+  "options": [
+   "Porque la suma siempre da cero",
+   "Porque los errores positivos y negativos se cancelan, y la suma (2) no refleja que el modelo falló por 6 unidades",
+   "Porque los errores negativos no cuentan",
+   "Porque solo importa el error más grande"
+  ],
+  "answer": 1,
+  "explain": "+2 − 1 + 2 − 1 = 2, aunque el error total en magnitud es 6. Por eso se usan cuadrados o valores absolutos.",
+  "src": "Week 7 · Ejemplo: calcular el error",
+  "page": 245
+ },
+ {
+  "id": "w7-05",
+  "w": 7,
+  "topic": "Mejor ajuste",
+  "type": "mc",
+  "pts": 4,
+  "q": "Sobre los mismos datos, la recta A tiene un MSE de 2.67 y la recta B un MSE de 0.53. ¿Cuál se ajusta mejor?",
+  "options": [
+   "A, porque su error es mayor",
+   "B, porque su error es menor",
+   "Ambas por igual",
+   "No se puede saber sin ver el gráfico"
+  ],
+  "answer": 1,
+  "explain": "La mejor recta es la que hace mínimo el error entre lo observado y lo predicho: B.",
+  "src": "Week 7 · How to find the best fit? (y ejemplo)",
+  "page": 247
+ },
+ {
+  "id": "w7-06",
+  "w": 7,
+  "topic": "Mejor ajuste",
+  "type": "tf",
+  "pts": 3,
+  "q": "Encontrar la recta que mejor se ajusta a los datos significa buscar la recta cuyo error entre valores observados y predicciones sea mínimo.",
+  "answer": true,
+  "explain": "Verdadero: «the error obtained between the observed value and the prediction is minimal».",
+  "src": "Week 7 · How to find the best fit?",
+  "page": 246
+ },
+ {
+  "id": "w7-07",
+  "w": 7,
+  "topic": "Residuo",
+  "type": "mc",
+  "pts": 4,
+  "q": "Si el error y − ŷ de un punto es positivo, ¿qué significa?",
+  "options": [
+   "Que el punto está por encima de la recta: el modelo predijo menos que el valor real",
+   "Que el punto está por debajo de la recta: el modelo predijo más que el valor real",
+   "Que el modelo acertó exactamente",
+   "Que el dato es inválido"
+  ],
+  "answer": 0,
+  "explain": "y − ŷ > 0 ⇒ y > ŷ: el valor observado es mayor que la predicción; el punto queda arriba de la recta.",
+  "src": "Week 7 · How to find the best fit? (y ejemplo)",
+  "page": 245
+ }
+]

@@ -1,0 +1,566 @@
+WEBVTT
+
+1
+00:00:00.450 --> 00:00:01.431
+Semana seis.
+
+2
+00:00:01.711 --> 00:00:11.951
+Veremos las variables dependientes e independientes, los conceptos clave de la regresión, cómo hacer gráficos con Matplotlib y cómo trabajar con arreglos usando NumPy.
+
+3
+00:00:13.183 --> 00:00:15.722
+Los resultados de aprendizaje son cuatro:
+
+4
+00:00:16.002 --> 00:00:19.287
+distinguir entre variables dependientes e independientes;
+
+5
+00:00:19.567 --> 00:00:22.703
+describir los métodos para crear gráficos en Python;
+
+6
+00:00:22.983 --> 00:00:26.354
+describir los métodos para trabajar con arreglos en Python;
+
+7
+00:00:26.634 --> 00:00:30.965
+y describir los términos que intervienen al construir un modelo de regresión.
+
+8
+00:00:32.183 --> 00:00:35.063
+Tres conceptos importantes en machine learning.
+
+9
+00:00:35.343 --> 00:00:41.146
+Feature, o característica: son las propiedades de los datos, como tamaño, edad, peso o estatura.
+
+10
+00:00:41.426 --> 00:00:49.213
+Label, o etiqueta: es una característica particular que se predice a partir de las demás, por ejemplo qué animal aparece en una foto.
+
+11
+00:00:49.493 --> 00:00:53.717
+Y predicción: es la salida que genera el modelo, es decir, su adivinanza.
+
+12
+00:00:54.917 --> 00:00:56.901
+Veámoslo en una tabla de casas.
+
+13
+00:00:57.181 --> 00:01:03.602
+Las features son lo que conocemos: metros cuadrados, número de habitaciones, años de antigüedad y si tiene garaje.
+
+14
+00:01:03.882 --> 00:01:06.762
+El label es lo que queremos predecir: el precio.
+
+15
+00:01:07.042 --> 00:01:14.146
+En los datos de entrenamiento el precio ya se conoce, por ejemplo setenta y ocho mil dólares para una casa de sesenta metros.
+
+16
+00:01:14.426 --> 00:01:20.933
+La última fila es una casa nueva, de ochenta metros, tres habitaciones y diez años, cuyo precio no conocemos.
+
+17
+00:01:21.213 --> 00:01:25.031
+El modelo da su predicción: ciento cuatro mil quinientos dólares.
+
+18
+00:01:26.250 --> 00:01:29.173
+Ejercicio: ¿cuál será la salida en los tres casos?
+
+19
+00:01:29.453 --> 00:01:33.037
+En el primero, los datos están etiquetados como perro o gato.
+
+20
+00:01:33.317 --> 00:01:36.538
+En el segundo, están etiquetados con su peso en libras.
+
+21
+00:01:36.818 --> 00:01:39.719
+Y en el tercero, los datos no tienen etiquetas.
+
+22
+00:01:40.983 --> 00:01:41.986
+La respuesta.
+
+23
+00:01:42.266 --> 00:01:51.183
+En el caso uno, las etiquetas son perro o gato: es aprendizaje supervisado de clasificación, y ante un animal nuevo el modelo responde perro o gato.
+
+24
+00:01:51.463 --> 00:01:58.631
+En el caso dos, la etiqueta es un número, el peso: es supervisado de regresión, y el modelo predice algo como quince libras.
+
+25
+00:01:58.911 --> 00:02:04.031
+En el caso tres no hay etiquetas: es aprendizaje no supervisado, de tipo clustering.
+
+26
+00:02:04.311 --> 00:02:10.541
+El modelo no sabe qué es un perro o un gato; solo agrupa a los animales parecidos en grupo uno y grupo dos.
+
+27
+00:02:10.821 --> 00:02:18.330
+Fíjate que las mismas imágenes sirven para tres tareas distintas: lo que decide el tipo de aprendizaje es qué etiqueta tienen.
+
+28
+00:02:19.583 --> 00:02:25.493
+Segundo ejercicio: determinar si estos escenarios son de aprendizaje supervisado o no supervisado.
+
+29
+00:02:25.773 --> 00:02:28.930
+Uno, un sistema que sugiere amigos en una red social.
+
+30
+00:02:29.210 --> 00:02:32.602
+Dos, un sitio de noticias que divide las noticias por temas.
+
+31
+00:02:32.882 --> 00:02:35.015
+Tres, el autocompletado de Google.
+
+32
+00:02:35.295 --> 00:02:39.455
+Cuatro, un sistema que detecta transacciones fraudulentas con tarjeta.
+
+33
+00:02:39.735 --> 00:02:43.938
+Y cinco, un sistema que recomienda productos según el historial de compras.
+
+34
+00:02:45.183 --> 00:02:47.189
+Estas son respuestas sugeridas.
+
+35
+00:02:47.469 --> 00:02:49.005
+Uno, sugerir amigos:
+
+36
+00:02:49.285 --> 00:02:54.021
+no supervisado, porque agrupa usuarios parecidos por amigos en común e intereses;
+
+37
+00:02:54.301 --> 00:02:59.634
+aunque también podría ser supervisado si aprende de solicitudes aceptadas o rechazadas.
+
+38
+00:02:59.914 --> 00:03:03.733
+Dos, dividir noticias por temas: no supervisado, es clustering.
+
+39
+00:03:04.013 --> 00:03:10.626
+Tres, autocompletado: supervisado, porque aprende de millones de frases donde la etiqueta es la palabra que sigue.
+
+40
+00:03:10.906 --> 00:03:19.994
+Cuatro, fraude: supervisado, con transacciones etiquetadas como fraude o no fraude; también se puede plantear como detección de anomalías, no supervisada.
+
+41
+00:03:20.274 --> 00:03:28.146
+Cinco, recomendar productos: supervisado, si el historial indica qué compró cada usuario; o no supervisado con reglas de asociación.
+
+42
+00:03:28.426 --> 00:03:33.802
+El libro de donde viene el ejercicio acepta ambas respuestas si el razonamiento es correcto.
+
+43
+00:03:34.082 --> 00:03:38.605
+La pregunta clave es: ¿hay una etiqueta conocida que el modelo aprende a predecir?
+
+44
+00:03:39.850 --> 00:03:42.325
+Variable dependiente e independiente.
+
+45
+00:03:42.605 --> 00:03:50.903
+Si a cada valor de una variable X le corresponde uno o más valores de otra variable Y, decimos que Y es función de X: Y igual a f de X.
+
+46
+00:03:51.183 --> 00:03:55.194
+X es la variable independiente y Y es la variable dependiente.
+
+47
+00:03:56.450 --> 00:04:02.061
+Ejemplos: las horas de estudio son la variable independiente y la nota del examen es la dependiente.
+
+48
+00:04:02.341 --> 00:04:06.885
+La temperatura del día es independiente, y los helados vendidos, dependiente.
+
+49
+00:04:07.165 --> 00:04:11.602
+Los metros cuadrados de una casa son independientes, y su precio, dependiente.
+
+50
+00:04:11.882 --> 00:04:18.090
+Con números: en un taxi, el valor a pagar es cero punto cuarenta por kilómetro, más uno punto cincuenta.
+
+51
+00:04:18.370 --> 00:04:22.125
+Si recorres diez kilómetros, pagas cinco dólares con cincuenta.
+
+52
+00:04:22.405 --> 00:04:25.242
+Una prueba rápida es decir: Y depende de X.
+
+53
+00:04:25.522 --> 00:04:30.215
+La nota depende de las horas de estudio, pero las horas de estudio no dependen de la nota.
+
+54
+00:04:31.450 --> 00:04:35.418
+Las features son las mediciones que se hacen sobre el objeto analizado.
+
+55
+00:04:35.698 --> 00:04:41.565
+En un dataset, las features son las columnas, como el largo y el ancho del sépalo en este ejemplo de flores.
+
+56
+00:04:42.783 --> 00:04:50.058
+En el aprendizaje supervisado, la entrada X son las variables independientes y la salida Y es la variable dependiente.
+
+57
+00:04:50.338 --> 00:04:54.242
+El modelo es una función: f de la entrada es igual a la salida.
+
+58
+00:04:54.522 --> 00:04:58.959
+Pero un modelo nunca es totalmente preciso, así que siempre tiene un error.
+
+59
+00:05:00.183 --> 00:05:05.090
+Por eso la fórmula completa es: f de la entrada, más un error, es igual a la salida.
+
+60
+00:05:06.317 --> 00:05:10.114
+La regresión es el proceso de predecir una variable continua.
+
+61
+00:05:10.394 --> 00:05:16.623
+Intervienen dos tipos de variables: la dependiente, en el eje vertical, y la independiente, en el eje horizontal.
+
+62
+00:05:16.903 --> 00:05:21.938
+Los puntos son los datos, y la recta de regresión es la línea que mejor los representa.
+
+63
+00:05:23.183 --> 00:05:32.698
+Ejemplos de aplicaciones de la regresión: pronosticar las ventas anuales, analizar la satisfacción del cliente, estimar el precio de una vivienda y estimar salarios.
+
+64
+00:05:33.917 --> 00:05:42.855
+Más aplicaciones: estimar temperaturas, la intensidad de la lluvia, la esperanza de vida de una persona y el tiempo que alguien pasa navegando en un sitio web.
+
+65
+00:05:44.117 --> 00:05:46.421
+Hay dos tipos de modelos de regresión.
+
+66
+00:05:46.701 --> 00:05:52.034
+La regresión simple usa una sola variable independiente para predecir la dependiente.
+
+67
+00:05:52.314 --> 00:05:56.218
+La regresión múltiple usa más de una variable independiente.
+
+68
+00:05:57.450 --> 00:05:59.349
+Con números se entiende mejor.
+
+69
+00:05:59.629 --> 00:06:04.365
+Regresión simple: precio igual a mil doscientos por metro cuadrado, más quince mil.
+
+70
+00:06:04.645 --> 00:06:10.533
+Una casa de ochenta metros cuesta mil doscientos por ochenta, más quince mil: ciento once mil dólares.
+
+71
+00:06:10.813 --> 00:06:16.039
+Pero ignora todo lo demás, así que dos casas de ochenta metros siempre costarían lo mismo.
+
+72
+00:06:16.319 --> 00:06:24.533
+Regresión múltiple: precio igual a mil por metro cuadrado, más ocho mil por habitación, menos quinientos por año de antigüedad, más veinte mil.
+
+73
+00:06:24.813 --> 00:06:34.263
+Una casa de ochenta metros, tres habitaciones y diez años cuesta ochenta mil más veinticuatro mil, menos cinco mil, más veinte mil: ciento diecinueve mil dólares.
+
+74
+00:06:34.543 --> 00:06:40.047
+El signo de cada peso dice cómo influye: cada habitación sube el precio y cada año lo baja.
+
+75
+00:06:41.250 --> 00:06:50.829
+El modelo de regresión lineal describe la relación entre las variables mediante una línea recta, y su objetivo es obtener la recta que mejor se ajusta a los datos.
+
+76
+00:06:51.109 --> 00:06:57.658
+Por ejemplo, el dato real dice que para X igual a sesenta, Y vale doce, pero el modelo dice que Y vale catorce.
+
+77
+00:06:57.938 --> 00:06:59.837
+Esa diferencia es el error.
+
+78
+00:07:01.050 --> 00:07:03.375
+Conceptos importantes en regresión.
+
+79
+00:07:03.655 --> 00:07:06.109
+La predicción es la salida del modelo.
+
+80
+00:07:06.389 --> 00:07:10.549
+Los pesos son los factores por los que se multiplica cada característica.
+
+81
+00:07:10.829 --> 00:07:14.946
+Y el bias es un valor constante que no depende de las características.
+
+82
+00:07:16.183 --> 00:07:20.237
+La pendiente y el intercepto se relacionan con la regresión lineal.
+
+83
+00:07:20.517 --> 00:07:25.445
+La pendiente es la inclinación de la recta, y corresponde al peso de una característica.
+
+84
+00:07:25.725 --> 00:07:30.802
+El intercepto es la altura donde la recta cruza el eje vertical, y corresponde al bias.
+
+85
+00:07:31.082 --> 00:07:37.525
+El gráfico muestra la recta al inicio del entrenamiento, todavía plana, con pendiente e intercepto casi cero.
+
+86
+00:07:38.783 --> 00:07:42.047
+Un ejemplo con la recta Y igual a dos X más uno.
+
+87
+00:07:42.327 --> 00:07:46.295
+La pendiente es dos: cada vez que X aumenta uno, Y aumenta dos.
+
+88
+00:07:46.575 --> 00:07:51.503
+El intercepto es uno: cuando X vale cero, la recta cruza el eje vertical en uno.
+
+89
+00:07:51.783 --> 00:08:05.351
+En machine learning, en el modelo precio igual a mil doscientos por metro cuadrado más quince mil, el peso es mil doscientos, porque cada metro extra suma mil doscientos dólares, y el bias es quince mil, un valor base que no depende de los metros.
+
+90
+00:08:06.583 --> 00:08:10.999
+Para hacer gráficos en Python, la librería más conocida es Matplotlib.
+
+91
+00:08:11.279 --> 00:08:16.613
+Con ella se pueden hacer gráficos de barras, histogramas, gráficos de dispersión y muchos más.
+
+92
+00:08:17.850 --> 00:08:22.266
+Para instalar Matplotlib está la guía oficial, y en Colab ya viene incluida.
+
+93
+00:08:22.546 --> 00:08:26.621
+Para usarla se escribe import matplotlib punto pyplot as plt.
+
+94
+00:08:27.850 --> 00:08:29.386
+Un gráfico de líneas.
+
+95
+00:08:29.666 --> 00:08:44.429
+Se definen time con cero, diez, veinte, treinta y cuarenta, y position con cero, cincuenta, setenta, noventa y cien. plt punto plot dibuja la línea, xlabel y ylabel ponen los nombres de los ejes, y plt punto show muestra el gráfico.
+
+96
+00:08:45.650 --> 00:08:47.314
+Un gráfico de dispersión.
+
+97
+00:08:47.594 --> 00:08:57.066
+Con X igual a veinte, cuarenta, sesenta y setenta, y Y igual a diez, treinta, cincuenta y sesenta, plt punto scatter dibuja cada par como un punto.
+
+98
+00:08:58.317 --> 00:09:01.687
+Un gráfico de pastel. food tiene cuatro tipos de comida:
+
+99
+00:09:01.967 --> 00:09:14.042
+italiana, tradicional, mexicana y china, y prefPerc tiene los porcentajes de preferencia. plt punto pie dibuja el pastel con labels para los nombres y autopct para mostrar el porcentaje en cada parte.
+
+100
+00:09:14.322 --> 00:09:18.845
+La comida mexicana tiene el mayor porcentaje, cuarenta y cinco por ciento.
+
+101
+00:09:20.050 --> 00:09:22.951
+Un ejemplo que combina un gráfico con regresión.
+
+102
+00:09:23.231 --> 00:09:27.434
+Tenemos las horas de estudio del uno al ocho y las notas correspondientes.
+
+103
+00:09:27.714 --> 00:09:38.125
+Con np punto polyfit calculamos la recta que mejor se ajusta, y el resultado es una pendiente de cuatro punto setenta y uno y un bias de cuarenta y seis punto veintinueve.
+
+104
+00:09:38.405 --> 00:09:46.042
+Luego plt punto scatter dibuja los datos reales como puntos, y plt punto plot dibuja la recta de regresión en rojo.
+
+105
+00:09:46.322 --> 00:09:52.253
+Con xlabel, ylabel, title y legend agregamos los nombres de los ejes, el título y la leyenda.
+
+106
+00:09:52.533 --> 00:09:56.714
+La pendiente dice que cada hora extra de estudio suma casi cinco puntos.
+
+107
+00:09:57.917 --> 00:10:01.415
+NumPy es una librería de Python para trabajar con arreglos.
+
+108
+00:10:01.695 --> 00:10:06.090
+Fue creada en dos mil cinco por Travis Oliphant como proyecto de código abierto.
+
+109
+00:10:06.370 --> 00:10:13.794
+NumPy significa Numerical Python, y su versión actual es la dos punto cinco punto tres, de septiembre de dos mil veintiséis.
+
+110
+00:10:15.050 --> 00:10:21.237
+Para usar NumPy hay que instalar la librería, y luego importarla en el código con import numpy as np.
+
+111
+00:10:22.450 --> 00:10:25.159
+NumPy guarda los datos en arreglos, o arrays.
+
+112
+00:10:25.439 --> 00:10:30.815
+Comparados con las listas, los arrays son más rápidos y tienen métodos para hacer operaciones.
+
+113
+00:10:31.095 --> 00:10:35.789
+Hay dos tipos de arrays: vectores, de una dimensión, y matrices, de dos dimensiones.
+
+114
+00:10:37.050 --> 00:10:39.589
+Veamos la diferencia entre lista y array.
+
+115
+00:10:39.869 --> 00:10:45.842
+Con lista igual a uno, dos, tres, lista por dos repite los elementos: uno, dos, tres, uno, dos, tres.
+
+116
+00:10:46.122 --> 00:10:50.047
+Con un array, arr por dos multiplica cada elemento: dos, cuatro, seis.
+
+117
+00:10:50.327 --> 00:10:53.741
+Y arr más diez suma diez a cada uno: once, doce, trece.
+
+118
+00:10:54.021 --> 00:10:58.821
+Pero lista más diez da un TypeError, porque a una lista no se le puede sumar un número.
+
+119
+00:10:59.101 --> 00:11:03.794
+Con arrays, las operaciones se aplican elemento por elemento sin escribir un for.
+
+120
+00:11:04.074 --> 00:11:08.703
+Además, ndim indica las dimensiones: uno para un vector y dos para una matriz.
+
+121
+00:11:09.917 --> 00:11:24.573
+Funciones útiles de NumPy. np punto array crea un arreglo a partir de una lista o tupla. np punto zeros genera un arreglo lleno de ceros, y np punto ones uno lleno de unos. np punto arange crea valores con un paso fijo dentro de un rango.
+
+122
+00:11:24.853 --> 00:11:29.738
+Y np punto linspace genera números igualmente espaciados entre dos valores.
+
+123
+00:11:30.983 --> 00:11:40.455
+Más funciones. np punto reshape cambia la forma de un arreglo sin cambiar sus datos. np punto ravel aplana un arreglo multidimensional a una dimensión.
+
+124
+00:11:40.735 --> 00:11:45.599
+Y np punto transpose devuelve la transpuesta, intercambiando filas y columnas.
+
+125
+00:11:46.850 --> 00:12:10.061
+Veamos el resultado de cada función. np punto zeros de tres da tres ceros con decimales. np punto ones de dos por tres da una matriz de dos filas y tres columnas de unos. np punto arange de cero a diez con paso dos da cero, dos, cuatro, seis y ocho, sin incluir el diez. np punto linspace de cero a uno con cinco números da cero, cero punto veinticinco, cero punto cinco, cero punto setenta y cinco y uno.
+
+126
+00:12:10.341 --> 00:12:22.863
+Si a es arange de seis, del cero al cinco, reshape a dos por tres acomoda esos seis datos en dos filas y tres columnas. ravel lo vuelve a aplanar, y transpose intercambia filas y columnas, quedando tres por dos.
+
+127
+00:12:23.143 --> 00:12:28.434
+La diferencia clave: en arange eliges el paso; en linspace eliges cuántos números.
+
+128
+00:12:29.650 --> 00:12:30.802
+Ejemplo de array:
+
+129
+00:12:31.082 --> 00:12:41.151
+se importa numpy as np, se crea A igual a np punto array de uno, tres y cinco, y type de A devuelve numpy punto ndarray, que es el tipo de los arreglos de NumPy.
+
+130
+00:12:42.383 --> 00:12:46.927
+Ejemplo de matriz: B es un array con dos filas, uno dos tres y dos cuatro seis.
+
+131
+00:12:47.207 --> 00:12:56.018
+B punto size devuelve seis elementos, B punto ndim devuelve dos dimensiones, y B punto shape devuelve dos coma tres: dos filas y tres columnas.
+
+132
+00:12:56.298 --> 00:13:02.677
+Con B punto reshape de tres y dos, se obtiene una matriz de tres filas y dos columnas con los mismos datos.
+
+133
+00:13:03.917 --> 00:13:09.079
+Un ejemplo más: la matriz B guarda las notas de tres estudiantes en cuatro parciales.
+
+134
+00:13:09.359 --> 00:13:12.538
+B punto ndim es dos, porque tiene filas y columnas.
+
+135
+00:13:12.818 --> 00:13:17.213
+B punto shape es tres coma cuatro: tres estudiantes y cuatro parciales.
+
+136
+00:13:17.493 --> 00:13:20.863
+B punto size es doce, porque tres por cuatro es doce.
+
+137
+00:13:21.143 --> 00:13:26.306
+Y B punto reshape de dos y seis acomoda los mismos doce datos en dos filas de seis.
+
+138
+00:13:26.586 --> 00:13:31.535
+Pero reshape de cinco y tres daría error, porque cinco por tres es quince, y no doce.
+
+139
+00:13:31.815 --> 00:13:37.341
+Para recordar: shape responde qué forma tiene, size cuántos datos hay, y ndim cuántas dimensiones.
+
+140
+00:13:38.583 --> 00:13:48.183
+En resumen, esta semana vimos las variables dependientes e independientes, la librería Matplotlib, la librería NumPy y una introducción a los modelos de regresión.
+
+141
+00:13:48.463 --> 00:13:50.490
+Esto es todo para la semana seis.
+

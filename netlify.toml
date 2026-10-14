@@ -1,0 +1,9 @@
+# Netlify: build desde el repo (npm run build) o subir la carpeta dist/ con Netlify Drop.
+# Las redirecciones y cabeceras viven en public/_redirects y public/_headers para que
+# también funcionen cuando se sube solo dist/.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"

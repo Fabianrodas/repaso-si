@@ -1,0 +1,29 @@
+{
+  "name": "sistemas-inteligentes-repaso",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Repaso de Sistemas Inteligentes (Weeks 1-7): quiz ponderado, videos narrados y diapositivas.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 4173",
+    "typecheck": "tsc -b"
+  },
+  "engines": { "node": ">=18.18" },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "5.1.1",
+    "@fontsource/montserrat": "5.1.0",
+    "@fontsource/teachers": "5.1.0",
+    "hls.js": "1.5.17",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.3",
+    "typescript": "5.6.3",
+    "vite": "5.4.10"
+  }
+}

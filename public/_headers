@@ -1,0 +1,35 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/media/*
+  Cache-Control: public, max-age=2592000
+
+/media/subs/*
+  Content-Type: text/vtt; charset=utf-8
+
+/media/videos/w1/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl
+
+/media/videos/w2/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl
+
+/media/videos/w3/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl
+
+/media/videos/w4/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl
+
+/media/videos/w5/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl
+
+/media/videos/w6/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl
+
+/media/videos/w7/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl

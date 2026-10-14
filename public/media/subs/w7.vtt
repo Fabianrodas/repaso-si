@@ -1,0 +1,174 @@
+WEBVTT
+
+1
+00:00:00.450 --> 00:00:01.538
+Semana siete.
+
+2
+00:00:01.818 --> 00:00:11.418
+Veremos cómo se mide el error de un modelo de regresión, y la diferencia entre la función de pérdida y la función de costo, para encontrar la recta que mejor se ajusta a los datos.
+
+3
+00:00:12.650 --> 00:00:15.189
+Los resultados de aprendizaje son cuatro:
+
+4
+00:00:15.469 --> 00:00:19.586
+describir la diferencia entre la función de pérdida y la función de costo;
+
+5
+00:00:19.866 --> 00:00:23.173
+describir las métricas para evaluar el ajuste de un modelo;
+
+6
+00:00:23.453 --> 00:00:25.799
+definir el concepto de serie en Pandas;
+
+7
+00:00:26.079 --> 00:00:29.237
+y describir los pasos para crear gráficos con Pandas.
+
+8
+00:00:29.517 --> 00:00:31.991
+En este material se cubren los dos primeros.
+
+9
+00:00:33.250 --> 00:00:35.255
+¿Cómo encontrar el mejor ajuste?
+
+10
+00:00:35.535 --> 00:00:43.279
+Se usa una métrica para cuantificar la precisión de la regresión lineal, que también se conoce como función de pérdida, o loss function.
+
+11
+00:00:43.559 --> 00:00:49.682
+La pérdida es el resultado de la diferencia entre los datos reales y los datos obtenidos por la regresión.
+
+12
+00:00:50.917 --> 00:00:57.125
+Se calcula el error, o residuo, que es la diferencia entre el valor observado y el valor que predice el modelo.
+
+13
+00:00:57.405 --> 00:01:03.293
+En el ejemplo, para x igual a veinte, el valor observado es diez, y la predicción, Y gorro, es cinco.
+
+14
+00:01:03.573 --> 00:01:06.346
+El error es diez menos cinco, es decir, cinco.
+
+15
+00:01:07.583 --> 00:01:12.575
+Hagamos el cálculo punto por punto, con el modelo Y gorro igual a dos X más uno.
+
+16
+00:01:12.855 --> 00:01:19.767
+Para X igual a uno, el valor real es cinco y la predicción es tres: el error es más dos, el modelo se quedó corto.
+
+17
+00:01:20.047 --> 00:01:26.106
+Para X igual a dos, el real es cuatro y la predicción cinco: el error es menos uno, el modelo se pasó.
+
+18
+00:01:26.386 --> 00:01:30.205
+Para X igual a tres, real nueve, predicción siete: error más dos.
+
+19
+00:01:30.485 --> 00:01:34.773
+Y para X igual a cuatro, real ocho, predicción nueve: error menos uno.
+
+20
+00:01:35.053 --> 00:01:40.578
+Un error positivo significa que el punto está arriba de la recta, y uno negativo, que está abajo.
+
+21
+00:01:40.858 --> 00:01:49.007
+Pero ojo: si sumas los errores, da solo dos, aunque el modelo falló por seis unidades en total, porque los positivos y negativos se cancelan.
+
+22
+00:01:49.287 --> 00:01:52.167
+Por eso se usan cuadrados o valores absolutos.
+
+23
+00:01:53.383 --> 00:02:00.679
+La idea de encontrar la recta que mejor se ajusta a los datos es que el error entre el valor observado y la predicción sea mínimo.
+
+24
+00:02:00.959 --> 00:02:05.759
+En el gráfico, las líneas verticales entre cada punto y la recta son los errores.
+
+25
+00:02:06.983 --> 00:02:09.842
+Comparemos dos rectas sobre los mismos datos.
+
+26
+00:02:10.122 --> 00:02:18.037
+La recta A deja algunos puntos muy lejos, hasta tres unidades, y su error cuadrático medio, o MSE, es dos punto sesenta y siete.
+
+27
+00:02:18.317 --> 00:02:23.693
+La recta B pasa cerca de todos los puntos, y su MSE es cero punto cincuenta y tres.
+
+28
+00:02:23.973 --> 00:02:27.194
+Como el error de B es menor, la recta B se ajusta mejor.
+
+29
+00:02:27.474 --> 00:02:35.154
+Entrenar un modelo de regresión es justamente eso: buscar la pendiente y el bias que hacen que este error sea lo más pequeño posible.
+
+30
+00:02:36.383 --> 00:02:40.906
+Pérdida y costo suelen definirse de forma parecida, pero hay una distinción.
+
+31
+00:02:41.186 --> 00:02:45.602
+La función de pérdida se refiere al error de una sola muestra de entrenamiento.
+
+32
+00:02:45.882 --> 00:02:51.109
+La función de costo es el promedio de la función de pérdida en todo el dataset de entrenamiento.
+
+33
+00:02:52.317 --> 00:02:57.074
+Con los mismos cuatro datos de antes: la pérdida de cada dato es su error al cuadrado.
+
+34
+00:02:57.354 --> 00:03:00.106
+Para el primero, más dos al cuadrado es cuatro.
+
+35
+00:03:00.386 --> 00:03:03.095
+Para el segundo, menos uno al cuadrado es uno.
+
+36
+00:03:03.375 --> 00:03:05.274
+Luego cuatro y uno otra vez.
+
+37
+00:03:05.554 --> 00:03:06.749
+La suma es diez.
+
+38
+00:03:07.029 --> 00:03:13.109
+La función de pérdida corresponde a un solo dato; por ejemplo, para X igual a uno, la pérdida es cuatro.
+
+39
+00:03:13.389 --> 00:03:19.149
+La función de costo es el promedio de todas las pérdidas: diez entre cuatro, que es dos punto cinco.
+
+40
+00:03:19.429 --> 00:03:23.973
+Ese promedio de errores al cuadrado se llama MSE, error cuadrático medio.
+
+41
+00:03:24.253 --> 00:03:29.095
+Una analogía: la pérdida es tu nota en un deber, y el costo es tu promedio del parcial.
+
+42
+00:03:29.375 --> 00:03:32.341
+Con esto terminamos el repaso de las siete semanas.
+
+43
+00:03:32.621 --> 00:03:34.413
+Mucho éxito en tu examen.
+
