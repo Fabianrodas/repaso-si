@@ -5,7 +5,8 @@ import { Bubble } from "../components/Sheet";
 import { navigate } from "../lib/router";
 import { useQuiz } from "../quiz/QuizContext";
 import { CodeBlock, Feedback, QuestionBody, QuestionMeta } from "../quiz/QuestionView";
-import { fmtTime, grade, isAnswered, QMAP } from "../quiz/engine";
+import { fmtTime, grade, isAnswered } from "../quiz/engine";
+import { useSubject } from "../subjects";
 
 function Timer({ base, onTick }: { base: number; onTick: (s: number) => void }) {
   const [shown, setShown] = useState(base);
@@ -30,14 +31,16 @@ export default function Runner() {
   const [confirm, setConfirm] = useState<null | "finish" | "exit">(null);
   const headRef = useRef<HTMLHeadingElement>(null);
   const first = useRef(true);
+  const { bank, href } = useSubject();
+  const { QMAP } = bank;
 
   // al recargar /quiz: retoma el intento guardado, o vuelve al inicio si no hay ninguno
   useEffect(() => {
     if (!attempt) {
       if (stored) resume();
-      else navigate("/", { replace: true });
+      else navigate(href("/"), { replace: true });
     }
-  }, [attempt, stored, resume]);
+  }, [attempt, stored, resume]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!attempt) return;
@@ -58,9 +61,9 @@ export default function Runner() {
     if (!attempt || !curId) return;
     const cq = QMAP[curId];
     if (cq.type === "order" && attempt.answers[curId] === undefined) setAnswer(curId, attempt.order0[curId]);
-  }, [curId, attempt, setAnswer]);
+  }, [curId, attempt, setAnswer, QMAP]);
 
-  const doFinish = useCallback(() => { finish(); navigate("/resultados"); }, [finish]);
+  const doFinish = useCallback(() => { finish(); navigate(href("/resultados")); }, [finish]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ← y → para moverse entre preguntas
   useEffect(() => {
@@ -118,7 +121,7 @@ export default function Runner() {
           </div>
           <div className="q-answer">
             <QuestionBody key={q.id} q={q} attempt={attempt} locked={locked} onAnswer={(v) => setAnswer(q.id, v)} onEnter={onEnter} />
-            {locked ? <Feedback q={q} a={a} onSlide={(p) => navigate(`/diapositivas?p=${p}`)} /> : null}
+            {locked ? <Feedback q={q} a={a} onSlide={(p) => navigate(href(`/diapositivas?p=${p}`))} /> : null}
           </div>
         </div>
       </article>
@@ -159,7 +162,7 @@ export default function Runner() {
       ) : null}
       {confirm === "exit" ? (
         <Modal title="¿Salir?" onClose={() => setConfirm(null)}
-          actions={[{ label: "Quedarme", onClick: () => setConfirm(null) }, { label: "Salir", primary: true, onClick: () => navigate("/") }]}>
+          actions={[{ label: "Quedarme", onClick: () => setConfirm(null) }, { label: "Salir", primary: true, onClick: () => navigate(href("/")) }]}>
           Tu avance queda guardado y puedes continuarlo desde el inicio.
         </Modal>
       ) : null}

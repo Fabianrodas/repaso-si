@@ -1,0 +1,721 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:05.279
+Una regla sencilla: la contraseña debe
+tener entre ocho y dieciséis caracteres.
+
+00:00:05.749 --> 00:00:09.439
+¿Probarías con nueve, diez, once,
+doce, trece y catorce caracteres?
+
+00:00:09.888 --> 00:00:12.170
+Todos se comportan igual: son válidos.
+
+00:00:12.412 --> 00:00:15.206
+Son seis pruebas que dicen
+exactamente lo mismo.
+
+00:00:15.676 --> 00:00:18.390
+En realidad solo hay tres
+comportamientos: menos
+
+00:00:18.390 --> 00:00:21.330
+de ocho, entre ocho y
+dieciséis, y más de dieciséis.
+
+00:00:21.800 --> 00:00:23.421
+Tres grupos, tres pruebas.
+
+00:00:23.708 --> 00:00:27.868
+Cada grupo es una clase de equivalencia,
+y es el tema de este último video.
+
+00:00:28.918 --> 00:00:30.881
+Tema ocho: clases de equivalencia.
+
+00:00:31.931 --> 00:00:35.686
+Pruebas funcionales con menos casos
+de prueba, sin perder cobertura.
+
+00:00:36.736 --> 00:00:40.746
+Cinco secciones: un repaso del
+valor límite, de las ROV y las GV…
+
+00:00:41.216 --> 00:00:45.718
+…las clases de equivalencia, ejemplos, las
+pruebas débiles y fuertes, y un taller.
+
+00:00:46.768 --> 00:00:51.098
+Primero, el repaso, y por qué el valor
+límite no basta para todas las variables.
+
+00:00:52.148 --> 00:00:54.218
+Recuerda: el software es una función.
+
+00:00:54.518 --> 00:00:57.685
+En el ejemplo de la presión
+arterial, las entradas son la
+
+00:00:57.685 --> 00:01:01.131
+sistólica y la diastólica, y la
+salida es baja, normal o alta.
+
+00:01:02.181 --> 00:01:04.800
+Con dos variables, el
+dominio es un rectángulo,
+
+00:01:04.800 --> 00:01:07.642
+y cada punto es una combinación
+válida de entradas.
+
+00:01:08.692 --> 00:01:11.807
+El valor límite tiene un
+supuesto oculto: trata todas
+
+00:01:11.807 --> 00:01:14.922
+las variables como si fueran
+ROV, de sólo resultados.
+
+00:01:15.392 --> 00:01:18.902
+Las consecuencias: las variables
+se tratan como independientes,
+
+00:01:18.902 --> 00:01:22.133
+se prueba una entrada a la vez,
+y se asume la falla única.
+
+00:01:22.603 --> 00:01:25.952
+Pero con las variables de puerta,
+ese supuesto no se cumple.
+
+00:01:27.002 --> 00:01:28.197
+Mira este código.
+
+00:01:28.474 --> 00:01:31.396
+Según el valor de amount, se
+ejecuta una de tres rutas.
+
+00:01:31.866 --> 00:01:35.365
+amount es una variable de puerta:
+decide qué cálculo se ejecuta.
+
+00:01:35.627 --> 00:01:37.291
+Hay tres rutas distintas.
+
+00:01:38.341 --> 00:01:41.563
+Con una variable de puerta,
+probar un solo valor no alcanza.
+
+00:01:41.849 --> 00:01:45.338
+Hay que probar tres casos: menor
+o igual que mil ochocientos,
+
+00:01:45.338 --> 00:01:48.483
+entre mil ochocientos y quince
+mil, y desde quince mil.
+
+00:01:48.953 --> 00:01:52.047
+Decimos que la cantidad tiene
+tres clases de equivalencia.
+
+00:01:52.297 --> 00:01:54.857
+Por ahora ignoramos los
+valores fuera de rango.
+
+00:01:55.907 --> 00:01:58.403
+Segunda sección: las clases de equivalencia.
+
+00:01:58.699 --> 00:02:01.985
+Agrupar las entradas que el
+sistema trata de la misma manera.
+
+00:02:03.035 --> 00:02:05.724
+En valor límite, el dominio
+de una variable es un
+
+00:02:05.724 --> 00:02:08.688
+solo rango válido, con valores
+no válidos a los lados.
+
+00:02:09.158 --> 00:02:12.645
+Con clases de equivalencia,
+ese dominio se divide según el
+
+00:02:12.645 --> 00:02:16.433
+comportamiento: EC uno, EC dos y
+EC tres, cada una con su ruta.
+
+00:02:17.483 --> 00:02:21.585
+La definición: dos valores pertenecen
+a la misma clase si la especificación
+
+00:02:21.585 --> 00:02:25.141
+los trata igual, es decir, si hacen
+que se ejecute la misma ruta.
+
+00:02:25.611 --> 00:02:29.729
+Si un valor de la clase detecta un
+error, los demás probablemente también.
+
+00:02:30.025 --> 00:02:32.884
+Por eso basta con un
+representante de cada clase.
+
+00:02:33.934 --> 00:02:38.883
+De la ruta al dato de prueba: EC uno, amount
+hasta mil ochocientos, representante mil.
+
+00:02:39.190 --> 00:02:43.393
+EC dos, entre mil ochocientos y
+quince mil, representante ocho mil.
+
+00:02:43.685 --> 00:02:46.928
+EC tres, desde quince mil,
+representante veinte mil.
+
+00:02:47.398 --> 00:02:50.755
+Fíjate: las clases se definen a
+partir de la salida, la ruta;
+
+00:02:50.755 --> 00:02:54.331
+pero los valores que se prueban
+se toman del dominio, la entrada.
+
+00:02:55.381 --> 00:02:58.624
+Los objetivos: probar la menor
+cantidad posible de valores…
+
+00:02:59.094 --> 00:03:01.885
+…eliminar las pruebas
+redundantes, que no aportan
+
+00:03:01.885 --> 00:03:04.961
+información nueva, y saber
+cuántos casos se necesitan.
+
+00:03:05.431 --> 00:03:08.887
+Basta con un valor de cada clase:
+probar más sería redundante.
+
+00:03:09.937 --> 00:03:12.390
+Una buena partición tiene dos propiedades.
+
+00:03:12.645 --> 00:03:15.179
+Completitud: la unión de
+todas las clases cubre
+
+00:03:15.179 --> 00:03:17.445
+todo el dominio, ningún valor queda fuera.
+
+00:03:17.915 --> 00:03:22.565
+Y no redundancia: las clases no se
+superponen, ningún valor se prueba dos veces.
+
+00:03:23.615 --> 00:03:27.349
+Otro ejemplo: una nota de cero a cien
+da reprobado, bueno o excelente.
+
+00:03:27.819 --> 00:03:32.683
+Tres clases válidas, una por salida, con
+representantes treinta, setenta y noventa.
+
+00:03:32.962 --> 00:03:35.543
+Y dos no válidas: menos cinco y ciento cinco.
+
+00:03:36.013 --> 00:03:38.509
+La partición es completa y no redundante.
+
+00:03:39.559 --> 00:03:42.460
+Tercera sección: ejemplos
+de clases de equivalencia.
+
+00:03:43.510 --> 00:03:45.644
+Ejemplo uno: números del uno al diez.
+
+00:03:45.924 --> 00:03:48.207
+Hay una zona válida y dos no válidas.
+
+00:03:48.677 --> 00:03:51.419
+Tres clases: valor menor
+que uno, no válida; entre
+
+00:03:51.419 --> 00:03:54.053
+uno y diez, válida; y
+mayor que diez, no válida.
+
+00:03:55.103 --> 00:03:57.001
+Ejemplo dos: colores primarios.
+
+00:03:57.294 --> 00:03:59.299
+El dominio son todos los colores.
+
+00:03:59.769 --> 00:04:04.078
+Dos clases: el valor es amarillo, azul
+o rojo, válida; o no lo es, no válida.
+
+00:04:04.383 --> 00:04:06.453
+Aquí no hay límites: es un conjunto.
+
+00:04:07.503 --> 00:04:11.065
+Un ejercicio con la contraseña
+de ocho a dieciséis caracteres.
+
+00:04:11.535 --> 00:04:15.525
+Tres clases: menos de ocho, entre
+ocho y dieciséis, y más de dieciséis.
+
+00:04:15.789 --> 00:04:18.434
+Con un representante de cada una, tres casos.
+
+00:04:18.904 --> 00:04:23.811
+Y si la combinas con valor límite, pruebas
+además siete, ocho, dieciséis y diecisiete.
+
+00:04:24.116 --> 00:04:28.383
+Las clases dicen qué probar; el valor
+límite, dónde suelen estar los errores.
+
+00:04:29.433 --> 00:04:32.057
+Ejemplo tres: un hostal
+en la selva ecuatoriana.
+
+00:04:32.312 --> 00:04:35.662
+La función recibe el tipo de
+habitación, la edad y el género.
+
+00:04:36.132 --> 00:04:38.735
+La regla: solo las clientas reciben descuento,
+
+00:04:38.735 --> 00:04:41.508
+veinte por ciento en
+sencilla y diez en el resto.
+
+00:04:41.789 --> 00:04:44.178
+¿Cuántas clases válidas y no válidas hay?
+
+00:04:45.228 --> 00:04:49.089
+El tipo: dentro del conjunto de
+habitaciones, válida; fuera, no válida.
+
+00:04:49.559 --> 00:04:52.531
+La edad tiene más: entero o
+no entero, entre dieciocho
+
+00:04:52.531 --> 00:04:55.063
+y cien, menor que dieciocho, o mayor que cien.
+
+00:04:55.533 --> 00:04:58.541
+Y el género: F o M, válida;
+cualquier otro, no válida.
+
+00:04:58.812 --> 00:05:01.372
+En total, cuatro válidas y cinco no válidas.
+
+00:05:02.422 --> 00:05:06.496
+El género y el tipo son variables de
+puerta: juntas deciden el descuento.
+
+00:05:06.966 --> 00:05:09.531
+Los hombres siempre tienen
+cero por ciento; las
+
+00:05:09.531 --> 00:05:12.150
+mujeres, veinte en sencilla
+y diez en las demás.
+
+00:05:12.620 --> 00:05:17.292
+Hay tres comportamientos distintos, y cada
+uno necesita al menos un caso de prueba.
+
+00:05:18.342 --> 00:05:20.689
+Cuarta sección: pruebas débiles y fuertes.
+
+00:05:20.977 --> 00:05:23.324
+Cuántos casos de prueba se necesitan.
+
+00:05:24.374 --> 00:05:27.713
+La prueba débil busca la cobertura
+de código: el número mínimo
+
+00:05:27.713 --> 00:05:30.944
+de pruebas, para que cada línea
+se ejecute al menos una vez.
+
+00:05:31.414 --> 00:05:34.497
+La prueba fuerte busca la
+cobertura de ruta: el número
+
+00:05:34.497 --> 00:05:37.409
+máximo, probando todas las
+combinaciones de clases.
+
+00:05:37.879 --> 00:05:41.463
+En los dos casos, por ahora, se
+excluyen los valores fuera de rango.
+
+00:05:42.513 --> 00:05:45.221
+Un problema de ejemplo: el
+cálculo de una corrección
+
+00:05:45.221 --> 00:05:48.294
+que depende de la base, de si
+la base es nueva, y del tipo.
+
+00:05:48.764 --> 00:05:51.751
+La base tiene tres clases,
+según el método que se usa.
+
+00:05:52.012 --> 00:05:53.570
+Nuevo tiene dos, sí o no.
+
+00:05:53.823 --> 00:05:56.169
+Y el tipo tiene cuatro: A, B, C o X.
+
+00:05:57.219 --> 00:06:00.495
+Alternativa uno, pruebas fuertes:
+todas las combinaciones,
+
+00:06:00.495 --> 00:06:02.979
+tres por dos por cuatro, veinticuatro casos.
+
+00:06:03.253 --> 00:06:04.789
+Es la cobertura de ruta.
+
+00:06:05.259 --> 00:06:07.762
+Alternativa dos, pruebas débiles: el máximo
+
+00:06:07.762 --> 00:06:10.614
+entre tres, dos y cuatro,
+es decir, cuatro casos.
+
+00:06:10.857 --> 00:06:13.886
+Es la cobertura de código:
+visitar cada línea una vez.
+
+00:06:14.936 --> 00:06:16.749
+Comparemos con dos variables.
+
+00:06:17.031 --> 00:06:20.487
+El valor límite normal usa nueve
+casos cerca de los límites.
+
+00:06:20.957 --> 00:06:23.864
+La clase de equivalencia
+normal débil, con tres
+
+00:06:23.864 --> 00:06:27.080
+clases en x uno y dos en x
+dos, usa solo tres casos.
+
+00:06:28.130 --> 00:06:31.286
+En la débil se usa un valor
+de cada clase en algún caso
+
+00:06:31.286 --> 00:06:34.615
+de prueba. x uno tiene tres
+intervalos, y x dos tiene dos.
+
+00:06:35.085 --> 00:06:39.053
+El número de casos es la mayor cantidad
+de clases de una variable: tres.
+
+00:06:40.103 --> 00:06:42.476
+Un error frecuente: en este diseño, x uno
+
+00:06:42.476 --> 00:06:45.138
+está bien cubierta, con un caso en cada clase.
+
+00:06:45.608 --> 00:06:50.152
+Pero los tres casos están en la misma
+clase de x dos, y la otra nunca se prueba.
+
+00:06:50.622 --> 00:06:55.230
+La regla: toda clase de todas las variables
+debe tener al menos un caso de prueba.
+
+00:06:56.280 --> 00:06:59.544
+La normal fuerte se basa en el
+supuesto de fallas múltiples.
+
+00:07:00.014 --> 00:07:04.814
+Necesita un caso por cada elemento del
+producto cartesiano: tres por dos, seis casos.
+
+00:07:05.081 --> 00:07:06.894
+Cubre todas las combinaciones.
+
+00:07:07.944 --> 00:07:10.397
+Las cuatro variantes, con tres y dos clases.
+
+00:07:10.687 --> 00:07:14.313
+Solo con válidos: débil normal,
+tres casos; fuerte normal, seis.
+
+00:07:14.783 --> 00:07:18.901
+Con válidos y no válidos: débil robusta,
+siete; y fuerte robusta, veinte.
+
+00:07:19.951 --> 00:07:20.847
+Las fórmulas.
+
+00:07:21.112 --> 00:07:23.288
+Débil normal: el máximo de las clases.
+
+00:07:23.549 --> 00:07:25.191
+Fuerte normal: el producto.
+
+00:07:25.661 --> 00:07:28.555
+Débil robusta: el máximo,
+más las clases no válidas
+
+00:07:28.555 --> 00:07:31.165
+de cada variable: tres más dos más dos, siete.
+
+00:07:31.415 --> 00:07:35.319
+Fuerte robusta: el producto de cada
+número de clases más dos: veinte.
+
+00:07:35.789 --> 00:07:38.660
+En las robustas, cada
+variable aporta dos clases no
+
+00:07:38.660 --> 00:07:41.699
+válidas: una por debajo y
+otra por encima de su rango.
+
+00:07:42.749 --> 00:07:46.631
+Con números: el monto tiene tres clases
+y la antigüedad del cliente, dos.
+
+00:07:47.101 --> 00:07:51.027
+La débil normal: tres casos, y cada
+clase aparece al menos una vez.
+
+00:07:51.497 --> 00:07:53.993
+La fuerte normal: los seis pares posibles.
+
+00:07:55.043 --> 00:07:58.880
+La débil robusta agrega un caso
+por cada clase no válida: monto
+
+00:07:58.880 --> 00:08:03.021
+negativo, monto excesivo, antigüedad
+negativa y antigüedad excesiva.
+
+00:08:03.326 --> 00:08:04.392
+Siete en total.
+
+00:08:04.862 --> 00:08:07.295
+Y la fuerte robusta combina las cinco opciones
+
+00:08:07.295 --> 00:08:09.940
+del monto con las cuatro
+de la antigüedad: veinte.
+
+00:08:10.990 --> 00:08:15.448
+La debilidad de esta técnica: la equivalencia
+fuerte a veces genera redundancia.
+
+00:08:15.918 --> 00:08:19.097
+Pasa cuando se ignoran las
+dependencias entre variables.
+
+00:08:19.379 --> 00:08:23.027
+En el hostal, el tipo de habitación
+solo importa si el género es F.
+
+00:08:24.077 --> 00:08:28.045
+La fuerte normal daría ocho casos,
+pero solo hay tres comportamientos.
+
+00:08:28.515 --> 00:08:31.054
+Con hombres, los cuatro
+tipos prueban lo mismo.
+
+00:08:31.305 --> 00:08:35.187
+Basta con tres: hombre en sencilla,
+mujer en sencilla y mujer en doble.
+
+00:08:36.237 --> 00:08:39.117
+Quinta sección: el taller
+de préstamos hipotecarios.
+
+00:08:40.167 --> 00:08:43.218
+El monto va de cincuenta mil
+a quinientos mil dólares.
+
+00:08:43.688 --> 00:08:47.661
+Y la tasa depende del monto: hasta
+ciento cincuenta mil, de siete a nueve
+
+00:08:47.661 --> 00:08:51.688
+por ciento; por encima, de nueve punto
+cinco a diez punto setenta y cinco.
+
+00:08:52.158 --> 00:08:56.147
+La consigna: indicar las clases
+válidas y no válidas de cada variable.
+
+00:08:57.197 --> 00:09:00.126
+Para el monto: menor que
+cincuenta mil, no válida; entre
+
+00:09:00.126 --> 00:09:03.107
+cincuenta mil y quinientos
+mil, válida; mayor, no válida.
+
+00:09:03.385 --> 00:09:05.582
+Y además: es un número real, o no lo es.
+
+00:09:06.052 --> 00:09:09.300
+Para la tasa: menor que siete,
+no válida; de siete a nueve,
+
+00:09:09.300 --> 00:09:12.602
+válida; entre nueve y nueve
+punto cinco, no válida; de nueve
+
+00:09:12.602 --> 00:09:16.399
+punto cinco a diez punto setenta y
+cinco, válida; y mayor, no válida.
+
+00:09:16.704 --> 00:09:18.283
+Más número real o no.
+
+00:09:19.333 --> 00:09:22.038
+Para profundizar: el monto
+también es una variable
+
+00:09:22.038 --> 00:09:24.581
+de puerta, porque decide
+qué tasas son válidas.
+
+00:09:24.874 --> 00:09:27.264
+Conviene dividir su clase válida en dos.
+
+00:09:27.734 --> 00:09:30.326
+Así aparecen casos que
+el análisis por variable
+
+00:09:30.326 --> 00:09:32.918
+no cubre: cien mil dólares
+con diez por ciento.
+
+00:09:33.195 --> 00:09:36.544
+Cada valor es válido por
+separado, pero la combinación no.
+
+00:09:37.594 --> 00:09:39.535
+Y los casos de prueba concretos.
+
+00:09:39.831 --> 00:09:43.522
+Dos válidos: cien mil al ocho por
+ciento, y trescientos mil al diez.
+
+00:09:43.810 --> 00:09:46.391
+Cada uno cubre varias clases válidas a la vez.
+
+00:09:46.861 --> 00:09:50.443
+Y uno por cada clase no válida,
+para saber qué causó el rechazo:
+
+00:09:50.443 --> 00:09:54.584
+montos fuera de rango, tasas fuera de
+rango, y valores que no son números.
+
+00:09:55.054 --> 00:09:59.449
+Más el caso de la dependencia: cien mil
+con diez por ciento debe ser rechazado.
+
+00:10:00.499 --> 00:10:02.333
+Antes de terminar, ponte a prueba.
+
+00:10:02.588 --> 00:10:05.020
+Si necesitas más tiempo, pausa el video.
+
+00:10:05.260 --> 00:10:09.826
+Primera pregunta: ¿cuándo dos valores
+pertenecen a la misma clase de equivalencia?
+
+00:10:14.446 --> 00:10:16.797
+Cuando la especificación los trata igual, es
+
+00:10:16.797 --> 00:10:19.416
+decir, cuando hacen que
+se ejecute la misma ruta.
+
+00:10:19.886 --> 00:10:23.662
+Siguiente: x uno tiene cuatro
+clases válidas y x dos tiene tres.
+
+00:10:23.950 --> 00:10:27.108
+¿Cuántos casos en la débil
+normal y en la fuerte normal?
+
+00:10:33.728 --> 00:10:35.818
+En la débil normal, el máximo: cuatro.
+
+00:10:36.098 --> 00:10:38.253
+En la fuerte normal, el producto: doce.
+
+00:10:38.723 --> 00:10:41.330
+Y la última: con las mismas
+variables, de cuatro
+
+00:10:41.330 --> 00:10:44.099
+y tres clases, ¿cuántos
+casos da la fuerte robusta?
+
+00:10:50.719 --> 00:10:54.410
+Cuatro más dos, por tres más dos:
+seis por cinco, treinta casos.
+
+00:10:55.460 --> 00:10:57.337
+Resumamos lo más importante.
+
+00:10:57.807 --> 00:11:01.592
+Uno: una clase de equivalencia
+agrupa las entradas que se comportan
+
+00:11:01.592 --> 00:11:05.039
+igual, así que basta con probar
+un representante de cada una.
+
+00:11:05.509 --> 00:11:09.139
+Dos: las clases se definen por la
+salida, y los valores se toman
+
+00:11:09.139 --> 00:11:12.656
+de la entrada; la partición debe
+ser completa y no redundante.
+
+00:11:13.126 --> 00:11:14.299
+Tres: las fórmulas.
+
+00:11:14.605 --> 00:11:18.824
+Débil normal, el máximo; fuerte normal,
+el producto; débil robusta, el máximo
+
+00:11:18.824 --> 00:11:23.373
+más las no válidas; y fuerte robusta, el
+producto de cada número de clases más dos.
+
+00:11:23.843 --> 00:11:26.851
+Y cuatro: cuidado con las
+dependencias entre variables.
+
+00:11:27.160 --> 00:11:31.598
+Pueden volver redundante la prueba fuerte,
+o esconder combinaciones inválidas.
+
+00:11:32.648 --> 00:11:36.530
+Y con esto terminamos los ocho temas
+de Ingeniería de Software dos.
+
+00:11:36.771 --> 00:11:41.038
+Repasa con las diapositivas y los
+ejercicios, y practica con las preguntas.
+
+00:11:41.323 --> 00:11:42.326
+¡Mucho éxito!
+

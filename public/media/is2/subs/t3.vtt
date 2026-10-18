@@ -1,0 +1,582 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:03.279
+Imagina cinco personas
+trabajando un mes entero,
+
+00:00:03.279 --> 00:00:05.769
+cada una por su lado, sin juntar su código.
+
+00:00:06.239 --> 00:00:08.778
+El último día lo juntan todo… y nada compila.
+
+00:00:09.045 --> 00:00:12.416
+Cientos de conflictos y errores
+que nadie sabe de dónde vienen.
+
+00:00:12.703 --> 00:00:15.221
+A eso se le llama el
+infierno de la integración.
+
+00:00:15.691 --> 00:00:19.211
+La solución suena al revés: si
+integrar duele, hazlo más seguido.
+
+00:00:19.469 --> 00:00:20.898
+Varias veces al día.
+
+00:00:21.165 --> 00:00:23.085
+Eso es la integración continua.
+
+00:00:24.135 --> 00:00:27.911
+Tema tres: integración continua,
+sus conceptos y sus herramientas.
+
+00:00:28.961 --> 00:00:32.337
+Veremos las prácticas, los
+beneficios, algunas herramientas,
+
+00:00:32.337 --> 00:00:36.107
+y conceptos relacionados como la
+entrega y el despliegue continuos.
+
+00:00:37.157 --> 00:00:41.125
+La clase tiene tres partes: la
+integración continua y la implementación
+
+00:00:41.125 --> 00:00:43.920
+continua, con sus pasos,
+prácticas y herramientas…
+
+00:00:44.390 --> 00:00:48.422
+…unos videos complementarios, y el
+seguimiento del proyecto Scrum del equipo.
+
+00:00:49.472 --> 00:00:51.755
+Primera parte: la integración continua.
+
+00:00:52.805 --> 00:00:54.277
+Primero, tres palabras.
+
+00:00:54.566 --> 00:00:57.395
+Construir: el conjunto de
+actividades para generar,
+
+00:00:57.395 --> 00:00:59.835
+probar, inspeccionar e implementar software.
+
+00:01:00.305 --> 00:01:02.752
+Continuo: aquí no significa algo que nunca
+
+00:01:02.752 --> 00:01:05.489
+se detiene, sino algo que
+ocurre repetidamente.
+
+00:01:05.959 --> 00:01:08.730
+E integración: combinar
+piezas de código separadas
+
+00:01:08.730 --> 00:01:10.781
+para ver cómo funcionan como un todo.
+
+00:01:11.831 --> 00:01:14.656
+La integración continua es
+una práctica de equipo:
+
+00:01:14.656 --> 00:01:16.972
+todos integran su trabajo con frecuencia.
+
+00:01:17.442 --> 00:01:20.301
+Normalmente cada persona
+integra al menos una vez
+
+00:01:20.301 --> 00:01:23.159
+al día, así que hay varias
+integraciones diarias.
+
+00:01:23.629 --> 00:01:27.219
+Y cada integración se verifica
+con una compilación automatizada,
+
+00:01:27.219 --> 00:01:30.584
+que incluye pruebas, para detectar
+errores lo antes posible.
+
+00:01:31.634 --> 00:01:34.130
+Mira un día normal con integración continua.
+
+00:01:34.386 --> 00:01:36.685
+A las nueve y diez Ana integra su cambio:
+
+00:01:36.685 --> 00:01:39.207
+compila y pasan las ciento dieciocho pruebas.
+
+00:01:39.677 --> 00:01:42.920
+A las once y media Luis integra
+el suyo, y falla una prueba.
+
+00:01:43.197 --> 00:01:45.715
+A las once y cuarenta y cinco ya lo corrigió.
+
+00:01:46.185 --> 00:01:49.413
+Por la tarde Marta integra la
+pantalla de pagos, y al final
+
+00:01:49.413 --> 00:01:52.478
+del día cualquiera puede
+descargar el último ejecutable.
+
+00:01:52.948 --> 00:01:57.129
+La clave: el error de Luis se descubrió
+quince minutos después de cometerlo.
+
+00:01:57.418 --> 00:02:00.596
+Sin integración continua,
+habría aparecido días después.
+
+00:02:01.646 --> 00:02:02.905
+Estos son los pasos.
+
+00:02:03.212 --> 00:02:05.772
+Uno: extraer el sistema principal del control
+
+00:02:05.772 --> 00:02:08.332
+de versiones a tu espacio de trabajo privado.
+
+00:02:08.802 --> 00:02:12.152
+Dos: construir el sistema y
+correr las pruebas automáticas.
+
+00:02:12.450 --> 00:02:15.778
+Si fallan, la base ya está rota,
+y hay que arreglarla primero.
+
+00:02:16.248 --> 00:02:17.720
+Tres: hacer tus cambios.
+
+00:02:18.190 --> 00:02:22.244
+Cuatro: construir otra vez en tu
+espacio privado y repetir las pruebas.
+
+00:02:22.547 --> 00:02:24.125
+Si fallan, sigues editando.
+
+00:02:25.175 --> 00:02:29.421
+Cinco: cuando todo pasa, registras el
+sistema en el servidor de compilación.
+
+00:02:29.891 --> 00:02:32.643
+Seis: el servidor compila
+y ejecuta las pruebas.
+
+00:02:32.940 --> 00:02:35.960
+Con Git, además, traes los
+cambios recientes de otros,
+
+00:02:35.960 --> 00:02:38.700
+por si alguien modificó
+algo mientras trabajabas.
+
+00:02:39.170 --> 00:02:42.054
+Y siete: si todo pasa en el
+servidor, los cambios se
+
+00:02:42.054 --> 00:02:45.271
+confirman como una nueva línea
+base en la línea principal.
+
+00:02:46.321 --> 00:02:49.223
+En diagrama: check-out de la
+línea principal, construir
+
+00:02:49.223 --> 00:02:52.124
+y probar, hacer cambios, y
+volver a construir y probar.
+
+00:02:52.420 --> 00:02:54.788
+Si las pruebas fallan, regresas a editar.
+
+00:02:55.258 --> 00:02:58.853
+Cuando pasan, check-in al servidor
+de compilación, que construye y
+
+00:02:58.853 --> 00:03:02.938
+prueba de nuevo, y finalmente el commit
+al sistema de gestión de versiones.
+
+00:03:03.988 --> 00:03:06.356
+Un ejercicio: ordena estos siete pasos.
+
+00:03:06.615 --> 00:03:08.769
+Pausa el video si quieres intentarlo.
+
+00:03:09.239 --> 00:03:11.309
+El orden es C, E, A, G, F, D, B.
+
+00:03:11.603 --> 00:03:14.534
+Fíjate en el segundo paso:
+construir y probar antes
+
+00:03:14.534 --> 00:03:17.235
+de tocar nada, para saber
+si la base está sana.
+
+00:03:18.285 --> 00:03:20.120
+Las prácticas clave son diez.
+
+00:03:20.415 --> 00:03:24.682
+Un único repositorio de fuentes, y una
+compilación automatizada y rápida.
+
+00:03:25.152 --> 00:03:27.741
+Que la compilación se pruebe sola, y que todos
+
+00:03:27.741 --> 00:03:30.442
+contribuyan a la línea
+principal todos los días.
+
+00:03:30.912 --> 00:03:33.860
+Cada contribución debe
+construir la línea principal,
+
+00:03:33.860 --> 00:03:36.694
+y las compilaciones rotas
+se reparan de inmediato.
+
+00:03:37.164 --> 00:03:39.617
+Probar en un clon del entorno de producción, y
+
+00:03:39.617 --> 00:03:42.284
+que cualquiera pueda obtener
+el último ejecutable.
+
+00:03:42.754 --> 00:03:46.444
+Que todos vean lo que está pasando,
+y automatizar la implementación.
+
+00:03:47.494 --> 00:03:49.649
+¿Qué práctica se viola en cada caso?
+
+00:03:50.094 --> 00:03:52.746
+El código está en tres repositorios y en una
+
+00:03:52.746 --> 00:03:55.278
+memoria USB: la uno, un único repositorio.
+
+00:03:55.748 --> 00:03:58.169
+Para compilar hay que seguir veinte pasos
+
+00:03:58.169 --> 00:04:00.825
+manuales: la dos, automatizar la compilación.
+
+00:04:01.074 --> 00:04:03.400
+Pedro integra una vez al mes: la cuatro.
+
+00:04:03.870 --> 00:04:06.494
+La compilación lleva rota dos días: la seis.
+
+00:04:06.784 --> 00:04:09.792
+Se prueba en Windows pero
+producción es Linux: la siete.
+
+00:04:10.262 --> 00:04:14.742
+Y solo el líder sabe si la compilación pasó:
+la nueve, todos deben ver lo que pasa.
+
+00:04:15.792 --> 00:04:18.523
+Así se ve un pipeline real, en GitHub Actions.
+
+00:04:18.814 --> 00:04:22.206
+La línea on push indica que se
+ejecuta en cada integración.
+
+00:04:22.676 --> 00:04:26.105
+Extrae el código, prepara
+Java, y con mvn verify compila
+
+00:04:26.105 --> 00:04:29.780
+y ejecuta las pruebas, en una
+máquina parecida a producción.
+
+00:04:30.250 --> 00:04:33.621
+Y al final sube el ejecutable,
+para que cualquiera lo descargue.
+
+00:04:33.919 --> 00:04:37.077
+La pestaña Actions deja que
+todo el equipo vea el estado.
+
+00:04:38.127 --> 00:04:40.922
+Los beneficios: reducir
+riesgos, porque integrar
+
+00:04:40.922 --> 00:04:43.951
+muchas veces al día permite
+detectar defectos antes.
+
+00:04:44.421 --> 00:04:48.922
+Reducir procesos manuales repetitivos:
+todo se ejecuta solo en cada commit.
+
+00:04:49.392 --> 00:04:52.829
+Y tener software listo para
+implementar en cualquier momento,
+
+00:04:52.829 --> 00:04:55.984
+gracias a cambios pequeños e
+integrados con regularidad.
+
+00:04:57.034 --> 00:04:59.957
+También da visibilidad:
+información en tiempo real del
+
+00:04:59.957 --> 00:05:02.879
+estado de la compilación y
+de las métricas de calidad.
+
+00:05:03.349 --> 00:05:06.069
+Y confianza: en cada
+compilación se sabe que se
+
+00:05:06.069 --> 00:05:09.195
+ejecutaron las pruebas y se
+cumplieron los estándares.
+
+00:05:10.245 --> 00:05:11.482
+Pero tiene límites.
+
+00:05:11.776 --> 00:05:14.763
+En sistemas muy grandes,
+compilar y probar puede tardar
+
+00:05:14.763 --> 00:05:17.642
+tanto que no es práctico
+hacerlo varias veces al día.
+
+00:05:18.112 --> 00:05:21.431
+Y si la plataforma de desarrollo
+es distinta a la de destino,
+
+00:05:21.431 --> 00:05:24.640
+quizá no puedas ejecutar las
+pruebas en tu espacio privado.
+
+00:05:25.690 --> 00:05:30.341
+Algunas herramientas: Jenkins, de código
+abierto y escrita en Java, la más conocida.
+
+00:05:30.811 --> 00:05:32.923
+Buddy, moderna y fácil de aprender.
+
+00:05:33.393 --> 00:05:36.486
+Bamboo, que reúne compilaciones,
+pruebas y lanzamientos.
+
+00:05:36.956 --> 00:05:40.114
+Y TeamCity, de JetBrains,
+gratis hasta cierto límite.
+
+00:05:41.164 --> 00:05:45.075
+Con casos concretos: compilar y
+probar un sistema bancario completo
+
+00:05:45.075 --> 00:05:48.694
+puede tardar seis horas, y eso
+no se hace varias veces al día.
+
+00:05:49.164 --> 00:05:51.756
+Y el software de un cajero
+automático no se puede
+
+00:05:51.756 --> 00:05:54.242
+probar completo en la
+laptop del desarrollador.
+
+00:05:55.292 --> 00:05:57.753
+Segunda parte: los conceptos relacionados,
+
+00:05:57.753 --> 00:06:00.390
+la entrega continua y el despliegue continuo.
+
+00:06:01.440 --> 00:06:05.015
+La entrega continua es una extensión
+de la integración continua:
+
+00:06:05.015 --> 00:06:08.758
+permite lanzar cambios a los clientes
+rápido y de forma sostenible.
+
+00:06:09.228 --> 00:06:12.236
+Además de las pruebas, se
+automatiza el lanzamiento: la
+
+00:06:12.236 --> 00:06:15.628
+aplicación se puede publicar en
+cualquier momento con un clic.
+
+00:06:16.098 --> 00:06:21.154
+Y el ritmo es flexible: se decide publicar
+cada día, cada semana o cada quince días.
+
+00:06:22.204 --> 00:06:24.849
+Este diagrama de Atlassian
+muestra la diferencia.
+
+00:06:25.134 --> 00:06:28.974
+La integración continua automatiza
+las compilaciones y las pruebas.
+
+00:06:29.444 --> 00:06:32.788
+En la entrega continua todo está
+automatizado hasta producción,
+
+00:06:32.788 --> 00:06:35.972
+pero el paso a producción es
+manual: una persona lo aprueba.
+
+00:06:36.442 --> 00:06:40.176
+Y en el despliegue continuo, hasta
+ese último paso es automático.
+
+00:06:41.226 --> 00:06:44.355
+El despliegue continuo va un
+paso más allá: cada cambio
+
+00:06:44.355 --> 00:06:47.370
+que pasa todas las etapas
+se publica automáticamente.
+
+00:06:47.840 --> 00:06:51.168
+Sin intervención humana: solo
+una prueba fallida lo detiene.
+
+00:06:51.638 --> 00:06:55.990
+Y los desarrolladores ven su trabajo
+publicado minutos después de terminarlo.
+
+00:06:57.040 --> 00:07:01.143
+Para fijarlo: integración continua
+llega hasta software probado; entrega
+
+00:07:01.143 --> 00:07:05.189
+continua, a publicar con un clic;
+despliegue continuo, a publicar solo.
+
+00:07:05.659 --> 00:07:08.219
+Un banco con todo automatizado, pero donde un
+
+00:07:08.219 --> 00:07:11.120
+gerente aprueba cada
+publicación: entrega continua.
+
+00:07:11.590 --> 00:07:14.306
+Netflix publicando sin
+intervención humana cada
+
+00:07:14.306 --> 00:07:17.137
+cambio que pasa las pruebas:
+despliegue continuo.
+
+00:07:17.396 --> 00:07:21.770
+Y un equipo que prueba en cada push pero
+instala a mano: solo integración continua.
+
+00:07:22.820 --> 00:07:26.128
+Y como material complementario,
+la clase recomienda estos
+
+00:07:26.128 --> 00:07:29.262
+tres videos sobre CI/CD, para
+ver de forma individual.
+
+00:07:30.312 --> 00:07:32.147
+Antes de terminar, ponte a prueba.
+
+00:07:32.401 --> 00:07:34.833
+Si necesitas más tiempo, pausa el video.
+
+00:07:35.074 --> 00:07:38.892
+Primera pregunta: en integración
+continua, ¿qué significa «continuo»?
+
+00:07:43.512 --> 00:07:46.286
+Que ocurre repetidamente, varias veces al día.
+
+00:07:46.595 --> 00:07:48.685
+No significa que nunca se detenga.
+
+00:07:49.155 --> 00:07:51.801
+Siguiente: la compilación
+del equipo está rota.
+
+00:07:52.087 --> 00:07:54.199
+Según las prácticas clave, ¿qué se hace?
+
+00:07:58.819 --> 00:08:02.595
+Se repara inmediatamente, antes de
+seguir integrando otros cambios.
+
+00:08:03.065 --> 00:08:05.561
+Y la última: todo está automatizado, pero una
+
+00:08:05.561 --> 00:08:08.057
+persona decide cuándo publicar en producción.
+
+00:08:08.359 --> 00:08:10.365
+¿Es entrega o despliegue continuo?
+
+00:08:15.985 --> 00:08:17.222
+Entrega continua.
+
+00:08:17.529 --> 00:08:21.753
+En el despliegue continuo, hasta la
+publicación en producción es automática.
+
+00:08:22.803 --> 00:08:24.681
+Resumamos lo más importante.
+
+00:08:25.151 --> 00:08:28.770
+Uno: en integración continua
+todos integran con frecuencia, y
+
+00:08:28.770 --> 00:08:32.745
+cada integración se verifica con
+compilación y pruebas automáticas.
+
+00:08:33.215 --> 00:08:36.127
+Dos: son siete pasos, desde
+el check-out de la línea
+
+00:08:36.127 --> 00:08:39.487
+principal hasta confirmar los
+cambios como nueva línea base.
+
+00:08:39.957 --> 00:08:43.997
+Tres: hay diez prácticas clave, como
+mantener un solo repositorio, reparar
+
+00:08:43.997 --> 00:08:47.872
+las compilaciones rotas de inmediato
+y probar en un clon de producción.
+
+00:08:48.342 --> 00:08:51.853
+Y cuatro: la entrega continua
+permite publicar con un clic, y el
+
+00:08:51.853 --> 00:08:55.638
+despliegue continuo publica
+automáticamente, sin intervención humana.
+
+00:08:56.688 --> 00:08:58.416
+Eso es todo para el tema tres.
+
+00:08:58.683 --> 00:09:01.842
+En el siguiente video vemos
+las prácticas y los estándares
+
+00:09:01.842 --> 00:09:04.294
+de codificación: cómo escribir código limpio.
+
+00:09:04.534 --> 00:09:05.558
+¡Nos vemos ahí!
+

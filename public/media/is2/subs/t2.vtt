@@ -1,0 +1,624 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:02.292
+«En mi computadora sí funciona».
+
+00:00:02.584 --> 00:00:07.149
+Seguramente ya la escuchaste: es la frase
+más famosa del desarrollo de software.
+
+00:00:07.619 --> 00:00:10.939
+Casi siempre significa lo mismo:
+el programa se construyó a
+
+00:00:10.939 --> 00:00:14.766
+mano, con otra versión de alguna
+librería, o con otra configuración.
+
+00:00:15.236 --> 00:00:19.079
+En este video vemos cómo evitarlo:
+construir el sistema siempre igual,
+
+00:00:19.079 --> 00:00:23.087
+cambiarlo con un proceso, y lanzarlo
+sabiendo exactamente qué se entrega.
+
+00:00:24.137 --> 00:00:27.038
+Tema dos: construcción de
+sistemas, gestión del cambio
+
+00:00:27.038 --> 00:00:29.939
+y gestión de versiones, es
+decir, de los lanzamientos.
+
+00:00:30.989 --> 00:00:33.478
+Son tres de las cuatro
+actividades de la gestión
+
+00:00:33.478 --> 00:00:35.811
+de la configuración que vimos en el tema uno.
+
+00:00:36.861 --> 00:00:39.513
+Primero, la construcción
+de sistemas: compilar y
+
+00:00:39.513 --> 00:00:42.386
+vincular los componentes
+para obtener un ejecutable.
+
+00:00:42.856 --> 00:00:46.653
+Segundo, la gestión del cambio:
+controlar cómo evoluciona el sistema.
+
+00:00:47.123 --> 00:00:51.859
+Y tercero, la gestión de versiones, entendida
+como preparar y distribuir lanzamientos.
+
+00:00:52.909 --> 00:00:57.410
+Construir un sistema es crear un sistema
+completo y ejecutable, compilando y
+
+00:00:57.410 --> 00:01:01.969
+vinculando sus componentes, las bibliotecas
+externas, la configuración y otra
+
+00:01:01.969 --> 00:01:02.680
+información.
+
+00:01:03.150 --> 00:01:05.785
+Las entradas son el código
+fuente, los archivos
+
+00:01:05.785 --> 00:01:08.419
+de configuración y de
+datos, y las bibliotecas…
+
+00:01:08.889 --> 00:01:11.897
+…el sistema automatizado de
+construcción las procesa…
+
+00:01:12.367 --> 00:01:16.762
+…y produce el sistema ejecutable, las
+pruebas ejecutables y sus resultados.
+
+00:01:17.812 --> 00:01:21.993
+Así se ve en la práctica, con Maven, una
+herramienta de construcción para Java.
+
+00:01:22.281 --> 00:01:24.499
+Un solo comando: mvn package.
+
+00:01:24.969 --> 00:01:29.326
+Compila cuarenta y dos archivos de
+código, copia la configuración, descarga
+
+00:01:29.326 --> 00:01:33.567
+las bibliotecas, ejecuta ciento dieciocho
+pruebas y genera el ejecutable.
+
+00:01:34.037 --> 00:01:36.831
+Y un detalle importante:
+la recompilación mínima.
+
+00:01:37.139 --> 00:01:40.060
+Si solo cambiaste un archivo,
+la herramienta recompila
+
+00:01:40.060 --> 00:01:43.198
+ese archivo y lo que depende
+de él, no los cuarenta y dos.
+
+00:01:44.248 --> 00:01:47.725
+En la construcción pueden intervenir
+tres plataformas distintas.
+
+00:01:48.195 --> 00:01:50.659
+El sistema de desarrollo, con las herramientas
+
+00:01:50.659 --> 00:01:53.443
+y el espacio de trabajo
+privado de cada programador.
+
+00:01:53.913 --> 00:01:57.316
+El servidor de gestión de versiones
+y de construcción: recibe
+
+00:01:57.316 --> 00:02:00.719
+el check-in del código y construye
+las versiones ejecutables.
+
+00:02:01.189 --> 00:02:04.559
+Y el sistema objetivo, donde
+finalmente corre el ejecutable.
+
+00:02:05.609 --> 00:02:09.462
+Un ejemplo: el sistema de desarrollo
+es la laptop de Ana, el servidor
+
+00:02:09.462 --> 00:02:13.483
+es GitHub con un servidor de integración
+continua, y el sistema objetivo
+
+00:02:13.483 --> 00:02:17.001
+puede ser un servidor Linux, un
+celular o un cajero automático.
+
+00:02:17.471 --> 00:02:18.730
+¿Por qué separarlos?
+
+00:02:19.150 --> 00:02:21.582
+Porque el objetivo puede ser muy distinto.
+
+00:02:21.864 --> 00:02:25.341
+Una app de Android se programa en
+Windows, pero corre en un teléfono.
+
+00:02:25.811 --> 00:02:29.502
+Y una pregunta típica: la versión
+que se entrega al cliente se genera
+
+00:02:29.502 --> 00:02:33.192
+en el servidor de construcción, no
+en la máquina de un desarrollador.
+
+00:02:33.495 --> 00:02:35.351
+Así se construye siempre igual.
+
+00:02:36.401 --> 00:02:39.924
+Los métodos ágiles recomiendan
+compilar el sistema con mucha
+
+00:02:39.924 --> 00:02:43.740
+frecuencia y usar pruebas automatizadas
+para descubrir problemas.
+
+00:02:44.210 --> 00:02:46.645
+Esas compilaciones frecuentes son parte de la
+
+00:02:46.645 --> 00:02:49.351
+integración continua, el
+tema del siguiente video.
+
+00:02:50.401 --> 00:02:54.604
+Lo ideal es construir el sistema
+completo con un solo comando o un clic.
+
+00:02:54.883 --> 00:02:57.870
+Para eso, las herramientas
+ofrecen varias funciones.
+
+00:02:58.340 --> 00:03:01.579
+Generan scripts de compilación,
+se integran con el control
+
+00:03:01.579 --> 00:03:05.209
+de versiones, recompilan solo lo
+necesario y crean el ejecutable.
+
+00:03:05.679 --> 00:03:09.039
+Además, automatizan las pruebas,
+informan si la construcción
+
+00:03:09.039 --> 00:03:11.503
+tuvo éxito o falló, y generan documentación.
+
+00:03:12.553 --> 00:03:14.878
+Segundo módulo: la gestión del cambio.
+
+00:03:15.928 --> 00:03:19.908
+Los cambios son inevitables: las
+necesidades de la organización cambian,
+
+00:03:19.908 --> 00:03:23.502
+hay errores que reparar y el sistema
+debe adaptarse a su entorno.
+
+00:03:23.972 --> 00:03:26.706
+El objetivo: controlar la
+evolución del sistema,
+
+00:03:26.706 --> 00:03:29.497
+y priorizar los cambios
+más urgentes y rentables.
+
+00:03:29.967 --> 00:03:34.133
+Y para eso hace falta un proceso
+definido: analizar costos y beneficios,
+
+00:03:34.133 --> 00:03:38.820
+aprobar los cambios que valen la pena, y
+rastrear qué componentes se modificaron.
+
+00:03:39.870 --> 00:03:41.150
+Este es el proceso.
+
+00:03:41.397 --> 00:03:44.981
+El cliente envía una solicitud
+de cambio, que se abrevia CR.
+
+00:03:45.451 --> 00:03:48.077
+Soporte al cliente la
+revisa, y la registra o la
+
+00:03:48.077 --> 00:03:50.976
+cierra, por ejemplo si está
+duplicada o no es válida.
+
+00:03:51.446 --> 00:03:54.120
+La junta de control de cambios, el CCB, evalúa
+
+00:03:54.120 --> 00:03:56.737
+las solicitudes y selecciona cuáles se harán.
+
+00:03:57.207 --> 00:04:00.101
+Y desarrollo analiza la
+implementación y el impacto,
+
+00:04:00.101 --> 00:04:03.052
+modifica y prueba el software,
+y cierra la solicitud.
+
+00:04:04.102 --> 00:04:07.095
+Todo empieza cuando una parte
+interesada llena y envía
+
+00:04:07.095 --> 00:04:10.310
+una solicitud de cambio,
+describiendo el cambio requerido.
+
+00:04:10.780 --> 00:04:12.636
+Se usa un formulario estándar.
+
+00:04:12.920 --> 00:04:16.824
+Este es el del libro de Sommerville:
+proyecto, número, solicitante, fecha…
+
+00:04:17.294 --> 00:04:20.757
+…el cambio solicitado, la
+prioridad, el esfuerzo estimado, y
+
+00:04:20.757 --> 00:04:24.740
+la decisión del CCB: aceptar el
+cambio para el release uno punto dos.
+
+00:04:25.790 --> 00:04:30.184
+Aquí tienes una solicitud llenada para
+un caso cercano: el portal de matrícula.
+
+00:04:30.432 --> 00:04:34.229
+La secretaría pide un aviso cuando
+dos materias se cruzan de horario.
+
+00:04:34.699 --> 00:04:39.179
+Prioridad alta, seis horas de esfuerzo más
+pruebas, y afecta al módulo de horarios.
+
+00:04:39.457 --> 00:04:42.678
+El CCB la acepta para la
+versión tres punto cuatro.
+
+00:04:43.148 --> 00:04:47.400
+Y a la derecha, el recorrido: cliente,
+soporte, desarrollo para el análisis,
+
+00:04:47.400 --> 00:04:51.148
+el CCB que decide, y desarrollo
+otra vez para implementar y cerrar.
+
+00:04:52.198 --> 00:04:54.332
+¿Qué factores influyen en la decisión?
+
+00:04:54.780 --> 00:04:57.809
+Las consecuencias de no hacer
+el cambio, y sus beneficios.
+
+00:04:58.279 --> 00:05:01.138
+El número de usuarios afectados,
+y el costo de hacerlo.
+
+00:05:01.608 --> 00:05:05.789
+Y el ciclo de lanzamiento: si cabe en
+la próxima versión o conviene esperar.
+
+00:05:06.839 --> 00:05:08.162
+Pongámoslo a prueba.
+
+00:05:08.440 --> 00:05:12.152
+Solo hay tiempo para una solicitud
+antes del lanzamiento del viernes.
+
+00:05:12.622 --> 00:05:14.755
+La A: el botón Pagar falla en iPhone.
+
+00:05:15.000 --> 00:05:16.600
+La B: agregar modo oscuro.
+
+00:05:16.865 --> 00:05:18.913
+Compara los factores fila por fila.
+
+00:05:19.383 --> 00:05:22.119
+Se aprueba la A: afecta a
+más usuarios, no hacerla
+
+00:05:22.119 --> 00:05:24.417
+tiene consecuencias graves, y cuesta poco.
+
+00:05:24.711 --> 00:05:26.205
+La B queda para después.
+
+00:05:27.255 --> 00:05:31.052
+Para aplicaciones web, los cambios
+se clasifican en cuatro clases.
+
+00:05:31.334 --> 00:05:35.323
+Clase uno, corrección local: corrige
+un error o mejora un contenido local.
+
+00:05:35.793 --> 00:05:39.996
+Clase dos, impacto funcional: afecta
+a otros objetos o componentes.
+
+00:05:40.466 --> 00:05:43.414
+Clase tres, impacto amplio:
+cambios grandes en toda
+
+00:05:43.414 --> 00:05:46.652
+la aplicación, en funcionalidad,
+contenido o navegación.
+
+00:05:47.122 --> 00:05:50.148
+Y clase cuatro, cambio de
+diseño: un cambio importante
+
+00:05:50.148 --> 00:05:53.565
+de interfaz o de navegación que
+el usuario nota de inmediato.
+
+00:05:54.615 --> 00:05:56.599
+Y según la clase, cambia el flujo.
+
+00:05:56.876 --> 00:05:59.500
+Primero se clasifica el cambio solicitado.
+
+00:05:59.970 --> 00:06:03.064
+Para la clase dos, se reúnen
+los objetos relacionados.
+
+00:06:03.350 --> 00:06:06.678
+Para la tres, se redacta una
+descripción y se envía al equipo.
+
+00:06:06.919 --> 00:06:09.159
+Para la cuatro, se envía a los stakeholders.
+
+00:06:09.629 --> 00:06:13.071
+Al final todos siguen el mismo
+camino: check-out de los objetos,
+
+00:06:13.071 --> 00:06:16.029
+hacer el cambio, check-in, y
+publicar en la aplicación.
+
+00:06:17.079 --> 00:06:17.975
+Practiquemos.
+
+00:06:18.285 --> 00:06:22.061
+Corregir una falta de ortografía en
+la página de contacto: clase uno.
+
+00:06:22.531 --> 00:06:25.824
+Cambiar el cálculo del IVA, que
+usan el carrito, la factura
+
+00:06:25.824 --> 00:06:29.229
+y los reportes: clase dos, porque
+afecta a otros componentes.
+
+00:06:29.699 --> 00:06:32.089
+Agregar pagos con tarjeta: clase tres.
+
+00:06:32.391 --> 00:06:35.164
+Y rediseñar el menú y la
+navegación: clase cuatro.
+
+00:06:35.634 --> 00:06:38.685
+Y actualizar la foto de un
+producto, otra vez clase uno.
+
+00:06:39.735 --> 00:06:44.471
+Tercer módulo: la gestión de versiones, vista
+como la preparación de los lanzamientos.
+
+00:06:45.521 --> 00:06:50.001
+Una versión del sistema, en este sentido,
+es la que se distribuye a los clientes.
+
+00:06:50.302 --> 00:06:52.265
+Y no es solo el código ejecutable.
+
+00:06:52.735 --> 00:06:56.237
+También incluye archivos de
+configuración, archivos de datos como
+
+00:06:56.237 --> 00:07:00.009
+los mensajes de error en varios
+idiomas, y el programa de instalación.
+
+00:07:00.479 --> 00:07:05.237
+Y la documentación, más el embalaje y la
+publicidad diseñados para ese lanzamiento.
+
+00:07:06.287 --> 00:07:09.787
+Para documentar un lanzamiento,
+hay que registrar las versiones
+
+00:07:09.787 --> 00:07:13.455
+exactas de los componentes que se
+usaron para crear el ejecutable.
+
+00:07:13.925 --> 00:07:16.698
+Y conservar copias del
+código, de los ejecutables
+
+00:07:16.698 --> 00:07:19.471
+y de todos los archivos
+de datos y configuración.
+
+00:07:19.772 --> 00:07:22.476
+Incluso de sistemas
+operativos antiguos, porque
+
+00:07:22.476 --> 00:07:24.892
+algunos clientes podrían seguir usándolos.
+
+00:07:25.942 --> 00:07:28.801
+Este diagrama distingue
+versiones de lanzamientos.
+
+00:07:29.094 --> 00:07:32.060
+Hay versiones de desarrollo
+y versiones preliminares…
+
+00:07:32.530 --> 00:07:37.458
+…y solo algunas se convierten en lanzamientos:
+R uno punto cero y R uno punto uno.
+
+00:07:38.508 --> 00:07:43.073
+Con números: el equipo genera las versiones
+uno punto cero hasta uno punto cinco.
+
+00:07:43.327 --> 00:07:45.990
+La uno punto tres se entrega como R uno punto
+
+00:07:45.990 --> 00:07:48.831
+cero, y la uno punto cinco
+como R uno punto uno.
+
+00:07:49.301 --> 00:07:51.904
+La regla para recordar: toda versión entregada
+
+00:07:51.904 --> 00:07:54.677
+es un lanzamiento, pero
+no toda versión se lanza.
+
+00:07:55.147 --> 00:07:58.265
+Y el lanzamiento incluye el
+ejecutable, la configuración,
+
+00:07:58.265 --> 00:08:00.672
+los datos, el instalador y la documentación.
+
+00:08:01.722 --> 00:08:03.599
+¿Qué motiva un nuevo lanzamiento?
+
+00:08:04.028 --> 00:08:06.908
+La competencia, si un rival
+sacó funciones nuevas.
+
+00:08:07.378 --> 00:08:10.770
+Los requisitos de marketing, por
+ejemplo una fecha comprometida.
+
+00:08:11.240 --> 00:08:15.208
+Los cambios de plataforma, como una
+nueva versión del sistema operativo.
+
+00:08:15.678 --> 00:08:19.652
+Y la calidad técnica: si hay fallas
+graves que afectan a muchos clientes,
+
+00:08:19.652 --> 00:08:23.571
+se hace un nuevo lanzamiento; las
+fallas menores se reparan con parches.
+
+00:08:24.621 --> 00:08:26.456
+Antes de terminar, ponte a prueba.
+
+00:08:26.710 --> 00:08:29.142
+Si necesitas más tiempo, pausa el video.
+
+00:08:29.383 --> 00:08:32.024
+Primera pregunta: ¿quién
+evalúa y selecciona las
+
+00:08:32.024 --> 00:08:34.609
+solicitudes de cambio que
+se van a implementar?
+
+00:08:39.229 --> 00:08:41.704
+La junta de control de cambios, el CCB.
+
+00:08:42.174 --> 00:08:46.825
+Siguiente: agregar un módulo completo de
+pagos a una tienda web es un cambio de clase…
+
+00:08:52.445 --> 00:08:56.647
+Clase tres, impacto amplio: es una
+gran ampliación de la funcionalidad.
+
+00:08:57.117 --> 00:09:00.296
+Y la última: ¿toda versión de
+un sistema es un lanzamiento?
+
+00:09:04.916 --> 00:09:05.388
+No.
+
+00:09:05.632 --> 00:09:08.811
+Un lanzamiento es una versión
+que se entrega a los clientes.
+
+00:09:09.087 --> 00:09:11.284
+Muchas versiones son solo internas.
+
+00:09:12.334 --> 00:09:14.211
+Resumamos lo más importante.
+
+00:09:14.681 --> 00:09:18.702
+Uno: construir es compilar y vincular
+el código, la configuración, los
+
+00:09:18.702 --> 00:09:22.895
+datos y las bibliotecas en un ejecutable,
+idealmente con un solo comando.
+
+00:09:23.365 --> 00:09:26.426
+Dos: intervienen tres
+plataformas: la de desarrollo, el
+
+00:09:26.426 --> 00:09:29.765
+servidor de versiones y
+construcción, y el sistema objetivo.
+
+00:09:30.235 --> 00:09:34.719
+Tres: la gestión del cambio va del cliente
+a soporte, al CCB y a desarrollo; y
+
+00:09:34.719 --> 00:09:39.145
+se decide por consecuencias, beneficios,
+usuarios afectados, costo y ciclo de
+
+00:09:39.145 --> 00:09:39.835
+lanzamiento.
+
+00:09:40.305 --> 00:09:43.533
+Y cuatro: los cambios web se
+clasifican en cuatro clases,
+
+00:09:43.533 --> 00:09:46.534
+y un lanzamiento incluye
+mucho más que el ejecutable.
+
+00:09:47.584 --> 00:09:49.312
+Eso es todo para el tema dos.
+
+00:09:49.597 --> 00:09:52.411
+En el siguiente video vemos
+la integración continua:
+
+00:09:52.411 --> 00:09:55.549
+integrar el trabajo de todo el
+equipo varias veces al día.
+
+00:09:55.848 --> 00:09:56.872
+¡Nos vemos ahí!
+

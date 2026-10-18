@@ -1,7 +1,5 @@
-import raw from "../data/questions.json";
-import type { WeekNum } from "../data/meta";
-
-type Base = { id: string; w: WeekNum; topic: string; pts: number; q: string; code?: string; explain: string; src: string; page: number };
+/** `w` es la unidad: la Week (Sistemas Inteligentes) o el Tema (Ingeniería de Software II). */
+type Base = { id: string; w: number; topic: string; pts: number; q: string; code?: string; explain: string; src: string; page: number };
 export type MCQ = Base & { type: "mc"; options: string[]; answer: number };
 export type MultiQ = Base & { type: "multi"; options: string[]; answer: number[] };
 export type TFQ = Base & { type: "tf"; answer: boolean };
@@ -11,9 +9,6 @@ export type InputQ = Base & { type: "input"; answer: string[]; numeric?: boolean
 export type Question = MCQ | MultiQ | TFQ | MatchQ | OrderQ | InputQ;
 export type Answer = number | number[] | boolean | string[] | string;
 
-export const QUESTIONS = raw as unknown as Question[];
-export const QMAP: Record<string, Question> = Object.fromEntries(QUESTIONS.map((q) => [q.id, q]));
-export const TOTAL_POINTS = QUESTIONS.reduce((s, q) => s + q.pts, 0);
 export const PASS = 70;
 
 export const TYPE_LABEL: Record<Question["type"], string> = {
@@ -29,7 +24,7 @@ export type Mode = "lesson" | "random" | "bank" | "review";
 export type Attempt = {
   id: string;
   mode: Mode;
-  week?: WeekNum;
+  week?: number;
   label: string;
   ids: string[];
   idx: number;
@@ -54,33 +49,6 @@ export function shuffle<T>(arr: T[]): T[] {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
-}
-
-export const weekIds = (w: WeekNum) => QUESTIONS.filter((q) => q.w === w).map((q) => q.id);
-export const pickLesson = (w: WeekNum) => shuffle(weekIds(w));
-export const pickRandom = (n = RANDOM_N) => shuffle(QUESTIONS.map((q) => q.id)).slice(0, n);
-export const pickBank = () => shuffle(QUESTIONS.map((q) => q.id));
-
-export function createAttempt(mode: Mode, ids: string[], label: string, instant: boolean, week?: WeekNum): Attempt {
-  const perm: Attempt["perm"] = {};
-  const choices: Attempt["choices"] = {};
-  const order0: Attempt["order0"] = {};
-  for (const id of ids) {
-    const q = QMAP[id];
-    if (q.type === "mc" || q.type === "multi") perm[id] = shuffle(q.options.map((_, i) => i));
-    if (q.type === "match") choices[id] = shuffle([...new Set([...q.pairs.map((p) => p[1]), ...(q.extra ?? [])])]);
-    if (q.type === "order") {
-      let o: number[];
-      do o = shuffle(q.items.map((_, i) => i));
-      while (o.every((x, i) => x === i));
-      order0[id] = o;
-    }
-  }
-  return {
-    id: Math.random().toString(36).slice(2, 10),
-    mode, week, label, ids, idx: 0, answers: {}, checked: {}, flags: {}, perm, choices, order0, instant,
-    elapsed: 0, startedAt: Date.now(),
-  };
 }
 
 const norm = (s: unknown) =>
@@ -169,26 +137,63 @@ export type Result = {
   nOk: number;
   nPart: number;
   nBad: number;
-  byWeek: Partial<Record<WeekNum, { earned: number; possible: number; n: number }>>;
+  byWeek: Partial<Record<number, { earned: number; possible: number; n: number }>>;
 };
 
-export function computeResult(att: Attempt): Result {
-  let earned = 0, possible = 0, nOk = 0, nPart = 0, nBad = 0;
-  const byWeek: Result["byWeek"] = {};
-  const rows = att.ids.map((id) => {
-    const q = QMAP[id];
-    const a = att.answers[id];
-    const f = grade(q, a);
-    const e = q.pts * f;
-    earned += e;
-    possible += q.pts;
-    if (f === 1) nOk++; else if (f > 0) nPart++; else nBad++;
-    const b = (byWeek[q.w] ??= { earned: 0, possible: 0, n: 0 });
-    b.earned += e; b.possible += q.pts; b.n++;
-    return { q, a, f, earned: e };
-  });
-  return { rows, earned, possible, score: possible ? (earned / possible) * 100 : 0, nOk, nPart, nBad, byWeek };
+
+/** Banco de preguntas de una materia y las funciones que dependen de él. */
+export function makeBank(questions: Question[]) {
+  const QUESTIONS = questions;
+  const QMAP: Record<string, Question> = Object.fromEntries(QUESTIONS.map((q) => [q.id, q]));
+  const TOTAL_POINTS = QUESTIONS.reduce((s, q) => s + q.pts, 0);
+  const weekIds = (w: number) => QUESTIONS.filter((q) => q.w === w).map((q) => q.id);
+  const pickLesson = (w: number) => shuffle(weekIds(w));
+  const pickRandom = (n = RANDOM_N) => shuffle(QUESTIONS.map((q) => q.id)).slice(0, n);
+  const pickBank = () => shuffle(QUESTIONS.map((q) => q.id));
+
+  function createAttempt(mode: Mode, ids: string[], label: string, instant: boolean, week?: number): Attempt {
+    const perm: Attempt["perm"] = {};
+    const choices: Attempt["choices"] = {};
+    const order0: Attempt["order0"] = {};
+    for (const id of ids) {
+      const q = QMAP[id];
+      if (q.type === "mc" || q.type === "multi") perm[id] = shuffle(q.options.map((_, i) => i));
+      if (q.type === "match") choices[id] = shuffle([...new Set([...q.pairs.map((p) => p[1]), ...(q.extra ?? [])])]);
+      if (q.type === "order") {
+        let o: number[];
+        do o = shuffle(q.items.map((_, i) => i));
+        while (o.every((x, i) => x === i));
+        order0[id] = o;
+      }
+    }
+    return {
+      id: Math.random().toString(36).slice(2, 10),
+      mode, week, label, ids, idx: 0, answers: {}, checked: {}, flags: {}, perm, choices, order0, instant,
+      elapsed: 0, startedAt: Date.now(),
+    };
+  }
+
+  function computeResult(att: Attempt): Result {
+    let earned = 0, possible = 0, nOk = 0, nPart = 0, nBad = 0;
+    const byWeek: Result["byWeek"] = {};
+    const rows = att.ids.map((id) => {
+      const q = QMAP[id];
+      const a = att.answers[id];
+      const f = grade(q, a);
+      const e = q.pts * f;
+      earned += e;
+      possible += q.pts;
+      if (f === 1) nOk++; else if (f > 0) nPart++; else nBad++;
+      const b = (byWeek[q.w] ??= { earned: 0, possible: 0, n: 0 });
+      b.earned += e; b.possible += q.pts; b.n++;
+      return { q, a, f, earned: e };
+    });
+    return { rows, earned, possible, score: possible ? (earned / possible) * 100 : 0, nOk, nPart, nBad, byWeek };
+  }
+
+  return { QUESTIONS, QMAP, TOTAL_POINTS, TOTAL_Q: QUESTIONS.length, weekIds, pickLesson, pickRandom, pickBank, createAttempt, computeResult };
 }
+export type Bank = ReturnType<typeof makeBank>;
 
 export const fmt1 = (x: number) =>
   (Math.round(x * 10) / 10).toLocaleString("es-EC", { minimumFractionDigits: Number.isInteger(Math.round(x * 10) / 10) ? 0 : 1, maximumFractionDigits: 1 });

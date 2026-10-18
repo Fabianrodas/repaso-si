@@ -1,0 +1,899 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:04.404
+El requisito dice: pueden votar las
+personas de dieciocho años o más.
+
+00:00:04.874 --> 00:00:08.330
+Y el programador escribió:
+devolver edad mayor que dieciocho.
+
+00:00:08.627 --> 00:00:09.694
+¿Ves el problema?
+
+00:00:10.164 --> 00:00:12.340
+Si pruebas con diez años, funciona.
+
+00:00:12.632 --> 00:00:13.976
+Con treinta, también.
+
+00:00:14.241 --> 00:00:16.246
+Podrías creer que todo está bien…
+
+00:00:16.716 --> 00:00:18.295
+…pero con dieciocho, falla.
+
+00:00:18.565 --> 00:00:20.208
+Debía ser mayor o igual.
+
+00:00:20.678 --> 00:00:22.726
+Los errores se esconden en los límites.
+
+00:00:22.990 --> 00:00:26.894
+Y por eso existe la técnica de este
+tema: el análisis del valor límite.
+
+00:00:27.944 --> 00:00:30.163
+Tema siete: análisis del valor límite.
+
+00:00:31.213 --> 00:00:33.686
+Es decir: diseñar casos de prueba funcionales
+
+00:00:33.686 --> 00:00:36.269
+a partir de los límites
+del dominio de entrada.
+
+00:00:37.319 --> 00:00:39.970
+Cuatro secciones: verificación y validación, y
+
+00:00:39.970 --> 00:00:42.908
+las pruebas funcionales con
+sus entradas y salidas…
+
+00:00:43.378 --> 00:00:47.773
+…los tipos de entrada, ROV, GV y
+SNM, y el análisis del valor límite.
+
+00:00:48.823 --> 00:00:52.107
+Primero: verificación y validación,
+es decir, dónde encajan
+
+00:00:52.107 --> 00:00:54.946
+las pruebas dentro del
+aseguramiento de la calidad.
+
+00:00:55.996 --> 00:00:58.954
+La verificación comprueba
+que el software cumple los
+
+00:00:58.954 --> 00:01:01.969
+requisitos funcionales y no
+funcionales establecidos.
+
+00:01:02.439 --> 00:01:06.538
+La validación garantiza que el software
+cumpla las expectativas del cliente:
+
+00:01:06.538 --> 00:01:11.015
+demuestra que es lo que el cliente necesita,
+no solo lo que dice la especificación.
+
+00:01:12.065 --> 00:01:14.326
+Barry Boehm lo resumió en dos preguntas.
+
+00:01:14.605 --> 00:01:18.040
+Verificación: ¿estamos construyendo
+el producto correctamente?
+
+00:01:18.510 --> 00:01:21.496
+Validación: ¿estamos construyendo
+el producto correcto?
+
+00:01:21.966 --> 00:01:25.892
+Y las pruebas son parte de ese
+proceso más amplio, llamado V y V.
+
+00:01:26.942 --> 00:01:27.838
+Practiquemos.
+
+00:01:28.147 --> 00:01:30.755
+Comprobar que el IVA se calcula al quince por
+
+00:01:30.755 --> 00:01:33.651
+ciento, como dice la
+especificación: verificación.
+
+00:01:34.121 --> 00:01:36.802
+Usuarios reales dicen que
+el proceso de pago es
+
+00:01:36.802 --> 00:01:39.881
+confuso: validación, porque
+es sobre lo que necesitan.
+
+00:01:40.351 --> 00:01:44.618
+Revisar la pantalla de login contra los
+requisitos de seguridad: verificación.
+
+00:01:44.898 --> 00:01:48.653
+El cliente confirma que el sistema
+resuelve su problema: validación.
+
+00:01:49.123 --> 00:01:52.728
+Y ejecutar las pruebas unitarias
+contra el diseño: verificación.
+
+00:01:53.778 --> 00:01:55.933
+¿Por qué necesitamos una metodología?
+
+00:01:56.363 --> 00:02:01.270
+Porque el tiempo y el dinero son limitados:
+cada prueba cuesta diseñarla y ejecutarla.
+
+00:02:01.740 --> 00:02:06.582
+Y no podemos probarlo todo: las combinaciones
+de entrada crecen de forma exponencial.
+
+00:02:07.052 --> 00:02:10.334
+Así que las pruebas deben
+diseñarse con cuidado: encontrar
+
+00:02:10.334 --> 00:02:13.730
+la mayor cantidad de errores
+con la menor cantidad de casos.
+
+00:02:14.780 --> 00:02:18.129
+Segunda sección: pruebas
+funcionales, entradas y salidas.
+
+00:02:18.411 --> 00:02:21.483
+Cómo identificar qué entradas
+afectan a cada salida.
+
+00:02:22.533 --> 00:02:24.538
+Se va de las salidas a las entradas.
+
+00:02:24.802 --> 00:02:29.410
+Primero, partir de los resultados críticos:
+priorizar las salidas según el riesgo.
+
+00:02:29.880 --> 00:02:32.611
+Luego, elegir una salida
+para probar, por ejemplo y.
+
+00:02:33.081 --> 00:02:37.028
+Y encontrar sus dependencias: las
+entradas de las que depende esa salida.
+
+00:02:37.498 --> 00:02:41.274
+Ojo: no necesitas entender cómo
+depende la salida de sus entradas.
+
+00:02:41.557 --> 00:02:42.624
+Solo cuáles son.
+
+00:02:43.674 --> 00:02:45.850
+¿Dónde se encuentran esas dependencias?
+
+00:02:46.272 --> 00:02:48.704
+Los usuarios son quienes mejor las conocen.
+
+00:02:49.174 --> 00:02:53.739
+Pero cuidado: a menudo saben demasiado,
+y querrán explicarte cómo funciona todo.
+
+00:02:54.016 --> 00:02:55.339
+Hay que ser selectivo.
+
+00:02:55.809 --> 00:02:58.546
+Otras fuentes: la especificación
+de requisitos, la
+
+00:02:58.546 --> 00:03:01.612
+documentación del sistema y
+el presupuesto del proyecto.
+
+00:03:02.662 --> 00:03:06.480
+Tercera sección: los tipos
+de entrada, ROV, GV y SNM.
+
+00:03:06.769 --> 00:03:09.628
+Clasificarlas define qué
+tipo de prueba aplicar.
+
+00:03:10.678 --> 00:03:13.669
+ROV, variable de sólo
+resultados: influye en el valor
+
+00:03:13.669 --> 00:03:16.886
+de la salida, pero no en el
+camino que sigue el programa.
+
+00:03:17.196 --> 00:03:20.396
+Se prueba con un valor, sus
+límites y valores fuera de rango.
+
+00:03:20.866 --> 00:03:23.558
+GV, variable de puerta: decide qué ruta o qué
+
+00:03:23.558 --> 00:03:26.370
+cálculo se ejecuta; aparece
+en las condiciones.
+
+00:03:26.667 --> 00:03:28.501
+Hay que cubrir todas las rutas.
+
+00:03:28.971 --> 00:03:34.155
+Y SNM, variable que no debería importar: no
+debería afectar la salida que se prueba.
+
+00:03:34.457 --> 00:03:37.636
+No se prueba; solo se hace
+una verificación preliminar.
+
+00:03:38.686 --> 00:03:41.310
+Caso uno: total igual a amount por tax rate.
+
+00:03:41.551 --> 00:03:43.364
+¿Qué tipo de entrada es amount?
+
+00:03:43.834 --> 00:03:47.482
+Es ROV: cambia el valor del total,
+pero no el camino del programa.
+
+00:03:48.532 --> 00:03:51.433
+Caso dos: ahora hay tres ramas
+según el valor de amount.
+
+00:03:51.705 --> 00:03:53.262
+¿Qué tipo es cada entrada?
+
+00:03:53.732 --> 00:03:56.612
+amount es GV, variable de
+puerta: decide la rama.
+
+00:03:56.866 --> 00:03:59.447
+Y tax rate es ROV: solo cambia el valor.
+
+00:04:00.497 --> 00:04:03.405
+Caso tres: el código de área
+marcado se usa para armar
+
+00:04:03.405 --> 00:04:06.151
+el destino y para calcular
+la tarifa de la llamada.
+
+00:04:06.419 --> 00:04:07.336
+¿Qué tipo es?
+
+00:04:07.806 --> 00:04:12.201
+Es ROV: interviene en el valor del
+resultado, pero no decide ninguna ruta.
+
+00:04:13.251 --> 00:04:16.366
+¿Cómo verificamos que identificamos
+bien las dependencias?
+
+00:04:16.809 --> 00:04:20.499
+Para cada salida, se eligen las
+entradas que no deberían importar.
+
+00:04:20.969 --> 00:04:25.471
+Se fija el resto en un valor válido, se
+ejecuta una vez y se guarda la respuesta.
+
+00:04:25.761 --> 00:04:28.129
+Luego se varían las SNM al azar.
+
+00:04:28.599 --> 00:04:31.628
+Si de verdad no importan, la
+salida siempre es la misma.
+
+00:04:31.899 --> 00:04:35.185
+Si cambia, hay que revisar si
+esa variable debería importar.
+
+00:04:36.235 --> 00:04:38.283
+Un ejercicio con el costo de envío.
+
+00:04:38.531 --> 00:04:40.899
+Hay un if por el destino, y otro por el peso.
+
+00:04:41.369 --> 00:04:44.705
+destino y peso son de puerta:
+deciden la rama, así que hay
+
+00:04:44.705 --> 00:04:48.559
+que cubrir sus rutas. cantidad es
+de sólo resultados: valor límite.
+
+00:04:48.825 --> 00:04:51.855
+Y el color de la caja no
+debería importar: SNM.
+
+00:04:52.325 --> 00:04:55.247
+El truco: si la variable
+aparece en un if, es de puerta.
+
+00:04:55.515 --> 00:04:58.246
+Si solo entra en el cálculo,
+de sólo resultados.
+
+00:04:58.540 --> 00:05:00.609
+Si no aparece, no debería importar.
+
+00:05:01.659 --> 00:05:03.152
+Recordemos el panorama.
+
+00:05:03.401 --> 00:05:07.223
+Las técnicas de caja negra son valor
+límite, clases de equivalencia
+
+00:05:07.223 --> 00:05:10.932
+y tablas de decisión; las de caja
+blanca, rutas y flujo de datos.
+
+00:05:11.402 --> 00:05:13.514
+Hoy toca la primera: el valor límite.
+
+00:05:14.564 --> 00:05:16.868
+Cuarta sección: la prueba de valor límite.
+
+00:05:17.156 --> 00:05:20.676
+Los errores se concentran en los
+extremos del dominio de entrada.
+
+00:05:21.726 --> 00:05:24.098
+Cualquier software que se prueba puede verse
+
+00:05:24.098 --> 00:05:26.740
+como una función que asocia
+entradas con salidas.
+
+00:05:27.210 --> 00:05:31.924
+f de X en Y: X es el dominio, las
+entradas, e Y es el rango, las salidas.
+
+00:05:32.974 --> 00:05:35.492
+Un ejemplo: clasificar la presión arterial.
+
+00:05:35.751 --> 00:05:38.353
+Las entradas son la sistólica y la diastólica.
+
+00:05:38.823 --> 00:05:40.957
+Y la salida es baja, normal o alta.
+
+00:05:41.241 --> 00:05:43.843
+Con ciento veinte y noventa, devuelve normal.
+
+00:05:44.893 --> 00:05:48.237
+Con dos variables, el dominio
+es un rectángulo: la sistólica
+
+00:05:48.237 --> 00:05:52.083
+de cero a doscientos cincuenta, y
+la diastólica de cero a doscientos.
+
+00:05:52.553 --> 00:05:55.582
+Cada punto del rectángulo
+es una combinación válida.
+
+00:05:55.866 --> 00:05:59.237
+Y los bordes, los límites, son
+donde se concentran los errores.
+
+00:06:00.287 --> 00:06:02.548
+Hay tres categorías de valores de prueba.
+
+00:06:02.794 --> 00:06:05.653
+Dentro del rango: los valores
+típicos, o nominales.
+
+00:06:06.123 --> 00:06:08.299
+En los límites: el mínimo y el máximo.
+
+00:06:08.769 --> 00:06:11.841
+Y fuera del rango: los valores
+no válidos, o ilegales.
+
+00:06:12.891 --> 00:06:14.320
+¿Por qué esta técnica?
+
+00:06:14.748 --> 00:06:18.802
+Porque se producen más errores en los
+límites del dominio que en el centro.
+
+00:06:19.272 --> 00:06:23.837
+Tiene cuatro variantes: normal, solo valores
+válidos y una variable extrema a la vez…
+
+00:06:24.307 --> 00:06:27.886
+…robusta, que agrega valores fuera
+de rango; peor caso, con varias
+
+00:06:27.886 --> 00:06:32.008
+variables extremas a la vez; y robusta
+en el peor caso, que combina las dos.
+
+00:06:33.058 --> 00:06:37.069
+La idea básica: los errores aparecen
+cerca de los valores extremos.
+
+00:06:37.339 --> 00:06:41.179
+Por ejemplo, un bucle que usa menor
+cuando debía usar menor o igual.
+
+00:06:41.649 --> 00:06:45.809
+Ese error de uno más, uno menos, solo se
+detecta con valores justo en el límite.
+
+00:06:46.279 --> 00:06:49.449
+Por eso se usan cinco valores:
+el mínimo, justo encima del
+
+00:06:49.449 --> 00:06:52.893
+mínimo, un valor nominal, justo
+debajo del máximo, y el máximo.
+
+00:06:53.943 --> 00:06:55.863
+Volvamos al ejemplo del inicio.
+
+00:06:56.128 --> 00:06:58.474
+Con diez y con treinta, la prueba pasa.
+
+00:06:58.758 --> 00:07:00.123
+Con dieciocho, falla.
+
+00:07:00.593 --> 00:07:03.409
+Los valores del centro
+nunca revelan el defecto.
+
+00:07:03.649 --> 00:07:06.038
+Solo el valor justo en el límite lo encuentra.
+
+00:07:06.508 --> 00:07:10.592
+Con valor límite normal, para edades de
+dieciocho a ciento veinte, se prueban:
+
+00:07:10.592 --> 00:07:14.466
+dieciocho, diecinueve, sesenta y nueve,
+ciento diecinueve y ciento veinte.
+
+00:07:14.707 --> 00:07:17.032
+El dieciocho está incluido por diseño.
+
+00:07:18.082 --> 00:07:21.488
+Con una sola variable se prueba
+cada valor característico:
+
+00:07:21.488 --> 00:07:24.482
+mínimo, mínimo más, nominal,
+máximo menos y máximo.
+
+00:07:24.750 --> 00:07:26.820
+Cinco casos: cuatro n más uno.
+
+00:07:27.870 --> 00:07:30.835
+Con dos variables, cuatro n
+más uno da nueve pruebas.
+
+00:07:31.305 --> 00:07:36.020
+Una variable toma sus valores extremos,
+mientras la otra se queda en su valor nominal.
+
+00:07:36.265 --> 00:07:39.166
+Y el punto central, nominal
+y nominal, se comparte.
+
+00:07:40.216 --> 00:07:42.904
+En general, cada variable
+aporta cuatro valores,
+
+00:07:42.904 --> 00:07:45.592
+y se suma un caso con
+todas en su valor nominal.
+
+00:07:46.062 --> 00:07:49.987
+Una variable, cinco casos; dos, nueve;
+tres, trece; cuatro, diecisiete.
+
+00:07:50.457 --> 00:07:53.387
+Esto se basa en el supuesto
+de falla única: los fallos
+
+00:07:53.387 --> 00:07:56.751
+rara vez se deben a dos problemas
+que ocurren al mismo tiempo.
+
+00:07:57.801 --> 00:08:00.779
+La variante robusta agrega
+dos valores por variable:
+
+00:08:00.779 --> 00:08:04.158
+uno justo encima del máximo y
+otro justo debajo del mínimo.
+
+00:08:04.628 --> 00:08:08.255
+Así se comprueba cómo maneja el
+sistema las entradas no válidas.
+
+00:08:08.528 --> 00:08:11.728
+Fórmula: seis n más uno; con
+dos variables, trece pruebas.
+
+00:08:12.778 --> 00:08:15.712
+La variante del peor caso
+se pregunta qué pasa cuando
+
+00:08:15.712 --> 00:08:18.645
+varias variables están en
+un extremo al mismo tiempo.
+
+00:08:19.115 --> 00:08:21.801
+Se usa cuando las variables
+interactúan de forma
+
+00:08:21.801 --> 00:08:24.320
+compleja y una falla tendría un gran impacto.
+
+00:08:24.790 --> 00:08:27.830
+Rechaza el supuesto de falla
+única, y combina todos los
+
+00:08:27.830 --> 00:08:30.870
+valores de todas las variables:
+el producto cartesiano.
+
+00:08:31.920 --> 00:08:34.886
+Con dos variables: cinco a
+la n, veinticinco pruebas.
+
+00:08:35.356 --> 00:08:39.046
+Se combinan los cinco valores de cada
+variable con los cinco de la otra.
+
+00:08:39.295 --> 00:08:43.562
+Y crece de forma exponencial: con tres
+variables ya son ciento veinticinco.
+
+00:08:44.612 --> 00:08:47.727
+Y la robusta en el peor caso
+combina los siete valores de
+
+00:08:47.727 --> 00:08:51.225
+cada variable: siete a la n,
+cuarenta y nueve con dos variables.
+
+00:08:51.695 --> 00:08:55.877
+Se la conoce como prueba paranoica:
+la más exhaustiva, y la más costosa.
+
+00:08:56.927 --> 00:08:59.317
+En resumen: con falla única, la normal es
+
+00:08:59.317 --> 00:09:01.940
+cuatro n más uno y la robusta seis n más uno.
+
+00:09:02.184 --> 00:09:05.491
+En el peor caso, cinco a la n,
+y siete a la n en la robusta.
+
+00:09:06.541 --> 00:09:10.426
+Un ejercicio con dos variables: edad
+de dieciocho a sesenta y cinco,
+
+00:09:10.426 --> 00:09:14.712
+con nominal cuarenta, y plazo de seis
+a sesenta meses, con nominal treinta.
+
+00:09:15.182 --> 00:09:17.678
+La edad toma dieciocho, diecinueve, sesenta y
+
+00:09:17.678 --> 00:09:20.451
+cuatro y sesenta y cinco,
+con el plazo en treinta.
+
+00:09:20.750 --> 00:09:25.166
+El plazo toma seis, siete, cincuenta y
+nueve y sesenta, con la edad en cuarenta.
+
+00:09:25.436 --> 00:09:27.100
+Más el caso central: nueve.
+
+00:09:27.570 --> 00:09:30.247
+La robusta agrega cuatro: diecisiete y sesenta
+
+00:09:30.247 --> 00:09:32.690
+y seis años, y cinco y sesenta y un meses.
+
+00:09:32.977 --> 00:09:34.087
+Trece en total.
+
+00:09:34.344 --> 00:09:38.376
+El peor caso da veinticinco, y la
+robusta peor caso, cuarenta y nueve.
+
+00:09:39.426 --> 00:09:40.322
+Así crecen.
+
+00:09:40.571 --> 00:09:43.942
+Normal: cinco, nueve, trece, y
+veintiuno con cinco variables.
+
+00:09:44.208 --> 00:09:46.234
+Robusta: de siete a treinta y uno.
+
+00:09:46.704 --> 00:09:50.395
+Peor caso: con cinco variables ya
+son tres mil ciento veinticinco.
+
+00:09:50.666 --> 00:09:53.994
+Y la robusta peor caso,
+dieciséis mil ochocientos siete.
+
+00:09:54.464 --> 00:09:58.667
+Las de falla única crecen de forma
+lineal; las de peor caso, exponencial.
+
+00:09:58.941 --> 00:10:01.458
+Se elige según el riesgo y el presupuesto.
+
+00:10:02.508 --> 00:10:05.112
+Con cuatro variables: diecisiete, veinticinco,
+
+00:10:05.112 --> 00:10:08.055
+seiscientos veinticinco y
+dos mil cuatrocientos uno.
+
+00:10:08.525 --> 00:10:09.421
+¿Cuál elegir?
+
+00:10:09.861 --> 00:10:11.952
+Normal, con variables independientes.
+
+00:10:12.258 --> 00:10:15.629
+Robusta, si importa cómo se
+manejan las entradas inválidas.
+
+00:10:16.099 --> 00:10:19.704
+Peor caso, si las variables
+interactúan y una falla sería grave.
+
+00:10:19.958 --> 00:10:23.286
+Y la paranoica, para sistemas
+críticos, como el software médico.
+
+00:10:24.336 --> 00:10:28.411
+Un caso práctico: calificaciones de
+estudiantes, enteros de cero a diez.
+
+00:10:28.881 --> 00:10:30.652
+Los límites son cero y diez.
+
+00:10:30.953 --> 00:10:34.388
+Y no son válidas las menores que
+cero ni las mayores que diez.
+
+00:10:35.438 --> 00:10:38.006
+Los valores: menos uno,
+cero y uno abajo; cinco
+
+00:10:38.006 --> 00:10:40.302
+como nominal; y nueve, diez y once arriba.
+
+00:10:40.772 --> 00:10:45.401
+Cada uno tiene su etiqueta: mínimo menos,
+mínimo, nominal, máximo y máximo más.
+
+00:10:46.451 --> 00:10:48.691
+Normal: cero, uno, cinco, nueve y diez.
+
+00:10:49.000 --> 00:10:51.048
+Robusta: agrega menos uno y once.
+
+00:10:51.518 --> 00:10:54.743
+Y con una sola variable no hay
+combinaciones: el peor caso
+
+00:10:54.743 --> 00:10:58.302
+es igual a la normal, y la robusta
+peor caso igual a la robusta.
+
+00:10:59.352 --> 00:11:02.573
+Ahora tú: la cantidad de entradas
+por compra va de uno a diez.
+
+00:11:03.043 --> 00:11:05.326
+Normal: uno, dos, cinco, nueve y diez.
+
+00:11:05.573 --> 00:11:07.407
+Robusta: además cero y once.
+
+00:11:07.877 --> 00:11:11.504
+Y como es una sola variable, el
+peor caso coincide con la normal.
+
+00:11:12.554 --> 00:11:14.367
+Hay técnicas complementarias.
+
+00:11:14.629 --> 00:11:19.151
+La prueba de valor especial: el probador
+usa su experiencia para elegir valores.
+
+00:11:19.459 --> 00:11:22.744
+Es ad hoc, poco sistemática,
+pero útil como complemento.
+
+00:11:23.214 --> 00:11:26.841
+Y las pruebas aleatorias: valores
+al azar dentro de los rangos.
+
+00:11:27.123 --> 00:11:30.064
+La pregunta es cuántos
+bastan; un criterio es seguir
+
+00:11:30.064 --> 00:11:32.947
+hasta cubrir cada clase de
+salida al menos una vez.
+
+00:11:33.997 --> 00:11:35.128
+Las limitaciones.
+
+00:11:35.389 --> 00:11:38.300
+Funciona bien con varias
+variables independientes
+
+00:11:38.300 --> 00:11:40.914
+que representan cantidades físicas acotadas.
+
+00:11:41.384 --> 00:11:44.190
+Pero hay límites que no son
+obvios, como el máximo de
+
+00:11:44.190 --> 00:11:47.208
+la edad, y variables donde no
+aplica, como las booleanas.
+
+00:11:47.678 --> 00:11:52.052
+Las variables enumeradas, como depósito,
+retiro o consulta, no tienen límites.
+
+00:11:52.301 --> 00:11:56.632
+Y si las variables dependen entre sí,
+como día, mes y año bisiesto, no sirve.
+
+00:11:57.102 --> 00:12:00.366
+Además, ignora el significado de
+la función y de las variables.
+
+00:12:01.416 --> 00:12:03.250
+Conceptos clave, de Sommerville.
+
+00:12:03.556 --> 00:12:06.109
+Los casos de prueba especifican las entradas,
+
+00:12:06.109 --> 00:12:08.548
+la salida esperada, y qué se está probando.
+
+00:12:09.018 --> 00:12:13.818
+Los datos de prueba son las entradas, y a
+veces se pueden generar de forma automática.
+
+00:12:14.288 --> 00:12:18.832
+Pero los resultados esperados los tiene que
+definir alguien que entienda el sistema.
+
+00:12:19.086 --> 00:12:23.161
+Lo que sí se automatiza es la ejecución
+y la comparación de resultados.
+
+00:12:24.211 --> 00:12:27.608
+El proceso completo:
+identificar las variables de
+
+00:12:27.608 --> 00:12:31.144
+entrada y salida, y
+clasificarlas en ROV, GV o SNM.
+
+00:12:31.614 --> 00:12:36.286
+Definir el dominio con sus límites, elegir
+la variante, y generar los datos de prueba.
+
+00:12:37.336 --> 00:12:40.728
+Y el taller: en su reunión de
+Scrum, apliquen esto a su proyecto.
+
+00:12:41.029 --> 00:12:44.165
+Identifiquen las variables,
+definan su dominio, y generen
+
+00:12:44.165 --> 00:12:47.301
+los datos de prueba con cada
+una de las cuatro variantes.
+
+00:12:48.351 --> 00:12:50.186
+Antes de terminar, ponte a prueba.
+
+00:12:50.440 --> 00:12:52.872
+Si necesitas más tiempo, pausa el video.
+
+00:12:53.113 --> 00:12:56.462
+Primera pregunta: ¿estamos
+construyendo el producto correcto?
+
+00:12:56.894 --> 00:12:58.772
+¿Es verificación o validación?
+
+00:13:03.392 --> 00:13:06.485
+Validación: si es lo que el
+cliente realmente necesita.
+
+00:13:06.955 --> 00:13:10.752
+Siguiente: una variable aparece en un
+if y decide qué cálculo se ejecuta.
+
+00:13:11.007 --> 00:13:12.458
+¿Qué tipo de entrada es?
+
+00:13:17.078 --> 00:13:18.998
+Es una variable de puerta, GV.
+
+00:13:19.265 --> 00:13:21.121
+Hay que cubrir todas sus rutas.
+
+00:13:21.591 --> 00:13:25.965
+Y la última: ¿cuántos casos genera el
+valor límite robusto con tres variables?
+
+00:13:32.585 --> 00:13:35.059
+Seis por tres, más uno: diecinueve casos.
+
+00:13:36.109 --> 00:13:37.987
+Resumamos lo más importante.
+
+00:13:38.457 --> 00:13:41.618
+Uno: verificación es construir
+el producto correctamente;
+
+00:13:41.618 --> 00:13:44.003
+validación, construir el producto correcto.
+
+00:13:44.473 --> 00:13:47.328
+Dos: hay tres tipos de
+entrada: de sólo resultados,
+
+00:13:47.328 --> 00:13:49.679
+de puerta, y las que no deberían importar.
+
+00:13:50.149 --> 00:13:53.809
+Tres: se prueban el mínimo, justo
+encima, un nominal, justo debajo del
+
+00:13:53.809 --> 00:13:57.679
+máximo y el máximo; y en las robustas,
+también los valores fuera de rango.
+
+00:13:58.149 --> 00:13:59.557
+Y cuatro: las fórmulas.
+
+00:13:59.815 --> 00:14:02.969
+Normal, cuatro n más uno;
+robusta, seis n más uno; peor
+
+00:14:02.969 --> 00:14:06.065
+caso, cinco a la n; y robusta
+peor caso, siete a la n.
+
+00:14:07.115 --> 00:14:08.907
+Eso es todo para el tema siete.
+
+00:14:09.203 --> 00:14:12.818
+En el siguiente y último video
+vemos las clases de equivalencia:
+
+00:14:12.818 --> 00:14:15.304
+menos casos de prueba, sin perder cobertura.
+
+00:14:15.608 --> 00:14:16.632
+¡Nos vemos ahí!
+

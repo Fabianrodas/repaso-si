@@ -1,10 +1,19 @@
-# Sistemas Inteligentes · Repaso
+# Repaso UEES · Sistemas Inteligentes e Ingeniería de Software II
 
-App web para repasar Sistemas Inteligentes (semanas 1 a 7).
+App web para repasar dos materias. La página de inicio (`/`) deja elegir la materia:
 
-- **Practicar**: lección de 20 preguntas por semana, 20 preguntas al azar o el banco completo de 140. Cada pregunta vale de 2 a 5 puntos y la nota final es sobre 100 (se aprueba con 70). Al terminar puedes repasar solo las falladas.
-- **Videos**: un video narrado por semana, con subtítulos en español.
-- **Diapositivas**: las 249 diapositivas del PDF unificado y la descarga del PDF.
+| Materia | Ruta | Unidades | Preguntas | Videos | Diapositivas |
+| --- | --- | --- | --- | --- | --- |
+| Sistemas Inteligentes | `/si` | Weeks 1 a 7 | 140 | 7 | 249 |
+| Ingeniería de Software II | `/is2` | Temas 1 a 8 | 160 | 8 | 289 |
+
+En cada materia:
+
+- **Practicar**: lección de 20 preguntas por unidad, 20 preguntas al azar o el banco completo. Cada pregunta vale de 2 a 5 puntos y la nota final es sobre 100 (se aprueba con 70). Al terminar puedes repasar solo las falladas.
+- **Videos**: un video narrado por unidad, con subtítulos en español.
+- **Diapositivas**: el PDF unificado (con ejemplos y ejercicios resueltos extra) y su descarga.
+
+Las rutas antiguas (`/quiz`, `/videos`, `/diapositivas`, `/resultados`) redirigen a `/si/...`.
 
 Todas las preguntas salen de las diapositivas originales del curso y son independientes entre sí. Es solo frontend: el avance, las notas, el tema y la posición de cada video se guardan en el navegador (localStorage).
 
@@ -24,18 +33,19 @@ npm run preview   # sirve dist/ en http://localhost:4173
 - **Desde GitHub**: Netlify lee `netlify.toml` (comando `npm run build`, carpeta `dist`).
 - **Netlify Drop**: `npm run build` y arrastra la carpeta `dist/` a https://app.netlify.com/drop.
 
-`public/_redirects` hace que /videos y /diapositivas funcionen al recargar, y `public/_headers` define caché y cabeceras de seguridad.
+`public/_redirects` hace que todas las rutas (/si/videos, /is2/diapositivas…) funcionen al recargar, y `public/_headers` define caché y cabeceras de seguridad.
 
 ## Dónde cambiar cosas
 
 | Qué | Archivo |
 | --- | --- |
-| Preguntas, respuestas, puntos y explicaciones | `src/data/questions.json` |
+| Preguntas, respuestas, puntos y explicaciones | `src/data/si/questions.json` y `src/data/is2/questions.json` |
+| Unidades, videos, diapositivas y PDF de cada materia | `src/subjects/si.ts` y `src/subjects/is2.ts` |
 | Cantidad de preguntas al azar | `src/quiz/engine.ts` (`RANDOM_N`) |
 | Nota para aprobar y reglas de calificación | `src/quiz/engine.ts` (`PASS`, `grade`) |
-| Nombre y GitHub del footer, duración de los videos | `src/data/meta.ts` |
-| Colores de modo claro y oscuro | `src/styles/tokens.css` |
-| Videos (HLS), subtítulos, diapositivas y PDF | `public/media/` |
+| Nombre y GitHub del footer | `src/subjects/index.ts` (`SITE`) |
+| Colores de modo claro y oscuro (vino para SI, azul marino para IS2) | `src/styles/tokens.css` |
+| Videos (HLS), subtítulos, diapositivas y PDF | `public/media/` (SI) y `public/media/is2/` (IS2) |
 
 ### Formato de una pregunta
 
@@ -48,6 +58,6 @@ npm run preview   # sirve dist/ en http://localhost:4173
 }
 ```
 
-Tipos: `mc` (una correcta, `answer` = índice), `multi` (varias, `answer` = lista de índices), `tf` (`answer` = true/false), `match` (`pairs` = [[izquierda, derecha]], `extra` opcional), `order` (`items` en el orden correcto), `input` (`answer` = respuestas aceptadas, `numeric` opcional). `page` es la diapositiva del PDF unificado.
+Tipos: `mc` (una correcta, `answer` = índice), `multi` (varias, `answer` = lista de índices), `tf` (`answer` = true/false), `match` (`pairs` = [[izquierda, derecha]], `extra` opcional), `order` (`items` en el orden correcto), `input` (`answer` = respuestas aceptadas, `numeric` opcional). `w` es la unidad (Week o Tema) y `page` es la diapositiva del PDF unificado de esa materia.
 
 Hecho por Fabián Rodas · https://github.com/Fabianrodas

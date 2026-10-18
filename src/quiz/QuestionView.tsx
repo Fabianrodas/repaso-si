@@ -1,14 +1,16 @@
 import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUp } from "../components/Icons";
 import { Bubble, Tick } from "../components/Sheet";
+import { useSubject } from "../subjects";
 import { correctText, fmt1, grade, TYPE_LABEL, type Answer, type Attempt, type Question } from "./engine";
 
 const LETTERS = "ABCDEFGH";
 
 export function QuestionMeta({ q }: { q: Question }) {
+  const { s } = useSubject();
   return (
     <p className="q-meta">
-      <span>Week {q.w}: {q.topic}</span>
+      <span>{s.unit} {q.w}: {q.topic}</span>
       <span className="q-pts">{q.pts} pts</span>
       {q.type !== "mc" ? <span>{TYPE_LABEL[q.type]}</span> : null}
     </p>
@@ -103,6 +105,7 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
                 <option value="">Elige…</option>
                 {choices.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
+              {cur[i] && cur[i].length > 34 ? <p className="match-full" aria-hidden="true">{cur[i]}</p> : null}
             </div>
           );
         })}

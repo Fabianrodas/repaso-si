@@ -93,3 +93,40 @@
   --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 12px 32px -18px rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }
+
+/* Ingeniería de Software II: la misma hoja, con tinta azul marino (el de sus diapositivas).
+   Se aplica a toda la página (html[data-subject="is2"]) o solo a una tarjeta del selector. */
+[data-subject="is2"] {
+  --ink: #26336b;
+  --ink-strong: #1b2552;
+  --ink-fill: #26336b;
+  --ink-fill-hover: #1b2552;
+  --ink-line: #cfd3e4;
+  --ink-wash: #eef0f8;
+  --bub-line: #26336b;
+  --bub-text: #26336b;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"])[data-subject="is2"],
+  :root:not([data-theme="light"]) [data-subject="is2"] {
+    --ink: #93a3e8;
+    --ink-strong: #b0bcf2;
+    --ink-fill: #3e4f9f;
+    --ink-fill-hover: #4b5db2;
+    --ink-line: #2d3354;
+    --ink-wash: #1b1e2c;
+    --bub-line: #5d70c6;
+    --bub-text: #ece9e4;
+  }
+}
+:root[data-theme="dark"][data-subject="is2"],
+:root[data-theme="dark"] [data-subject="is2"] {
+  --ink: #93a3e8;
+  --ink-strong: #b0bcf2;
+  --ink-fill: #3e4f9f;
+  --ink-fill-hover: #4b5db2;
+  --ink-line: #2d3354;
+  --ink-wash: #1b1e2c;
+  --bub-line: #5d70c6;
+  --bub-text: #ece9e4;
+}

@@ -2,18 +2,22 @@ import { useState } from "react";
 import { ArrowRight, Play, Slides } from "../components/Icons";
 import { Modal } from "../components/Modal";
 import { Bubble } from "../components/Sheet";
-import { WEEK_PAGES, WEEKS, WEEK_SHORT } from "../data/meta";
 import { navigate, useLinkClick } from "../lib/router";
-import { useQuiz, TOTAL_Q, type StartKind } from "../quiz/QuizContext";
-import { fmt1, fmtTime, isAnswered, PASS, QMAP, RANDOM_N, weekIds } from "../quiz/engine";
+import { useSubject } from "../subjects";
+import { useQuiz, type StartKind } from "../quiz/QuizContext";
+import { fmt1, fmtTime, isAnswered, PASS, RANDOM_N } from "../quiz/engine";
 
 export default function Home() {
   const { start, stored, resume, discard, options, setOptions, history, best } = useQuiz();
   const [pending, setPending] = useState<StartKind | null>(null);
   const onLink = useLinkClick();
+  const { s, bank, href } = useSubject();
+  const { QMAP, TOTAL_Q } = bank;
+  const lessonN = bank.weekIds(s.units[0]).length;
+  const allSame = s.units.every((u) => bank.weekIds(u).length === lessonN);
 
   const answered = stored ? stored.ids.filter((id) => isAnswered(QMAP[id], stored.answers[id])).length : 0;
-  const begin = (k: StartKind) => { start(k); navigate("/quiz"); };
+  const begin = (k: StartKind) => { start(k); navigate(href("/quiz")); };
   const go = (k: StartKind) => (stored && answered > 0 ? setPending(k) : begin(k));
 
   return (
@@ -33,30 +37,30 @@ export default function Home() {
           <p><b>{stored.label}</b> sin terminar · {answered} de {stored.ids.length} · {fmtTime(stored.elapsed)}</p>
           <div className="row">
             <button type="button" className="btn quiet" onClick={discard}>Descartar</button>
-            <button type="button" className="btn primary" onClick={() => { resume(); navigate("/quiz"); }}>Continuar</button>
+            <button type="button" className="btn primary" onClick={() => { resume(); navigate(href("/quiz")); }}>Continuar</button>
           </div>
         </div>
       ) : null}
 
       <section className="lessons" aria-labelledby="lessons-title">
-        <h2 id="lessons-title" className="sec-title">Lección por semana <span>{weekIds(1).length} preguntas</span></h2>
-        <ol className="weeks">
-          {WEEKS.map((w) => {
+        <h2 id="lessons-title" className="sec-title">Lección por {s.unitWord} {allSame ? <span>{lessonN} preguntas</span> : null}</h2>
+        <ol className="weeks" data-n={s.units.length}>
+          {s.units.map((w) => {
             const b = best[w];
             return (
               <li key={w} className="week-card">
                 <button type="button" className="week" onClick={() => go({ mode: "lesson", week: w })}
-                  aria-label={`Lección Week ${w}: ${WEEK_SHORT[w]}${b !== undefined ? `, mejor nota ${fmt1(b)}` : ""}`}>
+                  aria-label={`Lección ${s.unit} ${w}: ${s.unitShort[w]}${b !== undefined ? `, mejor nota ${fmt1(b)}` : ""}`}>
                   <Bubble size="lg" filled={b !== undefined}>{w}</Bubble>
-                  <span className="week-name">{WEEK_SHORT[w]}</span>
+                  <span className="week-name">{s.unitShort[w]}</span>
                   <span className="week-foot" aria-hidden="true">
                     <span className={`week-bar ${b === undefined ? "" : b >= PASS ? "is-pass" : "is-fail"}`}><i style={{ width: `${b ?? 0}%` }} /></span>
                     <span className="week-best">{b !== undefined ? fmt1(b) : "–"}</span>
                   </span>
                 </button>
                 <div className="week-links">
-                  <a href={`/videos?w=${w}`} onClick={onLink} aria-label={`Video de la Week ${w}`}><Play size={12} /> Video</a>
-                  <a href={`/diapositivas?p=${WEEK_PAGES[w]}`} onClick={onLink} aria-label={`Diapositivas de la Week ${w}`}><Slides size={14} /> Diapos</a>
+                  <a href={href(`/videos?w=${w}`)} onClick={onLink} aria-label={`Video ${s.unitWord === "tema" ? "del Tema" : "de la Week"} ${w}`}><Play size={12} /> Video</a>
+                  <a href={href(`/diapositivas?p=${s.unitPages[w]}`)} onClick={onLink} aria-label={`Diapositivas ${s.unitWord === "tema" ? "del Tema" : "de la Week"} ${w}`}><Slides size={14} /> Diapos</a>
                 </div>
               </li>
             );
@@ -67,7 +71,7 @@ export default function Home() {
       <div className="home-grid">
         <button type="button" className="mix" onClick={() => go({ mode: "random" })}>
           <span className="mix-n">{RANDOM_N}</span>
-          <span className="mix-t"><b>Al azar</b><span>de todas las semanas</span></span>
+          <span className="mix-t"><b>Al azar</b><span>de {s.unitWord === "tema" ? "todos los temas" : "todas las semanas"}</span></span>
           <ArrowRight className="mix-go" size={22} />
         </button>
         <button type="button" className="mix" onClick={() => go({ mode: "bank" })}>
@@ -96,7 +100,7 @@ export default function Home() {
       {pending ? (
         <Modal title="Tienes un intento sin terminar" onClose={() => setPending(null)}
           actions={[
-            { label: "Continuar el anterior", onClick: () => { setPending(null); resume(); navigate("/quiz"); } },
+            { label: "Continuar el anterior", onClick: () => { setPending(null); resume(); navigate(href("/quiz")); } },
             { label: "Empezar uno nuevo", primary: true, onClick: () => { const k = pending; setPending(null); begin(k); } },
           ]}>
           {stored?.label}: llevas {answered} de {stored?.ids.length}. Si empiezas otro, se pierde ese avance.

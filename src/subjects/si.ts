@@ -1,0 +1,52 @@
+import raw from "../data/si/questions.json";
+import type { Question } from "../quiz/engine";
+import { pad3, type Subject } from "./types";
+
+export const SI: Subject = {
+  id: "si",
+  base: "/si",
+  name: "Sistemas Inteligentes",
+  short: "SI",
+  unit: "Week",
+  unitAbbr: "W",
+  unitWord: "semana",
+  units: [1, 2, 3, 4, 5, 6, 7],
+  unitShort: {
+    1: "Qué es la IA",
+    2: "Datos y machine learning",
+    3: "Colab y Python",
+    4: "Tipos de aprendizaje",
+    5: "Pandas",
+    6: "Regresión y NumPy",
+    7: "Pérdida y costo",
+  },
+  unitTopic: {
+    1: "Introducción a la IA: definición, historia, casos de uso y ética",
+    2: "IA débil y fuerte, machine learning, ciencia de datos y tipos de datos",
+    3: "Jupyter, Google Colab y fundamentos de Python",
+    4: "Algoritmos y modelos, división del dataset y tipos de aprendizaje",
+    5: "Módulos de Python y exploración de datos con Pandas",
+    6: "Variables, regresión, Matplotlib y NumPy",
+    7: "Función de pérdida, función de costo y mejor ajuste",
+  },
+  videos: [
+    { u: 1, dur: "18:40", seconds: 1120 },
+    { u: 2, dur: "18:59", seconds: 1140 },
+    { u: 3, dur: "16:51", seconds: 1012 },
+    { u: 4, dur: "12:46", seconds: 766 },
+    { u: 5, dur: "14:02", seconds: 843 },
+    { u: 6, dur: "15:22", seconds: 923 },
+    { u: 7, dur: "11:21", seconds: 681 },
+  ],
+  videoSrc: (u) => `/media/videos/w${u}/index.m3u8`,
+  subsSrc: (u) => `/media/subs/w${u}.vtt`,
+  slideCount: 249,
+  unitPages: { 1: 2, 2: 42, 3: 87, 4: 136, 5: 164, 6: 202, 7: 241 },
+  slideSrc: (p) => `/media/slides/${pad3(p)}.webp`,
+  thumbSrc: (p) => `/media/thumbs/${pad3(p)}.webp`,
+  pdfUrl: "/media/pdf/Sistemas-Inteligentes-Weeks-1-7.pdf",
+  pdfSize: "15,9 MB",
+  questions: raw as unknown as Question[],
+  storage: "si",
+  favicon: "/favicon.svg",
+};

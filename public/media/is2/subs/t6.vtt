@@ -1,0 +1,776 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:04.447
+Imagina un formulario que acepta
+edades de cero a ciento veinte años.
+
+00:00:04.917 --> 00:00:07.903
+Solo ese campo tiene ciento
+veintiún valores válidos.
+
+00:00:08.147 --> 00:00:11.710
+Si agregas el país y el tipo de
+plan, son miles de combinaciones.
+
+00:00:11.968 --> 00:00:14.550
+En un sistema real, prácticamente infinitas.
+
+00:00:15.020 --> 00:00:16.961
+Así que no podemos probarlo todo.
+
+00:00:17.246 --> 00:00:19.849
+La verdadera pregunta es qué pruebas elegir.
+
+00:00:20.118 --> 00:00:24.022
+Y para responderla, primero necesitamos
+el vocabulario de las pruebas.
+
+00:00:25.072 --> 00:00:28.166
+Tema seis: pruebas de software,
+las definiciones básicas.
+
+00:00:29.216 --> 00:00:31.582
+Veremos los casos de prueba, y la diferencia
+
+00:00:31.582 --> 00:00:34.272
+entre las pruebas funcionales
+y las estructurales.
+
+00:00:35.322 --> 00:00:38.522
+Cuatro partes: qué es una prueba,
+las definiciones básicas…
+
+00:00:38.992 --> 00:00:41.605
+…los casos de prueba, y
+las pruebas funcionales
+
+00:00:41.605 --> 00:00:44.496
+y estructurales, es decir,
+caja negra y caja blanca.
+
+00:00:45.546 --> 00:00:46.740
+¿Qué son las pruebas?
+
+00:00:47.144 --> 00:00:51.645
+Un proceso de búsqueda: ejecutar un programa
+con la intención de encontrar errores.
+
+00:00:52.115 --> 00:00:55.542
+Y son actividades planificadas,
+hechas de forma sistemática,
+
+00:00:55.542 --> 00:00:59.198
+para descubrir errores cometidos
+en el diseño y la construcción.
+
+00:01:00.248 --> 00:01:04.088
+Ahora, las definiciones, que
+vienen del ISTQB y del IEEE.
+
+00:01:04.384 --> 00:01:07.158
+Un error, o equivocación,
+lo comete una persona.
+
+00:01:07.404 --> 00:01:11.777
+Y se propaga: un error en los requisitos
+crece en el diseño, y más en el código.
+
+00:01:12.247 --> 00:01:16.877
+Un defecto, o fallo, es el resultado de ese
+error: está en un diagrama o en el código.
+
+00:01:17.138 --> 00:01:18.311
+Y es estático.
+
+00:01:18.781 --> 00:01:22.031
+Hay faltas de comisión, cuando
+se introduce algo incorrecto,
+
+00:01:22.031 --> 00:01:25.011
+y faltas de omisión, cuando
+falta algo que debía estar.
+
+00:01:26.061 --> 00:01:29.190
+La falla ocurre cuando se
+ejecuta el código defectuoso,
+
+00:01:29.190 --> 00:01:32.034
+y el sistema no puede
+cumplir parte de su función.
+
+00:01:32.504 --> 00:01:36.515
+El incidente es el síntoma que alerta
+al usuario de que ocurrió una falla.
+
+00:01:36.985 --> 00:01:40.102
+La prueba es ejercitar el
+software con casos de prueba,
+
+00:01:40.102 --> 00:01:42.766
+para encontrar fallas o
+demostrar que funciona.
+
+00:01:43.236 --> 00:01:45.643
+Y un caso de prueba tiene una identidad, y
+
+00:01:45.643 --> 00:01:48.164
+un conjunto de entradas y salidas esperadas.
+
+00:01:49.214 --> 00:01:51.198
+Una sola historia que lo junta todo.
+
+00:01:51.455 --> 00:01:55.572
+El requisito dice: diez por ciento de
+descuento en compras desde cien dólares.
+
+00:01:56.042 --> 00:01:58.566
+El analista entiende «más
+de cien» y lo escribe
+
+00:01:58.566 --> 00:02:00.821
+así: es el error, una persona se equivoca.
+
+00:02:01.291 --> 00:02:03.645
+En el código queda total mayor que cien: es
+
+00:02:03.645 --> 00:02:06.219
+el defecto, y está ahí
+aunque nadie lo ejecute.
+
+00:02:06.689 --> 00:02:11.062
+Un cliente compra exactamente cien dólares
+y no recibe el descuento: es la falla.
+
+00:02:11.327 --> 00:02:14.420
+Y cuando ve su recibo y
+reclama, ese es el incidente.
+
+00:02:14.890 --> 00:02:19.306
+El caso de prueba que lo encuentra: total
+igual a cien, salida esperada noventa.
+
+00:02:20.356 --> 00:02:23.855
+Este es el modelo del ciclo de
+vida para pruebas, el modelo en V.
+
+00:02:24.135 --> 00:02:26.879
+A la izquierda, el desarrollo:
+requisitos, diseño
+
+00:02:26.879 --> 00:02:29.511
+de alto nivel, diseño
+detallado y codificación.
+
+00:02:29.981 --> 00:02:33.365
+A la derecha, las pruebas que
+verifican cada etapa: unitarias
+
+00:02:33.365 --> 00:02:36.748
+para el código, integración para
+el diseño detallado, sistema
+
+00:02:36.748 --> 00:02:39.688
+para el alto nivel, y
+aceptación para los requisitos.
+
+00:02:40.738 --> 00:02:42.061
+Los niveles de prueba.
+
+00:02:42.337 --> 00:02:45.089
+Unitarias: se prueban
+componentes individuales.
+
+00:02:45.559 --> 00:02:49.165
+Integración: las unidades se
+combinan y se prueban como grupo.
+
+00:02:49.635 --> 00:02:52.600
+Sistema: el software completo,
+contra los requisitos.
+
+00:02:53.070 --> 00:02:56.249
+Y aceptación: si el sistema
+es aceptable para el cliente.
+
+00:02:57.299 --> 00:03:02.077
+En una app bancaria: la prueba unitaria
+verifica sola la función calcular interés.
+
+00:03:02.340 --> 00:03:05.455
+Mil dólares al cinco por
+ciento deben dar cincuenta.
+
+00:03:05.925 --> 00:03:10.512
+La de integración verifica que las transferencias
+y la base de datos funcionen juntas.
+
+00:03:10.982 --> 00:03:14.928
+La de sistema prueba la app completa,
+incluso con mil usuarios a la vez.
+
+00:03:15.179 --> 00:03:19.382
+Y la de aceptación la hacen el banco y
+algunos clientes antes de publicarla.
+
+00:03:20.432 --> 00:03:22.480
+Primera parte: los casos de prueba.
+
+00:03:23.530 --> 00:03:27.540
+La esencia de las pruebas es definir
+un buen conjunto de casos de prueba.
+
+00:03:28.010 --> 00:03:31.384
+Un caso completo tiene un
+identificador, una declaración de
+
+00:03:31.384 --> 00:03:34.986
+propósito, las condiciones previas
+y posteriores, las entradas…
+
+00:03:35.456 --> 00:03:38.614
+…los resultados esperados, y
+un historial de ejecuciones.
+
+00:03:39.664 --> 00:03:42.394
+Uno completo, de ejemplo:
+CP siete, que verifica
+
+00:03:42.394 --> 00:03:44.784
+la regla del descuento desde cien dólares.
+
+00:03:45.254 --> 00:03:48.176
+Precondición: usuario
+autenticado y carrito vacío.
+
+00:03:48.446 --> 00:03:50.601
+Entradas: productos por cien dólares.
+
+00:03:50.883 --> 00:03:52.632
+Resultado esperado: noventa.
+
+00:03:53.102 --> 00:03:55.515
+Y el historial: el doce
+de octubre falló, cobró
+
+00:03:55.515 --> 00:03:58.030
+cien; el catorce, después
+de la corrección, pasó.
+
+00:03:59.080 --> 00:04:02.750
+Para pensar en el comportamiento de
+un programa usamos dos conjuntos.
+
+00:04:03.034 --> 00:04:07.685
+S, la especificación: lo que el programa
+debería hacer, como las historias de usuario.
+
+00:04:08.155 --> 00:04:10.523
+Y P, el programa: lo que realmente hace.
+
+00:04:10.993 --> 00:04:14.726
+Lo que está en uno pero no en el
+otro son problemas: comportamientos
+
+00:04:14.726 --> 00:04:17.691
+no especificados, o
+especificaciones no implementadas.
+
+00:04:17.955 --> 00:04:20.366
+La intersección es lo que está pedido y hecho.
+
+00:04:21.416 --> 00:04:24.481
+Si agregamos T, el comportamiento
+probado, el diagrama
+
+00:04:24.481 --> 00:04:27.432
+queda con tres círculos y
+varias regiones numeradas.
+
+00:04:27.902 --> 00:04:31.038
+S es lo especificado, P lo
+programado y T lo probado.
+
+00:04:32.088 --> 00:04:33.645
+Así se leen las regiones.
+
+00:04:33.931 --> 00:04:36.854
+La dos y la cinco: requerimientos
+que no se probaron.
+
+00:04:37.324 --> 00:04:40.524
+La uno y la cuatro: requerimientos
+con sus casos de prueba.
+
+00:04:40.814 --> 00:04:43.822
+La uno, además, implementados
+y probados: lo ideal.
+
+00:04:44.292 --> 00:04:46.596
+La tres: código probado que nadie pidió.
+
+00:04:46.839 --> 00:04:49.058
+La seis: código que nadie pidió ni probó.
+
+00:04:49.354 --> 00:04:52.533
+Y la siete: pruebas que no
+corresponden a ningún requisito.
+
+00:04:53.583 --> 00:04:55.716
+Practiquemos con un inicio de sesión.
+
+00:04:55.972 --> 00:05:00.793
+Entrar con la contraseña correcta está
+especificado, programado y probado: región uno.
+
+00:05:01.263 --> 00:05:04.008
+Bloquear la cuenta tras
+tres intentos está pedido
+
+00:05:04.008 --> 00:05:06.362
+y programado, pero sin probar: región dos.
+
+00:05:06.663 --> 00:05:10.396
+Una casilla «recordarme» que nadie
+pidió, pero se probó: región tres.
+
+00:05:10.866 --> 00:05:14.834
+Recuperar contraseña tiene prueba
+pero no se programó: región cuatro.
+
+00:05:15.091 --> 00:05:17.523
+Cambiar idioma, solo pedido: región cinco.
+
+00:05:17.993 --> 00:05:21.215
+Un modo depuración oculto:
+región seis, la más peligrosa.
+
+00:05:21.505 --> 00:05:24.236
+Y una prueba de algo que
+no existe: región siete.
+
+00:05:25.286 --> 00:05:27.633
+Segunda parte: la taxonomía de fallas.
+
+00:05:27.887 --> 00:05:31.365
+Es solo para conocimiento, pero
+ayuda a nombrar lo que encontramos.
+
+00:05:32.415 --> 00:05:36.148
+Se basa en la clasificación del
+IEEE para anomalías de software.
+
+00:05:36.618 --> 00:05:40.248
+Hay fallas de entrada y salida:
+entradas correctas rechazadas,
+
+00:05:40.248 --> 00:05:43.936
+entradas incorrectas aceptadas,
+formatos de salida incorrectos,
+
+00:05:43.936 --> 00:05:46.687
+resultados incompletos o
+errores de ortografía.
+
+00:05:47.157 --> 00:05:51.745
+Y fallas de lógica: casos faltantes,
+condiciones extremas descuidadas, iteraciones
+
+00:05:51.745 --> 00:05:56.501
+de bucle incorrectas, u operadores incorrectos,
+como menor en lugar de menor o igual.
+
+00:05:57.551 --> 00:05:58.490
+Ponles nombre.
+
+00:05:58.739 --> 00:06:03.710
+Un formulario rechaza un correo válido con
+un signo más: entrada correcta no aceptada.
+
+00:06:03.961 --> 00:06:06.746
+Se acepta una fecha de
+nacimiento en el año tres
+
+00:06:06.746 --> 00:06:09.358
+mil veinticinco: entrada incorrecta aceptada.
+
+00:06:09.828 --> 00:06:14.201
+Un bucle que procesa nueve de diez
+estudiantes: iteración de bucle incorrecta.
+
+00:06:14.500 --> 00:06:17.721
+Usar menor en lugar de menor
+o igual: operador incorrecto.
+
+00:06:18.191 --> 00:06:21.669
+Un cero punto tres con muchos
+decimales: formato de salida.
+
+00:06:21.953 --> 00:06:24.534
+No pensar en el carrito vacío: caso faltante.
+
+00:06:24.785 --> 00:06:26.982
+Y «envíar» con tilde: error cosmético.
+
+00:06:28.032 --> 00:06:31.424
+Tercera parte: las características
+de un buen caso de prueba.
+
+00:06:32.474 --> 00:06:36.506
+El problema fundamental: ningún
+sistema puede probarse completamente.
+
+00:06:36.976 --> 00:06:39.938
+Las soluciones: priorizar
+las pruebas según el riesgo,
+
+00:06:39.938 --> 00:06:42.736
+porque importa más qué
+pruebas que cuántas pruebas.
+
+00:06:43.206 --> 00:06:45.650
+Priorizar por probabilidad e impacto, para
+
+00:06:45.650 --> 00:06:48.326
+encontrar primero los errores más importantes.
+
+00:06:48.617 --> 00:06:52.222
+Y diseñar las pruebas con cuidado,
+con metodología y técnicas.
+
+00:06:53.272 --> 00:06:56.543
+Un buen caso de prueba tiene
+alta probabilidad de encontrar
+
+00:06:56.543 --> 00:06:59.758
+un error: hay que imaginar cómo
+podría fallar el software.
+
+00:07:00.228 --> 00:07:02.669
+No es redundante: el tiempo es limitado, y
+
+00:07:02.669 --> 00:07:05.284
+cada prueba debe tener un propósito distinto.
+
+00:07:05.754 --> 00:07:08.690
+Es el mejor de su clase: el
+que tiene más probabilidad
+
+00:07:08.690 --> 00:07:10.810
+de descubrir toda una clase de errores.
+
+00:07:11.280 --> 00:07:13.619
+Y no es ni muy simple ni muy complejo: se
+
+00:07:13.619 --> 00:07:16.186
+ejecuta por separado, con un propósito claro.
+
+00:07:17.236 --> 00:07:20.607
+Cuarta parte: los enfoques para
+identificar casos de prueba.
+
+00:07:21.657 --> 00:07:24.110
+Hay dos enfoques: caja negra y caja blanca.
+
+00:07:24.580 --> 00:07:27.253
+En ambos, el programa se
+ve como una función: un
+
+00:07:27.253 --> 00:07:30.148
+conjunto de entradas produce
+un conjunto de salidas.
+
+00:07:31.198 --> 00:07:34.221
+En caja negra solo conoces
+la función que el producto
+
+00:07:34.221 --> 00:07:37.129
+debe cumplir, a partir del
+documento de requisitos.
+
+00:07:37.599 --> 00:07:41.695
+Le das entradas al software, y validas
+que las salidas sean las esperadas.
+
+00:07:41.949 --> 00:07:43.933
+No necesitas conocer el código.
+
+00:07:44.983 --> 00:07:47.906
+En caja blanca conoces el
+funcionamiento interno.
+
+00:07:48.376 --> 00:07:52.130
+El código se conoce, y se usa para
+identificar los casos de prueba.
+
+00:07:53.180 --> 00:07:55.510
+Las pruebas funcionales también se llaman
+
+00:07:55.510 --> 00:07:58.066
+basadas en especificaciones, o de caja negra.
+
+00:07:58.342 --> 00:08:02.096
+Se hacen sobre la interfaz y se
+centran en los requisitos funcionales.
+
+00:08:02.566 --> 00:08:07.132
+Las estructurales se llaman basadas en
+código, de caja blanca, o de caja de vidrio.
+
+00:08:07.397 --> 00:08:09.061
+Prueban la estructura interna.
+
+00:08:10.111 --> 00:08:13.033
+Quinta parte: las pruebas
+funcionales, de caja negra.
+
+00:08:14.083 --> 00:08:18.158
+Se usan mucho en ingeniería: en autos,
+teléfonos, drones o microondas.
+
+00:08:18.422 --> 00:08:20.662
+Solo necesitan las especificaciones.
+
+00:08:21.132 --> 00:08:25.617
+Buscan funcionalidades incorrectas o
+faltantes, errores de interfaz y de acceso,
+
+00:08:25.617 --> 00:08:30.327
+errores de comportamiento o rendimiento, y
+errores de inicialización y finalización.
+
+00:08:31.377 --> 00:08:34.406
+Ventajas: no dependen de cómo
+se implementa el software.
+
+00:08:34.715 --> 00:08:37.808
+Si la implementación cambia,
+los casos siguen sirviendo.
+
+00:08:38.278 --> 00:08:42.651
+Y se pueden escribir en paralelo con la
+implementación, lo que acorta el desarrollo.
+
+00:08:43.121 --> 00:08:48.092
+La desventaja: suelen tener casos redundantes,
+o dejar partes del software sin probar.
+
+00:08:49.142 --> 00:08:50.614
+Sus técnicas son tres.
+
+00:08:50.910 --> 00:08:54.003
+Valor límite: probar los
+extremos de los rangos válidos.
+
+00:08:54.473 --> 00:08:58.356
+Clases de equivalencia: agrupar las
+entradas que se comportan igual.
+
+00:08:58.826 --> 00:09:02.645
+Y tablas de decisión: combinar
+condiciones y acciones en una tabla.
+
+00:09:02.949 --> 00:09:05.274
+Las dos primeras tienen su propio video.
+
+00:09:06.324 --> 00:09:09.546
+Sexta parte: las pruebas
+estructurales, de caja blanca.
+
+00:09:10.596 --> 00:09:14.628
+Se basan en el código fuente o en el
+pseudocódigo, y no en la especificación.
+
+00:09:15.678 --> 00:09:18.592
+Con ellas se derivan casos
+que garanticen que cada
+
+00:09:18.592 --> 00:09:21.331
+ruta independiente se
+ejecute al menos una vez…
+
+00:09:21.801 --> 00:09:26.281
+…que cada decisión lógica se pruebe por
+su lado verdadero y por su lado falso…
+
+00:09:26.751 --> 00:09:29.671
+…que los bucles se ejecuten
+en sus límites y dentro de
+
+00:09:29.671 --> 00:09:32.916
+ellos, y que las estructuras de
+datos internas sean válidas.
+
+00:09:33.966 --> 00:09:38.446
+Sus técnicas: la prueba de ruta, que ejercita
+las rutas independientes del código…
+
+00:09:38.916 --> 00:09:41.662
+…y las pruebas de flujo de
+datos, que siguen el ciclo
+
+00:09:41.662 --> 00:09:44.719
+de vida de las variables: dónde
+se definen y dónde se usan.
+
+00:09:45.769 --> 00:09:49.687
+En resumen: las funcionales usan
+valor límite, clases de equivalencia
+
+00:09:49.687 --> 00:09:53.833
+y tablas de decisión; las estructurales,
+prueba de ruta y flujo de datos.
+
+00:09:54.883 --> 00:09:56.696
+Las dos sobre la misma función.
+
+00:09:56.966 --> 00:09:59.617
+Especificación: notas de
+cero a diez, se aprueba
+
+00:09:59.617 --> 00:10:01.937
+desde siete, y fuera de rango es un error.
+
+00:10:02.407 --> 00:10:05.031
+En caja negra, sin mirar
+el código: un ocho debe
+
+00:10:05.031 --> 00:10:07.655
+aprobar, un cinco reprobar,
+y un once dar error.
+
+00:10:08.125 --> 00:10:11.133
+En caja blanca miras el
+código: hay dos decisiones.
+
+00:10:11.443 --> 00:10:15.027
+Para probar cada una por sus dos
+lados: menos uno, siete y seis.
+
+00:10:15.497 --> 00:10:18.596
+Ninguna basta sola: la caja
+negra no ve código extra,
+
+00:10:18.596 --> 00:10:22.046
+y la caja blanca no ve requisitos
+que nunca se programaron.
+
+00:10:23.096 --> 00:10:26.318
+Séptima parte: el enfoque
+funcional frente al estructural.
+
+00:10:27.368 --> 00:10:29.778
+Ningún enfoque por sí solo es suficiente.
+
+00:10:30.248 --> 00:10:32.803
+Las técnicas funcionales
+cubren lo especificado,
+
+00:10:32.803 --> 00:10:35.091
+pero no ven lo que el programa hace de más.
+
+00:10:35.332 --> 00:10:39.279
+Las estructurales cubren el programa,
+pero no lo que se pidió y no se hizo.
+
+00:10:40.329 --> 00:10:44.635
+Por eso se necesitan ambos: una
+combinación sensata da la confianza de las
+
+00:10:44.635 --> 00:10:49.523
+pruebas basadas en especificaciones, y la
+medición de las pruebas basadas en código.
+
+00:10:50.573 --> 00:10:52.408
+Antes de terminar, ponte a prueba.
+
+00:10:52.662 --> 00:10:55.094
+Si necesitas más tiempo, pausa el video.
+
+00:10:55.335 --> 00:10:57.981
+Primera pregunta: el código tiene total mayor
+
+00:10:57.981 --> 00:11:00.391
+que cien, cuando debía ser mayor o igual.
+
+00:11:00.639 --> 00:11:02.623
+Nadie lo ha ejecutado todavía.
+
+00:11:02.869 --> 00:11:04.831
+¿Es un error, un defecto o una falla?
+
+00:11:10.451 --> 00:11:13.203
+Un defecto, porque está en
+el código y es estático.
+
+00:11:13.455 --> 00:11:16.036
+La falla aparece cuando se ejecuta con cien.
+
+00:11:16.506 --> 00:11:18.755
+Siguiente: ¿qué nivel de prueba verifica que
+
+00:11:18.755 --> 00:11:20.901
+las unidades funcionan juntas, como grupo?
+
+00:11:25.521 --> 00:11:27.014
+Las pruebas de integración.
+
+00:11:27.484 --> 00:11:32.050
+Y la última: diseñas pruebas solo con el
+documento de requisitos, sin ver el código.
+
+00:11:32.353 --> 00:11:33.569
+¿Qué enfoque usas?
+
+00:11:38.189 --> 00:11:41.837
+Caja negra: pruebas funcionales,
+basadas en especificaciones.
+
+00:11:42.887 --> 00:11:44.764
+Resumamos lo más importante.
+
+00:11:45.234 --> 00:11:48.927
+Uno: una persona comete un error,
+que deja un defecto en el código;
+
+00:11:48.927 --> 00:11:52.509
+al ejecutarlo se produce una falla,
+y el usuario ve el incidente.
+
+00:11:52.979 --> 00:11:56.648
+Dos: los niveles son unitarias,
+integración, sistema y aceptación.
+
+00:11:57.118 --> 00:12:00.294
+Tres: un caso de prueba tiene
+identificador, propósito,
+
+00:12:00.294 --> 00:12:03.412
+condiciones, entradas,
+resultado esperado e historial.
+
+00:12:03.709 --> 00:12:07.293
+Y el diagrama de Venn muestra qué se
+pidió, qué se hizo y qué se probó.
+
+00:12:07.763 --> 00:12:10.848
+Y cuatro: la caja negra prueba
+desde la especificación
+
+00:12:10.848 --> 00:12:12.734
+y la caja blanca desde el código.
+
+00:12:12.997 --> 00:12:14.405
+Ninguna basta sola.
+
+00:12:15.455 --> 00:12:17.205
+Eso es todo para el tema seis.
+
+00:12:17.472 --> 00:12:19.980
+En el siguiente video vemos la primera técnica
+
+00:12:19.980 --> 00:12:22.379
+de caja negra: el análisis del valor límite.
+
+00:12:22.630 --> 00:12:23.654
+¡Nos vemos ahí!
+

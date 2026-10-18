@@ -1,0 +1,665 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:04.041
+Una pregunta: ¿se puede encontrar
+un error sin ejecutar el programa?
+
+00:00:04.511 --> 00:00:06.005
+Mira estas tres líneas.
+
+00:00:06.315 --> 00:00:08.960
+Suman las notas y dividen
+para el número de notas.
+
+00:00:09.430 --> 00:00:11.307
+¿Qué pasa si la lista está vacía?
+
+00:00:11.711 --> 00:00:12.885
+División por cero.
+
+00:00:13.160 --> 00:00:16.510
+No necesitaste ejecutar nada:
+lo viste leyendo el código.
+
+00:00:16.980 --> 00:00:20.585
+Eso es la inspección de código,
+también llamada análisis estático.
+
+00:00:20.845 --> 00:00:24.685
+Y las herramientas hacen lo mismo,
+pero con miles de líneas en segundos.
+
+00:00:25.735 --> 00:00:28.743
+Tema cinco: inspección de
+código y análisis estático.
+
+00:00:29.793 --> 00:00:33.782
+En la portada ya aparece la idea: un
+archivo de Java con dos hallazgos.
+
+00:00:34.252 --> 00:00:38.199
+En la línea cuatro, una posible división
+por cero si la lista está vacía.
+
+00:00:38.459 --> 00:00:41.232
+Y en la siete, un método
+privado que nunca se invoca.
+
+00:00:42.282 --> 00:00:44.992
+Veremos cuatro bloques:
+el análisis de programas,
+
+00:00:44.992 --> 00:00:47.039
+con sus enfoques estático y dinámico…
+
+00:00:47.509 --> 00:00:50.703
+…la inspección de código,
+sus ventajas y limitaciones,
+
+00:00:50.703 --> 00:00:53.483
+y las herramientas, en
+especial PMD y FindBugs.
+
+00:00:54.533 --> 00:00:57.306
+Primero: el análisis de
+programas informáticos.
+
+00:00:58.356 --> 00:01:01.709
+Es el proceso de analizar
+automáticamente el comportamiento
+
+00:01:01.709 --> 00:01:05.289
+de los programas, con dos objetivos:
+optimización y corrección.
+
+00:01:05.759 --> 00:01:06.954
+Y hay dos enfoques.
+
+00:01:07.257 --> 00:01:11.012
+El análisis estático examina el
+código fuente sin ejecutarlo.
+
+00:01:11.482 --> 00:01:14.959
+El análisis dinámico analiza el
+programa mientras se ejecuta.
+
+00:01:16.009 --> 00:01:18.884
+El análisis estático es
+examinar el código fuente
+
+00:01:18.884 --> 00:01:21.406
+para descubrir debilidades, sin ejecutarlo.
+
+00:01:21.876 --> 00:01:22.879
+¿Cuándo se hace?
+
+00:01:23.336 --> 00:01:26.408
+Después de codificar y antes
+de las pruebas unitarias.
+
+00:01:26.673 --> 00:01:30.108
+Así, los defectos aparecen antes
+de que el programa se ejecute.
+
+00:01:31.158 --> 00:01:32.054
+¿Quién lo hace?
+
+00:01:32.496 --> 00:01:35.377
+Puede ser una máquina: un
+análisis automatizado que
+
+00:01:35.377 --> 00:01:38.597
+recorre el código y detecta
+las reglas que no se cumplen.
+
+00:01:39.067 --> 00:01:41.965
+O una persona: la revisión
+de código, para verificar
+
+00:01:41.965 --> 00:01:44.528
+que se usen los estándares y las convenciones.
+
+00:01:44.998 --> 00:01:49.606
+Las máquinas son los linters y los analizadores
+del IDE o de la integración continua.
+
+00:01:49.889 --> 00:01:53.921
+Y la revisión la hace un colega, alguien
+distinto de quien escribió el código.
+
+00:01:54.971 --> 00:01:59.750
+El análisis dinámico ejecuta el programa
+y genera una traza de su comportamiento.
+
+00:01:59.996 --> 00:02:03.239
+Identifica vulnerabilidades
+en el entorno de ejecución.
+
+00:02:03.709 --> 00:02:06.230
+En resumen: el estático no ejecuta el código,
+
+00:02:06.230 --> 00:02:08.807
+se hace antes, y encuentra reglas incumplidas.
+
+00:02:09.078 --> 00:02:12.811
+El dinámico sí lo ejecuta, durante
+la ejecución, y obtiene trazas.
+
+00:02:13.861 --> 00:02:15.525
+Clasifica cada técnica.
+
+00:02:15.803 --> 00:02:19.622
+El IDE subraya una variable que no
+se usa: estático, automatizado.
+
+00:02:20.092 --> 00:02:23.996
+Un compañero revisa tu pull request:
+estático, revisión de código.
+
+00:02:24.466 --> 00:02:27.493
+Ejecutar las pruebas unitarias,
+o medir con un profiler
+
+00:02:27.493 --> 00:02:30.631
+qué método tarda más: dinámico,
+porque el programa corre.
+
+00:02:31.101 --> 00:02:33.106
+PMD en el pipeline: estático.
+
+00:02:33.361 --> 00:02:36.433
+Y medir el consumo de memoria
+con datos reales: dinámico.
+
+00:02:37.483 --> 00:02:39.680
+Segundo bloque: la inspección de código.
+
+00:02:40.730 --> 00:02:44.861
+Primero, un detalle de nombres:
+inspección de código, análisis de código
+
+00:02:44.861 --> 00:02:49.050
+estático, análisis estático y análisis
+de programa estático son lo mismo.
+
+00:02:49.520 --> 00:02:51.461
+No implica ejecutar el software…
+
+00:02:51.931 --> 00:02:54.961
+…y detecta posibles defectos
+en una etapa temprana.
+
+00:02:56.011 --> 00:02:58.165
+¿Qué atributos de calidad puede evaluar?
+
+00:02:58.566 --> 00:03:02.150
+La fiabilidad, que el software
+funcione bien de forma consistente.
+
+00:03:02.620 --> 00:03:05.500
+La mantenibilidad, qué
+tan fácil es modificarlo.
+
+00:03:05.750 --> 00:03:08.907
+Y la capacidad de prueba, qué
+tan fácil es verificarlo.
+
+00:03:09.377 --> 00:03:12.097
+También la reutilización,
+la portabilidad, y otros
+
+00:03:12.097 --> 00:03:14.817
+como la seguridad, la
+eficiencia y la legibilidad.
+
+00:03:15.867 --> 00:03:16.742
+¿Qué detecta?
+
+00:03:17.186 --> 00:03:21.645
+Gestión inadecuada de recursos, como un
+FileReader que nunca se cierra: una fuga.
+
+00:03:22.115 --> 00:03:24.748
+Operaciones ilegales:
+división por cero, acceso
+
+00:03:24.748 --> 00:03:27.661
+fuera de los límites de un
+arreglo, desbordamientos.
+
+00:03:28.131 --> 00:03:30.826
+Código y datos muertos:
+lo que nunca se ejecuta
+
+00:03:30.826 --> 00:03:33.806
+o nunca se usa, como una
+línea después de un return.
+
+00:03:34.276 --> 00:03:36.996
+Y código incompleto:
+variables sin inicializar,
+
+00:03:36.996 --> 00:03:39.716
+ramas incompletas, o
+bucles que nunca terminan.
+
+00:03:40.766 --> 00:03:42.494
+Inspecciona tú este código.
+
+00:03:42.747 --> 00:03:44.027
+Hay cinco defectos.
+
+00:03:44.315 --> 00:03:46.000
+Pausa si quieres buscarlos.
+
+00:03:46.470 --> 00:03:49.094
+Línea cuatro: max nunca se usa, datos muertos.
+
+00:03:49.381 --> 00:03:53.925
+Línea cinco: el menor o igual accede a una
+posición que no existe, fuera de límites.
+
+00:03:54.395 --> 00:03:56.891
+Línea siete: división por cero si el arreglo
+
+00:03:56.891 --> 00:03:59.387
+está vacío, y además es una división entera.
+
+00:03:59.857 --> 00:04:02.631
+Línea diez: el lector
+nunca se cierra, una fuga.
+
+00:04:02.913 --> 00:04:06.283
+Y la trece: un método privado
+que nadie llama, código muerto.
+
+00:04:07.333 --> 00:04:09.787
+Tercer bloque: ventajas y limitaciones.
+
+00:04:10.837 --> 00:04:14.933
+Las ventajas: encuentra las debilidades
+en la ubicación exacta del código.
+
+00:04:15.403 --> 00:04:17.849
+La pueden hacer desarrolladores capacitados,
+
+00:04:17.849 --> 00:04:20.629
+y deja un código más fácil
+de entender para otros.
+
+00:04:21.099 --> 00:04:24.854
+Y el costo de corregir es menor,
+porque los defectos se detectan antes.
+
+00:04:25.163 --> 00:04:27.700
+Mira el gráfico: corregir en producción cuesta
+
+00:04:27.700 --> 00:04:30.347
+muchísimo más que corregir
+mientras se codifica.
+
+00:04:31.397 --> 00:04:35.642
+Además, detecta defectos que las pruebas
+dinámicas casi no pueden encontrar.
+
+00:04:36.112 --> 00:04:39.077
+Código inalcanzable, como una
+línea después de un throw.
+
+00:04:39.329 --> 00:04:41.377
+Variables declaradas que no se usan.
+
+00:04:41.617 --> 00:04:43.281
+Y funciones que nadie llama.
+
+00:04:44.331 --> 00:04:47.617
+Las limitaciones: si se hace
+a mano, consume mucho tiempo.
+
+00:04:47.864 --> 00:04:50.083
+Y no siempre hay personal capacitado.
+
+00:04:50.553 --> 00:04:54.243
+Las herramientas producen falsos
+positivos y falsos negativos.
+
+00:04:54.484 --> 00:04:56.852
+Y son tan buenas como las reglas que usan.
+
+00:04:57.902 --> 00:04:59.502
+Comparemos con las pruebas.
+
+00:04:59.800 --> 00:05:02.806
+El análisis estático no
+ejecuta el código, se aplica
+
+00:05:02.806 --> 00:05:05.987
+temprano, y sus resultados
+no dependen de las entradas.
+
+00:05:06.457 --> 00:05:11.363
+Sus resultados se generalizan a ejecuciones
+futuras, es menos costoso y muy rápido.
+
+00:05:11.833 --> 00:05:15.833
+Pero tiene una tasa muy alta de
+falsos positivos, usa aproximaciones,
+
+00:05:15.833 --> 00:05:19.833
+y lo más importante: no sirve para
+verificar la corrección funcional.
+
+00:05:20.087 --> 00:05:21.666
+Para eso están las pruebas.
+
+00:05:22.716 --> 00:05:24.017
+Una crítica justa.
+
+00:05:24.305 --> 00:05:28.785
+Su precisión: puede ser impreciso, porque
+aproxima el comportamiento en ejecución.
+
+00:05:29.255 --> 00:05:32.433
+Y su eficiencia: para ser
+rápido, sacrifica precisión.
+
+00:05:32.903 --> 00:05:36.248
+Sus fortalezas: alta cobertura
+de código, y escalabilidad,
+
+00:05:36.248 --> 00:05:39.709
+porque se puede ejecutar en
+muchos programas una y otra vez.
+
+00:05:40.759 --> 00:05:41.484
+Ejemplos.
+
+00:05:41.750 --> 00:05:44.688
+Un falso positivo: la
+herramienta avisa de un posible
+
+00:05:44.688 --> 00:05:47.958
+null, pero si obtener nunca
+devuelve null, la alerta sobra.
+
+00:05:48.428 --> 00:05:51.287
+Un falso negativo: un descuento mal calculado.
+
+00:05:51.543 --> 00:05:54.153
+El código cumple todas las
+reglas, pero no hace lo
+
+00:05:54.153 --> 00:05:57.025
+que pidió el cliente, y ninguna
+herramienta lo reporta.
+
+00:05:57.495 --> 00:06:00.738
+Por eso el análisis estático
+no reemplaza a las pruebas.
+
+00:06:01.788 --> 00:06:04.625
+Cuarto bloque: las herramientas
+de inspección de código.
+
+00:06:05.675 --> 00:06:07.233
+Sus características clave.
+
+00:06:07.510 --> 00:06:11.414
+Uno: diseñadas para la seguridad,
+con ese conocimiento ya incorporado.
+
+00:06:11.884 --> 00:06:14.494
+Dos: admiten varios lenguajes y plataformas,
+
+00:06:14.494 --> 00:06:17.281
+porque las aplicaciones
+rara vez usan uno solo.
+
+00:06:17.751 --> 00:06:21.421
+Tres: se integran con los procesos
+de compilación y con los IDE.
+
+00:06:22.471 --> 00:06:25.554
+Cuatro: tienen sentido para
+varias partes interesadas,
+
+00:06:25.554 --> 00:06:28.295
+con vistas distintas para
+gerentes y ejecutivos.
+
+00:06:28.765 --> 00:06:32.263
+Cinco: son extensibles, y
+permiten agregar reglas propias.
+
+00:06:32.733 --> 00:06:35.487
+Y seis: son útiles para
+analistas de seguridad, para
+
+00:06:35.487 --> 00:06:38.557
+QA, y para los desarrolladores
+que corrigen los problemas.
+
+00:06:39.607 --> 00:06:41.527
+Se agrupan en cuatro categorías.
+
+00:06:41.780 --> 00:06:45.705
+Comprobación estática: encontrar
+errores de codificación comunes.
+
+00:06:46.175 --> 00:06:49.055
+Detección de errores:
+encontrarlos y reportarlos.
+
+00:06:49.525 --> 00:06:53.899
+Verificación de software: garantizar la
+ausencia de errores con demostraciones.
+
+00:06:54.194 --> 00:06:58.162
+E inferencia de tipos: especificar y
+comprobar propiedades del programa.
+
+00:06:59.212 --> 00:07:02.604
+Esta tabla ubica muchas
+herramientas en esas categorías.
+
+00:07:03.074 --> 00:07:05.556
+Las dos que veremos, FindBugs y PMD, hacen
+
+00:07:05.556 --> 00:07:08.215
+comprobación estática y detección de errores.
+
+00:07:09.265 --> 00:07:12.710
+PMD analiza el código estático
+y detecta automáticamente
+
+00:07:12.710 --> 00:07:16.156
+defectos potenciales, y código
+inseguro o no optimizado.
+
+00:07:16.626 --> 00:07:19.594
+Detecta defectos de forma
+preventiva, sus reglas son
+
+00:07:19.594 --> 00:07:22.791
+muy configurables, y se integra
+con Eclipse y con Maven.
+
+00:07:23.261 --> 00:07:26.116
+Así se ve un reporte: una
+variable local sin usar,
+
+00:07:26.116 --> 00:07:29.085
+un bloque catch vacío, y un
+método privado sin usar.
+
+00:07:30.135 --> 00:07:33.992
+FindBugs también es para Java, pero
+con otro enfoque: le interesan poco
+
+00:07:33.992 --> 00:07:38.284
+las buenas prácticas, y se centra en
+errores reales y problemas de rendimiento.
+
+00:07:38.754 --> 00:07:42.217
+Busca patrones de error, como una
+posible desreferencia de null,
+
+00:07:42.217 --> 00:07:46.221
+comparar cadenas con doble igual, o
+concatenar cadenas dentro de un bucle.
+
+00:07:46.691 --> 00:07:50.318
+Detecta problemas distintos a
+PMD, con bastante precisión.
+
+00:07:50.611 --> 00:07:52.360
+Hoy su sucesor es SpotBugs.
+
+00:07:53.410 --> 00:07:56.124
+La comparación: PMD busca defectos potenciales
+
+00:07:56.124 --> 00:07:59.192
+y buenas prácticas; FindBugs,
+errores y rendimiento.
+
+00:07:59.662 --> 00:08:03.566
+PMD analiza el código fuente;
+FindBugs, el bytecode compilado.
+
+00:08:04.036 --> 00:08:08.516
+PMD usa reglas configurables; FindBugs,
+un catálogo de patrones de error.
+
+00:08:08.777 --> 00:08:11.679
+Y como encuentran cosas
+distintas, se usan juntas.
+
+00:08:12.729 --> 00:08:15.502
+Último ejercicio: ¿qué
+reportaría cada herramienta?
+
+00:08:15.972 --> 00:08:20.367
+La variable sin usar, el catch vacío
+y el método privado sin usar: PMD.
+
+00:08:20.837 --> 00:08:24.826
+Comparar cadenas con doble igual, y
+concatenar en un bucle: FindBugs.
+
+00:08:25.876 --> 00:08:30.633
+Para recordar: la inspección de código es
+análisis estático, sin ejecutar el programa.
+
+00:08:31.103 --> 00:08:35.327
+Detecta defectos temprano y en su
+ubicación exacta, lo que reduce el costo.
+
+00:08:35.797 --> 00:08:37.419
+No reemplaza a las pruebas.
+
+00:08:37.691 --> 00:08:40.486
+Y las herramientas se agrupan
+en cuatro categorías.
+
+00:08:41.536 --> 00:08:43.904
+Y una lista práctica para revisar código.
+
+00:08:44.156 --> 00:08:48.423
+Fiabilidad: divisiones por cero, índices
+fuera de límites, bucles infinitos.
+
+00:08:48.893 --> 00:08:51.496
+Recursos: que se cierren
+archivos y conexiones.
+
+00:08:51.966 --> 00:08:54.817
+Mantenibilidad, seguridad
+y portabilidad: nombres,
+
+00:08:54.817 --> 00:08:58.067
+duplicados, entradas validadas,
+contraseñas en el código.
+
+00:08:59.117 --> 00:09:00.952
+Antes de terminar, ponte a prueba.
+
+00:09:01.206 --> 00:09:03.638
+Si necesitas más tiempo, pausa el video.
+
+00:09:03.879 --> 00:09:07.697
+Primera pregunta: ¿en qué momento
+se realiza el análisis estático?
+
+00:09:12.317 --> 00:09:15.325
+Después de codificar, y antes
+de las pruebas unitarias.
+
+00:09:15.795 --> 00:09:18.240
+Siguiente: ¿puede el
+análisis estático verificar
+
+00:09:18.240 --> 00:09:20.531
+que el programa hace lo que pidió el cliente?
+
+00:09:25.151 --> 00:09:25.623
+No.
+
+00:09:25.867 --> 00:09:29.195
+No verifica la corrección funcional;
+para eso están las pruebas.
+
+00:09:29.665 --> 00:09:33.569
+Y la última: ¿qué analiza FindBugs:
+el código fuente o el bytecode?
+
+00:09:38.189 --> 00:09:39.747
+El bytecode compilado.
+
+00:09:40.014 --> 00:09:42.745
+PMD, en cambio, analiza el código fuente.
+
+00:09:43.795 --> 00:09:45.672
+Resumamos lo más importante.
+
+00:09:46.142 --> 00:09:48.899
+Uno: el análisis estático
+examina el código sin
+
+00:09:48.899 --> 00:09:52.009
+ejecutarlo, y el dinámico
+lo ejecuta y genera trazas.
+
+00:09:52.479 --> 00:09:56.096
+Dos: detecta fugas, operaciones
+ilegales, código muerto y código
+
+00:09:56.096 --> 00:10:00.223
+incompleto, en su ubicación exacta y
+temprano, cuando corregir es barato.
+
+00:10:00.693 --> 00:10:05.322
+Tres: tiene limitaciones, como los falsos
+positivos, y no reemplaza a las pruebas.
+
+00:10:05.792 --> 00:10:09.467
+Y cuatro: PMD analiza el código
+fuente y las buenas prácticas,
+
+00:10:09.467 --> 00:10:12.491
+FindBugs el bytecode y los
+errores; se usan juntas.
+
+00:10:13.541 --> 00:10:15.311
+Eso es todo para el tema cinco.
+
+00:10:15.590 --> 00:10:18.151
+En el siguiente video
+entramos a las pruebas de
+
+00:10:18.151 --> 00:10:21.094
+software: errores, defectos,
+fallas y casos de prueba.
+
+00:10:21.380 --> 00:10:22.404
+¡Nos vemos ahí!
+

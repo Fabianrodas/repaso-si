@@ -1,12 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Bubble } from "../components/Sheet";
-import { slideSrc, subsSrc, VIDEOS, videoSrc, WEEK_PAGES, WEEK_SHORT, type WeekNum } from "../data/meta";
 import { navigate } from "../lib/router";
 import { load, save } from "../lib/storage";
+import { useSubject } from "../subjects";
+import type { Subject } from "../subjects/types";
 
-const K_POS = "si-video-positions-v2";
+const posKey = (s: Subject) => (s.id === "si" ? "si-video-positions-v2" : `${s.storage}-video-positions-v1`);
+const unitLabel = (s: Subject, w: number) => `${s.unitWord === "tema" ? "del Tema" : "de la Week"} ${w}`;
 
-function Player({ w }: { w: WeekNum }) {
+function Player({ w }: { w: number }) {
+  const { s } = useSubject();
+  const K_POS = posKey(s);
   const ref = useRef<HTMLVideoElement>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -14,7 +18,7 @@ function Player({ w }: { w: WeekNum }) {
     const video = ref.current;
     if (!video) return;
     setError(null);
-    const src = videoSrc(w);
+    const src = s.videoSrc(w);
     let destroyed = false;
     let hls: { destroy: () => void } | null = null;
 
@@ -73,7 +77,7 @@ function Player({ w }: { w: WeekNum }) {
       video.removeAttribute("src");
       video.load();
     };
-  }, [w]);
+  }, [w, s]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="player">
@@ -82,10 +86,10 @@ function Player({ w }: { w: WeekNum }) {
         controls
         playsInline
         preload="metadata"
-        poster={slideSrc(WEEK_PAGES[w])}
-        aria-label={`Video de la Week ${w}`}
+        poster={s.slideSrc(s.unitPages[w])}
+        aria-label={`Video ${unitLabel(s, w)}`}
       >
-        <track kind="subtitles" src={subsSrc(w)} srcLang="es" label="Español" default />
+        <track kind="subtitles" src={s.subsSrc(w)} srcLang="es" label="Español" default />
       </video>
       {error ? <p className="player-error" role="alert">{error}</p> : null}
     </div>
@@ -93,10 +97,11 @@ function Player({ w }: { w: WeekNum }) {
 }
 
 export default function Videos({ query }: { query: URLSearchParams }) {
+  const { s, href } = useSubject();
   const qw = Number(query.get("w"));
-  const w = (qw >= 1 && qw <= 7 ? qw : 1) as WeekNum;
-  const meta = VIDEOS.find((v) => v.w === w)!;
-  const pick = (n: WeekNum) => navigate(`/videos?w=${n}`, { replace: true, keepScroll: true });
+  const w = s.units.includes(qw) ? qw : s.units[0];
+  const meta = s.videos.find((v) => v.u === w)!;
+  const pick = (n: number) => navigate(href(`/videos?w=${n}`), { replace: true, keepScroll: true });
 
   return (
     <div className="videos">
@@ -105,22 +110,22 @@ export default function Videos({ query }: { query: URLSearchParams }) {
         <Player key={w} w={w} />
         <div className="vinfo">
           <div>
-            <h2>Week {w}: {WEEK_SHORT[w]}</h2>
+            <h2>{s.unit} {w}: {s.unitShort[w]}</h2>
             <p>{meta.dur} min · subtítulos en español</p>
           </div>
-          <button type="button" className="btn" onClick={() => navigate(`/diapositivas?p=${WEEK_PAGES[w]}`)}>Ver diapositivas</button>
+          <button type="button" className="btn" onClick={() => navigate(href(`/diapositivas?p=${s.unitPages[w]}`))}>Ver diapositivas</button>
         </div>
       </div>
-      <nav className="vlist" aria-label="Elegir semana">
+      <nav className="vlist" aria-label={`Elegir ${s.unitWord}`}>
         <ol>
-          {VIDEOS.map((v) => (
-            <li key={v.w}>
-              <a href={`/videos?w=${v.w}`} className="vrow" aria-current={v.w === w ? "true" : undefined}
-                onClick={(e) => { e.preventDefault(); pick(v.w); }}>
-                <Bubble size="md" filled={v.w === w}>{v.w}</Bubble>
+          {s.videos.map((v) => (
+            <li key={v.u}>
+              <a href={href(`/videos?w=${v.u}`)} className="vrow" aria-current={v.u === w ? "true" : undefined}
+                onClick={(e) => { e.preventDefault(); pick(v.u); }}>
+                <Bubble size="md" filled={v.u === w}>{v.u}</Bubble>
                 <span className="vrow-t">
-                  <b>Week {v.w}</b>
-                  <span>{WEEK_SHORT[v.w]}</span>
+                  <b>{s.unit} {v.u}</b>
+                  <span>{s.unitShort[v.u]}</span>
                 </span>
                 <span className="vrow-d">{v.dur}</span>
               </a>

@@ -1,0 +1,3295 @@
+[
+ {
+  "id": "t1-01",
+  "w": 1,
+  "topic": "Gestión de la configuración",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Por qué cambian constantemente los sistemas de software durante el desarrollo y el uso? Marca las razones que dan las diapositivas.",
+  "options": [
+   "Se descubren errores que deben solucionarse",
+   "Los requisitos cambian y hay que implementarlos en una nueva versión",
+   "Salen nuevas versiones de hardware y plataformas a las que hay que adaptarse",
+   "Los competidores introducen características que hay que igualar",
+   "El código fuente se degrada solo con el paso del tiempo"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Las cuatro primeras son las razones listadas. El código no «se degrada solo»: cambia porque cambian los errores conocidos, los requisitos, las plataformas y la competencia.",
+  "src": "Tema 1 · Gestión de la configuración (CM)",
+  "page": 6
+ },
+ {
+  "id": "t1-02",
+  "w": 1,
+  "topic": "Gestión de la configuración",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿De qué se ocupa la gestión de la configuración (CM)?",
+  "options": [
+   "De las políticas, los procesos y las herramientas para gestionar sistemas de software cambiantes",
+   "De diseñar la arquitectura inicial del sistema antes de programar",
+   "De configurar los servidores de producción donde corre el sistema",
+   "De medir la productividad de cada desarrollador del equipo"
+  ],
+  "answer": 0,
+  "explain": "CM se ocupa de las políticas, procesos y herramientas para gestionar sistemas que cambian. Cada cambio crea una nueva versión, así que el sistema es un conjunto de versiones.",
+  "src": "Tema 1 · Gestión de la configuración (CM)",
+  "page": 7
+ },
+ {
+  "id": "t1-03",
+  "w": 1,
+  "topic": "Actividades de CM",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada actividad de la gestión de la configuración con lo que hace.",
+  "pairs": [
+   [
+    "Gestión del cambio",
+    "Registra solicitudes de cambio, calcula costo e impacto y decide si se implementan y cuándo"
+   ],
+   [
+    "Gestión de versiones",
+    "Sigue las versiones de los componentes y evita que los cambios de distintos desarrolladores interfieran"
+   ],
+   [
+    "Construcción del sistema",
+    "Ensambla componentes, datos y bibliotecas, y los compila y vincula en un ejecutable"
+   ],
+   [
+    "Gestión de lanzamiento",
+    "Prepara el software para su entrega externa y sigue las versiones entregadas a clientes"
+   ]
+  ],
+  "explain": "Son las cuatro actividades de CM tal como las definen las diapositivas 8 a 11 del tema.",
+  "src": "Tema 1 · Actividades de gestión de la configuración",
+  "page": 10
+ },
+ {
+  "id": "t1-04",
+  "w": 1,
+  "topic": "Actividades de CM",
+  "type": "mc",
+  "pts": 3,
+  "q": "Llega un reporte: «el total no incluye el costo de envío». Se registra, se estima su costo e impacto y se decide arreglarlo en la próxima versión. ¿Qué actividad es esa?",
+  "options": [
+   "Gestión del cambio",
+   "Gestión de versiones",
+   "Construcción del sistema",
+   "Gestión de lanzamiento"
+  ],
+  "answer": 0,
+  "explain": "Registrar la solicitud, calcular costo e impacto y decidir si y cuándo se implementa es la gestión del cambio.",
+  "src": "Tema 1 · Las cuatro actividades en un caso real",
+  "page": 12
+ },
+ {
+  "id": "t1-05",
+  "w": 1,
+  "topic": "Actividades de CM",
+  "type": "mc",
+  "pts": 3,
+  "q": "El servidor compila y vincula el código, las librerías y la configuración para obtener un ejecutable. ¿Qué actividad de CM es?",
+  "options": [
+   "Construcción del sistema",
+   "Gestión de versiones",
+   "Gestión del cambio",
+   "Gestión de lanzamiento"
+  ],
+  "answer": 0,
+  "explain": "La construcción del sistema ensambla componentes, datos y bibliotecas y los compila y vincula para crear un sistema ejecutable.",
+  "src": "Tema 1 · Actividades de gestión de la configuración",
+  "page": 10
+ },
+ {
+  "id": "t1-06",
+  "w": 1,
+  "topic": "Terminología",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué es una línea base (baseline)?",
+  "options": [
+   "Una colección controlada de versiones de componentes que conforman un sistema y que siempre se puede recrear",
+   "La primera versión que escribió el desarrollador de un componente",
+   "La rama donde cada desarrollador trabaja sin afectar a los demás",
+   "La lista de diferencias entre una versión y la anterior"
+  ],
+  "answer": 0,
+  "explain": "Una línea base es una colección de versiones de componentes; está controlada (sus componentes no cambian) y siempre se puede recrear a partir de ellos.",
+  "src": "Tema 1 · Terminología de gestión de la configuración",
+  "page": 13
+ },
+ {
+  "id": "t1-07",
+  "w": 1,
+  "topic": "Terminología",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada término con su definición.",
+  "pairs": [
+   [
+    "Ramificación",
+    "Crear una nueva línea de código a partir de una versión de una línea existente"
+   ],
+   [
+    "Fusión",
+    "Crear una nueva versión al unir versiones separadas de distintas líneas de código"
+   ],
+   [
+    "Línea principal",
+    "Secuencia de líneas base que representan diferentes versiones del sistema"
+   ],
+   [
+    "Espacio de trabajo",
+    "Área privada donde se modifica software sin afectar a otros desarrolladores"
+   ],
+   [
+    "Lanzamiento",
+    "Versión del sistema entregada a los clientes u otros usuarios"
+   ]
+  ],
+  "explain": "Definiciones de la tabla de terminología de CM (diapositivas 10 y 11 del tema).",
+  "src": "Tema 1 · Terminología de gestión de la configuración",
+  "page": 14
+ },
+ {
+  "id": "t1-08",
+  "w": 1,
+  "topic": "Terminología",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué es un elemento de configuración (SCI)?",
+  "options": [
+   "Cualquier artefacto del proyecto (diseño, código, datos de prueba, documento) puesto bajo control de configuración, con identificador único",
+   "Solo los archivos de código fuente que se compilan",
+   "El archivo de configuración del servidor donde se despliega el sistema",
+   "Una persona responsable de aprobar los cambios"
+  ],
+  "answer": 0,
+  "explain": "Un SCI es cualquier artefacto del proyecto bajo control de configuración, siempre con un identificador único; no se limita al código.",
+  "src": "Tema 1 · Terminología de gestión de la configuración",
+  "page": 13
+ },
+ {
+  "id": "t1-09",
+  "w": 1,
+  "topic": "Terminología en Git",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada término de CM con su equivalente en Git.",
+  "pairs": [
+   [
+    "Versión",
+    "Un commit con identificador (a3f9c1e)"
+   ],
+   [
+    "Ramificación",
+    "git branch envio"
+   ],
+   [
+    "Fusión",
+    "git merge envio"
+   ],
+   [
+    "Línea base",
+    "Una etiqueta: git tag v1.0"
+   ]
+  ],
+  "extra": [
+   "git clone"
+  ],
+  "explain": "En Git, cada commit es una versión con identificador único; branch ramifica, merge fusiona y una etiqueta marca una línea base.",
+  "src": "Tema 1 · La terminología, traducida a Git",
+  "page": 15
+ },
+ {
+  "id": "t1-10",
+  "w": 1,
+  "topic": "Gestión de versiones",
+  "type": "tf",
+  "pts": 2,
+  "q": "La gestión de versiones es, en otras palabras, el proceso de administrar líneas de código y líneas base.",
+  "answer": true,
+  "explain": "Verdadero. Así lo resume la diapositiva; para respaldarla se necesitan sistemas de control de versiones (VC).",
+  "src": "Tema 1 · Gestión de versiones",
+  "page": 17
+ },
+ {
+  "id": "t1-11",
+  "w": 1,
+  "topic": "Líneas base",
+  "type": "multi",
+  "pts": 4,
+  "q": "La línea base V1 tiene A, B1.2, C1.1, L1, L2 y Ex1. La V2 tiene A1.3, B1.2, C1.2, L1, L2 y Ex2. ¿Qué componentes cambiaron de V1 a V2?",
+  "options": [
+   "A",
+   "B",
+   "C",
+   "Las librerías L1 y L2",
+   "El componente externo Ex"
+  ],
+  "answer": [
+   0,
+   2,
+   4
+  ],
+  "explain": "Cambiaron A (A → A1.3), C (C1.1 → C1.2) y el externo (Ex1 → Ex2). B1.2 y las librerías se reutilizan sin cambios.",
+  "src": "Tema 1 · Ejercicio: ¿qué cambió entre dos líneas base?",
+  "page": 19
+ },
+ {
+  "id": "t1-12",
+  "w": 1,
+  "topic": "Sistemas de control de versiones",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada característica de un sistema de control de versiones con su descripción.",
+  "pairs": [
+   [
+    "Identificación de versión y lanzamiento",
+    "Cada versión recibe un identificador único al enviarse al sistema"
+   ],
+   [
+    "Registro del historial de cambios",
+    "Se guarda qué cambios crearon cada versión a partir de la anterior"
+   ],
+   [
+    "Desarrollo independiente",
+    "Varios desarrolladores trabajan en el mismo componente a la vez"
+   ],
+   [
+    "Gestión de almacenamiento",
+    "Mecanismos eficientes que evitan duplicar archivos idénticos"
+   ]
+  ],
+  "extra": [
+   "Compilar y vincular el sistema automáticamente"
+  ],
+  "explain": "Las características de los sistemas VC son: identificación de versión, historial de cambios, desarrollo independiente, soporte de proyectos y gestión de almacenamiento.",
+  "src": "Tema 1 · Características de los sistemas de control de versiones",
+  "page": 20
+ },
+ {
+  "id": "t1-13",
+  "w": 1,
+  "topic": "Tipos de VC",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué describe a un sistema de control de versiones centralizado?",
+  "options": [
+   "Un único repositorio maestro mantiene todas las versiones; Subversion es un ejemplo",
+   "Cada desarrollador clona el repositorio completo; Git es un ejemplo",
+   "No guarda historial, solo la última versión de cada archivo",
+   "Solo funciona sin conexión a la red"
+  ],
+  "answer": 0,
+  "explain": "En el centralizado hay un único repositorio maestro (Subversion). En el distribuido existen múltiples copias completas del repositorio a la vez (Git).",
+  "src": "Tema 1 · Tipos de sistemas de control de versiones",
+  "page": 22
+ },
+ {
+  "id": "t1-14",
+  "w": 1,
+  "topic": "Tipos de VC",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Qué ventajas tienen los sistemas VC distribuidos sobre los centralizados?",
+  "options": [
+   "Sirven de respaldo: si el repositorio se daña, se restaura desde una copia local",
+   "Permiten confirmar cambios (commit) sin conexión a la red",
+   "Se puede compilar y probar todo el sistema en el equipo local",
+   "Impiden por completo que existan conflictos al fusionar",
+   "No necesitan identificadores de versión"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "Las tres ventajas de la diapositiva son respaldo, trabajo sin conexión y soporte de proyectos en el equipo local. Los conflictos siguen pudiendo ocurrir.",
+  "src": "Tema 1 · Ventajas de los sistemas VC distribuidos",
+  "page": 24
+ },
+ {
+  "id": "t1-15",
+  "w": 1,
+  "topic": "Tipos de VC",
+  "type": "tf",
+  "pts": 2,
+  "q": "Con un sistema centralizado como Subversion, si el servidor se cae, los desarrolladores pueden seguir haciendo commits locales y subirlos después.",
+  "answer": false,
+  "explain": "Falso. Eso pasa con Git (distribuido). En el centralizado cada desarrollador solo tiene una copia de trabajo: si cae el servidor, nadie puede confirmar cambios.",
+  "src": "Tema 1 · Centralizado vs. distribuido",
+  "page": 25
+ },
+ {
+  "id": "t1-16",
+  "w": 1,
+  "topic": "Ramificación y fusión",
+  "type": "order",
+  "pts": 4,
+  "q": "Ordena los pasos para corregir un error en una rama con Git y entregar la versión.",
+  "items": [
+   "git clone (traer el repositorio)",
+   "git switch -c envio (crear la rama)",
+   "git add y git commit (nueva versión)",
+   "git switch main y git pull",
+   "git merge envio (fusión)",
+   "git tag v2.3.1 (línea base)"
+  ],
+  "explain": "Clonar, ramificar, confirmar la versión, volver a main y traer cambios, fusionar y etiquetar la línea base que se entrega.",
+  "src": "Tema 1 · Ramificar y fusionar con Git, paso a paso",
+  "page": 27
+ },
+ {
+  "id": "t1-17",
+  "w": 1,
+  "topic": "Ramificación y fusión",
+  "type": "mc",
+  "pts": 3,
+  "q": "Dos personas modificaron las mismas líneas de un archivo en ramas distintas. ¿Qué pasa al fusionar con Git?",
+  "options": [
+   "Git reporta un conflicto y alguien decide cómo fusionar",
+   "Git conserva siempre la versión más reciente sin avisar",
+   "Git rechaza la fusión y borra una de las ramas",
+   "Git fusiona ambas versiones duplicando las líneas"
+  ],
+  "answer": 0,
+  "explain": "Si dos personas cambian las mismas líneas, Git reporta un conflicto y una persona decide cómo fusionar.",
+  "src": "Tema 1 · Ramificar y fusionar con Git, paso a paso",
+  "page": 27
+ },
+ {
+  "id": "t1-18",
+  "w": 1,
+  "topic": "Almacenamiento",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué guarda un sistema VC al crear una nueva versión, según la estructura de almacenamiento?",
+  "options": [
+   "Un delta: la lista de diferencias entre la nueva versión y la anterior",
+   "Una copia completa de todos los archivos del proyecto",
+   "Solo el nombre del autor y la fecha",
+   "Un ejecutable compilado de esa versión"
+  ],
+  "answer": 0,
+  "explain": "Se almacena un delta (lista de diferencias). Git además usa deltas dentro de archivos empaquetados para reducir el tamaño.",
+  "src": "Tema 1 · Gestión del almacenamiento en sistemas VC distribuidos",
+  "page": 28
+ },
+ {
+  "id": "t1-19",
+  "w": 1,
+  "topic": "Almacenamiento",
+  "type": "input",
+  "pts": 5,
+  "numeric": true,
+  "q": "Un archivo de 100 KB tiene 4 versiones y en cada versión cambian unos 2 KB. Si se guarda la versión más reciente completa más los deltas, ¿cuántos KB se usan en total?",
+  "answer": [
+   "106"
+  ],
+  "placeholder": "KB",
+  "explain": "100 KB de la versión completa + 3 deltas de 2 KB = 106 KB, frente a 400 KB con 4 copias completas (ahorro ≈73 %).",
+  "src": "Tema 1 · Ejercicio: ¿cuánto espacio ahorran los deltas?",
+  "page": 29
+ },
+ {
+  "id": "t1-20",
+  "w": 1,
+  "topic": "Almacenamiento",
+  "type": "mc",
+  "pts": 4,
+  "q": "Con almacenamiento por deltas (se guarda completa la versión 1.3), ¿cómo se obtiene la versión 1.0?",
+  "options": [
+   "Se parte de la 1.3 y se aplican los deltas D3, D2 y D1 hacia atrás",
+   "Se lee directamente, porque la 1.0 también se guarda completa",
+   "Se parte de la 1.0 y se aplican D1, D2 y D3 hacia adelante",
+   "No se puede recuperar: los deltas solo sirven para la última versión"
+  ],
+  "answer": 0,
+  "explain": "La versión más usada (la última) se lee directo; las antiguas se reconstruyen aplicando los deltas hacia atrás: D3, D2 y D1.",
+  "src": "Tema 1 · Ejercicio: ¿cuánto espacio ahorran los deltas?",
+  "page": 29
+ },
+ {
+  "id": "t2-01",
+  "w": 2,
+  "topic": "Construcción de sistemas",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué es construir un sistema?",
+  "options": [
+   "Crear un sistema completo y ejecutable compilando y vinculando componentes, bibliotecas externas, archivos de configuración y otra información",
+   "Escribir el código fuente de todos los componentes desde cero",
+   "Instalar el sistema en el equipo del cliente",
+   "Diseñar la base de datos antes de programar"
+  ],
+  "answer": 0,
+  "explain": "Construir es compilar y vincular los componentes, las bibliotecas externas, los archivos de configuración y otra información para obtener un ejecutable.",
+  "src": "Tema 2 · ¿Qué es construir un sistema?",
+  "page": 33
+ },
+ {
+  "id": "t2-02",
+  "w": 2,
+  "topic": "Construcción de sistemas",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Cuáles son entradas del sistema automatizado de construcción según el esquema?",
+  "options": [
+   "Archivos de código fuente",
+   "Archivos de configuración",
+   "Bibliotecas",
+   "Pruebas ejecutables",
+   "Resultados de las pruebas"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Entran código fuente, configuración, datos, bibliotecas, pruebas ejecutables y herramientas. Salen el sistema ejecutable y los resultados de las pruebas.",
+  "src": "Tema 2 · ¿Qué es construir un sistema?",
+  "page": 33
+ },
+ {
+  "id": "t2-03",
+  "w": 2,
+  "topic": "Herramientas de construcción",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un proyecto tiene 42 archivos fuente y solo cambiaste Pedido.java. ¿Qué hace una herramienta de construcción con recompilación mínima?",
+  "options": [
+   "Compara fechas o firmas y recompila solo Pedido.java y lo que depende de él",
+   "Recompila los 42 archivos por seguridad",
+   "No recompila nada hasta que cambien al menos la mitad de los archivos",
+   "Borra los ejecutables anteriores y pide compilar a mano"
+  ],
+  "answer": 0,
+  "explain": "La recompilación mínima compara fechas o firmas y recompila solo lo que cambió y lo que depende de ello.",
+  "src": "Tema 2 · Construir un sistema con un solo comando",
+  "page": 34
+ },
+ {
+  "id": "t2-04",
+  "w": 2,
+  "topic": "Herramientas de construcción",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Qué funciones ofrecen las herramientas de integración y construcción?",
+  "options": [
+   "Generación de scripts de compilación",
+   "Integración con el sistema de control de versiones",
+   "Recompilación mínima del código fuente",
+   "Automatización de pruebas e informes de éxito o fracaso",
+   "Redacción automática de los requisitos del cliente"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Además generan el ejecutable y la documentación. Lo ideal: construir todo con un solo comando o clic. No redactan requisitos.",
+  "src": "Tema 2 · Herramientas de integración y construcción",
+  "page": 38
+ },
+ {
+  "id": "t2-05",
+  "w": 2,
+  "topic": "Plataformas de construcción",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada plataforma del proceso de construcción con su ejemplo.",
+  "pairs": [
+   [
+    "Sistema de desarrollo",
+    "La laptop de Ana con su IDE y su espacio de trabajo privado"
+   ],
+   [
+    "Servidor de versiones y construcción",
+    "GitHub y un servidor de CI que recibe el check-in y construye el ejecutable oficial"
+   ],
+   [
+    "Sistema objetivo",
+    "El servidor Linux, el celular Android o el cajero donde corre el software"
+   ]
+  ],
+  "explain": "Las tres plataformas: desarrollo (donde se programa), servidor de versiones y construcción, y sistema objetivo (donde se ejecuta).",
+  "src": "Tema 2 · Las tres plataformas, con un ejemplo",
+  "page": 36
+ },
+ {
+  "id": "t2-06",
+  "w": 2,
+  "topic": "Plataformas de construcción",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Dónde se debe generar la versión que se entrega al cliente?",
+  "options": [
+   "En el servidor de construcción, para que se construya siempre igual y con las versiones registradas",
+   "En la laptop del desarrollador que hizo el último cambio",
+   "Directamente en el equipo del cliente",
+   "En cualquier máquina, mientras compile sin errores"
+  ],
+  "answer": 0,
+  "explain": "En el servidor de construcción: así el resultado es reproducible y usa exactamente las versiones registradas.",
+  "src": "Tema 2 · Las tres plataformas, con un ejemplo",
+  "page": 36
+ },
+ {
+  "id": "t2-07",
+  "w": 2,
+  "topic": "Integración continua",
+  "type": "tf",
+  "pts": 2,
+  "q": "Los métodos ágiles recomiendan compilar el sistema con mucha frecuencia y usar pruebas automatizadas para descubrir problemas.",
+  "answer": true,
+  "explain": "Verdadero. Esas compilaciones frecuentes forman parte de un proceso de integración continua.",
+  "src": "Tema 2 · Integración continua",
+  "page": 37
+ },
+ {
+  "id": "t2-08",
+  "w": 2,
+  "topic": "Gestión del cambio",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál es el objetivo de la gestión del cambio?",
+  "options": [
+   "Garantizar que se controle la evolución del sistema y que se prioricen los cambios más urgentes y rentables",
+   "Evitar que el sistema cambie después de entregarlo",
+   "Implementar todos los cambios que pidan los clientes en el orden en que llegan",
+   "Reducir el número de versiones a una sola"
+  ],
+  "answer": 0,
+  "explain": "Los cambios son inevitables; el objetivo es controlar la evolución y priorizar los cambios más urgentes y rentables.",
+  "src": "Tema 2 · Una constante en todo sistema",
+  "page": 40
+ },
+ {
+  "id": "t2-09",
+  "w": 2,
+  "topic": "Proceso de gestión del cambio",
+  "type": "order",
+  "pts": 5,
+  "q": "Ordena el recorrido de una solicitud de cambio (CR).",
+  "items": [
+   "El cliente envía la CR",
+   "Soporte al cliente revisa la CR y la registra (o la cierra)",
+   "Desarrollo analiza la implementación y el impacto",
+   "El CCB evalúa y selecciona las CR",
+   "Desarrollo modifica y prueba el software, y cierra la CR"
+  ],
+  "explain": "Cliente → soporte → análisis de desarrollo → decisión del CCB → implementación, prueba y cierre.",
+  "src": "Tema 2 · El proceso de gestión del cambio",
+  "page": 41
+ },
+ {
+  "id": "t2-10",
+  "w": 2,
+  "topic": "Proceso de gestión del cambio",
+  "type": "input",
+  "pts": 2,
+  "q": "¿Qué significan las siglas CCB en la gestión del cambio? (en español)",
+  "answer": [
+   "junta de control de cambios",
+   "junta de control de cambio",
+   "comite de control de cambios",
+   "change control board"
+  ],
+  "placeholder": "Junta de…",
+  "explain": "CCB: junta de control de cambios (Change Control Board). Evalúa y selecciona las solicitudes de cambio.",
+  "src": "Tema 2 · El proceso de gestión del cambio",
+  "page": 41
+ },
+ {
+  "id": "t2-11",
+  "w": 2,
+  "topic": "Solicitud de cambio",
+  "type": "tf",
+  "pts": 2,
+  "q": "El proceso de gestión del cambio se inicia cuando una parte interesada completa y envía una solicitud de cambio que describe el cambio requerido.",
+  "answer": true,
+  "explain": "Verdadero. Se usa un formulario estándar de solicitud de cambio (CR) con proyecto, número, solicitante, cambio, prioridad, esfuerzo y decisión del CCB.",
+  "src": "Tema 2 · La solicitud de cambio",
+  "page": 42
+ },
+ {
+  "id": "t2-12",
+  "w": 2,
+  "topic": "Decisión del cambio",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Qué factores influyen en la decisión de hacer un cambio?",
+  "options": [
+   "Las consecuencias de no hacer el cambio",
+   "Los beneficios del cambio",
+   "El número de usuarios afectados",
+   "Los costos de hacer el cambio",
+   "El ciclo de lanzamiento del producto",
+   "Quién envió la solicitud primero"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "explain": "Son los cinco factores de la diapositiva. El orden de llegada no es un factor.",
+  "src": "Tema 2 · Factores que influyen en la decisión",
+  "page": 44
+ },
+ {
+  "id": "t2-13",
+  "w": 2,
+  "topic": "Decisión del cambio",
+  "type": "mc",
+  "pts": 4,
+  "q": "Solo hay tiempo para una CR antes del lanzamiento. CR-A: el botón «Pagar» falla en iPhone (≈35 % de usuarios, 4 horas). CR-B: modo oscuro (sin consecuencias graves, 30 horas). ¿Cuál aprueba el CCB?",
+  "options": [
+   "CR-A: afecta a más usuarios, tiene consecuencias graves y cuesta poco",
+   "CR-B: es más grande y aporta más funcionalidad",
+   "Ninguna: hay que esperar al siguiente lanzamiento",
+   "Las dos, partiendo cada una por la mitad"
+  ],
+  "answer": 0,
+  "explain": "Se aprueba la CR-A: consecuencias graves, muchos usuarios afectados y bajo costo. La CR-B queda para una versión futura.",
+  "src": "Tema 2 · Ejercicio: el CCB tiene que elegir",
+  "page": 45
+ },
+ {
+  "id": "t2-14",
+  "w": 2,
+  "topic": "Cambios en aplicaciones web",
+  "type": "match",
+  "pts": 5,
+  "q": "Clasifica cada cambio de una aplicación web.",
+  "pairs": [
+   [
+    "Corregir una falta de ortografía en «Contacto»",
+    "Clase 1 · Corrección local"
+   ],
+   [
+    "Cambiar el cálculo del IVA que usan el carrito, la factura y los reportes",
+    "Clase 2 · Impacto funcional"
+   ],
+   [
+    "Agregar pagos con tarjeta y un historial de compras",
+    "Clase 3 · Impacto amplio"
+   ],
+   [
+    "Rediseñar el menú y toda la navegación",
+    "Clase 4 · Cambio de diseño"
+   ]
+  ],
+  "explain": "Clase 1 afecta solo contenido local; clase 2, a otros componentes; clase 3 amplía mucho la funcionalidad o la navegación; clase 4 cambia la interfaz de forma perceptible.",
+  "src": "Tema 2 · Ejercicio: clasifica cada cambio de una aplicación web",
+  "page": 48
+ },
+ {
+  "id": "t2-15",
+  "w": 2,
+  "topic": "Cambios en aplicaciones web",
+  "type": "mc",
+  "pts": 3,
+  "q": "En el flujo de clasificación, ¿qué necesitan los cambios de clase 3 y 4 antes de implementarse?",
+  "options": [
+   "Una descripción escrita y la revisión del equipo o de los stakeholders",
+   "Nada: van directo a check-out, cambio y check-in",
+   "Solo reunir los objetos relacionados",
+   "Una nueva línea base del sistema operativo"
+  ],
+  "answer": 0,
+  "explain": "La clase 1 va directo a check-out → cambio → check-in; la 2 reúne primero los objetos relacionados; la 3 y la 4 requieren descripción y revisión del equipo o los stakeholders.",
+  "src": "Tema 2 · Flujo de clasificación del cambio",
+  "page": 47
+ },
+ {
+  "id": "t2-16",
+  "w": 2,
+  "topic": "Versiones del sistema",
+  "type": "multi",
+  "pts": 4,
+  "q": "Una versión del sistema que se distribuye a los clientes no es solo el ejecutable. ¿Qué más puede incluir?",
+  "options": [
+   "Archivos de configuración",
+   "Archivos de datos, como mensajes de error en varios idiomas",
+   "Un programa de instalación",
+   "Documentación electrónica y en papel",
+   "Embalaje y publicidad para ese lanzamiento"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "explain": "Las cinco opciones aparecen en la diapositiva «Más que el código ejecutable».",
+  "src": "Tema 2 · Más que el código ejecutable",
+  "page": 50
+ },
+ {
+  "id": "t2-17",
+  "w": 2,
+  "topic": "Documentar un lanzamiento",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué hay que hacer para documentar un lanzamiento?",
+  "options": [
+   "Registrar las versiones exactas de los componentes usados y conservar copias de fuentes, ejecutables, datos y configuración",
+   "Guardar solo el ejecutable final, porque el código ya está en el repositorio",
+   "Escribir un resumen de las funciones nuevas para marketing",
+   "Borrar las versiones intermedias para no confundir"
+  ],
+  "answer": 0,
+  "explain": "Se registran las versiones específicas de los componentes y se conservan copias de fuentes, ejecutables, datos, configuración y hasta sistemas operativos antiguos.",
+  "src": "Tema 2 · Documentar un lanzamiento",
+  "page": 51
+ },
+ {
+  "id": "t2-18",
+  "w": 2,
+  "topic": "Versiones y lanzamientos",
+  "type": "tf",
+  "pts": 3,
+  "q": "Toda versión del sistema se convierte en un lanzamiento.",
+  "answer": false,
+  "explain": "Falso. El equipo genera muchas versiones internas (desarrollo y preliminares); solo algunas se lanzan. Todo lanzamiento es una versión, pero no al revés.",
+  "src": "Tema 2 · Versión vs. lanzamiento, con números",
+  "page": 53
+ },
+ {
+  "id": "t2-19",
+  "w": 2,
+  "topic": "Factores de un lanzamiento",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada factor con la situación que puede provocar un nuevo lanzamiento.",
+  "pairs": [
+   [
+    "Competencia",
+    "Un competidor introdujo funciones nuevas y se puede perder cuota de mercado"
+   ],
+   [
+    "Requisitos de marketing",
+    "Se prometió una fecha de lanzamiento o funciones nuevas"
+   ],
+   [
+    "Cambios de plataforma",
+    "Salió una nueva versión del sistema operativo"
+   ],
+   [
+    "Calidad técnica",
+    "Se reportaron fallas graves que afectan a muchos clientes"
+   ]
+  ],
+  "explain": "Son los factores que influyen en un lanzamiento. Las fallas menores se reparan con parches.",
+  "src": "Tema 2 · Factores que influyen en un lanzamiento",
+  "page": 54
+ },
+ {
+  "id": "t2-20",
+  "w": 2,
+  "topic": "Factores de un lanzamiento",
+  "type": "mc",
+  "pts": 3,
+  "q": "Se reporta una falla menor que afecta a pocos usuarios. Según las diapositivas, ¿cómo se suele reparar?",
+  "options": [
+   "Con un parche",
+   "Con un nuevo lanzamiento mayor",
+   "Rediseñando el sistema",
+   "No se repara hasta la siguiente versión de la plataforma"
+  ],
+  "answer": 0,
+  "explain": "Las fallas graves que afectan a muchos clientes justifican un nuevo lanzamiento; las menores se reparan con parches.",
+  "src": "Tema 2 · Factores que influyen en un lanzamiento",
+  "page": 54
+ },
+ {
+  "id": "t3-01",
+  "w": 3,
+  "topic": "Terminología",
+  "type": "mc",
+  "pts": 3,
+  "q": "En el contexto de la integración continua, ¿qué significa «continuo»?",
+  "options": [
+   "Algo que ocurre repetidamente, no algo ininterrumpido",
+   "Algo que nunca se detiene, las 24 horas del día",
+   "Que el sistema se despliega a producción en cada cambio",
+   "Que solo hay una persona integrando a la vez"
+  ],
+  "answer": 0,
+  "explain": "En IC, «continuo» no significa ininterrumpido, sino que ocurre repetidamente.",
+  "src": "Tema 3 · Terminología",
+  "page": 59
+ },
+ {
+  "id": "t3-02",
+  "w": 3,
+  "topic": "Terminología",
+  "type": "match",
+  "pts": 3,
+  "q": "Relaciona cada término con su significado en la integración continua.",
+  "pairs": [
+   [
+    "Construir",
+    "Conjunto de actividades para generar, probar, inspeccionar e implementar software"
+   ],
+   [
+    "Continuo",
+    "Que ocurre repetidamente"
+   ],
+   [
+    "Integración",
+    "Combinar artefactos de código separados para ver cómo funcionan como un todo"
+   ]
+  ],
+  "explain": "Son las tres definiciones de la diapositiva de terminología.",
+  "src": "Tema 3 · Terminología",
+  "page": 59
+ },
+ {
+  "id": "t3-03",
+  "w": 3,
+  "topic": "Integración continua",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Con qué frecuencia integra su trabajo cada miembro del equipo en la integración continua?",
+  "options": [
+   "Generalmente al menos una vez al día, lo que da varias integraciones diarias",
+   "Una vez por sprint",
+   "Solo al terminar una funcionalidad completa",
+   "Una vez por semana, el viernes"
+  ],
+  "answer": 0,
+  "explain": "Cada persona integra al menos una vez al día, y cada integración se verifica con una compilación automatizada que incluye pruebas.",
+  "src": "Tema 3 · Integración Continua (IC)",
+  "page": 60
+ },
+ {
+  "id": "t3-04",
+  "w": 3,
+  "topic": "Integración continua",
+  "type": "mc",
+  "pts": 4,
+  "q": "Luis integra a las 11:30, falla una prueba y lo corrige a las 11:45. ¿Qué habría pasado sin integración continua?",
+  "options": [
+   "El error se habría descubierto días después, al juntar el trabajo de todos (el «infierno de la integración»)",
+   "El error nunca habría aparecido",
+   "El servidor lo habría corregido automáticamente",
+   "Lo habría detectado el cliente el mismo día"
+  ],
+  "answer": 0,
+  "explain": "Con CI el error aparece minutos después, cuando el cambio es pequeño. Sin CI, aparece días después al integrar todo junto.",
+  "src": "Tema 3 · Un día con integración continua",
+  "page": 61
+ },
+ {
+  "id": "t3-05",
+  "w": 3,
+  "topic": "Pasos de la CI",
+  "type": "order",
+  "pts": 5,
+  "q": "Ordena los pasos de la integración continua.",
+  "items": [
+   "Extraer (check-out) la línea principal al espacio de trabajo privado",
+   "Construir y probar en el espacio privado antes de cambiar nada",
+   "Hacer los cambios en los componentes",
+   "Construir y probar de nuevo en el espacio privado",
+   "Registrar (check-in) en el servidor de compilación",
+   "Construir en el servidor y ejecutar las pruebas",
+   "Confirmar los cambios como nueva línea base en la línea principal"
+  ],
+  "explain": "Orden: check-out, construir y probar, cambiar, construir y probar otra vez, check-in, construir y probar en el servidor y commit como nueva línea base.",
+  "src": "Tema 3 · Ejercicio: ordena los pasos de la integración continua",
+  "page": 65
+ },
+ {
+  "id": "t3-06",
+  "w": 3,
+  "topic": "Pasos de la CI",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Por qué se construye y prueba el sistema justo después del check-out, antes de hacer cambios?",
+  "options": [
+   "Para comprobar que la línea principal está sana; si falla, hay que arreglar eso primero",
+   "Para que el servidor registre la hora de inicio",
+   "Porque Git lo exige antes de editar un archivo",
+   "Para generar la documentación"
+  ],
+  "answer": 0,
+  "explain": "El paso 2 garantiza que el sistema compilado supere todas las pruebas antes de tocarlo. Si no, la compilación falla y se debe solucionar.",
+  "src": "Tema 3 · Los pasos de la integración continua",
+  "page": 62
+ },
+ {
+  "id": "t3-07",
+  "w": 3,
+  "topic": "Pasos de la CI",
+  "type": "tf",
+  "pts": 2,
+  "q": "Si las pruebas fallan en el espacio de trabajo privado después de hacer los cambios, se hace igual el check-in para que el servidor las revise.",
+  "answer": false,
+  "explain": "Falso. Si las pruebas fallan en el espacio privado, se continúa editando. Solo cuando pasan se registra en el servidor de compilación.",
+  "src": "Tema 3 · Los pasos de la integración continua",
+  "page": 62
+ },
+ {
+  "id": "t3-08",
+  "w": 3,
+  "topic": "Pasos de la CI",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuándo se confirman los cambios como una nueva línea base en la línea principal?",
+  "options": [
+   "Cuando el sistema pasa las pruebas en el servidor de compilación",
+   "En cuanto se hace el check-in",
+   "Cuando pasan las pruebas en la laptop del desarrollador",
+   "Cuando el líder lo aprueba por correo"
+  ],
+  "answer": 0,
+  "explain": "El paso 7: si el sistema pasa las pruebas en el sistema de compilación, los cambios se confirman como nueva línea base.",
+  "src": "Tema 3 · Pasos en la Integración Continua",
+  "page": 63
+ },
+ {
+  "id": "t3-09",
+  "w": 3,
+  "topic": "Prácticas clave",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada situación con la práctica de CI que viola.",
+  "pairs": [
+   [
+    "El código está en tres repositorios y en una memoria USB",
+    "Mantener un único repositorio de fuentes"
+   ],
+   [
+    "Para compilar hay que seguir 20 pasos manuales",
+    "Automatizar la compilación"
+   ],
+   [
+    "Pedro integra su trabajo una vez al mes",
+    "Todos contribuyen a la línea principal todos los días"
+   ],
+   [
+    "La compilación lleva rota dos días",
+    "Reparar las compilaciones rotas inmediatamente"
+   ],
+   [
+    "Se prueba en Windows, pero producción corre en Linux",
+    "Probar en un clon del entorno de producción"
+   ]
+  ],
+  "explain": "Cada situación incumple una de las diez prácticas clave de la integración continua.",
+  "src": "Tema 3 · Ejercicio: ¿qué práctica se está violando?",
+  "page": 67
+ },
+ {
+  "id": "t3-10",
+  "w": 3,
+  "topic": "Prácticas clave",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Cuáles son prácticas clave de la integración continua?",
+  "options": [
+   "Hacer que la compilación se pruebe automáticamente",
+   "Facilitar que cualquier persona obtenga el último ejecutable",
+   "Que todo el mundo pueda ver lo que está pasando",
+   "Automatizar la implementación",
+   "Integrar solo cuando la funcionalidad esté completa"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Las cuatro primeras están entre las diez prácticas. Integrar solo al final contradice la idea de contribuir a la línea principal todos los días.",
+  "src": "Tema 3 · Prácticas clave de la integración continua",
+  "page": 66
+ },
+ {
+  "id": "t3-11",
+  "w": 3,
+  "topic": "Pipeline de CI",
+  "type": "match",
+  "pts": 4,
+  "q": "En un pipeline de GitHub Actions, relaciona cada línea con la práctica que cumple.",
+  "pairs": [
+   [
+    "on: push",
+    "Cada contribución construye la línea principal"
+   ],
+   [
+    "mvn verify",
+    "Compilación automatizada que se prueba sola"
+   ],
+   [
+    "runs-on: ubuntu-latest",
+    "Probar en un entorno parecido a producción"
+   ],
+   [
+    "upload-artifact",
+    "Cualquiera obtiene el último ejecutable"
+   ]
+  ],
+  "extra": [
+   "Mantener un único repositorio de fuentes"
+  ],
+  "explain": "El pipeline se dispara en cada push, compila y prueba con mvn verify, corre en un clon del entorno y publica el ejecutable.",
+  "src": "Tema 3 · Un pipeline de CI real (GitHub Actions)",
+  "page": 68
+ },
+ {
+  "id": "t3-12",
+  "w": 3,
+  "topic": "Beneficios",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Cuáles son beneficios de la integración continua?",
+  "options": [
+   "Reducir riesgos, porque los defectos se detectan antes",
+   "Reducir los procesos manuales repetitivos",
+   "Generar software implementable en cualquier momento",
+   "Mejor visibilidad del proyecto y mayor confianza en el producto",
+   "Eliminar la necesidad de escribir pruebas"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Los beneficios son reducir riesgos y procesos manuales, software implementable en cualquier momento, visibilidad y confianza. La CI depende de las pruebas automáticas.",
+  "src": "Tema 3 · Beneficios de la Integración Continua",
+  "page": 69
+ },
+ {
+  "id": "t3-13",
+  "w": 3,
+  "topic": "Limitaciones",
+  "type": "mc",
+  "pts": 4,
+  "q": "Compilar y probar un sistema bancario completo tarda 6 horas. ¿Qué limitación de la CI ilustra?",
+  "options": [
+   "Sistemas muy grandes: puede ser poco práctico construirlos varias veces al día",
+   "Diferencias de plataforma",
+   "Falta de herramientas de CI",
+   "Que la CI solo funciona con Git"
+  ],
+  "answer": 0,
+  "explain": "Si el sistema es muy grande, desarrollarlo y probarlo lleva mucho tiempo y no resulta práctico hacerlo varias veces al día.",
+  "src": "Tema 3 · Limitaciones de la integración continua",
+  "page": 71
+ },
+ {
+  "id": "t3-14",
+  "w": 3,
+  "topic": "Limitaciones",
+  "type": "tf",
+  "pts": 3,
+  "q": "Si la plataforma de desarrollo es diferente a la de destino, puede que no se puedan ejecutar las pruebas en el espacio de trabajo privado del desarrollador.",
+  "answer": true,
+  "explain": "Verdadero. Es la limitación por diferencias de plataforma (hardware, sistema operativo, software instalado), como el software de un cajero automático.",
+  "src": "Tema 3 · Limitaciones de la integración continua",
+  "page": 71
+ },
+ {
+  "id": "t3-15",
+  "w": 3,
+  "topic": "Herramientas de CI",
+  "type": "match",
+  "pts": 3,
+  "q": "Relaciona cada herramienta de CI con su descripción.",
+  "pairs": [
+   [
+    "Jenkins",
+    "Multiplataforma, de código abierto y escrita en Java"
+   ],
+   [
+    "TeamCity",
+    "Servidor CI maduro de JetBrains"
+   ],
+   [
+    "Bamboo",
+    "Compilaciones, pruebas y lanzamientos automáticos en un solo lugar; pagado con prueba gratuita"
+   ],
+   [
+    "Buddy",
+    "Moderna e intuitiva, con una interfaz que minimiza el aprendizaje"
+   ]
+  ],
+  "explain": "Las cuatro herramientas de CI presentadas en el tema.",
+  "src": "Tema 3 · Algunas herramientas de CI",
+  "page": 72
+ },
+ {
+  "id": "t3-16",
+  "w": 3,
+  "topic": "Entrega continua",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué agrega la entrega continua a la integración continua?",
+  "options": [
+   "Automatiza también el proceso de lanzamiento: se puede implementar en cualquier momento con un clic",
+   "Elimina las pruebas automáticas para ir más rápido",
+   "Publica cada cambio en producción sin intervención humana",
+   "Obliga a lanzar una versión cada día"
+  ],
+  "answer": 0,
+  "explain": "La entrega continua automatiza el lanzamiento, pero una persona decide cuándo publicar (diaria, semanal o quincenalmente).",
+  "src": "Tema 3 · Entrega continua",
+  "page": 75
+ },
+ {
+  "id": "t3-17",
+  "w": 3,
+  "topic": "Despliegue continuo",
+  "type": "mc",
+  "pts": 3,
+  "q": "En el despliegue continuo, ¿qué puede impedir que un cambio llegue a producción?",
+  "options": [
+   "Solo una prueba fallida",
+   "La aprobación de un gerente",
+   "Que no sea martes",
+   "Que el cambio sea muy pequeño"
+  ],
+  "answer": 0,
+  "explain": "Cada cambio que pasa todas las etapas se publica automáticamente; solo una prueba fallida lo detiene.",
+  "src": "Tema 3 · Despliegue continuo",
+  "page": 77
+ },
+ {
+  "id": "t3-18",
+  "w": 3,
+  "topic": "CI, entrega y despliegue",
+  "type": "match",
+  "pts": 5,
+  "q": "Identifica la práctica de cada caso.",
+  "pairs": [
+   [
+    "Un banco tiene todo automatizado, pero un gerente aprueba cada publicación los martes",
+    "Entrega continua"
+   ],
+   [
+    "Netflix publica sin intervención humana cada cambio que pasa las pruebas",
+    "Despliegue continuo"
+   ],
+   [
+    "El equipo compila y prueba en cada push, pero instala a mano en el servidor",
+    "Integración continua"
+   ]
+  ],
+  "explain": "Integración: llega hasta software probado. Entrega: lanzamiento automatizado, una persona decide cuándo. Despliegue: todo se publica solo.",
+  "src": "Tema 3 · Integración, entrega y despliegue continuos",
+  "page": 78
+ },
+ {
+  "id": "t3-19",
+  "w": 3,
+  "topic": "CI, entrega y despliegue",
+  "type": "tf",
+  "pts": 3,
+  "q": "En la entrega continua el paso a producción es manual, mientras que en el despliegue continuo es automático.",
+  "answer": true,
+  "explain": "Verdadero. Así lo muestra el diagrama: la entrega deja el despliegue a producción como paso manual; el despliegue continuo lo automatiza.",
+  "src": "Tema 3 · Integración, entrega e implementación continuas",
+  "page": 76
+ },
+ {
+  "id": "t3-20",
+  "w": 3,
+  "topic": "Despliegue continuo",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué ventaja da el despliegue continuo a los desarrolladores?",
+  "options": [
+   "Ven su trabajo publicado minutos después de terminarlo",
+   "No tienen que escribir pruebas",
+   "Pueden integrar una vez al mes",
+   "No necesitan control de versiones"
+  ],
+  "answer": 0,
+  "explain": "Con el despliegue continuo los desarrolladores se centran en crear software y lo ven publicado minutos después.",
+  "src": "Tema 3 · Despliegue continuo",
+  "page": 77
+ },
+ {
+  "id": "t4-01",
+  "w": 4,
+  "topic": "Calidad de la construcción",
+  "type": "tf",
+  "pts": 2,
+  "q": "La calidad de la construcción afecta sustancialmente la calidad del software.",
+  "answer": true,
+  "explain": "Verdadero. La legibilidad y el estilo del código influyen en la mantenibilidad y la extensibilidad del software.",
+  "src": "Tema 4 · Construcción de software",
+  "page": 84
+ },
+ {
+  "id": "t4-02",
+  "w": 4,
+  "topic": "Código limpio",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada definición de código limpio con su autor.",
+  "pairs": [
+   [
+    "Puede ser leído y mejorado por un desarrollador distinto de su autor original",
+    "Dave Thomas"
+   ],
+   [
+    "Lógica sencilla, dependencias mínimas, manejo total de errores y rendimiento cercano al óptimo",
+    "Bjarne Stroustrup"
+   ],
+   [
+    "Cada rutina que lees resulta ser prácticamente lo que esperabas",
+    "Ward Cunningham"
+   ]
+  ],
+  "explain": "Dave Thomas (fundador de OTI), Bjarne Stroustrup (inventor de C++) y Ward Cunningham.",
+  "src": "Tema 4 · Extractos de varias definiciones de código limpio",
+  "page": 88
+ },
+ {
+  "id": "t4-03",
+  "w": 4,
+  "topic": "Prácticas de código limpio",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Cuáles son categorías de prácticas para escribir código limpio?",
+  "options": [
+   "Nombres con significado",
+   "Funciones",
+   "Comentarios",
+   "Manejo de errores",
+   "Optimización prematura"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Las nueve categorías: nombres, funciones, comentarios, formato, objetos y estructuras de datos, manejo de errores, límites, pruebas unitarias y clases.",
+  "src": "Tema 4 · Categorías de prácticas de escritura de código limpio",
+  "page": 90
+ },
+ {
+  "id": "t4-04",
+  "w": 4,
+  "topic": "Nombres con significado",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según la práctica de nombres pronunciables, ¿cuál es el mejor nombre para un atributo que guarda la fecha de generación?",
+  "options": [
+   "generationTimestamp",
+   "genymdhms",
+   "gnTmstmp",
+   "d1"
+  ],
+  "answer": 0,
+  "explain": "La diapositiva cambia genymdhms por generationTimestamp: nombres pronunciables y que se pueden buscar.",
+  "src": "Tema 4 · Nombres con significado",
+  "page": 94
+ },
+ {
+  "id": "t4-05",
+  "w": 4,
+  "topic": "Nombres con significado",
+  "type": "mc",
+  "pts": 3,
+  "q": "Una interfaz se llama IShapeFactory. ¿Qué recomienda la práctica «evite las codificaciones»?",
+  "options": [
+   "Llamarla ShapeFactory, sin prefijos",
+   "Llamarla IShapeFactoryInterface para que quede más claro",
+   "Llamarla SF para que sea más corta",
+   "Mantener el prefijo I porque es obligatorio en Java"
+  ],
+  "answer": 0,
+  "explain": "Evite las codificaciones: nombres sin prefijos. IShapeFactory → ShapeFactory.",
+  "src": "Tema 4 · Nombres con significado",
+  "page": 95
+ },
+ {
+  "id": "t4-06",
+  "w": 4,
+  "topic": "Nombres con significado",
+  "type": "tf",
+  "pts": 2,
+  "q": "Está bien usar «cliente» en unas clases y «consumidor» en otras para el mismo concepto, porque así el código es más variado.",
+  "answer": false,
+  "explain": "Falso. «Elija una palabra por concepto»: se escoge cliente o consumidor y se usa siempre la misma.",
+  "src": "Tema 4 · Nombres con significado",
+  "page": 95
+ },
+ {
+  "id": "t4-07",
+  "w": 4,
+  "topic": "Nombres con significado",
+  "type": "multi",
+  "pts": 4,
+  "q": "En «if (t == 1) d = d * 0.88;», ¿qué problemas de nombres hay?",
+  "options": [
+   "t y d no revelan la intención",
+   "1 y 0.88 son números mágicos imposibles de buscar",
+   "La línea usa un if",
+   "Se usa el tipo double"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "explain": "Los nombres cortos no revelan la intención y los números mágicos no se pueden buscar; se arregla con TipoCliente.FRECUENTE y DESCUENTO_FRECUENTE.",
+  "src": "Tema 4 · Nombres con significado: antes y después",
+  "page": 96
+ },
+ {
+  "id": "t4-08",
+  "w": 4,
+  "topic": "Funciones",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuántos argumentos debería preferir una función?",
+  "options": [
+   "0, 1 o 2; tres se deben evitar siempre que sea posible",
+   "Tres o más, para que sea flexible",
+   "Exactamente uno siempre",
+   "No importa la cantidad"
+  ],
+  "answer": 0,
+  "explain": "Con más argumentos es difícil probar todas las combinaciones. Si hay muchos datos, se agrupan en un objeto: crearUsuario(datos).",
+  "src": "Tema 4 · Funciones",
+  "page": 97
+ },
+ {
+  "id": "t4-09",
+  "w": 4,
+  "topic": "Funciones",
+  "type": "mc",
+  "pts": 4,
+  "q": "boolean setNombre(String n) cambia el nombre y devuelve si fue válido. ¿Qué principio viola?",
+  "options": [
+   "La separación comando-consulta",
+   "El principio de nombres pronunciables",
+   "El límite de 80 caracteres por línea",
+   "La regla de no devolver null"
+  ],
+  "answer": 0,
+  "explain": "Una función debe cambiar el estado o devolver información, no ambas. Mejor: esNombreValido(n) (consulta) y setNombre(n) (comando).",
+  "src": "Tema 4 · Separación comando-consulta y excepciones",
+  "page": 101
+ },
+ {
+  "id": "t4-10",
+  "w": 4,
+  "topic": "Funciones",
+  "type": "mc",
+  "pts": 4,
+  "q": "El cálculo del IVA está copiado en 5 lugares y cambia la tasa. ¿Qué problema ilustra?",
+  "options": [
+   "La repetición de código: obliga a editar 5 veces y basta olvidar una para crear un error",
+   "Una función con demasiados argumentos",
+   "Un efecto secundario oculto",
+   "Un comentario de llave de cierre"
+  ],
+  "answer": 0,
+  "explain": "No repita código: requiere múltiples modificaciones y es una oportunidad para replicar un error.",
+  "src": "Tema 4 · Funciones pequeñas que hacen una sola cosa",
+  "page": 100
+ },
+ {
+  "id": "t4-11",
+  "w": 4,
+  "topic": "Funciones",
+  "type": "tf",
+  "pts": 2,
+  "q": "Es preferible lanzar una excepción con contexto que devolver un código de error como -1.",
+  "answer": true,
+  "explain": "Verdadero. El llamador puede ignorar un -1; una excepción como SaldoInsuficienteException dice dónde y por qué falló.",
+  "src": "Tema 4 · Separación comando-consulta y excepciones",
+  "page": 101
+ },
+ {
+  "id": "t4-12",
+  "w": 4,
+  "topic": "Comentarios",
+  "type": "match",
+  "pts": 5,
+  "q": "Clasifica cada comentario.",
+  "pairs": [
+   [
+    "// Copyright 2026 UEES. Licencia MIT.",
+    "Bueno · legal"
+   ],
+   [
+    "i++; // incrementa i",
+    "Malo · ruido"
+   ],
+   [
+    "// Se ordena primero para usar búsqueda binaria",
+    "Bueno · explica la intención"
+   ],
+   [
+    "// ¡Cuidado! Esta prueba tarda 10 minutos",
+    "Bueno · advierte consecuencias"
+   ],
+   [
+    "} // fin del while",
+    "Malo · llave de cierre"
+   ]
+  ],
+  "explain": "Los comentarios no compensan el código malo. Los buenos aportan algo que el código no puede decir.",
+  "src": "Tema 4 · Ejercicio: ¿comentario bueno o malo?",
+  "page": 104
+ },
+ {
+  "id": "t4-13",
+  "w": 4,
+  "topic": "Comentarios",
+  "type": "mc",
+  "pts": 3,
+  "q": "Encuentras «// x es el total menos el descuento» sobre «double x = a - b;». ¿Qué conviene hacer?",
+  "options": [
+   "Renombrar las variables para que el código lo diga y quitar el comentario",
+   "Dejarlo: es un buen comentario informativo",
+   "Agregar más comentarios explicando a y b",
+   "Moverlo al final de la línea"
+  ],
+  "answer": 0,
+  "explain": "Es un mal comentario: compensa un mal nombre. Si necesitas explicar qué hace, primero intenta que el código lo diga.",
+  "src": "Tema 4 · Ejercicio: ¿comentario bueno o malo?",
+  "page": 104
+ },
+ {
+  "id": "t4-14",
+  "w": 4,
+  "topic": "Formato",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según la práctica de formato horizontal, ¿qué ancho de línea se considera?",
+  "options": [
+   "El antiguo límite de Hollerith es 80; hasta 100 o incluso 120 puede ser aceptable",
+   "No hay límite: cuanto más larga mejor",
+   "Exactamente 40 caracteres",
+   "Lo que quepa en la pantalla de cada desarrollador"
+  ],
+  "answer": 0,
+  "explain": "El límite clásico es 80 caracteres; 100 o 120 pueden ser aceptables. Verticalmente, arriba van los conceptos de alto nivel y abajo los detalles.",
+  "src": "Tema 4 · Formato",
+  "page": 105
+ },
+ {
+  "id": "t4-15",
+  "w": 4,
+  "topic": "Manejo de errores",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un método buscar(cliente) devuelve null cuando el cliente no existe. ¿Qué recomienda el manejo de errores?",
+  "options": [
+   "Devolver una colección vacía, un objeto por defecto u Optional",
+   "Seguir devolviendo null y documentarlo",
+   "Devolver -1",
+   "Imprimir el error en consola y devolver null"
+  ],
+  "answer": 0,
+  "explain": "No devolver null (ni pasarlo): cada llamador tendría que verificarlo, y un null olvidado provoca NullPointerException.",
+  "src": "Tema 4 · Manejo de errores: no devolver ni pasar null",
+  "page": 108
+ },
+ {
+  "id": "t4-16",
+  "w": 4,
+  "topic": "Límites y pruebas",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Qué dicen las prácticas de límites y pruebas unitarias?",
+  "options": [
+   "Conviene escribir pruebas para el código de terceros que usamos",
+   "Se gestionan los límites teniendo muy pocos lugares que referencien al código de terceros",
+   "Una afirmación y un concepto único por prueba",
+   "Hay que probar todo el código de terceros línea por línea"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "No es nuestro trabajo probar el código de terceros, pero escribir pruebas para lo que usamos ayuda a aprenderlo. Pruebas: una afirmación y un concepto por prueba.",
+  "src": "Tema 4 · Límites · Pruebas unitarias",
+  "page": 109
+ },
+ {
+  "id": "t4-17",
+  "w": 4,
+  "topic": "Clases",
+  "type": "mc",
+  "pts": 4,
+  "q": "Una clase Estudiante guarda datos, calcula el promedio, genera el certificado PDF, envía correos y se conecta a la base de datos. ¿Qué principio viola?",
+  "options": [
+   "El principio de responsabilidad única: tiene cinco razones para cambiar",
+   "La separación comando-consulta",
+   "La regla de nombres pronunciables",
+   "El límite de Hollerith"
+  ],
+  "answer": 0,
+  "explain": "Es una clase «Dios» con baja cohesión. Se divide en Estudiante, CalculadoraPromedio, GeneradorCertificado, Notificador y EstudianteRepositorio.",
+  "src": "Tema 4 · Clases pequeñas: el principio de responsabilidad única",
+  "page": 112
+ },
+ {
+  "id": "t4-18",
+  "w": 4,
+  "topic": "Estándares de codificación",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Qué aporta un estándar de codificación?",
+  "options": [
+   "Que todos escriban código según las mismas pautas",
+   "Legibilidad: código fácil de entender",
+   "Menor posibilidad de introducir vulnerabilidades o problemas de rendimiento",
+   "Que el software ya no necesite mantenimiento"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "Es una guía que define un estilo de programación y mejora la calidad. El mantenimiento sigue siendo necesario: es el 80 % del costo.",
+  "src": "Tema 4 · ¿Qué es un estándar de codificación?",
+  "page": 114
+ },
+ {
+  "id": "t4-19",
+  "w": 4,
+  "topic": "Estándares de codificación",
+  "type": "input",
+  "pts": 3,
+  "numeric": true,
+  "q": "¿Qué porcentaje del costo de vida útil de un software se destina a mantenimiento, según las diapositivas?",
+  "answer": [
+   "80",
+   "80%"
+  ],
+  "placeholder": "%",
+  "explain": "El 80 %. Además, casi ningún software es mantenido toda su vida por su autor original: por eso se necesita un estándar.",
+  "src": "Tema 4 · ¿Por qué necesitamos un estándar de codificación?",
+  "page": 115
+ },
+ {
+  "id": "t4-20",
+  "w": 4,
+  "topic": "Estándar Java",
+  "type": "match",
+  "pts": 5,
+  "q": "Corrige cada línea según las convenciones de nombres de Java.",
+  "pairs": [
+   [
+    "package Ventas;",
+    "package ventas;"
+   ],
+   [
+    "public class pedido_cliente",
+    "public class PedidoCliente"
+   ],
+   [
+    "public static final double iva = 0.15;",
+    "public static final double IVA = 0.15;"
+   ],
+   [
+    "public double CalcularTotal()",
+    "public double calcularTotal()"
+   ]
+  ],
+  "explain": "Paquetes en minúsculas, clases en UpperCamelCase, constantes en MAYÚSCULAS y métodos y variables en lowerCamelCase.",
+  "src": "Tema 4 · Ejercicio: encuentra las violaciones al estándar Java",
+  "page": 127
+ },
+ {
+  "id": "t5-01",
+  "w": 5,
+  "topic": "Análisis de programas",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuáles son los dos enfoques principales del análisis de programas informáticos?",
+  "options": [
+   "Estático (examina el código sin ejecutarlo) y dinámico (lo analiza mientras se ejecuta)",
+   "Manual y automático",
+   "Caja negra y caja blanca",
+   "Unitario y de integración"
+  ],
+  "answer": 0,
+  "explain": "El análisis de programas persigue optimización y corrección, y tiene dos enfoques: estático y dinámico.",
+  "src": "Tema 5 · Análisis de programas informáticos",
+  "page": 132
+ },
+ {
+  "id": "t5-02",
+  "w": 5,
+  "topic": "Análisis estático",
+  "type": "order",
+  "pts": 3,
+  "q": "Ordena en qué momento se realiza el análisis estático dentro del desarrollo.",
+  "items": [
+   "Codificación",
+   "Análisis estático",
+   "Pruebas unitarias",
+   "Ejecución"
+  ],
+  "explain": "Se realiza después de codificar y antes de las pruebas unitarias: identifica defectos antes de ejecutar el programa.",
+  "src": "Tema 5 · Análisis estático: definición",
+  "page": 133
+ },
+ {
+  "id": "t5-03",
+  "w": 5,
+  "topic": "Análisis estático",
+  "type": "tf",
+  "pts": 3,
+  "q": "La revisión de código como análisis estático la debe hacer el mismo desarrollador que escribió el código, porque es quien mejor lo conoce.",
+  "answer": false,
+  "explain": "Falso. La revisión de código la realiza un colega: alguien distinto al desarrollador que escribió el código.",
+  "src": "Tema 5 · ¿Quién realiza el análisis estático?",
+  "page": 134
+ },
+ {
+  "id": "t5-04",
+  "w": 5,
+  "topic": "Estático vs. dinámico",
+  "type": "match",
+  "pts": 5,
+  "q": "Clasifica cada técnica como análisis estático o dinámico.",
+  "pairs": [
+   [
+    "El IDE subraya una variable que no se usa",
+    "Estático (automatizado)"
+   ],
+   [
+    "Un compañero revisa tu pull request",
+    "Estático (revisión de código)"
+   ],
+   [
+    "Un profiler mide qué método tarda más",
+    "Dinámico"
+   ],
+   [
+    "Ejecutar las pruebas unitarias",
+    "Dinámico"
+   ]
+  ],
+  "explain": "Si el programa se ejecuta, es dinámico. Si se lee el código sin ejecutarlo (máquina o persona), es estático.",
+  "src": "Tema 5 · Ejercicio: ¿análisis estático o dinámico?",
+  "page": 136
+ },
+ {
+  "id": "t5-05",
+  "w": 5,
+  "topic": "Análisis dinámico",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué obtiene el análisis dinámico?",
+  "options": [
+   "Trazas del comportamiento y vulnerabilidades en un entorno de ejecución",
+   "Reglas de codificación incumplidas sin ejecutar el programa",
+   "Solo el número de líneas de código",
+   "La documentación del sistema"
+  ],
+  "answer": 0,
+  "explain": "El dinámico ejecuta el programa y genera una traza. El estático obtiene reglas incumplidas y debilidades sin ejecutar.",
+  "src": "Tema 5 · Análisis dinámico",
+  "page": 135
+ },
+ {
+  "id": "t5-06",
+  "w": 5,
+  "topic": "Inspección de código",
+  "type": "tf",
+  "pts": 2,
+  "q": "Inspección de código, análisis de código estático y análisis estático de programa son nombres del mismo concepto.",
+  "answer": true,
+  "explain": "Verdadero. Son el mismo concepto: no ejecuta el software y detecta defectos temprano.",
+  "src": "Tema 5 · Inspección de código: un mismo concepto, varios nombres",
+  "page": 138
+ },
+ {
+  "id": "t5-07",
+  "w": 5,
+  "topic": "Atributos de calidad",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Qué atributos de calidad pueden ser foco del análisis estático?",
+  "options": [
+   "Fiabilidad",
+   "Mantenibilidad",
+   "Capacidad de prueba",
+   "Reutilización y portabilidad",
+   "Corrección funcional respecto a lo que pide el cliente"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Fiabilidad, mantenibilidad, capacidad de prueba, reutilización, portabilidad y otros. La corrección funcional no se verifica con análisis estático.",
+  "src": "Tema 5 · Atributos de calidad que puede evaluar",
+  "page": 139
+ },
+ {
+  "id": "t5-08",
+  "w": 5,
+  "topic": "Defectos detectados",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada fragmento con la categoría de defecto que detecta la inspección.",
+  "pairs": [
+   [
+    "FileReader fr = new FileReader(ruta); // nunca se cierra",
+    "Gestión inadecuada de recursos"
+   ],
+   [
+    "int r = total / 0;",
+    "Operación ilegal"
+   ],
+   [
+    "return resultado; contador++;",
+    "Código muerto"
+   ],
+   [
+    "while (true) { procesar(); }",
+    "Código incompleto"
+   ]
+  ],
+  "explain": "Fuga de recursos, división por cero, código inalcanzable y bucle sin terminación.",
+  "src": "Tema 5 · ¿Qué detecta la inspección de código?",
+  "page": 140
+ },
+ {
+  "id": "t5-09",
+  "w": 5,
+  "topic": "Defectos detectados",
+  "type": "mc",
+  "pts": 4,
+  "q": "En «for (int i = 0; i <= notas.length; i++) suma += notas[i];», ¿qué defecto hay?",
+  "options": [
+   "Operación ilegal: con <= se accede a notas[length], fuera de límites",
+   "Código muerto",
+   "Fuga de recursos",
+   "No hay ningún defecto"
+  ],
+  "answer": 0,
+  "explain": "Con <= el último índice es notas.length, que está fuera del arreglo: acceso fuera de límites.",
+  "src": "Tema 5 · Ejercicio: inspecciona este código sin ejecutarlo",
+  "page": 141
+ },
+ {
+  "id": "t5-10",
+  "w": 5,
+  "topic": "Defectos detectados",
+  "type": "multi",
+  "pts": 4,
+  "q": "En «return suma / notas.length;» (suma y length son int), ¿qué problemas señala la inspección?",
+  "options": [
+   "División por cero si el arreglo está vacío",
+   "Es una división entera: se pierden los decimales del promedio",
+   "Es código muerto",
+   "Es una fuga de recursos"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "explain": "Si el arreglo está vacío, divide entre cero; y al dividir dos int el promedio pierde los decimales.",
+  "src": "Tema 5 · Ejercicio: inspecciona este código sin ejecutarlo",
+  "page": 141
+ },
+ {
+  "id": "t5-11",
+  "w": 5,
+  "topic": "Ventajas",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Cuáles son ventajas de la inspección de código?",
+  "options": [
+   "Encuentra debilidades en la ubicación exacta",
+   "Puede ser realizada por desarrolladores capacitados",
+   "Hace el código más comprensible para otros",
+   "Menor costo de corrección, porque detecta temprano",
+   "Garantiza que el software hace lo que pide el cliente"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Detectar temprano cuesta menos. Pero no verifica la corrección funcional.",
+  "src": "Tema 5 · Ventajas de la inspección de código",
+  "page": 143
+ },
+ {
+  "id": "t5-12",
+  "w": 5,
+  "topic": "Ventajas",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Qué defectos detecta la inspección que las pruebas dinámicas difícilmente encuentran?",
+  "options": [
+   "Código inalcanzable",
+   "Variables declaradas que no se usan",
+   "Funciones privadas que nadie llama",
+   "Un descuento mal calculado según el cliente"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "Código inalcanzable, variables no usadas y funciones no llamadas. Un cálculo mal hecho según el cliente lo detectan las pruebas.",
+  "src": "Tema 5 · Defectos que las pruebas dinámicas difícilmente detectan",
+  "page": 144
+ },
+ {
+  "id": "t5-13",
+  "w": 5,
+  "topic": "Limitaciones",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Cuáles son limitaciones de la inspección de código?",
+  "options": [
+   "Consume mucho tiempo si se hace manualmente",
+   "Falta personal capacitado",
+   "Las herramientas producen falsos positivos y negativos",
+   "Las herramientas son tan buenas como sus reglas",
+   "Solo funciona después de la ejecución"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Son las cuatro limitaciones de la diapositiva. Funciona sin ejecutar, antes de las pruebas.",
+  "src": "Tema 5 · Limitaciones de la inspección de código",
+  "page": 145
+ },
+ {
+  "id": "t5-14",
+  "w": 5,
+  "topic": "Estático vs. pruebas",
+  "type": "match",
+  "pts": 5,
+  "q": "Completa la comparación entre análisis estático y pruebas.",
+  "pairs": [
+   [
+    "Momento del análisis estático",
+    "Temprano en el desarrollo"
+   ],
+   [
+    "Costo del análisis estático",
+    "Menos costoso"
+   ],
+   [
+    "Falsos positivos del análisis estático",
+    "Tasa muy alta"
+   ],
+   [
+    "Resultados de las pruebas",
+    "Dependen de las entradas"
+   ],
+   [
+    "Corrección funcional",
+    "Solo la verifican las pruebas"
+   ]
+  ],
+  "explain": "El estático es temprano, barato, rápido y generalizable, pero aproximado y con muchos falsos positivos. Las pruebas son exactas pero costosas y dependen de las entradas.",
+  "src": "Tema 5 · Análisis estático vs. pruebas",
+  "page": 146
+ },
+ {
+  "id": "t5-15",
+  "w": 5,
+  "topic": "Crítica del análisis estático",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Por qué el análisis estático puede ser impreciso?",
+  "options": [
+   "Hace aproximaciones sobre el comportamiento en tiempo de ejecución; sacrifica precisión por eficiencia",
+   "Porque ejecuta el programa con entradas aleatorias",
+   "Porque solo revisa los comentarios",
+   "Porque no escala a programas grandes"
+  ],
+  "answer": 0,
+  "explain": "Aproxima el comportamiento para dar resultados rápido. A cambio tiene alta cobertura y escala bien.",
+  "src": "Tema 5 · Una crítica del análisis estático",
+  "page": 147
+ },
+ {
+  "id": "t5-16",
+  "w": 5,
+  "topic": "Falsos positivos y negativos",
+  "type": "mc",
+  "pts": 3,
+  "q": "Un descuento está mal calculado, pero el código cumple todas las reglas y la herramienta no reporta nada. ¿Qué es?",
+  "options": [
+   "Un falso negativo",
+   "Un falso positivo",
+   "Un verdadero positivo",
+   "Código muerto"
+  ],
+  "answer": 0,
+  "explain": "Hay un problema real que la herramienta no reporta: falso negativo. Por eso el análisis estático no reemplaza a las pruebas.",
+  "src": "Tema 5 · Falsos positivos y falsos negativos",
+  "page": 148
+ },
+ {
+  "id": "t5-17",
+  "w": 5,
+  "topic": "Herramientas",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada categoría de herramienta de inspección con su objetivo.",
+  "pairs": [
+   [
+    "Comprobación estática",
+    "Encontrar errores de codificación comunes"
+   ],
+   [
+    "Detección de errores",
+    "Encontrar errores (bug finding) y reportarlos"
+   ],
+   [
+    "Verificación de software",
+    "Garantizar la ausencia de errores aportando demostraciones"
+   ],
+   [
+    "Inferencia de tipos",
+    "Especificar y comprobar propiedades del programa"
+   ]
+  ],
+  "explain": "Las cuatro categorías de herramientas de inspección de código.",
+  "src": "Tema 5 · Categorías de herramientas de inspección de código",
+  "page": 152
+ },
+ {
+  "id": "t5-18",
+  "w": 5,
+  "topic": "Herramientas",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Qué características clave deben tener las herramientas de inspección?",
+  "options": [
+   "Diseñadas para la seguridad",
+   "Admitir múltiples lenguajes y plataformas",
+   "Integrarse con los procesos existentes y los IDE",
+   "Ser extensibles: permitir agregar reglas propias",
+   "Funcionar solo con un lenguaje para ser más precisas"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Además deben tener sentido para varias partes interesadas y ser útiles para analistas, QA y desarrolladores.",
+  "src": "Tema 5 · Características clave de las herramientas",
+  "page": 150
+ },
+ {
+  "id": "t5-19",
+  "w": 5,
+  "topic": "PMD y FindBugs",
+  "type": "match",
+  "pts": 5,
+  "q": "¿Qué herramienta reportaría cada hallazgo?",
+  "pairs": [
+   [
+    "Variable local sin usar",
+    "PMD"
+   ],
+   [
+    "Bloque catch vacío",
+    "PMD"
+   ],
+   [
+    "Comparar cadenas con ==",
+    "FindBugs"
+   ],
+   [
+    "Concatenar cadenas en un bucle (rendimiento)",
+    "FindBugs"
+   ]
+  ],
+  "explain": "PMD analiza el código fuente y se enfoca en buenas prácticas; FindBugs analiza el bytecode y busca errores y problemas de rendimiento.",
+  "src": "Tema 5 · Ejercicio: ¿qué reportaría PMD y qué FindBugs?",
+  "page": 157
+ },
+ {
+  "id": "t5-20",
+  "w": 5,
+  "topic": "PMD y FindBugs",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué analiza FindBugs, a diferencia de PMD?",
+  "options": [
+   "El bytecode compilado (.class)",
+   "El código fuente",
+   "Los comentarios del código",
+   "La base de datos del sistema"
+  ],
+  "answer": 0,
+  "explain": "PMD analiza el código fuente; FindBugs, el bytecode. Detectan cosas distintas, así que se usan juntas. Su sucesor activo es SpotBugs.",
+  "src": "Tema 5 · PMD vs. FindBugs: herramientas complementarias",
+  "page": 156
+ },
+ {
+  "id": "t6-01",
+  "w": 6,
+  "topic": "¿Qué son las pruebas?",
+  "type": "mc",
+  "pts": 3,
+  "q": "Según la definición del tema, ¿qué es probar un programa?",
+  "options": [
+   "Ejecutarlo con la intención de encontrar errores",
+   "Demostrar que no tiene ningún error",
+   "Revisar su código fuente sin ejecutarlo",
+   "Escribir su documentación técnica"
+  ],
+  "answer": 0,
+  "explain": "Las pruebas son el proceso de ejecutar un programa con la intención de encontrar errores, con actividades planificadas y sistemáticas.",
+  "src": "Tema 6 · ¿Qué son las pruebas?",
+  "page": 163
+ },
+ {
+  "id": "t6-02",
+  "w": 6,
+  "topic": "Definiciones básicas",
+  "type": "order",
+  "pts": 4,
+  "q": "Ordena la cadena desde la equivocación de una persona hasta lo que ve el usuario.",
+  "items": [
+   "Error (equivocación)",
+   "Defecto (fallo)",
+   "Falla",
+   "Incidente"
+  ],
+  "explain": "Una persona se equivoca (error), queda en el código o diagrama (defecto), al ejecutarse el sistema no cumple su función (falla) y el usuario ve el síntoma (incidente).",
+  "src": "Tema 6 · De la equivocación al incidente: una sola historia",
+  "page": 166
+ },
+ {
+  "id": "t6-03",
+  "w": 6,
+  "topic": "Definiciones básicas",
+  "type": "match",
+  "pts": 5,
+  "q": "Requisito: «10 % de descuento desde $100». Relaciona cada momento con su término.",
+  "pairs": [
+   [
+    "El analista entiende «más de $100» y así lo escribe en el diseño",
+    "Error"
+   ],
+   [
+    "Queda en el código: if (total > 100)",
+    "Defecto"
+   ],
+   [
+    "Un cliente compra exactamente $100 y no se aplica el descuento",
+    "Falla"
+   ],
+   [
+    "El cliente ve el total equivocado en su recibo y reclama",
+    "Incidente"
+   ]
+  ],
+  "explain": "El defecto es estático (está aunque nadie lo ejecute); la falla ocurre al ejecutar; el incidente es el síntoma que alerta.",
+  "src": "Tema 6 · De la equivocación al incidente: una sola historia",
+  "page": 166
+ },
+ {
+  "id": "t6-04",
+  "w": 6,
+  "topic": "Definiciones básicas",
+  "type": "mc",
+  "pts": 3,
+  "q": "Un requisito del descuento nunca se programó. ¿Qué tipo de falta es?",
+  "options": [
+   "Falta de omisión",
+   "Falta de comisión",
+   "Incidente",
+   "Falla de interfaz"
+  ],
+  "answer": 0,
+  "explain": "Omisión: no se incluyó información. Comisión: se introdujo algo incorrecto (como escribir > en lugar de ≥).",
+  "src": "Tema 6 · Definiciones básicas",
+  "page": 164
+ },
+ {
+  "id": "t6-05",
+  "w": 6,
+  "topic": "Definiciones básicas",
+  "type": "tf",
+  "pts": 2,
+  "q": "Un defecto es estático: puede estar en un diagrama UML o en el código aunque nadie lo ejecute.",
+  "answer": true,
+  "explain": "Verdadero. El defecto es la representación de un error; la falla, en cambio, ocurre cuando se ejecuta el código.",
+  "src": "Tema 6 · Definiciones básicas",
+  "page": 164
+ },
+ {
+  "id": "t6-06",
+  "w": 6,
+  "topic": "Niveles de prueba",
+  "type": "match",
+  "pts": 4,
+  "q": "En el modelo en V, relaciona cada nivel de prueba con la etapa de desarrollo que verifica.",
+  "pairs": [
+   [
+    "Pruebas unitarias",
+    "Codificación"
+   ],
+   [
+    "Pruebas de integración",
+    "Diseño detallado"
+   ],
+   [
+    "Prueba del sistema",
+    "Diseño de alto nivel"
+   ],
+   [
+    "Prueba de aceptación",
+    "Requisitos"
+   ]
+  ],
+  "explain": "Cada nivel de prueba verifica una etapa del desarrollo en el modelo del ciclo de vida.",
+  "src": "Tema 6 · El modelo del ciclo de vida para pruebas",
+  "page": 167
+ },
+ {
+  "id": "t6-07",
+  "w": 6,
+  "topic": "Niveles de prueba",
+  "type": "mc",
+  "pts": 3,
+  "q": "Se prueba que el módulo de transferencias, junto con la base de datos, descuenta de una cuenta y acredita en la otra. ¿Qué nivel es?",
+  "options": [
+   "Integración",
+   "Unitaria",
+   "Sistema",
+   "Aceptación"
+  ],
+  "answer": 0,
+  "explain": "Las unidades se combinan y se prueban como grupo: prueba de integración.",
+  "src": "Tema 6 · Los cuatro niveles de prueba en una app bancaria",
+  "page": 169
+ },
+ {
+  "id": "t6-08",
+  "w": 6,
+  "topic": "Casos de prueba",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Qué contiene un caso de prueba completo?",
+  "options": [
+   "Un identificador",
+   "Una declaración de propósito",
+   "Condiciones previas y posteriores",
+   "Las entradas y los resultados esperados",
+   "Un historial de ejecuciones",
+   "El código fuente del programa"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "explain": "Identificador, propósito, pre y postcondiciones, entradas, resultados esperados e historial. No incluye el código.",
+  "src": "Tema 6 · Casos de prueba",
+  "page": 171
+ },
+ {
+  "id": "t6-09",
+  "w": 6,
+  "topic": "Comportamiento de programas",
+  "type": "mc",
+  "pts": 3,
+  "q": "Con S = especificación y P = programa, ¿qué representa la zona S sin P?",
+  "options": [
+   "Especificaciones no implementadas",
+   "Comportamientos no especificados",
+   "Comportamientos especificados e implementados",
+   "Casos de prueba sin requisito"
+  ],
+  "answer": 0,
+  "explain": "S sin P: lo especificado que no se programó. P sin S: comportamientos no especificados. S∩P: especificados e implementados.",
+  "src": "Tema 6 · Comportamiento de programas",
+  "page": 173
+ },
+ {
+  "id": "t6-10",
+  "w": 6,
+  "topic": "Diagrama de Venn",
+  "type": "match",
+  "pts": 5,
+  "q": "Sistema de login (S especificado, P programado, T probado). Ubica cada comportamiento en su región.",
+  "pairs": [
+   [
+    "Iniciar sesión con la contraseña correcta (S, P, T)",
+    "Región 1 · implementado y probado"
+   ],
+   [
+    "Bloquear la cuenta tras 3 intentos (S, P)",
+    "Región 2 · requisito no probado"
+   ],
+   [
+    "Casilla «Recordarme» que nadie pidió (P, T)",
+    "Región 3 · código probado no solicitado"
+   ],
+   [
+    "Modo depuración oculto en el código (solo P)",
+    "Región 6 · ni solicitado ni probado"
+   ],
+   [
+    "Prueba de «exportar a PDF» (solo T)",
+    "Región 7 · prueba sin requisito"
+   ]
+  ],
+  "explain": "Lo ideal es que la región 1 sea lo más grande posible; la 6 es peligrosa: código que nadie pidió ni probó.",
+  "src": "Tema 6 · Ejercicio: ubica cada comportamiento en el diagrama de Venn",
+  "page": 176
+ },
+ {
+  "id": "t6-11",
+  "w": 6,
+  "topic": "Taxonomía de fallas",
+  "type": "match",
+  "pts": 5,
+  "q": "Nombra cada falla según la taxonomía.",
+  "pairs": [
+   [
+    "El formulario rechaza el correo válido ana+uees@gmail.com",
+    "Entrada correcta no aceptada"
+   ],
+   [
+    "Se acepta una fecha de nacimiento en el año 3025",
+    "Entrada incorrecta aceptada"
+   ],
+   [
+    "El bucle procesa 9 de los 10 estudiantes",
+    "Iteración de bucle incorrecta"
+   ],
+   [
+    "Se usó < en lugar de <= en «hasta 18 años»",
+    "Operador incorrecto"
+   ],
+   [
+    "El botón dice «Envíar»",
+    "Error cosmético o de ortografía"
+   ]
+  ],
+  "explain": "Taxonomía basada en la clasificación estándar IEEE de anomalías de software.",
+  "src": "Tema 6 · Ejercicio: nombra la falla según la taxonomía",
+  "page": 179
+ },
+ {
+  "id": "t6-12",
+  "w": 6,
+  "topic": "Problema fundamental",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál es el problema fundamental de las pruebas de software?",
+  "options": [
+   "Ningún sistema puede probarse completamente",
+   "Las pruebas solo se pueden hacer al final",
+   "Las pruebas no encuentran errores",
+   "Probar es más caro que programar"
+  ],
+  "answer": 0,
+  "explain": "No se puede probar todo. Solución: priorizar por riesgo (probabilidad e impacto); lo que pruebas importa más que cuánto pruebas.",
+  "src": "Tema 6 · El problema fundamental de las pruebas de software",
+  "page": 181
+ },
+ {
+  "id": "t6-13",
+  "w": 6,
+  "topic": "Buen caso de prueba",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿Qué características tiene un buen caso de prueba?",
+  "options": [
+   "Alta probabilidad de encontrar un error",
+   "No es redundante",
+   "Es el mejor de su clase",
+   "Ni muy simple ni muy complejo",
+   "Prueba muchas cosas a la vez para ahorrar tiempo"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Cada prueba debe ejecutarse por separado y tener un propósito claro, así que no conviene probar muchas cosas a la vez.",
+  "src": "Tema 6 · Características de un buen caso de prueba",
+  "page": 182
+ },
+ {
+  "id": "t6-14",
+  "w": 6,
+  "topic": "Caja negra y caja blanca",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada enfoque con su descripción.",
+  "pairs": [
+   [
+    "Caja negra",
+    "Se basa en la especificación; no es necesario conocer el código"
+   ],
+   [
+    "Caja blanca",
+    "Se basa en el código, que se usa para identificar casos de prueba"
+   ]
+  ],
+  "extra": [
+   "Se basa solo en el historial de incidentes"
+  ],
+  "explain": "Caja negra = funcional o basada en especificaciones. Caja blanca = estructural, basada en código o de caja de vidrio.",
+  "src": "Tema 6 · Enfoques para la identificación de casos de prueba",
+  "page": 187
+ },
+ {
+  "id": "t6-15",
+  "w": 6,
+  "topic": "Pruebas funcionales",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Qué categorías de errores pretenden encontrar las pruebas funcionales?",
+  "options": [
+   "Funcionalidades incorrectas o faltantes",
+   "Errores de interfaz",
+   "Errores de comportamiento o rendimiento",
+   "Errores de inicialización y finalización",
+   "Variables declaradas que no se usan"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "También errores en el acceso. Una variable sin usar se detecta mirando el código (análisis estático), no por la interfaz.",
+  "src": "Tema 6 · Pruebas funcionales",
+  "page": 189
+ },
+ {
+  "id": "t6-16",
+  "w": 6,
+  "topic": "Pruebas funcionales",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuál es una desventaja de las pruebas funcionales?",
+  "options": [
+   "Sufren redundancias entre casos de prueba o lagunas de software no probado",
+   "Los casos dejan de servir si cambia la implementación",
+   "No se pueden escribir hasta terminar el código",
+   "Necesitan conocer el código fuente"
+  ],
+  "answer": 0,
+  "explain": "Sus ventajas: son independientes de la implementación y se pueden desarrollar en paralelo. Su desventaja: redundancias o lagunas.",
+  "src": "Tema 6 · Pruebas funcionales",
+  "page": 190
+ },
+ {
+  "id": "t6-17",
+  "w": 6,
+  "topic": "Técnicas",
+  "type": "match",
+  "pts": 4,
+  "q": "Clasifica cada técnica como funcional o estructural.",
+  "pairs": [
+   [
+    "Valor límite",
+    "Funcional"
+   ],
+   [
+    "Tabla de decisiones",
+    "Funcional"
+   ],
+   [
+    "Prueba de ruta",
+    "Estructural"
+   ],
+   [
+    "Pruebas de flujo de datos",
+    "Estructural"
+   ]
+  ],
+  "explain": "Funcionales: valor límite, clases de equivalencia y tablas de decisión. Estructurales: prueba de ruta y flujo de datos.",
+  "src": "Tema 6 · Técnicas",
+  "page": 196
+ },
+ {
+  "id": "t6-18",
+  "w": 6,
+  "topic": "Pruebas estructurales",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Qué garantizan los casos de prueba de caja blanca?",
+  "options": [
+   "Que todas las rutas independientes se ejerciten al menos una vez",
+   "Que las decisiones lógicas se ejerciten en sus lados verdadero y falso",
+   "Que los bucles se ejecuten en sus límites y dentro de ellos",
+   "Que las estructuras de datos internas sean válidas",
+   "Que el sistema cumpla todos los requisitos del cliente"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Se basan en el código y no en la especificación, así que no garantizan que se cumplan requisitos que nunca se programaron.",
+  "src": "Tema 6 · Pruebas estructurales",
+  "page": 194
+ },
+ {
+  "id": "t6-19",
+  "w": 6,
+  "topic": "Caja negra y caja blanca",
+  "type": "multi",
+  "pts": 4,
+  "q": "Código: si nota < 0 o nota > 10 → «Error»; si nota ≥ 7 → «Aprobado»; si no → «Reprobado». ¿Qué tres valores ejercitan cada decisión en su lado verdadero y falso?",
+  "options": [
+   "−1",
+   "7",
+   "6",
+   "8",
+   "5"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "−1 hace verdadera la decisión 1; 7 hace verdadera la decisión 2; 6 la hace falsa. Así se cubren ambos lados con tres casos.",
+  "src": "Tema 6 · Caja negra y caja blanca sobre la misma función",
+  "page": 197
+ },
+ {
+  "id": "t6-20",
+  "w": 6,
+  "topic": "Funcional vs. estructural",
+  "type": "tf",
+  "pts": 3,
+  "q": "Las pruebas estructurales bastan por sí solas, porque miran todo el código.",
+  "answer": false,
+  "explain": "Falso. Ningún enfoque basta solo: la caja blanca no ve requisitos que nunca se programaron y la caja negra no ve código extra. Se necesitan ambos.",
+  "src": "Tema 6 · Se necesitan ambos enfoques",
+  "page": 200
+ },
+ {
+  "id": "t7-01",
+  "w": 7,
+  "topic": "Verificación y validación",
+  "type": "match",
+  "pts": 3,
+  "q": "Relaciona cada concepto con la pregunta de Barry Boehm que lo resume.",
+  "pairs": [
+   [
+    "Verificación",
+    "¿Estamos construyendo el producto correctamente?"
+   ],
+   [
+    "Validación",
+    "¿Estamos construyendo el producto correcto?"
+   ]
+  ],
+  "extra": [
+   "¿Estamos construyendo el producto a tiempo?"
+  ],
+  "explain": "La verificación se hace contra la especificación; la validación, contra lo que el cliente necesita. Las pruebas son parte de V&V.",
+  "src": "Tema 7 · Dos preguntas que lo resumen",
+  "page": 206
+ },
+ {
+  "id": "t7-02",
+  "w": 7,
+  "topic": "Verificación y validación",
+  "type": "match",
+  "pts": 4,
+  "q": "¿Verificación o validación?",
+  "pairs": [
+   [
+    "Comprobar que el IVA se calcula al 15 %, como dice la especificación",
+    "Verificación"
+   ],
+   [
+    "Usuarios reales dicen que el proceso de pago es confuso",
+    "Validación"
+   ],
+   [
+    "Ejecutar las pruebas unitarias contra el diseño",
+    "Verificación"
+   ],
+   [
+    "El cliente confirma que el sistema resuelve su problema de negocio",
+    "Validación"
+   ]
+  ],
+  "explain": "Contra la especificación es verificación; contra las expectativas del cliente es validación.",
+  "src": "Tema 7 · Ejercicio: ¿verificación o validación?",
+  "page": 207
+ },
+ {
+  "id": "t7-03",
+  "w": 7,
+  "topic": "Entradas y salidas",
+  "type": "tf",
+  "pts": 3,
+  "q": "Para diseñar pruebas funcionales hay que entender CÓMO cada salida depende de sus entradas.",
+  "answer": false,
+  "explain": "Falso. No necesitas entender cómo depende una salida de sus entradas, solo CUÁLES son esas entradas. Se parte de las salidas críticas según el riesgo.",
+  "src": "Tema 7 · De las salidas a las entradas",
+  "page": 210
+ },
+ {
+  "id": "t7-04",
+  "w": 7,
+  "topic": "Tipos de entrada",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada tipo de entrada con cómo se prueba.",
+  "pairs": [
+   [
+    "ROV (variable de sólo resultados)",
+    "Valor único + valores límite + fuera de rango"
+   ],
+   [
+    "GV (variable de puerta)",
+    "Cubrir todas las rutas"
+   ],
+   [
+    "SNM (no debería importar)",
+    "Sin pruebas; solo una verificación preliminar"
+   ]
+  ],
+  "explain": "La ROV influye en el valor de la salida; la GV decide qué ruta se ejecuta; la SNM no debería afectar la salida.",
+  "src": "Tema 7 · Tres tipos de entrada",
+  "page": 213
+ },
+ {
+  "id": "t7-05",
+  "w": 7,
+  "topic": "Tipos de entrada",
+  "type": "match",
+  "pts": 5,
+  "q": "Salida: costo de envío. Clasifica cada entrada.",
+  "code": "double costoEnvio(double peso, String destino, int cantidad, String colorCaja) {\n    double tarifa;\n    if (destino.equals(\"internacional\")) tarifa = 25;\n    else if (peso <= 1.0) tarifa = 3;\n    else tarifa = 3 + (peso - 1.0) * 2;\n    return tarifa * cantidad;\n}",
+  "pairs": [
+   [
+    "destino",
+    "GV"
+   ],
+   [
+    "peso",
+    "GV"
+   ],
+   [
+    "cantidad",
+    "ROV"
+   ],
+   [
+    "colorCaja",
+    "SNM"
+   ]
+  ],
+  "explain": "Si aparece en una condición, es de puerta. Si solo entra en el cálculo, de sólo resultados. Si no aparece, no debería importar.",
+  "src": "Tema 7 · Ejercicio: ¿ROV, GV o SNM?",
+  "page": 218
+ },
+ {
+  "id": "t7-06",
+  "w": 7,
+  "topic": "Tipos de entrada",
+  "type": "mc",
+  "pts": 3,
+  "q": "En «if (amount <= 1800) Total = amount; else … Total = amount * tax_rate[1] …», ¿qué tipo de entrada es tax_rate para la salida Total?",
+  "options": [
+   "ROV: variable de sólo resultados",
+   "GV: variable de puerta",
+   "SNM: no debería importar",
+   "No es una entrada"
+  ],
+  "answer": 0,
+  "explain": "tax_rate solo entra en el cálculo: ROV. amount, en cambio, decide la rama: GV.",
+  "src": "Tema 7 · Dependencias y entradas: caso 2",
+  "page": 215
+ },
+ {
+  "id": "t7-07",
+  "w": 7,
+  "topic": "Verificación de SNM",
+  "type": "mc",
+  "pts": 3,
+  "q": "En la verificación preliminar de una SNM, ¿qué debería pasar con la salida al variar aleatoriamente esa variable?",
+  "options": [
+   "Debe ser siempre la misma",
+   "Debe cambiar en cada ejecución",
+   "Debe dar error",
+   "Debe duplicarse"
+  ],
+  "answer": 0,
+  "explain": "Se fija el resto de variables y se varían las SNM: si de verdad no importan, la salida siempre es la misma.",
+  "src": "Tema 7 · Verificación preliminar de las SNM",
+  "page": 217
+ },
+ {
+  "id": "t7-08",
+  "w": 7,
+  "topic": "Valor límite",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Por qué se desarrolló el análisis del valor límite?",
+  "options": [
+   "Porque se producen más errores en los límites del dominio de entrada que en el centro",
+   "Porque es la única técnica de caja blanca",
+   "Porque prueba todas las combinaciones posibles",
+   "Porque no necesita especificación"
+  ],
+  "answer": 0,
+  "explain": "Los errores se concentran en los extremos, como el clásico «uno más / uno menos» (< en vez de ≤).",
+  "src": "Tema 7 · ¿Por qué el análisis del valor límite?",
+  "page": 225
+ },
+ {
+  "id": "t7-09",
+  "w": 7,
+  "topic": "Valor límite",
+  "type": "mc",
+  "pts": 4,
+  "q": "puedeVotar(edad) devuelve edad > 18, pero el requisito dice «18 años o más». ¿Qué valor de prueba revela el defecto?",
+  "options": [
+   "18",
+   "10",
+   "30",
+   "65"
+  ],
+  "answer": 0,
+  "explain": "Los valores del centro (10, 30) pasan. Solo el valor justo en el límite (18) falla: espera true y obtiene false.",
+  "src": "Tema 7 · ¿Por qué los errores viven en los límites?",
+  "page": 227
+ },
+ {
+  "id": "t7-10",
+  "w": 7,
+  "topic": "Valor límite normal",
+  "type": "order",
+  "pts": 3,
+  "q": "Ordena de menor a mayor los valores que usa la prueba de valor límite normal para una variable.",
+  "items": [
+   "min",
+   "min+",
+   "nom",
+   "max−",
+   "max"
+  ],
+  "explain": "Mínimo, justo por encima del mínimo, nominal, justo por debajo del máximo y máximo: 5 casos.",
+  "src": "Tema 7 · Prueba del valor límite normal",
+  "page": 226
+ },
+ {
+  "id": "t7-11",
+  "w": 7,
+  "topic": "Fórmulas",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada variante del valor límite con su fórmula.",
+  "pairs": [
+   [
+    "Normal",
+    "4n + 1"
+   ],
+   [
+    "Robusta",
+    "6n + 1"
+   ],
+   [
+    "Peor caso",
+    "5ⁿ"
+   ],
+   [
+    "Robusta peor caso",
+    "7ⁿ"
+   ]
+  ],
+  "extra": [
+   "3n + 1"
+  ],
+  "explain": "Las de falla única crecen de forma lineal; las de peor caso, de forma exponencial.",
+  "src": "Tema 7 · Comparación de las cuatro variantes",
+  "page": 235
+ },
+ {
+  "id": "t7-12",
+  "w": 7,
+  "topic": "Fórmulas",
+  "type": "input",
+  "pts": 3,
+  "numeric": true,
+  "q": "¿Cuántos casos genera el valor límite normal con 3 variables?",
+  "answer": [
+   "13"
+  ],
+  "placeholder": "casos",
+  "explain": "4n + 1 = 4·3 + 1 = 13.",
+  "src": "Tema 7 · Normal con n variables",
+  "page": 230
+ },
+ {
+  "id": "t7-13",
+  "w": 7,
+  "topic": "Fórmulas",
+  "type": "input",
+  "pts": 4,
+  "numeric": true,
+  "q": "¿Cuántos casos genera la variante de peor caso con 4 variables?",
+  "answer": [
+   "625"
+  ],
+  "placeholder": "casos",
+  "explain": "5ⁿ = 5⁴ = 625. La robusta peor caso daría 7⁴ = 2401.",
+  "src": "Tema 7 · Ejercicio: ¿cuántos casos con 4 variables?",
+  "page": 238
+ },
+ {
+  "id": "t7-14",
+  "w": 7,
+  "topic": "Supuesto de falla única",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué variantes rechazan el supuesto de «falla única»?",
+  "options": [
+   "Peor caso y robusta peor caso",
+   "Normal y robusta",
+   "Solo la robusta",
+   "Ninguna"
+  ],
+  "answer": 0,
+  "explain": "El peor caso combina valores extremos de varias variables a la vez (producto cartesiano): rechaza la falla única.",
+  "src": "Tema 7 · Prueba de valor límite en el peor caso",
+  "page": 232
+ },
+ {
+  "id": "t7-15",
+  "w": 7,
+  "topic": "Valor límite robusto",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué agrega la prueba robusta a la normal?",
+  "options": [
+   "Un valor ligeramente menor que el mínimo (min−) y uno ligeramente mayor que el máximo (max+)",
+   "Combinaciones de varias variables extremas",
+   "Solo el valor nominal",
+   "Valores elegidos por experiencia del probador"
+  ],
+  "answer": 0,
+  "explain": "Agrega valores no válidos para comprobar cómo el sistema maneja entradas fuera de rango.",
+  "src": "Tema 7 · Prueba robusta de valor límite",
+  "page": 231
+ },
+ {
+  "id": "t7-16",
+  "w": 7,
+  "topic": "Ejercicio con dos variables",
+  "type": "multi",
+  "pts": 5,
+  "q": "Edad de 18 a 65 (nominal 40) y plazo de 6 a 60 meses (nominal 30). ¿Cuáles son casos del valor límite NORMAL?",
+  "options": [
+   "(18, 30)",
+   "(64, 30)",
+   "(40, 7)",
+   "(40, 30)",
+   "(18, 6)",
+   "(17, 30)"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Una variable toma min, min+, max− o max y la otra queda en su nominal. (18, 6) mueve las dos (peor caso) y (17, 30) es fuera de rango (robusta).",
+  "src": "Tema 7 · Ejercicio: valor límite normal con dos variables",
+  "page": 236
+ },
+ {
+  "id": "t7-17",
+  "w": 7,
+  "topic": "Una variable",
+  "type": "mc",
+  "pts": 4,
+  "q": "Una calificación entera va de 0 a 10. ¿Qué valores usa la prueba robusta?",
+  "options": [
+   "−1, 0, 1, 5, 9, 10, 11",
+   "0, 1, 5, 9, 10",
+   "−1, 0, 10, 11",
+   "0, 5, 10"
+  ],
+  "answer": 0,
+  "explain": "Robusta (6n + 1 = 7): min−, min, min+, nominal, max−, max y max+.",
+  "src": "Tema 7 · Datos de prueba para la calificación",
+  "page": 241
+ },
+ {
+  "id": "t7-18",
+  "w": 7,
+  "topic": "Una variable",
+  "type": "tf",
+  "pts": 3,
+  "q": "Con una sola variable, la prueba de peor caso coincide con la normal (5 casos).",
+  "answer": true,
+  "explain": "Verdadero. Sin otras variables no hay combinaciones: 5¹ = 5 = 4·1 + 1. Igual la robusta peor caso coincide con la robusta (7).",
+  "src": "Tema 7 · Datos de prueba para la calificación",
+  "page": 241
+ },
+ {
+  "id": "t7-19",
+  "w": 7,
+  "topic": "Limitaciones",
+  "type": "multi",
+  "pts": 4,
+  "q": "¿En qué casos el análisis de valores límite no es suficiente por sí solo?",
+  "options": [
+   "Variables enumeradas, como colores",
+   "Variables booleanas",
+   "Variables dependientes entre sí, como día, mes y año bisiesto",
+   "Límites no obvios, como el máximo de la edad",
+   "Variables independientes que representan cantidades físicas acotadas"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explain": "Funciona bien con variables independientes que representan cantidades físicas acotadas. Además ignora la semántica de la función.",
+  "src": "Tema 7 · Limitaciones del análisis de valores límite",
+  "page": 244
+ },
+ {
+  "id": "t7-20",
+  "w": 7,
+  "topic": "Técnicas complementarias",
+  "type": "match",
+  "pts": 3,
+  "q": "Relaciona cada técnica complementaria con su descripción.",
+  "pairs": [
+   [
+    "Prueba de valor especial",
+    "El probador usa su experiencia; es ad hoc y la menos sistemática"
+   ],
+   [
+    "Pruebas aleatorias",
+    "Valores al azar dentro del rango, hasta cubrir cada clase de salida"
+   ]
+  ],
+  "extra": [
+   "Combinar todos los valores de todas las variables"
+  ],
+  "explain": "Ambas complementan un método sistemático como el valor límite.",
+  "src": "Tema 7 · Otras técnicas complementarias",
+  "page": 243
+ },
+ {
+  "id": "t8-01",
+  "w": 8,
+  "topic": "Repaso: ROV y GV",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué supuesto oculto tiene el análisis del valor límite?",
+  "options": [
+   "Trata todas las variables como ROV (variables de sólo resultados), independientes entre sí",
+   "Trata todas las variables como variables de puerta",
+   "Supone que el programa no tiene límites",
+   "Supone que todas las entradas son booleanas"
+  ],
+  "answer": 0,
+  "explain": "BVA asume variables ROV independientes, una entrada a la vez y falla única. Con variables de puerta (GV) ese supuesto no se cumple.",
+  "src": "Tema 8 · El supuesto oculto del valor límite",
+  "page": 254
+ },
+ {
+  "id": "t8-02",
+  "w": 8,
+  "topic": "Repaso: ROV y GV",
+  "type": "input",
+  "pts": 3,
+  "numeric": true,
+  "q": "amount decide entre tres cálculos: ≤ 1800, entre 1800 y 15000, y ≥ 15000. Sin contar valores fuera de rango, ¿cuántas clases de equivalencia tiene amount?",
+  "answer": [
+   "3"
+  ],
+  "placeholder": "clases",
+  "explain": "Tres: una por cada ruta. Con una GV, una prueba de valor único es insuficiente.",
+  "src": "Tema 8 · Una variable, tres clases de equivalencia",
+  "page": 256
+ },
+ {
+  "id": "t8-03",
+  "w": 8,
+  "topic": "Definición",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Cuándo dos valores de entrada pertenecen a la misma clase de equivalencia?",
+  "options": [
+   "Cuando la especificación los trata de la misma forma, es decir, provocan que se ejecute la misma ruta",
+   "Cuando son números consecutivos",
+   "Cuando tienen la misma cantidad de dígitos",
+   "Cuando los elige el mismo probador"
+  ],
+  "answer": 0,
+  "explain": "Mismo comportamiento: si un valor de la clase detecta un error, los demás probablemente también. Por eso basta un representante.",
+  "src": "Tema 8 · ¿Qué es una clase de equivalencia?",
+  "page": 259
+ },
+ {
+  "id": "t8-04",
+  "w": 8,
+  "topic": "Definición",
+  "type": "tf",
+  "pts": 3,
+  "q": "Las clases de equivalencia se definen a partir de la salida (la ruta), pero los valores que se prueban se toman del dominio (la entrada).",
+  "answer": true,
+  "explain": "Verdadero. Se elige un valor dentro de cada intervalo de la entrada: por ejemplo 1000, 8000 y 20000 para amount.",
+  "src": "Tema 8 · Clases de equivalencia y datos de prueba",
+  "page": 260
+ },
+ {
+  "id": "t8-05",
+  "w": 8,
+  "topic": "Propiedades de una partición",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada propiedad de una partición con su significado.",
+  "pairs": [
+   [
+    "Completitud",
+    "Las clases cubren todo el dominio: ningún valor queda sin probar"
+   ],
+   [
+    "No redundancia",
+    "Las clases no se superponen: ningún valor se prueba dos veces"
+   ]
+  ],
+  "extra": [
+   "Cada clase tiene exactamente dos valores"
+  ],
+  "explain": "Completitud: A = A₁ ∪ … ∪ Aₙ. No redundancia: si i ≠ j, Aᵢ ∩ Aⱼ = ∅.",
+  "src": "Tema 8 · Completitud y no redundancia",
+  "page": 262
+ },
+ {
+  "id": "t8-06",
+  "w": 8,
+  "topic": "Objetivos",
+  "type": "multi",
+  "pts": 3,
+  "q": "¿Para qué sirven las clases de equivalencia?",
+  "options": [
+   "Probar la menor cantidad posible de valores de entrada",
+   "Detectar y eliminar pruebas redundantes",
+   "Indicar cuántos casos de prueba se necesitan",
+   "Probar todas las combinaciones de todos los valores"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "Basta con probar un valor de cada clase: probar más sería redundante.",
+  "src": "Tema 8 · Objetivos de las clases de equivalencia",
+  "page": 261
+ },
+ {
+  "id": "t8-07",
+  "w": 8,
+  "topic": "Ejemplos",
+  "type": "mc",
+  "pts": 3,
+  "q": "Un sistema acepta números del 1 al 10. ¿Cuántas clases de equivalencia hay?",
+  "options": [
+   "3: una válida y dos no válidas",
+   "10: una por número",
+   "2: válidos y no válidos",
+   "1: el rango válido"
+  ],
+  "answer": 0,
+  "explain": "CE1: valor < 1 (no válida); CE2: 1 ≤ valor ≤ 10 (válida); CE3: valor > 10 (no válida).",
+  "src": "Tema 8 · Ejemplo 1: números del 1 al 10",
+  "page": 265
+ },
+ {
+  "id": "t8-08",
+  "w": 8,
+  "topic": "Ejemplos",
+  "type": "mc",
+  "pts": 3,
+  "q": "El valor debe ser un color primario (amarillo, azul o rojo). ¿Qué clases hay?",
+  "options": [
+   "Dos: el valor está en el conjunto (válida) o no lo está (no válida)",
+   "Tres: una por cada color primario",
+   "Cuatro: tres colores más los demás",
+   "Una: los colores no tienen clases"
+  ],
+  "answer": 0,
+  "explain": "Con un conjunto no hay límites: CE1 valor ∈ {amarillo, azul, rojo}; CE2 valor ∉ ese conjunto.",
+  "src": "Tema 8 · Ejemplo 2: colores primarios",
+  "page": 266
+ },
+ {
+  "id": "t8-09",
+  "w": 8,
+  "topic": "Ejemplos",
+  "type": "tf",
+  "pts": 3,
+  "q": "Si una contraseña debe tener entre 8 y 16 caracteres, probar con 9 y con 12 caracteres aporta información nueva.",
+  "answer": false,
+  "explain": "Falso. Ambos están en la misma clase (8 a 16), así que es redundante. Con clases bastan 3 casos; el valor límite agrega 7, 8, 16 y 17.",
+  "src": "Tema 8 · Ejercicio: clases de equivalencia de una contraseña",
+  "page": 267
+ },
+ {
+  "id": "t8-10",
+  "w": 8,
+  "topic": "Caso del hostal",
+  "type": "multi",
+  "pts": 5,
+  "q": "Hostal: tipo ∈ {sencilla, doble, matrimonial, suite}, edad entera de 18 a 100 y género ∈ {F, M}. ¿Cuáles son clases NO válidas?",
+  "options": [
+   "Tipo fuera del conjunto de habitaciones",
+   "Edad no entera",
+   "Edad menor que 18",
+   "Edad mayor que 100",
+   "Género distinto de F o M",
+   "Edad entre 18 y 100"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "explain": "Son 5 no válidas (CE2, CE4, CE6, CE7, CE9) y 4 válidas (CE1, CE3, CE5, CE8). Edad entre 18 y 100 es válida.",
+  "src": "Tema 8 · Solución: clases de equivalencia del hostal",
+  "page": 269
+ },
+ {
+  "id": "t8-11",
+  "w": 8,
+  "topic": "Caso del hostal",
+  "type": "input",
+  "pts": 3,
+  "numeric": true,
+  "q": "En el hostal, solo las clientas tienen descuento: 20 % en sencilla y 10 % en el resto. ¿Cuántos comportamientos distintos de descuento hay?",
+  "answer": [
+   "3"
+  ],
+  "placeholder": "comportamientos",
+  "explain": "Tres: 0 % (hombres), 10 % y 20 %. Cada uno debe quedar cubierto por al menos un caso de prueba.",
+  "src": "Tema 8 · Descuentos según género y tipo de habitación",
+  "page": 270
+ },
+ {
+  "id": "t8-12",
+  "w": 8,
+  "topic": "Débiles y fuertes",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada tipo de prueba con lo que garantiza.",
+  "pairs": [
+   [
+    "Débil",
+    "Cobertura de código: número mínimo de pruebas, cada línea se ejecuta al menos una vez"
+   ],
+   [
+    "Fuerte",
+    "Cobertura de ruta: número máximo de pruebas, todas las combinaciones de clases"
+   ]
+  ],
+  "extra": [
+   "Cobertura de requisitos no funcionales"
+  ],
+  "explain": "En ambos casos se excluyen los valores fuera de rango.",
+  "src": "Tema 8 · Pruebas débiles y fuertes",
+  "page": 272
+ },
+ {
+  "id": "t8-13",
+  "w": 8,
+  "topic": "Débiles y fuertes",
+  "type": "input",
+  "pts": 4,
+  "numeric": true,
+  "q": "Base tiene 3 clases, Nuevo 2 y Tipo 4. ¿Cuántos casos requiere la prueba FUERTE?",
+  "answer": [
+   "24"
+  ],
+  "placeholder": "casos",
+  "explain": "Producto cartesiano: 3 × 2 × 4 = 24 (cobertura de ruta). La débil necesita max(3, 2, 4) = 4.",
+  "src": "Tema 8 · ¿Cuántos casos de prueba?",
+  "page": 274
+ },
+ {
+  "id": "t8-14",
+  "w": 8,
+  "topic": "Débiles y fuertes",
+  "type": "input",
+  "pts": 3,
+  "numeric": true,
+  "q": "Con las mismas variables (Base 3 clases, Nuevo 2, Tipo 4), ¿cuántos casos requiere la prueba DÉBIL?",
+  "answer": [
+   "4"
+  ],
+  "placeholder": "casos",
+  "explain": "El máximo de clases: max(3, 2, 4) = 4. Asegura visitar cada línea una vez (cobertura de código).",
+  "src": "Tema 8 · ¿Cuántos casos de prueba?",
+  "page": 274
+ },
+ {
+  "id": "t8-15",
+  "w": 8,
+  "topic": "Débil normal",
+  "type": "mc",
+  "pts": 4,
+  "q": "x1 tiene 3 clases y x2 tiene 2. Un diseño débil pone los 3 casos en una clase distinta de x1, pero todos en la misma clase de x2. ¿Qué falla?",
+  "options": [
+   "La otra clase de x2 nunca se prueba: toda clase de toda variable debe tener al menos un caso",
+   "Nada: la débil solo exige cubrir la variable con más clases",
+   "Sobran casos: bastaba con 2",
+   "Falta combinar todas las clases (6 casos)"
+  ],
+  "answer": 0,
+  "explain": "Es el error frecuente en la prueba débil. Cada clase de cada variable debe aparecer al menos una vez.",
+  "src": "Tema 8 · Error frecuente en la prueba débil",
+  "page": 277
+ },
+ {
+  "id": "t8-16",
+  "w": 8,
+  "topic": "Fórmulas",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada variante con su fórmula (nᵢ = clases válidas de la variable i).",
+  "pairs": [
+   [
+    "Débil normal",
+    "max(nᵢ)"
+   ],
+   [
+    "Fuerte normal",
+    "∏ nᵢ"
+   ],
+   [
+    "Débil robusta",
+    "max(nᵢ) + no válidas de cada variable"
+   ],
+   [
+    "Fuerte robusta",
+    "∏ (nᵢ + 2)"
+   ]
+  ],
+  "explain": "En las robustas, cada variable aporta 2 clases no válidas: por debajo y por encima de su rango.",
+  "src": "Tema 8 · ¿Cómo calcular el número de casos?",
+  "page": 280
+ },
+ {
+  "id": "t8-17",
+  "w": 8,
+  "topic": "Fórmulas",
+  "type": "mc",
+  "pts": 4,
+  "q": "Con x1 de 3 clases y x2 de 2 clases, ¿cuántos casos dan la débil robusta y la fuerte robusta?",
+  "options": [
+   "7 y 20",
+   "5 y 12",
+   "6 y 24",
+   "3 y 6"
+  ],
+  "answer": 0,
+  "explain": "Débil robusta: 3 + 2 + 2 = 7. Fuerte robusta: (3 + 2) × (2 + 2) = 20.",
+  "src": "Tema 8 · Las cuatro variantes",
+  "page": 279
+ },
+ {
+  "id": "t8-18",
+  "w": 8,
+  "topic": "Debilidades",
+  "type": "mc",
+  "pts": 4,
+  "q": "En el hostal, la fuerte normal da 2 géneros × 4 tipos = 8 casos, pero solo hay 3 comportamientos. ¿Por qué hay redundancia?",
+  "options": [
+   "La equivalencia fuerte ignora las dependencias: el tipo de habitación solo importa si el género es F",
+   "Porque faltan clases no válidas",
+   "Porque el género no es una variable de puerta",
+   "Porque la débil siempre es mejor"
+  ],
+  "answer": 0,
+  "explain": "Con M, los 4 tipos prueban lo mismo (0 %). Basta con (M, sencilla), (F, sencilla) y (F, doble).",
+  "src": "Tema 8 · Cuándo la equivalencia fuerte es redundante",
+  "page": 284
+ },
+ {
+  "id": "t8-19",
+  "w": 8,
+  "topic": "Taller hipotecario",
+  "type": "multi",
+  "pts": 5,
+  "q": "Monto de $50 000 a $500 000; tasa de 7 % a 9 % hasta $150 000 y de 9,5 % a 10,75 % por encima. ¿Cuáles son clases VÁLIDAS de la tasa?",
+  "options": [
+   "7 % ≤ tasa ≤ 9 %",
+   "9,5 % ≤ tasa ≤ 10,75 %",
+   "La tasa es un número real",
+   "9 % < tasa < 9,5 %",
+   "tasa > 10,75 %"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "Válidas: CE5 (7–9 %), CE7 (9,5–10,75 %) y CE12 (número real). Entre 9 % y 9,5 % y por encima de 10,75 % son no válidas.",
+  "src": "Tema 8 · Taller: solución",
+  "page": 287
+ },
+ {
+  "id": "t8-20",
+  "w": 8,
+  "topic": "Taller hipotecario",
+  "type": "mc",
+  "pts": 5,
+  "q": "¿Por qué conviene probar un préstamo de $100 000 con tasa del 10 %?",
+  "options": [
+   "Porque el monto es una variable de puerta para la tasa: cada valor es válido por separado, pero la combinación no",
+   "Porque es el valor nominal de ambas variables",
+   "Porque 10 % es una tasa no válida en cualquier caso",
+   "Porque $100 000 está fuera de rango"
+  ],
+  "answer": 0,
+  "explain": "Hasta $150 000 la tasa válida es 7–9 %. El análisis por variable independiente no detecta esta combinación inválida: debe ser rechazada.",
+  "src": "Tema 8 · Observación: el monto también es una GV",
+  "page": 288
+ }
+]

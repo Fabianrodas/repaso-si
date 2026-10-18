@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Repaso de Sistemas Inteligentes (Weeks 1-7): quiz ponderado, videos narrados y diapositivas.",
+  "description": "Repaso de Sistemas Inteligentes (Weeks 1-7) e Ingeniería de Software II (Temas 1-8): quiz ponderado, videos narrados y diapositivas.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

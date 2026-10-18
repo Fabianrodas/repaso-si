@@ -1,19 +1,22 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Download } from "../components/Icons";
-import { PDF_SIZE, PDF_URL, SLIDE_COUNT, slideSrc, thumbSrc, WEEK_PAGES, WEEKS, weekOfPage, type WeekNum } from "../data/meta";
 import { navigate } from "../lib/router";
-
-const clamp = (n: number) => Math.min(SLIDE_COUNT, Math.max(1, Math.round(n) || 1));
-const weekRange = (w: WeekNum): [number, number] => [WEEK_PAGES[w], w === 7 ? SLIDE_COUNT : WEEK_PAGES[(w + 1) as WeekNum] - 1];
+import { useSubject } from "../subjects";
+import { unitOfPage, unitRange } from "../subjects/types";
 
 export default function Slides({ query }: { query: URLSearchParams }) {
+  const { s, href } = useSubject();
+  const { slideCount: SLIDE_COUNT, slideSrc, thumbSrc, unitPages: WEEK_PAGES, units: WEEKS } = s;
+  const clamp = (n: number) => Math.min(SLIDE_COUNT, Math.max(1, Math.round(n) || 1));
+  const weekRange = (w: number) => unitRange(s, w);
+  const weekOfPage = (p: number) => unitOfPage(s, p);
   const page = clamp(Number(query.get("p") ?? 1));
   const wk = weekOfPage(page);
   const [input, setInput] = useState(String(page));
   const [loadedPage, setLoadedPage] = useState(0);
   const touch = useRef<{ x: number; y: number } | null>(null);
 
-  const go = useCallback((p: number) => navigate(`/diapositivas?p=${clamp(p)}`, { replace: true, keepScroll: true }), []);
+  const go = useCallback((p: number) => navigate(href(`/diapositivas?p=${clamp(p)}`), { replace: true, keepScroll: true }), [s]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => { setInput(String(page)); }, [page]);
 
@@ -35,7 +38,7 @@ export default function Slides({ query }: { query: URLSearchParams }) {
   // precarga las vecinas para que pasar de diapositiva sea instantáneo
   useEffect(() => {
     [page + 1, page + 2, page - 1].filter((p) => p >= 1 && p <= SLIDE_COUNT).forEach((p) => { const i = new Image(); i.src = slideSrc(p); });
-  }, [page]);
+  }, [page, s]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -48,13 +51,13 @@ export default function Slides({ query }: { query: URLSearchParams }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [page, go]);
+  }, [page, go, SLIDE_COUNT]);
 
   return (
     <div className="slides">
       <div className="slides-head">
         <h1 className="page-title">Diapositivas</h1>
-        <a className="btn quiet" href={PDF_URL} download><Download size={16} /> PDF ({PDF_SIZE})</a>
+        <a className="btn quiet" href={s.pdfUrl} download><Download size={16} /> PDF ({s.pdfSize})</a>
       </div>
 
       <div className="viewer">
@@ -69,9 +72,9 @@ export default function Slides({ query }: { query: URLSearchParams }) {
             </form>
             <button type="button" className="icon-btn" aria-label="Siguiente" disabled={page === SLIDE_COUNT} onClick={() => go(page + 1)}><ChevronRight /></button>
           </div>
-          <div className="wjump" role="group" aria-label="Ir a una semana">
+          <div className="wjump" role="group" aria-label={`Ir a ${s.unitWord === "tema" ? "un tema" : "una semana"}`}>
             {WEEKS.map((w) => (
-              <button key={w} type="button" aria-pressed={wk === w} onClick={() => go(WEEK_PAGES[w])} aria-label={`Week ${w}`}>W{w}</button>
+              <button key={w} type="button" aria-pressed={wk === w} onClick={() => go(WEEK_PAGES[w])} aria-label={`${s.unit} ${w}`}>{s.unitAbbr}{w}</button>
             ))}
           </div>
         </div>
@@ -102,13 +105,13 @@ export default function Slides({ query }: { query: URLSearchParams }) {
         </div>
       </div>
 
-      <aside className="s-side" aria-label="Diapositivas de esta semana">
+      <aside className="s-side" aria-label={`Diapositivas ${s.unitWord === "tema" ? "de este tema" : "de esta semana"}`}>
         <div className="s-box">
-          <h2 className="s-head">{wk === 0 ? "Portada" : `Week ${wk}`} <span>{sideRange[0]}–{sideRange[1]}</span></h2>
+          <h2 className="s-head">{wk === 0 ? "Portada" : `${s.unit} ${wk}`} <span>{sideRange[0]}–{sideRange[1]}</span></h2>
           <ul className="s-thumbs" ref={sideRef}>
             {sidePages.map((p) => (
               <li key={p}>
-                <a href={`/diapositivas?p=${p}`} aria-current={p === page ? "true" : undefined}
+                <a href={href(`/diapositivas?p=${p}`)} aria-current={p === page ? "true" : undefined}
                   onClick={(e) => { e.preventDefault(); go(p); }}>
                   <img src={thumbSrc(p)} alt={`Diapositiva ${p}`} width={384} height={216} loading="lazy" decoding="async" />
                   <span>{p}</span>
@@ -120,17 +123,17 @@ export default function Slides({ query }: { query: URLSearchParams }) {
       </aside>
 
       <section className="thumbs-wrap" aria-label="Todas las diapositivas">
-        {([0, ...WEEKS] as (0 | WeekNum)[]).map((w) => {
+        {[0, ...WEEKS].map((w) => {
           const [a, b] = w === 0 ? [1, 1] : weekRange(w);
           const pages = Array.from({ length: b - a + 1 }, (_, i) => a + i);
           return (
             <div key={w} className="tgroup">
-              <h2>{w === 0 ? "Portada" : `Week ${w}`}</h2>
+              <h2>{w === 0 ? "Portada" : `${s.unit} ${w}`}</h2>
               <ul className="thumbs">
                 {pages.map((p) => (
                   <li key={p}>
-                    <a href={`/diapositivas?p=${p}`} data-thumb={p} aria-current={p === page ? "true" : undefined}
-                      onClick={(e) => { e.preventDefault(); navigate(`/diapositivas?p=${p}`, { replace: true }); }}>
+                    <a href={href(`/diapositivas?p=${p}`)} data-thumb={p} aria-current={p === page ? "true" : undefined}
+                      onClick={(e) => { e.preventDefault(); navigate(href(`/diapositivas?p=${p}`), { replace: true }); }}>
                       <img src={thumbSrc(p)} alt={`Diapositiva ${p}`} width={384} height={216} loading="lazy" decoding="async" />
                       <span>{p}</span>
                     </a>

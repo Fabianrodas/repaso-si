@@ -1,0 +1,725 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:02.804
+Imagina esto: viernes, seis de la tarde.
+
+00:00:03.111 --> 00:00:06.162
+Un cliente llama y reporta un
+error grave en el sistema.
+
+00:00:06.632 --> 00:00:08.723
+Las primeras preguntas son obvias.
+
+00:00:09.024 --> 00:00:11.328
+¿Qué versión tiene instalada ese cliente?
+
+00:00:11.767 --> 00:00:14.391
+¿Qué cambió desde la última
+versión que funcionaba?
+
+00:00:14.834 --> 00:00:17.031
+¿Y quién modificó ese archivo, y por qué?
+
+00:00:17.501 --> 00:00:21.576
+Si tu equipo no puede responder eso en
+unos minutos, tiene un problema serio.
+
+00:00:21.823 --> 00:00:24.405
+Y el nombre de la solución
+es justamente el tema
+
+00:00:24.405 --> 00:00:26.879
+de este video: la gestión de la configuración.
+
+00:00:27.929 --> 00:00:31.236
+Tema uno: gestión de la configuración
+y gestión de versiones.
+
+00:00:32.286 --> 00:00:35.378
+Es decir, las políticas, los
+procesos y las herramientas
+
+00:00:35.378 --> 00:00:38.856
+para gestionar sistemas de software
+que cambian todo el tiempo.
+
+00:00:39.906 --> 00:00:44.237
+La clase tiene dos partes: primero, la
+gestión de la configuración en general…
+
+00:00:44.707 --> 00:00:48.824
+…y después, la gestión de versiones, que
+es donde entran herramientas como Git.
+
+00:00:49.874 --> 00:00:51.410
+Empecemos por la primera.
+
+00:00:52.460 --> 00:00:54.274
+¿Por qué hace falta todo esto?
+
+00:00:54.728 --> 00:00:57.685
+Porque los sistemas de software
+cambian constantemente,
+
+00:00:57.685 --> 00:00:59.998
+mientras se desarrollan y mientras se usan.
+
+00:01:00.468 --> 00:01:02.814
+Se descubren errores, y hay que corregirlos.
+
+00:01:03.284 --> 00:01:06.954
+Los requisitos cambian, y hay que
+implementarlos en una nueva versión.
+
+00:01:07.424 --> 00:01:10.533
+Salen nuevas versiones del
+hardware o de las plataformas,
+
+00:01:10.533 --> 00:01:13.589
+como un nuevo Android, y el
+sistema tiene que adaptarse.
+
+00:01:14.059 --> 00:01:17.387
+Y los competidores sacan funciones
+nuevas que hay que igualar.
+
+00:01:17.631 --> 00:01:20.148
+En resumen: el software nunca se queda quieto.
+
+00:01:21.198 --> 00:01:24.756
+La gestión de la configuración,
+o CM, se ocupa de las políticas,
+
+00:01:24.756 --> 00:01:28.814
+los procesos y las herramientas para
+gestionar esos sistemas que cambian.
+
+00:01:29.284 --> 00:01:33.359
+Cada vez que se cambia el software, se
+crea una nueva versión del sistema.
+
+00:01:33.829 --> 00:01:37.007
+Por eso, un sistema no es una
+sola cosa: es un conjunto
+
+00:01:37.007 --> 00:01:40.186
+de versiones, y cada una puede
+necesitar mantenimiento.
+
+00:01:40.432 --> 00:01:42.688
+Piensa en una app: hay personas usando la
+
+00:01:42.688 --> 00:01:45.274
+versión de hace tres
+meses, y otras la de ayer.
+
+00:01:46.324 --> 00:01:50.292
+La gestión de la configuración incluye
+cuatro actividades relacionadas.
+
+00:01:50.762 --> 00:01:53.242
+Gestión de versiones,
+construcción de sistemas,
+
+00:01:53.242 --> 00:01:55.562
+gestión del cambio y gestión de lanzamiento.
+
+00:01:55.864 --> 00:01:57.357
+Veamos cómo se conectan.
+
+00:01:58.407 --> 00:02:00.093
+Este diagrama las relaciona.
+
+00:02:00.392 --> 00:02:04.595
+Las propuestas de cambio entran por la
+gestión del cambio, que decide qué se hace.
+
+00:02:05.065 --> 00:02:09.033
+La gestión de versiones administra
+las versiones de cada componente…
+
+00:02:09.503 --> 00:02:13.385
+…la construcción del sistema las junta
+para crear versiones del sistema…
+
+00:02:13.855 --> 00:02:16.268
+…y la gestión de lanzamiento convierte algunas
+
+00:02:16.268 --> 00:02:18.997
+de esas versiones en
+lanzamientos para los clientes.
+
+00:02:20.047 --> 00:02:23.258
+Gestión de versiones: llevar el
+seguimiento de las múltiples
+
+00:02:23.258 --> 00:02:26.362
+versiones de los componentes,
+y garantizar que los cambios
+
+00:02:26.362 --> 00:02:29.199
+de distintos desarrolladores
+no interfieran entre sí.
+
+00:02:29.669 --> 00:02:33.648
+Construcción del sistema: ensamblar
+los componentes, los datos y las
+
+00:02:33.648 --> 00:02:37.861
+bibliotecas, y luego compilarlos y
+vincularlos para crear un ejecutable.
+
+00:02:38.911 --> 00:02:43.517
+Gestión del cambio: seguir las solicitudes
+de cambio de clientes y desarrolladores,
+
+00:02:43.517 --> 00:02:46.847
+calcular su costo e impacto, y
+decidir si se hacen y cuándo.
+
+00:02:47.317 --> 00:02:50.592
+Gestión de lanzamiento: preparar
+el software para entregarlo,
+
+00:02:50.592 --> 00:02:53.546
+y registrar qué versiones se
+entregaron a los clientes.
+
+00:02:54.596 --> 00:02:56.644
+Veamos las cuatro en un caso real.
+
+00:02:56.905 --> 00:03:01.214
+Una app de delivery recibe un reporte:
+el total no incluye el costo de envío.
+
+00:03:01.684 --> 00:03:04.910
+Primero, la gestión del cambio:
+se registra la solicitud,
+
+00:03:04.910 --> 00:03:08.532
+se estima el costo y se decide
+arreglarlo en la próxima versión.
+
+00:03:09.002 --> 00:03:13.567
+Luego, la gestión de versiones: Ana crea
+una rama, corrige el archivo y lo integra.
+
+00:03:13.809 --> 00:03:15.985
+El historial registra quién cambió qué.
+
+00:03:16.455 --> 00:03:20.658
+Después, la construcción: el servidor
+compila todo y ejecuta las pruebas.
+
+00:03:21.128 --> 00:03:24.226
+Y por último, el lanzamiento:
+se entrega la versión dos
+
+00:03:24.226 --> 00:03:27.720
+punto tres punto uno, y se registra
+qué componentes la forman.
+
+00:03:28.190 --> 00:03:30.830
+Sin esto, nadie sabe qué
+versión tiene el cliente,
+
+00:03:30.830 --> 00:03:33.523
+y no hay forma de reconstruir
+la versión que falló.
+
+00:03:34.573 --> 00:03:35.960
+Ahora, el vocabulario.
+
+00:03:36.237 --> 00:03:40.077
+Esta parte suele aparecer en las
+evaluaciones, así que vamos despacio.
+
+00:03:40.547 --> 00:03:45.027
+Una línea base es un conjunto de versiones
+de componentes que forman un sistema.
+
+00:03:45.280 --> 00:03:49.354
+Está controlada: sus componentes no
+cambian, y siempre se puede recrear.
+
+00:03:49.824 --> 00:03:54.176
+Ramificación: crear una nueva línea de
+código a partir de una versión existente.
+
+00:03:54.423 --> 00:03:56.855
+Las dos líneas pueden avanzar por separado.
+
+00:03:57.325 --> 00:04:01.549
+Línea de código: el conjunto de versiones
+de un componente, y de lo que depende.
+
+00:04:02.019 --> 00:04:05.610
+Control de configuración: el
+proceso que garantiza que todas las
+
+00:04:05.610 --> 00:04:09.593
+versiones se registren y se mantengan
+durante toda la vida del sistema.
+
+00:04:10.063 --> 00:04:14.279
+Y un elemento de configuración, o SCI,
+es cualquier artefacto bajo control,
+
+00:04:14.279 --> 00:04:18.383
+con un identificador único: diseño,
+código, datos de prueba o documentos.
+
+00:04:19.433 --> 00:04:20.435
+Más términos.
+
+00:04:20.715 --> 00:04:23.225
+Línea principal: la secuencia de líneas base
+
+00:04:23.225 --> 00:04:25.622
+que representan las versiones del sistema.
+
+00:04:26.092 --> 00:04:30.337
+Fusión: crear una nueva versión uniendo
+versiones de distintas líneas de código.
+
+00:04:30.807 --> 00:04:33.602
+Lanzamiento: una versión
+entregada a los clientes.
+
+00:04:33.845 --> 00:04:38.474
+Repositorio: la base de datos compartida de
+versiones, con información de sus cambios.
+
+00:04:38.944 --> 00:04:41.504
+Construcción del sistema: crear el ejecutable
+
+00:04:41.504 --> 00:04:44.235
+compilando y vinculando
+las versiones correctas.
+
+00:04:44.705 --> 00:04:47.793
+Versión: una instancia de un
+elemento de configuración,
+
+00:04:47.793 --> 00:04:49.590
+siempre con identificador único.
+
+00:04:49.890 --> 00:04:53.965
+Y espacio de trabajo: tu área privada,
+donde modificas sin afectar a nadie.
+
+00:04:55.015 --> 00:04:59.132
+Para que no quede abstracto, traduzcamos
+todo a Git, que seguramente ya usas.
+
+00:04:59.602 --> 00:05:02.034
+El repositorio es tu proyecto en GitHub.
+
+00:05:02.314 --> 00:05:04.724
+El espacio de trabajo es tu carpeta local.
+
+00:05:05.003 --> 00:05:07.627
+Y una versión es un commit,
+con su código único.
+
+00:05:08.097 --> 00:05:11.852
+Ramificar es crear una rama con git
+branch, y fusionar es git merge.
+
+00:05:12.322 --> 00:05:14.519
+La línea principal es la rama main.
+
+00:05:14.776 --> 00:05:17.912
+Una línea base es una etiqueta,
+como v uno punto cero.
+
+00:05:18.202 --> 00:05:20.527
+Y un lanzamiento es un release publicado.
+
+00:05:21.577 --> 00:05:24.542
+Pasemos a la segunda parte:
+la gestión de versiones.
+
+00:05:25.592 --> 00:05:28.300
+Es el proceso de seguir
+las distintas versiones de
+
+00:05:28.300 --> 00:05:31.224
+los componentes, y de los
+sistemas en los que se usan.
+
+00:05:31.694 --> 00:05:35.918
+Garantiza que los cambios de distintos
+desarrolladores no interfieran entre sí.
+
+00:05:36.388 --> 00:05:39.930
+En otras palabras: administrar
+líneas de código y líneas base.
+
+00:05:40.239 --> 00:05:43.311
+Y para eso necesitamos sistemas
+de control de versiones.
+
+00:05:44.361 --> 00:05:46.089
+Aquí lo ves en un diagrama.
+
+00:05:46.361 --> 00:05:49.960
+Cada componente, A, B y C, tiene
+su propia línea de código con
+
+00:05:49.960 --> 00:05:53.849
+varias versiones; abajo están las
+librerías y componentes externos.
+
+00:05:54.319 --> 00:05:57.327
+Una línea base toma una
+versión concreta de cada uno.
+
+00:05:57.599 --> 00:06:00.778
+La versión uno usa A, B uno
+punto dos y C uno punto uno.
+
+00:06:01.248 --> 00:06:05.365
+La versión dos usa A uno punto tres,
+B uno punto dos y C uno punto dos.
+
+00:06:05.641 --> 00:06:08.820
+Y la secuencia de líneas base
+forma la línea principal.
+
+00:06:09.870 --> 00:06:12.679
+Un ejercicio con ese mismo
+esquema: ¿qué componentes
+
+00:06:12.679 --> 00:06:14.841
+cambiaron entre la versión uno y la dos?
+
+00:06:15.233 --> 00:06:16.769
+Pausa si quieres pensarlo.
+
+00:06:17.239 --> 00:06:19.436
+Cambiaron A, C y el componente externo.
+
+00:06:19.729 --> 00:06:21.713
+B y las librerías se reutilizan.
+
+00:06:22.183 --> 00:06:24.466
+¿Se puede reconstruir hoy la versión uno?
+
+00:06:24.895 --> 00:06:28.373
+Sí: una línea base está controlada,
+sus versiones no cambian.
+
+00:06:28.655 --> 00:06:32.282
+Y la línea principal es la
+secuencia, versión uno, versión dos.
+
+00:06:33.332 --> 00:06:35.849
+¿Qué ofrece un sistema
+de control de versiones?
+
+00:06:36.274 --> 00:06:41.053
+Primero, identificación: cada versión
+recibe un identificador único al enviarse.
+
+00:06:41.523 --> 00:06:44.195
+Segundo, el historial de
+cambios: queda registrado
+
+00:06:44.195 --> 00:06:46.493
+cómo se pasó de una versión a la siguiente.
+
+00:06:46.963 --> 00:06:49.908
+Y tercero, desarrollo
+independiente: varias personas
+
+00:06:49.908 --> 00:06:53.022
+pueden trabajar en el mismo
+componente al mismo tiempo.
+
+00:06:54.072 --> 00:06:57.077
+Además, soporte de proyectos:
+un mismo sistema puede
+
+00:06:57.077 --> 00:07:00.024
+manejar varios proyectos
+que comparten componentes.
+
+00:07:00.494 --> 00:07:04.286
+Y gestión de almacenamiento: en
+vez de guardar copias completas de
+
+00:07:04.286 --> 00:07:08.366
+todo, usa mecanismos eficientes que
+evitan duplicar archivos idénticos.
+
+00:07:09.416 --> 00:07:10.973
+Hay dos tipos modernos.
+
+00:07:11.250 --> 00:07:15.794
+En los centralizados, un único repositorio
+maestro guarda todas las versiones.
+
+00:07:16.051 --> 00:07:18.206
+Subversion es el ejemplo típico.
+
+00:07:18.676 --> 00:07:23.540
+En los distribuidos existen varias copias
+completas del repositorio al mismo tiempo.
+
+00:07:23.847 --> 00:07:25.063
+El ejemplo es Git.
+
+00:07:26.113 --> 00:07:28.097
+Así funciona en uno distribuido.
+
+00:07:28.386 --> 00:07:30.072
+Hay un repositorio maestro…
+
+00:07:30.542 --> 00:07:32.312
+…y Alicia y Roberto lo clonan.
+
+00:07:32.619 --> 00:07:36.111
+Cada uno tiene una copia completa,
+y trabaja en sus propias
+
+00:07:36.111 --> 00:07:39.958
+versiones: Alicia en A, B y C uno
+punto uno; Roberto en C, X y Y.
+
+00:07:41.008 --> 00:07:44.805
+Las ventajas frente a uno centralizado:
+hay un mecanismo de respaldo.
+
+00:07:45.083 --> 00:07:48.902
+Si el repositorio se daña, se
+restaura desde cualquier copia local.
+
+00:07:49.372 --> 00:07:52.529
+Se puede trabajar sin conexión,
+haciendo commits sin red.
+
+00:07:52.999 --> 00:07:56.391
+Y se puede compilar y probar todo
+el sistema en el equipo local.
+
+00:07:57.441 --> 00:07:59.788
+Imagina el día en que se cae el servidor.
+
+00:08:00.035 --> 00:08:02.854
+Con Subversion, nadie puede
+confirmar cambios, y si
+
+00:08:02.854 --> 00:08:05.838
+el disco se daña sin respaldo,
+se pierde el historial.
+
+00:08:06.308 --> 00:08:09.021
+Con Git, sigues haciendo
+commits locales y los subes
+
+00:08:09.021 --> 00:08:12.047
+después, y cualquier clon sirve
+para restaurar el maestro.
+
+00:08:12.325 --> 00:08:15.077
+Son justo las tres ventajas
+que acabamos de ver.
+
+00:08:16.127 --> 00:08:19.620
+Las líneas de código se ramifican
+cuando se desarrolla el mismo
+
+00:08:19.620 --> 00:08:23.167
+componente por separado, y en
+algún momento hay que fusionarlas.
+
+00:08:23.637 --> 00:08:27.797
+Aquí, de la versión uno punto uno nace la
+línea dos, y de ella, la dos punto uno.
+
+00:08:28.267 --> 00:08:31.329
+Al final, la versión dos punto
+uno punto dos se fusiona
+
+00:08:31.329 --> 00:08:34.113
+con la dos punto tres, y
+nace la dos punto cuatro.
+
+00:08:35.163 --> 00:08:36.443
+Así se hace en Git.
+
+00:08:36.717 --> 00:08:41.645
+Clonas el repositorio, y creas una rama para
+trabajar sin afectar la línea principal.
+
+00:08:42.115 --> 00:08:46.509
+Cada commit es una nueva versión, con
+identificador único, que queda en el historial.
+
+00:08:46.979 --> 00:08:51.779
+Vuelves a main, traes los cambios de los
+demás con pull, y fusionas tu rama con merge.
+
+00:08:52.249 --> 00:08:54.873
+Con tag marcas la línea base que se entrega.
+
+00:08:55.120 --> 00:08:57.958
+Y si dos personas cambiaron
+las mismas líneas, Git
+
+00:08:57.958 --> 00:09:00.966
+reporta un conflicto, y
+alguien decide cómo fusionar.
+
+00:09:02.016 --> 00:09:03.978
+Por último, cómo se ahorra espacio.
+
+00:09:04.272 --> 00:09:07.190
+En lugar de guardar cada
+versión completa, se guarda
+
+00:09:07.190 --> 00:09:10.501
+un delta: la lista de diferencias
+entre una versión y otra.
+
+00:09:10.971 --> 00:09:14.400
+La versión más reciente se guarda
+completa, y las anteriores
+
+00:09:14.400 --> 00:09:17.200
+se reconstruyen aplicando
+los deltas hacia atrás.
+
+00:09:17.493 --> 00:09:21.098
+Git, además, empaqueta esos deltas
+para reducir más el tamaño.
+
+00:09:22.148 --> 00:09:23.300
+Hagamos la cuenta.
+
+00:09:23.587 --> 00:09:26.498
+Un archivo de cien kilobytes
+tiene cuatro versiones,
+
+00:09:26.498 --> 00:09:28.793
+y en cada una cambian unos dos kilobytes.
+
+00:09:29.263 --> 00:09:31.887
+Con copias completas: cuatrocientos kilobytes.
+
+00:09:32.193 --> 00:09:35.798
+Con deltas: cien de la versión más
+reciente, más tres deltas de dos.
+
+00:09:36.088 --> 00:09:37.432
+Ciento seis kilobytes.
+
+00:09:37.902 --> 00:09:40.654
+Un ahorro de casi el
+setenta y tres por ciento.
+
+00:09:40.959 --> 00:09:44.607
+Esa es la gestión de almacenamiento:
+no duplicar lo que no cambió.
+
+00:09:45.657 --> 00:09:47.491
+Antes de terminar, ponte a prueba.
+
+00:09:47.746 --> 00:09:50.178
+Si necesitas más tiempo, pausa el video.
+
+00:09:50.418 --> 00:09:52.797
+Primera pregunta: ¿qué actividad decide si
+
+00:09:52.797 --> 00:09:55.346
+un cambio solicitado se implementa, y cuándo?
+
+00:10:00.966 --> 00:10:02.331
+La gestión del cambio.
+
+00:10:02.593 --> 00:10:06.177
+Registra la solicitud, calcula
+el costo y el impacto, y decide.
+
+00:10:06.647 --> 00:10:09.135
+Siguiente: un conjunto controlado de versiones
+
+00:10:09.135 --> 00:10:12.002
+de componentes, que siempre
+se puede recrear, es una…
+
+00:10:16.622 --> 00:10:17.518
+Línea base.
+
+00:10:17.797 --> 00:10:19.973
+En Git se suele marcar con una etiqueta.
+
+00:10:20.443 --> 00:10:22.935
+Y la última: nombra una ventaja de un sistema
+
+00:10:22.935 --> 00:10:25.649
+distribuido, como Git,
+frente a uno centralizado.
+
+00:10:31.269 --> 00:10:35.676
+Cualquiera de tres: sirve de respaldo,
+porque cualquier clon restaura el maestro;
+
+00:10:35.676 --> 00:10:39.866
+permite trabajar sin conexión; y permite
+compilar y probar todo en tu equipo.
+
+00:10:40.916 --> 00:10:42.793
+Resumamos lo más importante.
+
+00:10:43.263 --> 00:10:46.920
+Uno: la gestión de la configuración
+controla sistemas que cambian,
+
+00:10:46.920 --> 00:10:50.133
+porque un sistema es en realidad
+un conjunto de versiones.
+
+00:10:50.603 --> 00:10:54.035
+Dos: tiene cuatro actividades:
+gestión de versiones, construcción
+
+00:10:54.035 --> 00:10:57.045
+del sistema, gestión del cambio
+y gestión de lanzamiento.
+
+00:10:57.515 --> 00:10:58.817
+Tres: el vocabulario.
+
+00:10:59.118 --> 00:11:02.504
+Línea base, línea de código,
+línea principal, ramificación,
+
+00:11:02.504 --> 00:11:05.774
+fusión, versión, lanzamiento
+y elemento de configuración.
+
+00:11:06.244 --> 00:11:08.937
+Y cuatro: hay control de
+versiones centralizado,
+
+00:11:08.937 --> 00:11:11.236
+como Subversion, y distribuido, como Git.
+
+00:11:11.514 --> 00:11:14.159
+Y los deltas evitan guardar copias completas.
+
+00:11:15.209 --> 00:11:16.937
+Eso es todo para el tema uno.
+
+00:11:17.205 --> 00:11:19.633
+En el siguiente video vemos la construcción de
+
+00:11:19.633 --> 00:11:22.325
+sistemas, la gestión del
+cambio y los lanzamientos.
+
+00:11:22.625 --> 00:11:23.649
+¡Nos vemos ahí!
+
