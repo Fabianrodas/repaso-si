@@ -1,81 +1,95 @@
-/* Hoja de respuestas: papel blanco sobre un escritorio gris, tinta granate de formulario
-   (el color de la UEES), grafito para lo que marcas y bolígrafo rojo/verde para calificar. */
+/* Hoja de respuestas: papel sobre un escritorio, tinta color vino (el de la UEES),
+   grafito para lo que marcas y bolígrafo rojo/verde para calificar. */
 :root {
-  --desk: #eceef1;
+  --desk: #efedea;
   --sheet: #ffffff;
-  --sheet-2: #f6f7f9;
-  --ink: #7a1f33;
+  --sheet-2: #f7f6f3;
+  --ink: #7a1f33;            /* texto y bordes de acento */
   --ink-strong: #5f1527;
-  --ink-line: #e6c9d0;
-  --ink-wash: #fbf1f3;
-  --graphite: #2b2a2f;
-  --muted: #5f5e66;
-  --faint: #8c8b93;
-  --rule: #dfe1e6;
+  --ink-fill: #7a1f33;       /* fondos llenos: botón principal, burbuja marcada, progreso */
+  --ink-fill-hover: #5f1527;
+  --ink-line: #ddd0cc;
+  --ink-wash: #f4efec;
+  --bub-line: #7a1f33;
+  --bub-text: #7a1f33;
+  --graphite: #29282c;
+  --muted: #5d5b61;
+  --faint: #8a888e;
+  --rule: #e1ded9;
   --pen-red: #b8282e;
-  --pen-red-wash: #fdeeee;
+  --pen-red-wash: #fceeee;
   --pen-green: #1d7449;
-  --pen-green-wash: #eaf6ef;
-  --pencil: #34333a;
-  --switch-off: #cfd2d8;
+  --pen-green-wash: #eaf5ee;
+  --pencil: #333236;
+  --switch-off: #cfccc6;
   --on-ink: #ffffff;
-  --shadow: 0 1px 0 rgba(43, 42, 47, 0.06), 0 10px 30px -18px rgba(43, 42, 47, 0.35);
+  --shadow: 0 1px 0 rgba(41, 40, 44, 0.05), 0 10px 30px -20px rgba(41, 40, 44, 0.35);
 
   --font: "Archivo Variable", "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --r-sm: 8px;
   --r: 12px;
-  --r-lg: 18px;
-  --wrap: 1040px;
-  --gut: 16px;
+  --r-lg: 16px;
+  --wrap: 1720px;
+  --gut: clamp(16px, 3.4vw, 56px);
+  --head-h: 62px;
+  --vh: 1vh;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --desk: #141518;
-    --sheet: #1d1f23;
-    --sheet-2: #23262b;
-    --ink: #f0a3b4;
-    --ink-strong: #f6c0cc;
-    --ink-line: #4b2e36;
-    --ink-wash: #2a1f23;
-    --graphite: #eceae6;
-    --muted: #aeacb3;
-    --faint: #85838b;
-    --rule: #30333a;
+    --desk: #121214;
+    --sheet: #1b1b1e;
+    --sheet-2: #232327;
+    --ink: #cd6878;
+    --ink-strong: #dd8592;
+    --ink-fill: #a83a52;
+    --ink-fill-hover: #b84862;
+    --ink-line: #4a2a32;
+    --ink-wash: #261b1e;
+    --bub-line: #b84a5e;
+    --bub-text: #ece9e4;
+    --graphite: #ece9e4;
+    --muted: #aeabb1;
+    --faint: #858389;
+    --rule: #2e2e33;
     --pen-red: #ff7a72;
-    --pen-red-wash: #3a2224;
+    --pen-red-wash: #35201f;
     --pen-green: #67cc93;
-    --pen-green-wash: #1c3227;
-    --pencil: #eceae6;
-    --switch-off: #4a4e57;
-    --on-ink: #2a1016;
+    --pen-green-wash: #1a2e23;
+    --pencil: #ece9e4;
+    --switch-off: #46464d;
+    --on-ink: #ffffff;
     --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 12px 32px -18px rgba(0, 0, 0, 0.7);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --desk: #141518;
-  --sheet: #1d1f23;
-  --sheet-2: #23262b;
-  --ink: #f0a3b4;
-  --ink-strong: #f6c0cc;
-  --ink-line: #4b2e36;
-  --ink-wash: #2a1f23;
-  --graphite: #eceae6;
-  --muted: #aeacb3;
-  --faint: #85838b;
-  --rule: #30333a;
+  --desk: #121214;
+  --sheet: #1b1b1e;
+  --sheet-2: #232327;
+  --ink: #cd6878;
+  --ink-strong: #dd8592;
+  --ink-fill: #a83a52;
+  --ink-fill-hover: #b84862;
+  --ink-line: #4a2a32;
+  --ink-wash: #261b1e;
+  --bub-line: #b84a5e;
+  --bub-text: #ece9e4;
+  --graphite: #ece9e4;
+  --muted: #aeabb1;
+  --faint: #858389;
+  --rule: #2e2e33;
   --pen-red: #ff7a72;
-  --pen-red-wash: #3a2224;
+  --pen-red-wash: #35201f;
   --pen-green: #67cc93;
-  --pen-green-wash: #1c3227;
-  --pencil: #eceae6;
-  --switch-off: #4a4e57;
-  --on-ink: #2a1016;
+  --pen-green-wash: #1a2e23;
+  --pencil: #ece9e4;
+  --switch-off: #46464d;
+  --on-ink: #ffffff;
   --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 12px 32px -18px rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }

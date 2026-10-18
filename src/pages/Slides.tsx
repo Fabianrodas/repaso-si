@@ -17,6 +17,21 @@ export default function Slides({ query }: { query: URLSearchParams }) {
 
   useEffect(() => { setInput(String(page)); }, [page]);
 
+  // en pantallas grandes, la columna lateral muestra la semana actual y sigue a la diapositiva abierta
+  const sideRange: [number, number] = wk === 0 ? [1, 1] : weekRange(wk);
+  const sidePages = Array.from({ length: sideRange[1] - sideRange[0] + 1 }, (_, i) => sideRange[0] + i);
+  const sideRef = useRef<HTMLUListElement>(null);
+  useEffect(() => {
+    const list = sideRef.current;
+    if (!list || !list.offsetParent) return;
+    const el = list.querySelector<HTMLElement>('[aria-current="true"]');
+    if (!el) return;
+    const top = el.offsetTop - list.offsetTop;
+    if (top < list.scrollTop || top + el.offsetHeight > list.scrollTop + list.clientHeight) {
+      list.scrollTo({ top: Math.max(0, top - list.clientHeight / 2 + el.offsetHeight / 2) });
+    }
+  }, [page]);
+
   // precarga las vecinas para que pasar de diapositiva sea instantáneo
   useEffect(() => {
     [page + 1, page + 2, page - 1].filter((p) => p >= 1 && p <= SLIDE_COUNT).forEach((p) => { const i = new Image(); i.src = slideSrc(p); });
@@ -86,6 +101,23 @@ export default function Slides({ query }: { query: URLSearchParams }) {
           <button type="button" className="hit next" aria-label="Siguiente" tabIndex={-1} disabled={page === SLIDE_COUNT} onClick={() => go(page + 1)} />
         </div>
       </div>
+
+      <aside className="s-side" aria-label="Diapositivas de esta semana">
+        <div className="s-box">
+          <h2 className="s-head">{wk === 0 ? "Portada" : `Week ${wk}`} <span>{sideRange[0]}–{sideRange[1]}</span></h2>
+          <ul className="s-thumbs" ref={sideRef}>
+            {sidePages.map((p) => (
+              <li key={p}>
+                <a href={`/diapositivas?p=${p}`} aria-current={p === page ? "true" : undefined}
+                  onClick={(e) => { e.preventDefault(); go(p); }}>
+                  <img src={thumbSrc(p)} alt={`Diapositiva ${p}`} width={384} height={216} loading="lazy" decoding="async" />
+                  <span>{p}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
 
       <section className="thumbs-wrap" aria-label="Todas las diapositivas">
         {([0, ...WEEKS] as (0 | WeekNum)[]).map((w) => {

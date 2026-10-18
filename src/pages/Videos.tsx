@@ -100,22 +100,34 @@ export default function Videos({ query }: { query: URLSearchParams }) {
 
   return (
     <div className="videos">
-      <h1 className="page-title">Videos</h1>
-      <div className="vweeks" role="group" aria-label="Elegir semana">
-        {VIDEOS.map((v) => (
-          <a key={v.w} href={`/videos?w=${v.w}`} className="vweek" aria-current={v.w === w ? "true" : undefined}
-            onClick={(e) => { e.preventDefault(); pick(v.w); }}>
-            <Bubble size="md" filled={v.w === w}>{v.w}</Bubble>
-            <span>{v.dur}</span>
-          </a>
-        ))}
+      <h1 className="page-title v-title">Videos</h1>
+      <div className="v-main">
+        <Player key={w} w={w} />
+        <div className="vinfo">
+          <div>
+            <h2>Week {w}: {WEEK_SHORT[w]}</h2>
+            <p>{meta.dur} min · subtítulos en español</p>
+          </div>
+          <button type="button" className="btn" onClick={() => navigate(`/diapositivas?p=${WEEK_PAGES[w]}`)}>Ver diapositivas</button>
+        </div>
       </div>
-      <Player key={w} w={w} />
-      <div className="vinfo">
-        <h2>Week {w}: {WEEK_SHORT[w]}</h2>
-        <p>{meta.dur} min, subtítulos en español</p>
-        <button type="button" className="link" onClick={() => navigate(`/diapositivas?p=${WEEK_PAGES[w]}`)}>Ver las diapositivas de esta semana</button>
-      </div>
+      <nav className="vlist" aria-label="Elegir semana">
+        <ol>
+          {VIDEOS.map((v) => (
+            <li key={v.w}>
+              <a href={`/videos?w=${v.w}`} className="vrow" aria-current={v.w === w ? "true" : undefined}
+                onClick={(e) => { e.preventDefault(); pick(v.w); }}>
+                <Bubble size="md" filled={v.w === w}>{v.w}</Bubble>
+                <span className="vrow-t">
+                  <b>Week {v.w}</b>
+                  <span>{WEEK_SHORT[v.w]}</span>
+                </span>
+                <span className="vrow-d">{v.dur}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
     </div>
   );
 }

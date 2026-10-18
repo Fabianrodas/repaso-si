@@ -93,26 +93,34 @@ export default function Runner() {
 
   return (
     <div className="run">
-      <div className="run-top">
-        <p className="run-title">{attempt.label}</p>
-        <Timer base={attempt.elapsed} onTick={addTime} />
-        <button type="button" className="btn quiet" onClick={() => setConfirm("exit")}>Salir</button>
-        <button type="button" className="btn" onClick={() => (left === 0 ? doFinish() : setConfirm("finish"))}>Terminar</button>
-      </div>
-      <div className="meter" role="progressbar" aria-label="Preguntas respondidas" aria-valuemin={0} aria-valuemax={n} aria-valuenow={answeredCount}>
-        <i style={{ width: `${(answeredCount / n) * 100}%` }} />
+      <div className="run-head">
+        <div className="run-top">
+          <p className="run-title">{attempt.label}</p>
+          <Timer base={attempt.elapsed} onTick={addTime} />
+          <button type="button" className="btn quiet" onClick={() => setConfirm("exit")}>Salir</button>
+          <button type="button" className="btn" onClick={() => (left === 0 ? doFinish() : setConfirm("finish"))}>Terminar</button>
+        </div>
+        <div className="meter" role="progressbar" aria-label="Preguntas respondidas" aria-valuemin={0} aria-valuemax={n} aria-valuenow={answeredCount}>
+          <i style={{ width: `${(answeredCount / n) * 100}%` }} />
+        </div>
       </div>
 
       <article className="sheet qcard" aria-labelledby="q-title" data-qid={q.id}>
-        <h2 id="q-title" ref={headRef} tabIndex={-1} className="q-num">
-          {attempt.idx + 1}<span> de {n}</span>
-          {attempt.flags[q.id] ? <span className="q-flag"><Flag size={15} /> Marcada</span> : null}
-        </h2>
-        <QuestionMeta q={q} />
-        <p className="q-text">{q.q}</p>
-        {q.code ? <CodeBlock code={q.code} /> : null}
-        <QuestionBody key={q.id} q={q} attempt={attempt} locked={locked} onAnswer={(v) => setAnswer(q.id, v)} onEnter={onEnter} />
-        {locked ? <Feedback q={q} a={a} onSlide={(p) => navigate(`/diapositivas?p=${p}`)} /> : null}
+        <div className="q-grid">
+          <div className="q-prompt">
+            <h2 id="q-title" ref={headRef} tabIndex={-1} className="q-num">
+              {attempt.idx + 1}<span> de {n}</span>
+              {attempt.flags[q.id] ? <span className="q-flag"><Flag size={15} /> Marcada</span> : null}
+            </h2>
+            <QuestionMeta q={q} />
+            <p className="q-text">{q.q}</p>
+            {q.code ? <CodeBlock code={q.code} /> : null}
+          </div>
+          <div className="q-answer">
+            <QuestionBody key={q.id} q={q} attempt={attempt} locked={locked} onAnswer={(v) => setAnswer(q.id, v)} onEnter={onEnter} />
+            {locked ? <Feedback q={q} a={a} onSlide={(p) => navigate(`/diapositivas?p=${p}`)} /> : null}
+          </div>
+        </div>
       </article>
 
       <div className="run-nav">

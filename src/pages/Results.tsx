@@ -27,7 +27,8 @@ export default function Results() {
 
   return (
     <div className="results">
-      <section className="grade" aria-labelledby="grade-title">
+      <div className="res-side">
+      <section className="sheet grade" aria-labelledby="grade-title">
         <h1 id="grade-title" className="sr-only">Resultado</h1>
         <p className="grade-label">{last.label}</p>
         <div className="grade-score" aria-label={`Nota ${fmt1(result.score)} sobre 100`}>
@@ -73,6 +74,7 @@ export default function Results() {
           </ul>
         </section>
       ) : null}
+      </div>
 
       <section className="review" aria-labelledby="rv-title">
         <div className="review-head">
@@ -94,14 +96,20 @@ export default function Results() {
                     <span className="rv-topic">Week {r.q.w}: {r.q.topic}</span>
                     <span className="rv-pts">{fmt1(r.earned)}/{r.q.pts} pts</span>
                   </div>
-                  <p className="rv-q">{r.q.q}</p>
-                  {r.q.code ? <CodeBlock code={r.q.code} /> : null}
-                  <dl className="rv-ans">
-                    {r.f < 1 ? <div><dt>Tu respuesta</dt><dd>{answerText(r.q, r.a)}</dd></div> : null}
-                    <div><dt>Correcta</dt><dd>{correctText(r.q)}</dd></div>
-                  </dl>
-                  <p className="rv-why">{r.q.explain}</p>
-                  <button type="button" className="link" onClick={() => navigate(`/diapositivas?p=${r.q.page}`)}>Ver diapositiva {r.q.page}</button>
+                  <div className="rv-grid">
+                    <div className="rv-left">
+                      <p className="rv-q">{r.q.q}</p>
+                      {r.q.code ? <CodeBlock code={r.q.code} /> : null}
+                    </div>
+                    <div className="rv-right">
+                      <dl className="rv-ans">
+                        {r.f < 1 ? <div><dt>Tu respuesta</dt><dd>{answerText(r.q, r.a)}</dd></div> : null}
+                        <div><dt>Correcta</dt><dd>{correctText(r.q)}</dd></div>
+                      </dl>
+                      <p className="rv-why">{r.q.explain}</p>
+                      <button type="button" className="link" onClick={() => navigate(`/diapositivas?p=${r.q.page}`)}>Ver diapositiva {r.q.page}</button>
+                    </div>
+                  </div>
                 </li>
               );
             })}

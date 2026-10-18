@@ -13,7 +13,7 @@ function current(): Theme {
 function apply(t: Theme) {
   document.documentElement.setAttribute("data-theme", t);
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", t === "dark" ? "#141518" : "#eceef1");
+  if (meta) meta.setAttribute("content", t === "dark" ? "#121214" : "#efedea");
 }
 
 export function useTheme() {

@@ -5,211 +5,114 @@
   "topic": "Definición de IA",
   "type": "mc",
   "pts": 3,
-  "q": "¿Qué afirma la definición de inteligencia artificial de John McCarthy (2007)?",
+  "q": "Según la definición de John McCarthy, ¿qué es la inteligencia artificial?",
   "options": [
-   "Es la ciencia y la ingeniería de crear máquinas inteligentes, sin tener que limitarse a métodos biológicamente observables",
-   "Es el estudio del cerebro humano con computadoras, y por eso debe copiar cómo funcionan las neuronas",
-   "Es cualquier programa capaz de ejecutar reglas fijas más rápido que una persona",
-   "Es la rama de la estadística que analiza grandes volúmenes de datos para tomar decisiones"
+   "La ciencia y la ingeniería de crear máquinas inteligentes, en especial programas de computadora inteligentes",
+   "El estudio del cerebro humano con computadoras para copiar cómo funcionan las neuronas",
+   "Cualquier programa que ejecute reglas fijas más rápido que una persona",
+   "La rama de la estadística que analiza grandes volúmenes de datos para tomar decisiones"
   ],
   "answer": 0,
-  "explain": "McCarthy la define como la ciencia e ingeniería de hacer máquinas (y programas) inteligentes; se relaciona con entender la inteligencia humana, pero no tiene que limitarse a métodos biológicamente observables.",
+  "explain": "«It is the science and engineering of making intelligent machines, especially intelligent computer programs».",
   "src": "Week 1 · Artificial intelligence - definition",
   "page": 7
  },
  {
   "id": "w1-02",
   "w": 1,
-  "topic": "Historia de la IA",
-  "type": "mc",
+  "topic": "Definición de IA",
+  "type": "tf",
   "pts": 3,
-  "q": "Según la línea de tiempo, ¿en qué año se usa por primera vez la definición de IA, al presentarse la propuesta de Dartmouth?",
-  "options": [
-   "1950",
-   "1956",
-   "1965",
-   "1980"
-  ],
-  "answer": 1,
-  "explain": "1956: «AI term born». La propuesta de Dartmouth es el primer documento que usa la definición de IA. 1950 es la prueba de Turing y 1965 el chatbot Eliza.",
-  "src": "Week 1 · AI History Timeline",
-  "page": 9
+  "q": "Según McCarthy, la IA debe limitarse a métodos que se puedan observar en la biología.",
+  "answer": false,
+  "explain": "Falso. La definición dice que la IA se relaciona con entender la inteligencia humana, pero «does not have to confine itself to methods that are biologically observable».",
+  "src": "Week 1 · Artificial intelligence - definition",
+  "page": 7
  },
  {
   "id": "w1-03",
   "w": 1,
   "topic": "Prueba de Turing",
   "type": "mc",
-  "pts": 3,
-  "q": "La cita de Turing en la línea de tiempo dice cuándo una computadora merecería llamarse inteligente. ¿Cuál es esa condición?",
-  "options": [
-   "Si pudiera ganarle a un campeón mundial de ajedrez",
-   "Si pudiera aprender sola a partir de datos",
-   "Si pudiera engañar a un humano haciéndole creer que es humana",
-   "Si pudiera resolver cualquier problema matemático"
-  ],
-  "answer": 2,
-  "explain": "«A computer would deserve to be called intelligent if it could deceive a human into believing it was human» (1950).",
-  "src": "Week 1 · AI History Timeline",
-  "page": 9
- },
- {
-  "id": "w1-04",
-  "w": 1,
-  "topic": "Historia de la IA",
-  "type": "order",
   "pts": 4,
-  "q": "Ordena estos hitos de la línea de tiempo, del más antiguo al más reciente.",
-  "items": [
-   "Turing Test",
-   "Eliza ChatBot",
-   "Deep Blue vence a Kasparov",
-   "AlexNet",
-   "ChatGPT"
-  ],
-  "explain": "1950 Turing Test → 1965 Eliza → 1997 Deep Blue → 2012 AlexNet → 2022 ChatGPT.",
-  "src": "Week 1 · AI History Timeline",
-  "page": 9
- },
- {
-  "id": "w1-05",
-  "w": 1,
-  "topic": "Hitos de la IA",
-  "type": "match",
-  "pts": 4,
-  "q": "Relaciona cada hito con su año, según las diapositivas.",
-  "pairs": [
-   [
-    "Deep Blue vence a Garry Kasparov",
-    "1997"
-   ],
-   [
-    "AlphaGo",
-    "2016"
-   ],
-   [
-    "AlphaFold",
-    "2018"
-   ],
-   [
-    "Ley de IA de la Unión Europea (EU AI Act)",
-    "2024"
-   ]
-  ],
-  "extra": [
-   "2012"
-  ],
-  "explain": "Kasparov vs Deep Blue (1997), AlphaGo (2016), AlphaFold (2018) y EU AI Act (2024, en la línea de tiempo).",
-  "src": "Week 1 · Kasparov vs Deep Blue (1997)",
-  "page": 17
- },
- {
-  "id": "w1-06",
-  "w": 1,
-  "topic": "Inviernos de la IA",
-  "type": "multi",
-  "pts": 4,
-  "q": "Selecciona todas las causas del PRIMER invierno de la IA (años 70).",
+  "q": "¿Cuándo se considera que la computadora pasa la prueba de Turing?",
   "options": [
-   "Expectativas no cumplidas de los primeros sistemas",
-   "Poder de cómputo limitado",
-   "Recortes de fondos por el avance lento",
-   "Declive de los sistemas expertos",
-   "Altos costos y baja escalabilidad de las aplicaciones"
+   "Cuando el interrogador, solo con las respuestas, no logra identificar cuál jugador es la computadora",
+   "Cuando responde las preguntas más rápido que el humano",
+   "Cuando contesta todas las preguntas sin cometer errores",
+   "Cuando el humano reconoce que no sabe una respuesta"
   ],
-  "answer": [
-   0,
-   1,
-   2
-  ],
-  "explain": "Primer invierno: expectativas no cumplidas, poco poder de cómputo y recortes de fondos. Los sistemas expertos y la baja escalabilidad son del segundo invierno.",
-  "src": "Week 1 · AI Winter",
-  "page": 10
- },
- {
-  "id": "w1-07",
-  "w": 1,
-  "topic": "Inviernos de la IA",
-  "type": "mc",
-  "pts": 3,
-  "q": "¿Qué caracterizó al SEGUNDO invierno de la IA (finales de los 80 y los 90)?",
-  "options": [
-   "La aparición de la prueba de Turing",
-   "El declive de los sistemas expertos, que eran caros, inflexibles y difíciles de mantener",
-   "La falta total de computadoras",
-   "La prohibición legal de investigar IA"
-  ],
-  "answer": 1,
-  "explain": "Segundo invierno: declive de los sistemas expertos (caros, inflexibles, difíciles de mantener), altos costos, baja escalabilidad y menos inversión.",
-  "src": "Week 1 · AI Winter",
-  "page": 10
- },
- {
-  "id": "w1-08",
-  "w": 1,
-  "topic": "Evolución de la IA",
-  "type": "match",
-  "pts": 3,
-  "q": "Relaciona cada período con el enfoque que predominó.",
-  "pairs": [
-   [
-    "1950 – 1980",
-    "Artificial intelligence"
-   ],
-   [
-    "1980 – 2010",
-    "Machine learning"
-   ],
-   [
-    "2010 – presente",
-    "Deep learning"
-   ]
-  ],
-  "extra": [
-   "Sistemas expertos"
-  ],
-  "explain": "La diapositiva de evolución muestra tres etapas: IA (1950-1980), machine learning (1980-2010) y deep learning (2010-presente).",
-  "src": "Week 1 · Artificial intelligence - evolution",
-  "page": 12
- },
- {
-  "id": "w1-09",
-  "w": 1,
-  "topic": "Prueba de Turing",
-  "type": "mc",
-  "pts": 3,
-  "q": "En la prueba de Turing, ¿qué hace el jugador C?",
-  "options": [
-   "Responde las preguntas haciéndose pasar por humano",
-   "Es la computadora que intenta engañar",
-   "Hace preguntas a los dos jugadores y decide cuál es la computadora y cuál el humano",
-   "Califica qué tan rápido responde cada jugador"
-  ],
-  "answer": 2,
-  "explain": "Jugador A: computadora. Jugador B: humano que responde. Jugador C: interrogador que pregunta a ambos y trata de identificar a la computadora.",
+  "answer": 0,
+  "explain": "El interrogador pregunta a los dos jugadores y trata de determinar cuál es la computadora. Si no lo logra, la computadora se hizo pasar por humana.",
   "src": "Week 1 · Turing Test",
   "page": 15
  },
  {
-  "id": "w1-10",
+  "id": "w1-04",
+  "w": 1,
+  "topic": "Prueba de Turing",
+  "type": "match",
+  "pts": 3,
+  "q": "Relaciona cada jugador de la prueba de Turing con su papel.",
+  "pairs": [
+   [
+    "Jugador A",
+    "Computadora"
+   ],
+   [
+    "Jugador B",
+    "Humano que responde"
+   ],
+   [
+    "Jugador C",
+    "Interrogador que pregunta a ambos"
+   ]
+  ],
+  "extra": [
+   "Juez que mide el tiempo de respuesta"
+  ],
+  "explain": "A es la computadora, B el humano que responde y C el interrogador que intenta identificar a la computadora.",
+  "src": "Week 1 · Turing Test",
+  "page": 15
+ },
+ {
+  "id": "w1-05",
   "w": 1,
   "topic": "IA generativa",
   "type": "mc",
   "pts": 3,
   "q": "¿Qué distingue a la IA generativa según la diapositiva?",
   "options": [
-   "Solo clasifica imágenes en categorías ya existentes",
-   "Genera contenido original (imágenes, texto, música, video) apoyándose en modelos de deep learning",
+   "Solo clasifica imágenes en categorías que ya existen",
+   "Genera contenido original como imágenes, texto, música y video",
    "Funciona con reglas escritas a mano por expertos",
    "Solo puede trabajar con texto"
   ],
   "answer": 1,
-  "explain": "Gen AI: tipo de IA que genera contenido original como imágenes, texto, música y video, y se basa en modelos de deep learning.",
+  "explain": "Gen AI: tipo de IA que puede generar contenido original como imágenes, texto, música y video.",
   "src": "Week 1 · Generative AI",
   "page": 21
  },
  {
-  "id": "w1-11",
+  "id": "w1-06",
+  "w": 1,
+  "topic": "IA generativa",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿En qué se apoya la IA generativa para crear sus aplicaciones?",
+  "options": [
+   "En modelos de deep learning",
+   "En reglas fijas escritas por expertos",
+   "En hojas de cálculo con fórmulas",
+   "En consultas a bases de datos relacionales"
+  ],
+  "answer": 0,
+  "explain": "«It relies on deep learning models to create gen AI applications».",
+  "src": "Week 1 · Generative AI",
+  "page": 21
+ },
+ {
+  "id": "w1-07",
   "w": 1,
   "topic": "IA generativa",
   "type": "multi",
@@ -227,51 +130,30 @@
    1,
    2
   ],
-  "explain": "Los ejemplos son StyleGAN, ChatGPT-3, GPT-4 y DALL-E. Deep Blue y AlphaFold son hitos, no IA generativa.",
+  "explain": "Los ejemplos son StyleGAN, ChatGPT-3, GPT-4 y DALL-E. Deep Blue juega ajedrez y AlphaFold predice proteínas: no generan contenido.",
   "src": "Week 1 · Generative AI",
   "page": 21
  },
  {
-  "id": "w1-12",
+  "id": "w1-08",
   "w": 1,
-  "topic": "Usos de la IA generativa",
+  "topic": "IA generativa",
   "type": "mc",
   "pts": 4,
-  "q": "En la gráfica de casos de uso de IA generativa, ¿cuál fue el uso número 1 en 2025?",
+  "q": "Las caras y los gatos de la diapositiva de ejemplos vienen de thispersondoesnotexist.com y thesecatsdonotexist.com. ¿Qué son?",
   "options": [
-   "Generating ideas",
-   "Therapy / companionship",
-   "Organizing my life",
-   "Generating code"
+   "Imágenes originales creadas por IA generativa: esas personas y esos gatos no existen",
+   "Fotos reales que una IA clasificó por categoría",
+   "Fotos reales retocadas a mano por diseñadores",
+   "Imágenes elegidas por un sistema experto con reglas"
   ],
-  "answer": 1,
-  "explain": "En 2025 el primer lugar es terapia y compañía. «Generating ideas» era el número 1 en 2024 y bajó al puesto 6.",
-  "src": "Week 1 · Generative AI - use cases",
-  "page": 23
+  "answer": 0,
+  "explain": "Son contenido original generado por IA (modelos como StyleGAN): ninguna de esas caras o gatos es real.",
+  "src": "Week 1 · Generative AI - examples",
+  "page": 22
  },
  {
-  "id": "w1-13",
-  "w": 1,
-  "topic": "Usos de la IA generativa",
-  "type": "multi",
-  "pts": 4,
-  "q": "¿Qué casos de uso aparecen marcados como NUEVOS en 2025 en esa gráfica?",
-  "options": [
-   "Organizing my life",
-   "Finding purpose",
-   "Enhanced learning",
-   "Fun and nonsense"
-  ],
-  "answer": [
-   0,
-   1
-  ],
-  "explain": "«Organizing my life» (2) y «Finding purpose» (3) están marcados como «new use case». Enhanced learning y Fun and nonsense ya estaban en 2024.",
-  "src": "Week 1 · Generative AI - use cases",
-  "page": 23
- },
- {
-  "id": "w1-14",
+  "id": "w1-09",
   "w": 1,
   "topic": "Casos de uso",
   "type": "multi",
@@ -296,25 +178,57 @@
   "page": 29
  },
  {
-  "id": "w1-15",
+  "id": "w1-10",
   "w": 1,
-  "topic": "Historia de la IA",
-  "type": "mc",
+  "topic": "Casos de uso",
+  "type": "match",
   "pts": 4,
-  "q": "En la línea de tiempo, ¿qué hito de 2017 se asocia con la frase «Attention Is All You Need»?",
-  "options": [
-   "WaveNet",
-   "Transformers",
-   "AlexNet",
-   "BERT LM"
+  "q": "Relaciona cada situación con el caso de uso de IA que representa.",
+  "pairs": [
+   [
+    "Revisa cientos de hojas de vida y filtra candidatos",
+    "Escaneo de CV"
+   ],
+   [
+    "Sube el precio de un pasaje cuando hay mucha demanda",
+    "Precios dinámicos"
+   ],
+   [
+    "Vigila con la cámara a un estudiante durante un examen en línea",
+    "Proctoring"
+   ],
+   [
+    "Sugiere la siguiente palabra mientras escribes",
+    "Autocompletado de texto"
+   ]
   ],
-  "answer": 1,
-  "explain": "2017: Transformers, con la frase «Attention Is All You Need». WaveNet también es de 2017, AlexNet de 2012 y BERT de 2020.",
-  "src": "Week 1 · AI History Timeline",
-  "page": 9
+  "extra": [
+   "Predicción de crímenes"
+  ],
+  "explain": "Son cuatro de los casos de uso de las diapositivas: CV scanning, dynamic pricing, online exam supervision y text autocomplete.",
+  "src": "Week 1 · Use cases",
+  "page": 30
  },
  {
-  "id": "w1-16",
+  "id": "w1-11",
+  "w": 1,
+  "topic": "Casos de uso",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Cuál de estos casos de uso de las diapositivas se parece más a la IA generativa, porque produce contenido nuevo?",
+  "options": [
+   "Autocompletado de texto",
+   "Escaneo de hojas de vida",
+   "Detección de incendios forestales",
+   "Precios dinámicos"
+  ],
+  "answer": 0,
+  "explain": "El autocompletado escribe texto nuevo. Los otros clasifican (CV, incendios) o calculan un valor (precio).",
+  "src": "Week 1 · Use cases",
+  "page": 30
+ },
+ {
+  "id": "w1-12",
   "w": 1,
   "topic": "Ética de la IA",
   "type": "multi",
@@ -338,7 +252,57 @@
   "page": 33
  },
  {
-  "id": "w1-17",
+  "id": "w1-13",
+  "w": 1,
+  "topic": "Ética de la IA",
+  "type": "mc",
+  "pts": 4,
+  "q": "Un sistema de escaneo de CV aprende de contrataciones pasadas y empieza a descartar más mujeres que hombres. ¿Qué dilema ético muestra?",
+  "options": [
+   "Sesgos",
+   "Impacto ambiental",
+   "Propiedad y derechos intelectuales",
+   "Privacidad"
+  ],
+  "answer": 0,
+  "explain": "Si los datos de entrenamiento traen un sesgo (género, edad, raza), el modelo lo repite al decidir.",
+  "src": "Week 1 · Ethical dilemmas of artificial intelligence",
+  "page": 33
+ },
+ {
+  "id": "w1-14",
+  "w": 1,
+  "topic": "Ética de la IA",
+  "type": "match",
+  "pts": 4,
+  "q": "Relaciona cada situación con el dilema ético que plantea.",
+  "pairs": [
+   [
+    "Un traductor convierte una frase sin género en «he is a doctor»",
+    "Sesgos"
+   ],
+   [
+    "Una IA crea pinturas a partir de obras de artistas que no dieron permiso",
+    "Propiedad, derechos intelectuales"
+   ],
+   [
+    "Un sistema graba con la cámara a los estudiantes durante un examen en línea",
+    "Privacidad"
+   ],
+   [
+    "Entrenar un modelo enorme consume muchísima electricidad",
+    "Impacto ambiental"
+   ]
+  ],
+  "extra": [
+   "Toma de decisiones"
+  ],
+  "explain": "Son dilemas de la lista de la diapositiva: sesgos, propiedad intelectual, privacidad e impacto ambiental.",
+  "src": "Week 1 · Ethical dilemmas of artificial intelligence",
+  "page": 33
+ },
+ {
+  "id": "w1-15",
   "w": 1,
   "topic": "Sesgos",
   "type": "mc",
@@ -351,12 +315,12 @@
    "Que la IA no puede traducir del turco al inglés"
   ],
   "answer": 1,
-  "explain": "Antes: «he is a doctor». Después: «she is a doctor (feminine)» y «he is a doctor (masculine)», porque la traducción depende del género.",
+  "explain": "Antes: «he is a doctor». Después: «she is a doctor (feminine)» y «he is a doctor (masculine)», porque la frase original no indica género.",
   "src": "Week 1 · Google translate",
   "page": 36
  },
  {
-  "id": "w1-18",
+  "id": "w1-16",
   "w": 1,
   "topic": "Ética: Tay",
   "type": "mc",
@@ -364,61 +328,91 @@
   "q": "¿Qué pasó con Tay, de Microsoft?",
   "options": [
    "Era un robot industrial que causó un accidente",
-   "Era un chatbot en Twitter que, a un día de su lanzamiento, empezó a publicar comentarios racistas y xenófobos",
+   "Era un chatbot de Twitter que, a un día de su lanzamiento, empezó a publicar comentarios racistas y xenófobos",
    "Era un sistema que adivinaba contraseñas",
    "Era un traductor con sesgo de género"
   ],
   "answer": 1,
-  "explain": "Tay aprendía de sus conversaciones («the more you talk the smarter Tay gets») y en un día empezó a emitir comentarios racistas y xenófobos.",
+  "explain": "Tay era un chatbot en Twitter y en un día empezó a emitir comentarios racistas y xenófobos.",
   "src": "Week 1 · Microsoft Tay - robot",
   "page": 35
+ },
+ {
+  "id": "w1-17",
+  "w": 1,
+  "topic": "Ética: Tay",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Por qué Tay terminó publicando mensajes ofensivos?",
+  "options": [
+   "Porque aprendía de sus conversaciones con los usuarios y repitió lo que le escribieron",
+   "Porque Microsoft lo programó con reglas ofensivas",
+   "Porque falló su hardware",
+   "Porque traducía mal del turco al inglés"
+  ],
+  "answer": 0,
+  "explain": "Tay aprendía conversando («the more you talk the smarter Tay gets»); al aprender de mensajes ofensivos, los reprodujo.",
+  "src": "Week 1 · Microsoft Tay - robot",
+  "page": 35
+ },
+ {
+  "id": "w1-18",
+  "w": 1,
+  "topic": "Implicaciones de la IA",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué demostró el estudio sobre el sonido de las teclas que aparece en implicaciones de la IA?",
+  "options": [
+   "Que una IA puede reconocer las teclas que presionas en una grabación de audio y así adivinar contraseñas",
+   "Que los teclados mecánicos dañan los micrófonos",
+   "Que la IA puede escribir más rápido que una persona",
+   "Que el sonido de las teclas sirve para cargar el celular"
+  ],
+  "answer": 0,
+  "explain": "El estudio entrenó un modelo con el sonido de las teclas y logró adivinar lo que se escribía, incluidas contraseñas: un riesgo de privacidad y seguridad.",
+  "src": "Week 1 · Implications of artificial intelligence",
+  "page": 39
  },
  {
   "id": "w1-19",
   "w": 1,
   "topic": "Implicaciones de la IA",
-  "type": "match",
+  "type": "mc",
   "pts": 4,
-  "q": "Relaciona cada caso con lo que muestra.",
-  "pairs": [
-   [
-    "Estudio de 2023 (Durham, Surrey, Royal Holloway)",
-    "Adivinar contraseñas por el sonido de las teclas"
-   ],
-   [
-    "Robot industrial en Corea del Sur",
-    "Confundió a un trabajador con una caja de verduras"
-   ],
-   [
-    "Microsoft Tay",
-    "Comentarios racistas y xenófobos en Twitter"
-   ],
-   [
-    "Google Translate",
-    "Sesgo de género al traducir"
-   ]
+  "q": "En el caso del robot industrial de Corea del Sur que confundió a un trabajador con una caja, ¿qué dilema ético se ve?",
+  "options": [
+   "Toma de decisiones: una decisión automática equivocada puede tener consecuencias graves",
+   "Propiedad intelectual",
+   "Sesgo de género",
+   "Impacto ambiental"
   ],
-  "explain": "Son las implicaciones y dilemas vistos: ataque acústico al teclado (≈95 % con grabaciones de celular), el robot de Corea del Sur, Tay y Google Translate.",
+  "answer": 0,
+  "explain": "El robot decidió mal qué era una caja y aplastó al trabajador. Muestra el riesgo de dejar decisiones a una máquina.",
   "src": "Week 1 · Implications of artificial intelligence",
-  "page": 39
+  "page": 40
  },
  {
   "id": "w1-20",
   "w": 1,
-  "topic": "Temas del curso",
-  "type": "mc",
-  "pts": 2,
-  "q": "¿Cuál NO es uno de los cuatro temas del curso?",
+  "topic": "Ética del arte con IA",
+  "type": "multi",
+  "pts": 3,
+  "q": "Según la diapositiva «The Ethics of AI Art», ¿qué preocupaciones plantea el arte hecho con IA?",
   "options": [
-   "Introducción a la inteligencia artificial",
-   "Aprendizaje supervisado y no supervisado",
-   "Redes neuronales",
-   "Bases de datos relacionales"
+   "Quién es el dueño de la obra",
+   "La autonomía",
+   "El futuro del arte",
+   "La resolución de las imágenes",
+   "La velocidad de las tarjetas gráficas"
   ],
-  "answer": 3,
-  "explain": "Temas: introducción a la IA, machine learning, aprendizaje supervisado y no supervisado, y redes neuronales.",
-  "src": "Week 1 · Topics covered in this course",
-  "page": 3
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explain": "El artículo dice que el arte con IA «raises serious questions about ownership, autonomy, and the future of art».",
+  "src": "Week 1 · The Ethics of AI Art",
+  "page": 37
  },
  {
   "id": "w2-01",
@@ -443,16 +437,16 @@
   "w": 2,
   "topic": "Habitación china",
   "type": "mc",
-  "pts": 3,
-  "q": "¿Quién propuso el experimento y qué usa la persona que está dentro de la habitación?",
+  "pts": 4,
+  "q": "En la habitación china, ¿qué representa la persona que responde con un manual de instrucciones sin saber chino?",
   "options": [
-   "Alan Turing; un traductor automático",
-   "John Searle; un manual de instrucciones",
-   "John McCarthy; un diccionario bilingüe",
-   "John Searle; su conocimiento del chino"
+   "Una máquina que da respuestas correctas siguiendo reglas, sin entender lo que dice",
+   "Un traductor humano experto",
+   "El interrogador de la prueba de Turing",
+   "Una IA fuerte con conciencia propia"
   ],
-  "answer": 1,
-  "explain": "Lo propuso John Searle. La persona no sabe chino y responde usando un manual de instrucciones.",
+  "answer": 0,
+  "explain": "Desde afuera parece que sabe chino, pero solo sigue el manual. Igual que una máquina: puede responder bien sin comprender.",
   "src": "Week 2 · The chinese room argument",
   "page": 45
  },
@@ -523,20 +517,20 @@
  {
   "id": "w2-06",
   "w": 2,
-  "topic": "Filosofía de la IA",
+  "topic": "IA débil",
   "type": "mc",
-  "pts": 3,
-  "q": "La filosofía de la IA estudia la naturaleza de la IA y sus implicaciones en aspectos…",
+  "pts": 4,
+  "q": "Un programa juega ajedrez a nivel de campeón, pero no puede hacer ninguna otra cosa. ¿Qué tipo de IA es?",
   "options": [
-   "legales, sociales y éticos",
-   "económicos y militares",
-   "de hardware y software",
-   "estadísticos y matemáticos"
+   "IA débil: se enfoca en una tarea específica",
+   "IA fuerte, porque le gana a los humanos",
+   "IA fuerte, porque aprende jugando",
+   "No es IA"
   ],
   "answer": 0,
-  "explain": "«…and its implications in the legal, social and ethical aspects».",
-  "src": "Week 2 · Philosophy of artificial intelligence",
-  "page": 51
+  "explain": "Ser muy bueno en una sola tarea es IA débil. La IA fuerte usaría lo aprendido en varias tareas y se adaptaría a imprevistos.",
+  "src": "Week 2 · Weak AI",
+  "page": 48
  },
  {
   "id": "w2-07",
@@ -638,25 +632,20 @@
  {
   "id": "w2-12",
   "w": 2,
-  "topic": "Fuentes de datasets",
-  "type": "multi",
+  "topic": "Información y contexto",
+  "type": "mc",
   "pts": 3,
-  "q": "¿Cuáles aparecen como fuentes para buscar datasets?",
+  "q": "Según la diapositiva, ¿de qué resulta la información?",
   "options": [
-   "Kaggle",
-   "UCI Machine Learning Repository",
-   "Google Dataset Search",
-   "Elements of AI",
-   "Braincube"
+   "De los datos más su contexto",
+   "De los datos más un algoritmo",
+   "Solo de los datos, sin nada más",
+   "Del contexto más las estadísticas"
   ],
-  "answer": [
-   0,
-   1,
-   2
-  ],
-  "explain": "Fuentes: Kaggle, Google Dataset Search, Data.Gov, Datahub.io y UCI. Elements of AI es un curso recomendado y Braincube es la fuente de una imagen.",
-  "src": "Week 2 · Different sources for searching datasets",
-  "page": 85
+  "answer": 0,
+  "explain": "«Information is the result of data and context». Por ejemplo: 1.50 (dato) + metros (contexto).",
+  "src": "Week 2 · Information and context",
+  "page": 60
  },
  {
   "id": "w2-13",
@@ -731,20 +720,20 @@
  {
   "id": "w2-16",
   "w": 2,
-  "topic": "Recolección de datos",
+  "topic": "Datos cuantitativos",
   "type": "mc",
-  "pts": 2,
-  "q": "Según la frase de Mark Twain de la diapositiva, ¿qué conviene hacer con los datos?",
+  "pts": 4,
+  "q": "¿Qué se puede hacer con datos cuantitativos que no tiene sentido hacer con datos cualitativos?",
   "options": [
-   "Recolectar todos los posibles y decidir después",
-   "Saber qué harás con ellos antes de recolectarlos",
-   "Borrarlos después de usarlos",
-   "Guardarlos solo en papel"
+   "Calcular estadísticas como promedios y percentiles",
+   "Agruparlos en categorías",
+   "Contar cuántas veces aparece cada valor",
+   "Mostrarlos en una tabla"
   ],
-  "answer": 1,
-  "explain": "«Data is like garbage. You'd better know what you are going to do with it before you collect it».",
-  "src": "Week 2 · Mark Twain",
-  "page": 71
+  "answer": 0,
+  "explain": "Los cuantitativos permiten estadísticas como promedios y percentiles. Los cualitativos pueden tener números, pero sin significado matemático.",
+  "src": "Week 2 · Statistical data types",
+  "page": 64
  },
  {
   "id": "w2-17",
@@ -1735,20 +1724,20 @@
  {
   "id": "w5-07",
   "w": 5,
-  "topic": "describe()",
+  "topic": "count",
   "type": "mc",
   "pts": 4,
-  "q": "En el dataset de salarios, ¿qué columnas aparecen en df.describe()?",
+  "q": "Una columna tiene 10 filas y 3 de ellas están vacías. ¿Qué devuelve df.count() para esa columna?",
   "options": [
-   "Todas las columnas",
-   "Solo las numéricas: annual_salary y additional_comp",
-   "Solo las de texto",
-   "Solo country"
+   "7",
+   "10",
+   "3",
+   "13"
   ],
-  "answer": 1,
-  "explain": "describe resume las columnas numéricas; en el dataset son annual_salary y additional_comp.",
-  "src": "Week 5 · Basic statistics of the dataframe",
-  "page": 180
+  "answer": 0,
+  "explain": "count devuelve el número de celdas no vacías: 10 − 3 = 7. El 3 sería lo que da isnull().sum().",
+  "src": "Week 5 · Common methods in Pandas",
+  "page": 173
  },
  {
   "id": "w5-08",
@@ -1949,17 +1938,18 @@
   "topic": "iloc",
   "type": "mc",
   "pts": 5,
-  "q": "¿Qué devuelve df.iloc[0:5, 0:2] en el dataset de salarios?",
+  "q": "El DataFrame df se ve así. ¿Qué devuelve df.iloc[2, 1]?",
+  "code": "   age  country\n0   25  Ecuador\n1   31  USA\n2   42  Peru",
   "options": [
-   "Filas 0 a 5 y columnas 0 a 2",
-   "Filas 0 a 4 y las columnas en posiciones 0 y 1 (age e industry)",
-   "Solo la celda (5, 2)",
-   "Las primeras 2 filas"
+   "'Peru'",
+   "42",
+   "'USA'",
+   "31"
   ],
-  "answer": 1,
-  "explain": "Como en el slicing, el final no se incluye: filas 0-4 y columnas 0-1.",
-  "src": "Week 5 · Selecting values of a dataframe by position - use of iloc",
-  "page": 196
+  "answer": 0,
+  "explain": "iloc usa posiciones desde 0: fila 2 (la tercera) y columna 1 (country). Resultado: 'Peru'.",
+  "src": "Week 5 · Selecting values from a dataframe by position",
+  "page": 195
  },
  {
   "id": "w5-20",
@@ -2610,32 +2600,32 @@
  {
   "id": "w7-13",
   "w": 7,
-  "topic": "Pérdida vs costo",
+  "topic": "Error o residuo",
   "type": "tf",
   "pts": 2,
-  "q": "Según la diapositiva, pérdida y costo suelen definirse de forma parecida, pero tienen una distinción particular.",
+  "q": "Si la recta de regresión pasa exactamente por un punto, el error de ese punto es 0.",
   "answer": true,
-  "explain": "Verdadero: «These two terms are often defined similarly, however there is a particular distinction».",
-  "src": "Week 7 · Loss function vs cost function",
-  "page": 248
+  "explain": "Verdadero: el valor observado y la predicción son iguales, así que y − ŷ = 0.",
+  "src": "Week 7 · How to find the best fit?",
+  "page": 244
  },
  {
   "id": "w7-14",
   "w": 7,
-  "topic": "Resultados de aprendizaje",
+  "topic": "Error o residuo",
   "type": "mc",
-  "pts": 3,
-  "q": "¿Cuál NO es un resultado de aprendizaje de la Week 7?",
+  "pts": 4,
+  "q": "El error de un punto, y − ŷ, salió negativo. ¿Qué significa?",
   "options": [
-   "Diferencia entre función de pérdida y función de costo",
-   "Métricas para evaluar el ajuste de un modelo",
-   "El concepto de serie en Pandas",
-   "Entrenar redes neuronales convolucionales"
+   "El modelo predijo un valor mayor que el observado: el punto está debajo de la recta",
+   "El modelo predijo un valor menor que el observado",
+   "El punto está sobre la recta",
+   "El modelo está mal calculado y hay que descartarlo"
   ],
-  "answer": 3,
-  "explain": "Los cuatro resultados son: pérdida vs costo, métricas de ajuste, series en Pandas y gráficos con Pandas.",
-  "src": "Week 7 · Learning outcomes",
-  "page": 242
+  "answer": 0,
+  "explain": "Si y − ŷ < 0, entonces ŷ > y: la predicción se pasó y el punto queda debajo de la recta.",
+  "src": "Week 7 · How to find the best fit?",
+  "page": 244
  },
  {
   "id": "w7-15",

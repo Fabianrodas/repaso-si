@@ -11,12 +11,14 @@ export const ChevronLeft = ({ size, className }: P) => (<svg {...base(size)} cla
 export const ChevronRight = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="m9 18 6-6-6-6" /></svg>);
 export const ArrowUp = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="M12 19V5M6 11l6-6 6 6" /></svg>);
 export const ArrowDown = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="M12 5v14M6 13l6 6 6-6" /></svg>);
+export const ArrowRight = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="M5 12h14M13 6l6 6-6 6" /></svg>);
 export const Flag = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="M5 21V4M5 4h11l-2 4 2 4H5" /></svg>);
 export const Download = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></svg>);
 export const External = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></svg>);
 export const Check = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="m5 12 5 5 9-10" /></svg>);
 export const X = ({ size, className }: P) => (<svg {...base(size)} className={className}><path d="M6 6l12 12M18 6 6 18" /></svg>);
 export const Play = ({ size, className }: P) => (<svg {...base(size)} className={className} fill="currentColor" stroke="none"><path d="M8 5.5v13l10.5-6.5L8 5.5Z" /></svg>);
+export const Slides = ({ size, className }: P) => (<svg {...base(size)} className={className}><rect x="3" y="4.5" width="18" height="12" rx="1.5" /><path d="M12 16.5V20M8.5 20h7" /></svg>);
 export const Grid = ({ size, className }: P) => (<svg {...base(size)} className={className}><rect x="4" y="4" width="7" height="7" /><rect x="13" y="4" width="7" height="7" /><rect x="4" y="13" width="7" height="7" /><rect x="13" y="13" width="7" height="7" /></svg>);
 export const GitHub = ({ size = 18, className }: P) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
