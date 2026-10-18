@@ -1,11 +1,10 @@
-import { Slide } from "../components/Slide";
 import { navigate } from "../lib/router";
 
 export default function NotFound() {
   return (
-    <Slide title="Esta página no existe" id="nf" number="404">
-      <p>La dirección que abriste no corresponde a ninguna sección del repaso.</p>
-      <div className="btn-row"><button type="button" className="btn primary" onClick={() => navigate("/")}>Ir al quiz</button></div>
-    </Slide>
+    <div className="nf">
+      <h1 className="page-title">Esta página no existe</h1>
+      <button type="button" className="btn primary" onClick={() => navigate("/")}>Ir a practicar</button>
+    </div>
   );
 }

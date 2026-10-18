@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Download } from "../components/Icons";
-import { SlideFoot } from "../components/Slide";
 import { PDF_SIZE, PDF_URL, SLIDE_COUNT, slideSrc, thumbSrc, WEEK_PAGES, WEEKS, weekOfPage, type WeekNum } from "../data/meta";
 import { navigate } from "../lib/router";
 
@@ -12,14 +11,13 @@ export default function Slides({ query }: { query: URLSearchParams }) {
   const wk = weekOfPage(page);
   const [input, setInput] = useState(String(page));
   const [loadedPage, setLoadedPage] = useState(0);
-  const stageRef = useRef<HTMLDivElement>(null);
   const touch = useRef<{ x: number; y: number } | null>(null);
 
   const go = useCallback((p: number) => navigate(`/diapositivas?p=${clamp(p)}`, { replace: true, keepScroll: true }), []);
 
   useEffect(() => { setInput(String(page)); }, [page]);
 
-  // preload neighbours so flipping feels instant
+  // precarga las vecinas para que pasar de diapositiva sea instantáneo
   useEffect(() => {
     [page + 1, page + 2, page - 1].filter((p) => p >= 1 && p <= SLIDE_COUNT).forEach((p) => { const i = new Image(); i.src = slideSrc(p); });
   }, [page]);
@@ -27,84 +25,75 @@ export default function Slides({ query }: { query: URLSearchParams }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement;
-      if (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA") return;
+      if (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA" || e.altKey || e.metaKey || e.ctrlKey) return;
       if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); go(page + 1); }
       if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(page - 1); }
-      if (e.key === "Home") go(1);
-      if (e.key === "End") go(SLIDE_COUNT);
+      if (e.key === "Home") { e.preventDefault(); go(1); }
+      if (e.key === "End") { e.preventDefault(); go(SLIDE_COUNT); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [page, go]);
 
-  const label = wk === 0 ? "Portada" : `Week ${wk}`;
-
   return (
-    <div className="stack">
-      <section className="slide viewer" aria-labelledby="viewer-title">
-        <header className="slide-bar">
-          <h2 id="viewer-title">Diapositivas: {label}</h2>
-          <a className="bar-btn" href={PDF_URL} download>
-            <Download size={16} /> <span>PDF completo ({PDF_SIZE})</span>
-          </a>
-        </header>
-        <div className="slide-body">
-          <div className="viewer-tools">
-            <div className="pager">
-              <button type="button" className="icon-btn" aria-label="Diapositiva anterior" disabled={page === 1} onClick={() => go(page - 1)}><ChevronLeft /></button>
-              <form onSubmit={(e) => { e.preventDefault(); go(Number(input)); }} className="pager-form">
-                <label htmlFor="slide-page" className="sr-only">Número de diapositiva</label>
-                <input id="slide-page" inputMode="numeric" value={input} onChange={(e) => setInput(e.target.value.replace(/\D/g, ""))} onBlur={() => go(Number(input))} />
-                <span className="muted">de {SLIDE_COUNT}</span>
-              </form>
-              <button type="button" className="icon-btn" aria-label="Diapositiva siguiente" disabled={page === SLIDE_COUNT} onClick={() => go(page + 1)}><ChevronRight /></button>
-            </div>
-            <div className="week-jump" role="group" aria-label="Ir a una semana">
-              <button type="button" aria-pressed={wk === 0} onClick={() => go(1)}>Portada</button>
-              {WEEKS.map((w) => (
-                <button key={w} type="button" aria-pressed={wk === w} onClick={() => go(WEEK_PAGES[w])}>W{w}</button>
-              ))}
-            </div>
-          </div>
+    <div className="slides">
+      <div className="slides-head">
+        <h1 className="page-title">Diapositivas</h1>
+        <a className="btn quiet" href={PDF_URL} download><Download size={16} /> PDF ({PDF_SIZE})</a>
+      </div>
 
-          <div
-            className={`stage ${loadedPage === page ? "is-loaded" : ""}`}
-            ref={stageRef}
-            onTouchStart={(e) => { const t = e.touches[0]; touch.current = { x: t.clientX, y: t.clientY }; }}
-            onTouchEnd={(e) => {
-              if (!touch.current) return;
-              const t = e.changedTouches[0];
-              const dx = t.clientX - touch.current.x, dy = t.clientY - touch.current.y;
-              touch.current = null;
-              if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? page + 1 : page - 1);
-            }}
-          >
-            <img
-              key={page}
-              src={slideSrc(page)}
-              alt={`Diapositiva ${page} de ${SLIDE_COUNT}`}
-              width={1600}
-              height={900}
-              decoding="async"
-              ref={(el) => { if (el && el.complete && el.naturalWidth) setLoadedPage(page); }}
-              onLoad={() => setLoadedPage(page)}
-            />
-            <button type="button" className="stage-hit prev" aria-label="Anterior" tabIndex={-1} disabled={page === 1} onClick={() => go(page - 1)} />
-            <button type="button" className="stage-hit next" aria-label="Siguiente" tabIndex={-1} disabled={page === SLIDE_COUNT} onClick={() => go(page + 1)} />
+      <div className="viewer">
+        <div className="viewer-bar">
+          <div className="pager">
+            <button type="button" className="icon-btn" aria-label="Anterior" disabled={page === 1} onClick={() => go(page - 1)}><ChevronLeft /></button>
+            <form onSubmit={(e) => { e.preventDefault(); go(Number(input)); }}>
+              <label htmlFor="slide-page" className="sr-only">Número de diapositiva</label>
+              <input id="slide-page" className="pager-in" inputMode="numeric" value={input}
+                onChange={(e) => setInput(e.target.value.replace(/\D/g, "").slice(0, 3))} onBlur={() => go(Number(input))} />
+              <span className="pager-of">/ {SLIDE_COUNT}</span>
+            </form>
+            <button type="button" className="icon-btn" aria-label="Siguiente" disabled={page === SLIDE_COUNT} onClick={() => go(page + 1)}><ChevronRight /></button>
           </div>
-          <p className="muted viewer-hint">Usa las flechas del teclado o desliza en el celular para cambiar de diapositiva.</p>
+          <div className="wjump" role="group" aria-label="Ir a una semana">
+            {WEEKS.map((w) => (
+              <button key={w} type="button" aria-pressed={wk === w} onClick={() => go(WEEK_PAGES[w])} aria-label={`Week ${w}`}>W{w}</button>
+            ))}
+          </div>
         </div>
-        <SlideFoot progress={page / SLIDE_COUNT} number={page} />
-      </section>
 
-      <section aria-labelledby="thumbs-title">
-        <h2 id="thumbs-title" className="section-title">Todas las diapositivas</h2>
+        <div
+          className={`stage ${loadedPage === page ? "is-loaded" : ""}`}
+          onTouchStart={(e) => { const t = e.touches[0]; touch.current = { x: t.clientX, y: t.clientY }; }}
+          onTouchEnd={(e) => {
+            if (!touch.current) return;
+            const t = e.changedTouches[0];
+            const dx = t.clientX - touch.current.x, dy = t.clientY - touch.current.y;
+            touch.current = null;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? page + 1 : page - 1);
+          }}
+        >
+          <img
+            key={page}
+            src={slideSrc(page)}
+            alt={`Diapositiva ${page} de ${SLIDE_COUNT}`}
+            width={1600}
+            height={900}
+            decoding="async"
+            ref={(el) => { if (el && el.complete && el.naturalWidth) setLoadedPage(page); }}
+            onLoad={() => setLoadedPage(page)}
+          />
+          <button type="button" className="hit prev" aria-label="Anterior" tabIndex={-1} disabled={page === 1} onClick={() => go(page - 1)} />
+          <button type="button" className="hit next" aria-label="Siguiente" tabIndex={-1} disabled={page === SLIDE_COUNT} onClick={() => go(page + 1)} />
+        </div>
+      </div>
+
+      <section className="thumbs-wrap" aria-label="Todas las diapositivas">
         {([0, ...WEEKS] as (0 | WeekNum)[]).map((w) => {
           const [a, b] = w === 0 ? [1, 1] : weekRange(w);
           const pages = Array.from({ length: b - a + 1 }, (_, i) => a + i);
           return (
-            <div key={w} className="thumb-group">
-              <h3 className="thumb-group-title">{w === 0 ? "Portada" : `Week ${w}`} <span className="muted">{w === 0 ? "" : `diapositivas ${a} a ${b}`}</span></h3>
+            <div key={w} className="tgroup">
+              <h2>{w === 0 ? "Portada" : `Week ${w}`}</h2>
               <ul className="thumbs">
                 {pages.map((p) => (
                   <li key={p}>

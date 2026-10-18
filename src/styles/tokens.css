@@ -1,99 +1,81 @@
-/*
-  Sistema visual tomado de las diapositivas del curso:
-  - granate UEES (#792232) en barras de título y en la línea inferior de cada slide
-  - texto gris sobre papel blanco, viñetas redondas granates
-  - Montserrat (en lugar de Proxima Nova) para títulos, Teachers para el texto
-  Layout: cada pantalla es una pila de "slides" alineados a la izquierda sobre un lienzo gris claro.
-*/
+/* Hoja de respuestas: papel blanco sobre un escritorio gris, tinta granate de formulario
+   (el color de la UEES), grafito para lo que marcas y bolígrafo rojo/verde para calificar. */
 :root {
-  --canvas: #ebe8e9;
-  --paper: #ffffff;
-  --ink: #2b2427;
-  --text: #4f474b;
-  --muted: #655b60;
-  --rule: #cccccc;
-  --rule-soft: #e2dddf;
-  --maroon: #792232;
-  --maroon-strong: #5f1a27;
-  --on-maroon: #ffffff;
-  --on-maroon-soft: rgba(255, 255, 255, 0.78);
-  --maroon-text: #792232;
-  --tint: #f6ecef;
-  --tint-line: #e3c6cd;
-  --code: #f5f5f5;
-  --code-line: #e3e3e3;
-  --ok: #2b7a4b;
-  --ok-tint: #e5f2ea;
-  --bad: #b3261e;
-  --bad-tint: #fbe9e7;
-  --part: #8f6000;
-  --part-tint: #faf0d7;
-  --scrim: rgba(28, 12, 18, 0.55);
-  --shadow: 0 1px 2px rgba(60, 20, 32, 0.06);
+  --desk: #eceef1;
+  --sheet: #ffffff;
+  --sheet-2: #f6f7f9;
+  --ink: #7a1f33;
+  --ink-strong: #5f1527;
+  --ink-line: #e6c9d0;
+  --ink-wash: #fbf1f3;
+  --graphite: #2b2a2f;
+  --muted: #5f5e66;
+  --faint: #8c8b93;
+  --rule: #dfe1e6;
+  --pen-red: #b8282e;
+  --pen-red-wash: #fdeeee;
+  --pen-green: #1d7449;
+  --pen-green-wash: #eaf6ef;
+  --pencil: #34333a;
+  --switch-off: #cfd2d8;
+  --on-ink: #ffffff;
+  --shadow: 0 1px 0 rgba(43, 42, 47, 0.06), 0 10px 30px -18px rgba(43, 42, 47, 0.35);
 
-  --f-title: "Montserrat", "Proxima Nova", "Segoe UI", Arial, sans-serif;
-  --f-text: "Teachers", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-code: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font: "Archivo Variable", "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
-  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 48px;
-  --radius: 2px;
+  --r-sm: 8px;
+  --r: 12px;
+  --r-lg: 18px;
+  --wrap: 1040px;
+  --gut: 16px;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --canvas: #141113;
-    --paper: #1e1a1c;
-    --ink: #f4eef0;
-    --text: #d8cfd3;
-    --muted: #a39799;
-    --rule: #463c40;
-    --rule-soft: #322a2e;
-    --maroon: #8c2a3d;
-    --maroon-strong: #a3344a;
-    --on-maroon: #ffffff;
-    --on-maroon-soft: rgba(255, 255, 255, 0.8);
-    --maroon-text: #ee9eae;
-    --tint: #2e1c22;
-    --tint-line: #5b3441;
-    --code: #262124;
-    --code-line: #3a3236;
-    --ok: #74cf9c;
-    --ok-tint: #1a3125;
-    --bad: #f3958e;
-    --bad-tint: #3b1f1d;
-    --part: #e9bd5c;
-    --part-tint: #372b13;
-    --scrim: rgba(0, 0, 0, 0.62);
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --desk: #141518;
+    --sheet: #1d1f23;
+    --sheet-2: #23262b;
+    --ink: #f0a3b4;
+    --ink-strong: #f6c0cc;
+    --ink-line: #4b2e36;
+    --ink-wash: #2a1f23;
+    --graphite: #eceae6;
+    --muted: #aeacb3;
+    --faint: #85838b;
+    --rule: #30333a;
+    --pen-red: #ff7a72;
+    --pen-red-wash: #3a2224;
+    --pen-green: #67cc93;
+    --pen-green-wash: #1c3227;
+    --pencil: #eceae6;
+    --switch-off: #4a4e57;
+    --on-ink: #2a1016;
+    --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 12px 32px -18px rgba(0, 0, 0, 0.7);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --canvas: #141113;
-  --paper: #1e1a1c;
-  --ink: #f4eef0;
-  --text: #d8cfd3;
-  --muted: #a39799;
-  --rule: #463c40;
-  --rule-soft: #322a2e;
-  --maroon: #8c2a3d;
-  --maroon-strong: #a3344a;
-  --on-maroon: #ffffff;
-  --on-maroon-soft: rgba(255, 255, 255, 0.8);
-  --maroon-text: #ee9eae;
-  --tint: #2e1c22;
-  --tint-line: #5b3441;
-  --code: #262124;
-  --code-line: #3a3236;
-  --ok: #74cf9c;
-  --ok-tint: #1a3125;
-  --bad: #f3958e;
-  --bad-tint: #3b1f1d;
-  --part: #e9bd5c;
-  --part-tint: #372b13;
-  --scrim: rgba(0, 0, 0, 0.62);
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --desk: #141518;
+  --sheet: #1d1f23;
+  --sheet-2: #23262b;
+  --ink: #f0a3b4;
+  --ink-strong: #f6c0cc;
+  --ink-line: #4b2e36;
+  --ink-wash: #2a1f23;
+  --graphite: #eceae6;
+  --muted: #aeacb3;
+  --faint: #85838b;
+  --rule: #30333a;
+  --pen-red: #ff7a72;
+  --pen-red-wash: #3a2224;
+  --pen-green: #67cc93;
+  --pen-green-wash: #1c3227;
+  --pencil: #eceae6;
+  --switch-off: #4a4e57;
+  --on-ink: #2a1016;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 12px 32px -18px rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }

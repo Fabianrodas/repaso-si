@@ -10,11 +10,12 @@
     "preview": "vite preview --port 4173",
     "typecheck": "tsc -b"
   },
-  "engines": { "node": ">=18.18" },
+  "engines": {
+    "node": ">=18.18"
+  },
   "dependencies": {
+    "@fontsource-variable/archivo": "5.2.8",
     "@fontsource/jetbrains-mono": "5.1.1",
-    "@fontsource/montserrat": "5.1.0",
-    "@fontsource/teachers": "5.1.0",
     "hls.js": "1.5.17",
     "react": "18.3.1",
     "react-dom": "18.3.1"

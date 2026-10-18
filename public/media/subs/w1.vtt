@@ -1,638 +1,1175 @@
 WEBVTT
 
-1
-00:00:00.450 --> 00:00:03.970
-Bienvenido al repaso de la materia Sistemas Inteligentes.
+00:00:00.500 --> 00:00:03.432
+Mil novecientos noventa y
+siete: una computadora de
 
-2
-00:00:04.250 --> 00:00:13.807
-En este video vamos a recorrer todo el contenido de la primera semana, diapositiva por diapositiva, con explicaciones y ejemplos para que te quede claro cada concepto.
+00:00:03.432 --> 00:00:06.537
+IBM, Deep Blue, le gana al
+campeón mundial de ajedrez.
 
-3
-00:00:15.050 --> 00:00:16.031
-Semana uno.
+00:00:07.007 --> 00:00:10.134
+2016: AlphaGo vence a Lee
+Sedol en Go, un juego
 
-4
-00:00:16.311 --> 00:00:24.354
-El tema es la introducción a la inteligencia artificial: qué es, cómo nació y evolucionó, en qué se usa hoy y qué problemas éticos plantea.
+00:00:10.134 --> 00:00:13.727
+con más posiciones posibles
+que átomos en el universo.
 
-5
-00:00:25.583 --> 00:00:28.421
-Primero, los temas que cubre el curso completo.
+00:00:14.197 --> 00:00:19.723
+Y 2022: aparece ChatGPT, que escribe,
+explica y conversa casi como una persona.
 
-6
-00:00:28.701 --> 00:00:32.199
-Son cuatro: uno, introducción a la inteligencia artificial.
+00:00:20.193 --> 00:00:22.633
+Las tres son inteligencia artificial… pero
 
-7
-00:00:32.479 --> 00:00:35.402
-Dos, machine learning, o aprendizaje automático.
+00:00:22.633 --> 00:00:25.249
+por dentro funcionan de formas muy distintas.
 
-8
-00:00:35.682 --> 00:00:38.775
-Tres, aprendizaje supervisado y no supervisado.
+00:00:25.559 --> 00:00:27.756
+¿Qué cambió entre la primera y la última?
 
-9
-00:00:39.055 --> 00:00:40.890
-Y cuatro, redes neuronales.
+00:00:28.188 --> 00:00:32.262
+Quédate con esa pregunta: al final
+del video la vas a poder responder.
 
-10
-00:00:41.170 --> 00:00:43.453
-Esta semana empezamos por el primero.
+00:00:33.312 --> 00:00:36.086
+Bienvenido al repaso de Sistemas Inteligentes.
 
-11
-00:00:44.717 --> 00:00:47.959
-Los resultados de aprendizaje de esta semana son dos.
+00:00:36.341 --> 00:00:39.072
+Este es el primero de siete
+videos, uno por semana.
 
-12
-00:00:48.239 --> 00:00:58.906
-Al terminar, debes poder definir el concepto de inteligencia artificial, y describir los principales eventos que ocurrieron antes y durante el surgimiento de la inteligencia artificial.
+00:00:39.373 --> 00:00:42.283
+La idea no es solo leer las
+diapositivas, sino entender
 
-13
-00:01:00.117 --> 00:01:05.727
-Esta imagen abre el tema: la inteligencia artificial, presentada como el inicio de una nueva era.
+00:00:42.283 --> 00:00:44.663
+por qué las cosas son como son, con ejemplos.
 
-14
-00:01:06.007 --> 00:01:12.706
-La idea es que la IA ya no es ciencia ficción, sino una tecnología que está transformando cómo trabajamos y vivimos.
+00:00:45.713 --> 00:00:48.871
+Semana uno: introducción a
+la inteligencia artificial.
 
-15
-00:01:13.917 --> 00:01:15.965
+00:00:49.155 --> 00:00:52.760
+Qué es, cómo nació, en qué se usa
+hoy y qué problemas éticos plantea.
+
+00:00:53.810 --> 00:00:56.029
+Primero, el mapa del curso completo.
+
+00:00:56.291 --> 00:01:00.592
+Son cuatro grandes temas: introducción
+a la inteligencia artificial, machine
+
+00:01:00.592 --> 00:01:04.611
+learning, aprendizaje supervisado y
+no supervisado, y redes neuronales.
+
+00:01:05.081 --> 00:01:08.729
+Esta semana arrancamos por el primero,
+que es la base de todo lo demás.
+
+00:01:09.779 --> 00:01:12.252
+Al terminar la semana, debes poder hacer dos
+
+00:01:12.252 --> 00:01:15.005
+cosas: definir qué es la
+inteligencia artificial…
+
+00:01:15.475 --> 00:01:20.105
+…y describir los principales eventos que
+ocurrieron antes y durante su surgimiento.
+
+00:01:20.355 --> 00:01:21.976
+O sea: concepto e historia.
+
+00:01:23.026 --> 00:01:25.756
+La portada del tema lo dice
+claro: la inteligencia
+
+00:01:25.756 --> 00:01:28.104
+artificial como el inicio de una nueva era.
+
+00:01:28.363 --> 00:01:30.763
+Ya no es ciencia ficción: está en tu celular,
+
+00:01:30.763 --> 00:01:33.483
+en tu correo y en las apps
+que usas todos los días.
+
+00:01:34.533 --> 00:01:36.432
 ¿Qué es la inteligencia artificial?
 
-16
-00:01:16.245 --> 00:01:24.735
-En clase se vio un video introductorio que muestra la IA en situaciones cotidianas: en los autos, en la medicina, en la música, en el trabajo y en el hogar.
+00:01:36.844 --> 00:01:40.364
+En clase se vio un video que la
+muestra en situaciones cotidianas:
 
-17
-00:01:25.015 --> 00:01:28.279
-El enlace al video está en la diapositiva del PDF.
+00:01:40.364 --> 00:01:43.564
+en los autos, la medicina, la
+música, el trabajo y el hogar.
 
-18
-00:01:29.517 --> 00:01:33.357
-Esta es la definición formal, de John McCarthy, del año dos mil siete.
+00:01:44.034 --> 00:01:48.834
+El enlace al video está en esta diapositiva
+del PDF, por si quieres verlo completo.
 
-19
-00:01:33.637 --> 00:01:42.938
-McCarthy dice que la inteligencia artificial es la ciencia y la ingeniería de crear máquinas inteligentes, especialmente programas de computadora inteligentes.
+00:01:49.884 --> 00:01:51.761
+Ahora sí, la definición formal.
 
-20
-00:01:43.218 --> 00:01:51.815
-Está relacionada con usar computadoras para entender la inteligencia humana, pero la IA no tiene que limitarse a métodos que se observen en la biología.
+00:01:52.044 --> 00:01:55.344
+Es de John McCarthy, del año
+2007, y es probablemente
 
-21
-00:01:52.095 --> 00:01:56.853
-Es decir, una máquina puede ser inteligente aunque no funcione igual que un cerebro.
+00:01:55.344 --> 00:01:57.398
+lo más importante de esta semana.
 
-22
-00:01:58.117 --> 00:02:00.933
-Veamos un ejemplo para aterrizar la definición.
+00:01:57.868 --> 00:02:01.860
+McCarthy dice que la IA es la ciencia
+y la ingeniería de crear máquinas
 
-23
-00:02:01.213 --> 00:02:06.439
-Una pista útil es preguntarse: ¿el sistema aprende de datos, o solo sigue reglas fijas?
+00:02:01.860 --> 00:02:05.570
+inteligentes, especialmente programas
+de computadora inteligentes.
 
-24
-00:02:06.719 --> 00:02:12.479
-Una calculadora que suma dos más dos no es IA, porque ejecuta una regla programada y no aprende.
+00:02:06.040 --> 00:02:09.059
+Y añade algo interesante: la
+IA no tiene que limitarse
 
-25
-00:02:12.759 --> 00:02:16.535
-Una alarma que suena a las seis tampoco: es una instrucción fija.
+00:02:09.059 --> 00:02:11.352
+a métodos que se observen en la biología.
 
-26
-00:02:16.815 --> 00:02:22.831
-En cambio, el filtro de spam de Gmail sí es IA, porque aprendió de millones de correos marcados como spam.
+00:02:11.655 --> 00:02:14.962
+Piénsalo como un avión: vuela,
+pero no aletea como un pájaro.
 
-27
-00:02:23.111 --> 00:02:28.146
-El desbloqueo facial del celular también, porque reconoce tu rostro aunque cambie la luz.
+00:02:15.209 --> 00:02:18.686
+Una máquina puede ser inteligente
+sin funcionar como un cerebro.
 
-28
-00:02:28.426 --> 00:02:35.189
-Google Maps predice el tráfico con datos, y Netflix recomienda películas según los gustos de usuarios parecidos a ti.
+00:02:19.736 --> 00:02:22.910
+Para aterrizar la definición,
+una pista muy útil: pregúntate
 
-29
-00:02:36.450 --> 00:02:39.138
-Esta línea de tiempo resume la historia de la IA.
+00:02:22.910 --> 00:02:26.243
+si el sistema aprende de datos,
+o si solo sigue una regla fija.
 
-30
-00:02:39.418 --> 00:02:42.810
-En mil novecientos cincuenta aparece la prueba de Turing.
+00:02:26.713 --> 00:02:31.065
+Una calculadora que suma 2 más 2 no
+es IA: ejecuta una regla programada.
 
-31
-00:02:43.090 --> 00:02:49.191
-En mil novecientos cincuenta y seis nace el término inteligencia artificial, en la conferencia de Dartmouth.
+00:02:31.373 --> 00:02:33.507
+Una alarma que suena a las seis, tampoco.
 
-32
-00:02:49.471 --> 00:02:52.757
-Luego vienen el primer perceptrón y el chatbot Eliza.
+00:02:33.977 --> 00:02:36.504
+En cambio, el filtro de
+spam de Gmail sí lo es:
 
-33
-00:02:53.037 --> 00:02:56.749
-Después aparecen dos inviernos de la IA, que veremos enseguida.
+00:02:36.504 --> 00:02:39.246
+aprendió de millones de
+correos marcados como spam.
 
-34
-00:02:57.029 --> 00:03:06.245
-En los años ochenta y noventa llegan la retropropagación, las redes convolucionales y, en mil novecientos noventa y siete, Deep Blue vence a Kasparov en ajedrez.
+00:02:39.546 --> 00:02:42.157
+Y el desbloqueo facial
+también, porque reconoce
 
-35
-00:03:06.525 --> 00:03:09.874
-Desde dos mil doce, con AlexNet, explota el deep learning:
+00:02:42.157 --> 00:02:44.602
+tu cara aunque cambie la luz o lleves gafas.
 
-36
-00:03:10.154 --> 00:03:20.949
-llegan AlphaGo, los Transformers, GPT, DALL-E, ChatGPT en dos mil veintidós, la ley de IA de la Unión Europea en dos mil veinticuatro, y modelos como DeepSeek en dos mil veinticinco.
+00:02:45.072 --> 00:02:48.686
+Google Maps predice el tráfico con
+datos, y Netflix te recomienda
 
-37
-00:03:22.183 --> 00:03:26.685
-Los inviernos de la IA fueron épocas en que el interés y la inversión cayeron.
+00:02:48.686 --> 00:02:52.688
+películas según lo que vieron personas
+con gustos parecidos a los tuyos.
 
-38
-00:03:26.965 --> 00:03:36.906
-El primer invierno, en los años setenta, se debió a expectativas no cumplidas, a la poca capacidad de cómputo de la época y a recortes de financiamiento por el lento avance.
+00:02:53.738 --> 00:02:56.383
+Esta línea de tiempo resume
+la historia de la IA.
 
-39
-00:03:37.186 --> 00:03:49.346
-El segundo invierno, entre finales de los ochenta y los noventa, llegó por el declive de los sistemas expertos, que eran caros, inflexibles y difíciles de mantener, lo que redujo la inversión y aumentó el escepticismo.
+00:02:56.637 --> 00:02:58.493
+Vamos a recorrerla por partes.
 
-40
-00:03:49.626 --> 00:03:54.469
-El gráfico muestra cómo el interés sube y baja hasta el auge actual del machine learning.
+00:02:58.963 --> 00:03:04.045
+Al inicio: en 1950 aparece la prueba
+de Turing; en 1956 nace el término
 
-41
-00:03:55.717 --> 00:03:58.490
-Un ejemplo de por qué llegaron esos inviernos.
+00:03:04.045 --> 00:03:09.055
+inteligencia artificial, en la
+conferencia de Dartmouth; en 1957 llega
 
-42
-00:03:58.770 --> 00:04:04.679
-El patrón siempre fue el mismo: grandes promesas, resultados pobres, decepción y recorte de fondos.
+00:03:09.055 --> 00:03:14.494
+el primer perceptrón, y en los sesenta,
+Eliza, uno de los primeros chatbots.
 
-43
-00:04:04.959 --> 00:04:16.906
-En mil novecientos sesenta y seis, el informe ALPAC de Estados Unidos concluyó que la traducción automática era más lenta, menos precisa y más cara que un traductor humano, y se recortó la financiación.
+00:03:14.964 --> 00:03:17.324
+Fíjate en estos dos cortes de la línea: son
 
-44
-00:04:17.186 --> 00:04:26.146
-En mil novecientos setenta y tres, el informe Lighthill, en el Reino Unido, dijo que la IA no había cumplido sus objetivos fuera de problemas de juguete.
+00:03:17.324 --> 00:03:19.849
+los inviernos de la IA, que veremos enseguida.
 
-45
-00:04:26.426 --> 00:04:34.277
-Y a finales de los ochenta, los sistemas expertos, que funcionaban con miles de reglas escritas a mano, resultaron caros de mantener.
+00:03:20.319 --> 00:03:24.090
+En los ochenta y noventa llegan
+la retropropagación y las
 
-46
-00:04:34.557 --> 00:04:40.317
-Es como una película con un tráiler espectacular que decepciona: la gente deja de comprar boletos.
+00:03:24.090 --> 00:03:28.191
+redes convolucionales, y en 1997
+Deep Blue le gana a Kasparov.
 
-47
-00:04:41.517 --> 00:04:44.589
-La evolución de la IA se puede ver en tres etapas.
+00:03:28.661 --> 00:03:32.390
+Desde 2012, con AlexNet,
+explota el deep learning:
 
-48
-00:04:44.869 --> 00:04:51.631
-De mil novecientos cincuenta a mil novecientos ochenta domina la inteligencia artificial clásica, basada en reglas.
+00:03:32.390 --> 00:03:36.341
+DeepMind, AlphaGo en 2016 y
+los Transformers en 2017.
 
-49
-00:04:51.911 --> 00:04:57.863
-De mil novecientos ochenta a dos mil diez crece el machine learning, donde las máquinas aprenden de datos.
+00:03:36.811 --> 00:03:41.059
+Y lo más reciente: DALL-E,
+ChatGPT en 2022, la ley de IA
 
-50
-00:04:58.143 --> 00:05:03.583
-Y de dos mil diez hasta hoy domina el deep learning, que usa redes neuronales con muchas capas.
+00:03:41.059 --> 00:03:45.686
+de la Unión Europea en 2024, y
+modelos como DeepSeek en 2025.
 
-51
-00:05:04.783 --> 00:05:08.602
-Veamos el mismo problema, detectar spam, en esas tres épocas.
+00:03:46.736 --> 00:03:49.200
+Los inviernos de la IA fueron épocas en que el
 
-52
-00:05:08.882 --> 00:05:15.410
-Con la IA de reglas, un programador escribe a mano: si el correo contiene la palabra gratis, márcalo como spam.
+00:03:49.200 --> 00:03:51.877
+interés y el dinero para
+investigar se congelaron.
 
-53
-00:05:15.690 --> 00:05:19.871
-El problema es que el spammer escribe gratis con un cuatro y la regla falla.
+00:03:52.347 --> 00:03:55.305
+El primero, en los setenta,
+llegó por expectativas que
 
-54
-00:05:20.151 --> 00:05:27.831
-Con machine learning, le damos miles de correos ya etiquetados como spam o no spam, y el algoritmo aprende solo qué palabras pesan más.
+00:03:55.305 --> 00:03:58.372
+no se cumplieron, por la poca
+capacidad de cómputo de la
 
-55
-00:05:28.111 --> 00:05:36.133
-Y con deep learning, una red neuronal lee el correo completo y entiende el contexto, detectando un engaño aunque no use palabras sospechosas.
+00:03:58.372 --> 00:04:01.713
+época, y por recortes de
+financiamiento ante el lento avance.
 
-56
-00:05:36.413 --> 00:05:44.178
-Fíjate que cada etapa está contenida en la anterior: el deep learning es un tipo de machine learning, y el machine learning es una rama de la IA.
+00:04:02.183 --> 00:04:06.409
+El segundo, entre finales de los ochenta
+y los noventa, llegó por el declive
 
-57
-00:05:45.383 --> 00:05:51.399
-Alan Turing es considerado uno de los padres de la ciencia de la computación y de la inteligencia artificial.
+00:04:06.409 --> 00:04:10.524
+de los sistemas expertos: eran caros,
+inflexibles y difíciles de mantener.
 
-58
-00:05:51.679 --> 00:05:59.381
-En mil novecientos cincuenta creó la prueba de Turing, un test para determinar si estamos conversando con una máquina o con una persona.
+00:04:10.821 --> 00:04:13.701
+Eso redujo la inversión y
+aumentó el escepticismo.
 
-59
-00:06:00.583 --> 00:06:02.717
-Así funciona la prueba de Turing.
+00:04:14.171 --> 00:04:17.318
+El gráfico lo resume: el interés
+sube, cae, vuelve a subir,
 
-60
-00:06:02.997 --> 00:06:10.527
-Hay tres participantes: el jugador A, que es una computadora; el jugador B, que es una persona; y el jugador C, el interrogador.
+00:04:17.318 --> 00:04:20.358
+vuelve a caer… hasta el auge
+actual del machine learning.
 
-61
-00:06:10.807 --> 00:06:19.106
-El interrogador hace preguntas a los dos sin verlos, y a partir de las respuestas intenta decidir cuál es la computadora y cuál es el humano.
+00:04:21.408 --> 00:04:22.645
+¿Y por qué pasaron?
 
-62
-00:06:20.317 --> 00:06:22.279
-Un ejemplo de la prueba en acción.
+00:04:23.068 --> 00:04:25.906
+El patrón siempre fue el
+mismo: grandes promesas,
 
-63
-00:06:22.559 --> 00:06:25.034
+00:04:25.906 --> 00:04:28.743
+resultados pobres, decepción
+y recorte de fondos.
+
+00:04:29.213 --> 00:04:33.393
+En 1966, el informe ALPAC concluyó
+que la traducción automática
+
+00:04:33.393 --> 00:04:37.640
+era más lenta, menos precisa y
+más cara que un traductor humano.
+
+00:04:38.110 --> 00:04:41.758
+En 1973, el informe Lighthill
+dijo que la IA no había
+
+00:04:41.758 --> 00:04:45.406
+cumplido sus objetivos fuera
+de problemas de juguete.
+
+00:04:45.876 --> 00:04:49.370
+Y a finales de los ochenta, los
+sistemas expertos, hechos con
+
+00:04:49.370 --> 00:04:53.150
+miles de reglas escritas a mano,
+resultaron carísimos de mantener.
+
+00:04:53.620 --> 00:04:56.548
+Es como una película con un
+tráiler espectacular que
+
+00:04:56.548 --> 00:04:59.700
+decepciona en el cine: la
+gente deja de comprar boletos.
+
+00:05:00.750 --> 00:05:03.396
+La evolución de la IA se
+divide en tres etapas.
+
+00:05:03.866 --> 00:05:09.071
+De 1950 a 1980 domina la IA
+clásica, basada en reglas.
+
+00:05:09.541 --> 00:05:14.917
+De 1980 a 2010 crece el machine learning:
+las máquinas aprenden de datos.
+
+00:05:15.387 --> 00:05:20.166
+Y de 2010 hasta hoy domina el deep learning,
+con redes neuronales de muchas capas.
+
+00:05:21.216 --> 00:05:24.842
+Mira el mismo problema, detectar
+spam, resuelto en cada época.
+
+00:05:25.312 --> 00:05:29.408
+Con reglas, un programador escribe:
+si el correo dice gratis, es spam.
+
+00:05:29.686 --> 00:05:32.992
+Pero el spammer escribe gratis
+con un cuatro… y la regla falla.
+
+00:05:33.462 --> 00:05:36.749
+Con machine learning, le damos
+miles de correos etiquetados,
+
+00:05:36.749 --> 00:05:39.542
+y el algoritmo aprende solo
+qué palabras pesan más.
+
+00:05:39.832 --> 00:05:41.496
+Y mejora con más ejemplos.
+
+00:05:41.966 --> 00:05:45.129
+Con deep learning, una red
+neuronal lee el correo completo
+
+00:05:45.129 --> 00:05:48.238
+y capta el contexto, aunque
+no haya palabras sospechosas.
+
+00:05:48.486 --> 00:05:51.281
+Eso sí: necesita muchos datos y mucho cómputo.
+
+00:05:52.331 --> 00:05:55.275
+Esto nos deja una idea que
+vas a usar todo el curso.
+
+00:05:55.519 --> 00:05:57.674
+Imagina círculos, uno dentro de otro.
+
+00:05:57.931 --> 00:06:02.121
+El más grande es la inteligencia
+artificial: cualquier técnica para que una
+
+00:06:02.121 --> 00:06:06.870
+máquina haga tareas inteligentes, incluso
+con reglas escritas a mano, como Deep Blue.
+
+00:06:07.340 --> 00:06:09.477
+Dentro está el machine learning: la parte
+
+00:06:09.477 --> 00:06:11.926
+de la IA donde la máquina
+aprende de los datos.
+
+00:06:12.174 --> 00:06:14.606
+El filtro de spam es el ejemplo clásico.
+
+00:06:15.076 --> 00:06:17.270
+Y dentro del machine learning está el deep
+
+00:06:17.270 --> 00:06:19.726
+learning, con redes
+neuronales de muchas capas.
+
+00:06:19.974 --> 00:06:22.449
+Es lo que hay detrás del desbloqueo facial.
+
+00:06:22.919 --> 00:06:25.627
+En el centro, como verás
+en unos minutos, está la
+
+00:06:25.627 --> 00:06:28.722
+IA generativa, que se apoya
+en modelos de deep learning.
+
+00:06:28.970 --> 00:06:31.950
+Ojo para el examen: todo deep
+learning es machine learning,
+
+00:06:31.950 --> 00:06:34.325
+pero no todo machine
+learning es deep learning.
+
+00:06:35.375 --> 00:06:38.525
+Alan Turing es considerado uno
+de los padres de la ciencia
+
+00:06:38.525 --> 00:06:41.241
+de la computación y de la
+inteligencia artificial.
+
+00:06:41.711 --> 00:06:45.081
+En 1950 creó la prueba de
+Turing: un test para saber
+
+00:06:45.081 --> 00:06:48.581
+si estamos hablando con una
+máquina o con una persona.
+
+00:06:48.839 --> 00:06:53.042
+Su idea fue genial: como «pensar» es muy
+difícil de definir, cambió la pregunta.
+
+00:06:53.319 --> 00:06:56.219
+En vez de preguntar si una
+máquina piensa, preguntó si
+
+00:06:56.219 --> 00:06:59.548
+puede comportarse de forma que
+no la distingamos de un humano.
+
+00:07:00.598 --> 00:07:01.580
+Así funciona.
+
+00:07:01.846 --> 00:07:04.192
+Hay tres jugadores: A es una computadora…
+
+00:07:04.662 --> 00:07:05.921
+…B es una persona…
+
+00:07:06.391 --> 00:07:07.991
+…y C es el interrogador.
+
+00:07:08.294 --> 00:07:10.932
+C les hace preguntas a
+los dos sin verlos, y con
+
+00:07:10.932 --> 00:07:13.734
+las respuestas intenta
+adivinar cuál es la máquina.
+
+00:07:14.784 --> 00:07:16.000
+Veámosla en acción.
+
+00:07:16.267 --> 00:07:18.678
 El interrogador pregunta qué desayunaron.
 
-64
-00:06:25.314 --> 00:06:27.213
-A responde: un bolón con café.
+00:07:18.965 --> 00:07:20.629
+A dice: un bolón con café.
 
-65
-00:06:27.493 --> 00:06:29.626
+00:07:20.872 --> 00:07:22.771
 B dice: solo un café, iba tarde.
 
-66
-00:06:29.906 --> 00:06:34.599
-Luego pregunta cuánto es tres mil ochocientos cuarenta y siete por veintinueve.
+00:07:23.241 --> 00:07:27.785
+Luego pregunta cuánto es 3847 por 29.
 
-67
-00:06:34.879 --> 00:06:38.421
-A tarda unos segundos y dice: como ciento once mil y algo.
+00:07:28.059 --> 00:07:30.939
+A tarda, y dice: uf… como 111 mil y algo.
 
-68
-00:06:38.701 --> 00:06:40.791
+00:07:31.230 --> 00:07:33.107
 B dice: ni idea sin calculadora.
 
-69
-00:06:41.071 --> 00:06:45.189
-Aquí A es la máquina, y finge dudar y equivocarse como lo haría un humano.
+00:07:33.577 --> 00:07:37.246
+Aquí A es la máquina: finge dudar y
+equivocarse, como lo haría un humano.
 
-70
-00:06:45.469 --> 00:06:51.890
-Si el interrogador no logra distinguir quién es la máquina mejor que adivinando al azar, la máquina pasa la prueba.
+00:07:37.536 --> 00:07:38.773
+Ese es el truco.
 
-71
-00:06:52.170 --> 00:06:59.807
-En un estudio de dos mil veinticinco, GPT-4.5 fue elegido como el humano el setenta y tres por ciento de las veces.
+00:07:39.243 --> 00:07:42.358
+Si el interrogador no logra
+distinguir quién es la máquina
 
-72
-00:07:00.087 --> 00:07:06.359
-Pero ojo: pasar la prueba muestra que la máquina imita bien una conversación, no necesariamente que entienda.
+00:07:42.358 --> 00:07:45.366
+mejor que adivinando al azar,
+la máquina pasa la prueba.
 
-73
-00:07:07.583 --> 00:07:16.458
-Uno de los hitos más famosos: en mil novecientos noventa y siete, la computadora Deep Blue, de IBM, venció al campeón mundial de ajedrez Garry Kasparov.
+00:07:45.632 --> 00:07:49.144
+En un estudio de 2025, GPT-4.5 fue elegido
 
-74
-00:07:16.738 --> 00:07:23.010
-Fue la primera vez que una máquina derrotó a un campeón mundial reinante en un encuentro con reglas de torneo.
+00:07:49.144 --> 00:07:52.907
+como el humano el 73 por ciento de las veces.
 
-75
-00:07:24.250 --> 00:07:28.666
-En dos mil dieciséis, AlphaGo, de DeepMind, venció al maestro de Go Lee Sedol.
+00:07:53.377 --> 00:07:56.440
+Pero ojo: pasar la prueba
+demuestra que la máquina imita
 
-76
-00:07:28.946 --> 00:07:33.021
-El Go es mucho más complejo que el ajedrez, así que fue un salto enorme.
+00:07:56.440 --> 00:07:59.393
+bien una conversación, no
+necesariamente que entienda.
 
-77
-00:07:33.301 --> 00:07:37.226
-En la diapositiva tienes el enlace al documental sobre AlphaGo.
+00:08:00.443 --> 00:08:04.033
+Uno de los hitos más famosos:
+en 1997, Deep Blue, de
 
-78
-00:07:38.450 --> 00:07:45.511
-Y en dos mil dieciocho apareció AlphaFold, también de DeepMind, que predice la estructura tridimensional de las proteínas.
+00:08:04.033 --> 00:08:08.037
+IBM, le ganó al campeón mundial
+de ajedrez Garry Kasparov.
 
-79
-00:07:45.791 --> 00:07:52.298
-Ha revelado millones de estructuras y ayuda a los científicos a entender cómo interactúan las moléculas de la vida.
+00:08:08.301 --> 00:08:10.818
+Fue la primera vez que
+una máquina derrotó a un
 
-80
-00:07:52.578 --> 00:07:56.781
-Hay un documental llamado The Thinking Game, cuyo enlace está en la diapositiva.
+00:08:10.818 --> 00:08:13.656
+campeón mundial en un encuentro
+con reglas de torneo.
 
-81
-00:07:57.983 --> 00:08:03.231
-Comparemos estos tres hitos, porque cada uno muestra una forma distinta de inteligencia.
+00:08:13.956 --> 00:08:16.345
+Fíjate en un detalle: Deep Blue no aprendía.
 
-82
-00:08:03.511 --> 00:08:12.087
-Deep Blue usaba fuerza bruta y reglas de expertos: evaluaba unos doscientos millones de posiciones por segundo, pero solo sabía jugar ajedrez.
+00:08:16.617 --> 00:08:19.867
+Calculaba muchísimas jugadas
+por segundo y las evaluaba
 
-83
-00:08:12.367 --> 00:08:19.834
-AlphaGo enfrentó un juego con más posiciones posibles que átomos en el universo observable, así que la fuerza bruta no servía:
+00:08:19.867 --> 00:08:22.526
+con reglas que le dieron expertos en ajedrez.
 
-84
-00:08:20.114 --> 00:08:26.493
-aprendió de partidas humanas y jugando millones de partidas contra sí mismo, y venció cuatro a uno a Lee Sedol.
+00:08:23.576 --> 00:08:27.907
+En 2016, AlphaGo, de DeepMind,
+venció al maestro de Go Lee Sedol.
 
-85
-00:08:26.773 --> 00:08:34.410
-AlphaFold resolvió un problema de casi cincuenta años, y sus creadores compartieron el Nobel de Química en dos mil veinticuatro.
+00:08:28.377 --> 00:08:32.537
+El Go es muchísimo más complejo que el
+ajedrez, así que fue un salto enorme.
 
-86
-00:08:34.690 --> 00:08:41.389
-La tendencia es clara: de reglas programadas por personas, a sistemas que aprenden de los datos y de la experiencia.
+00:08:32.787 --> 00:08:36.852
+En la segunda partida, AlphaGo
+hizo una jugada, la famosa jugada
 
-87
-00:08:42.650 --> 00:08:45.573
-Ahora, la IA generativa, también llamada gen AI.
+00:08:36.852 --> 00:08:41.107
+37, que los expertos creyeron un
+error… y terminó siendo brillante.
 
-88
-00:08:45.853 --> 00:08:52.637
-Es un tipo de inteligencia artificial que puede generar contenido original, como imágenes, texto, música y video.
+00:08:41.378 --> 00:08:44.386
+Nadie se la había enseñado:
+la descubrió practicando.
 
-89
-00:08:52.917 --> 00:08:55.157
+00:08:44.638 --> 00:08:47.539
+En la diapositiva tienes
+el enlace al documental.
+
+00:08:48.589 --> 00:08:51.497
+Y en 2018 llegó AlphaFold,
+también de DeepMind,
+
+00:08:51.497 --> 00:08:54.776
+que predice la forma
+tridimensional de las proteínas.
+
+00:08:55.246 --> 00:08:57.656
+Ha revelado millones de estructuras y ayuda a
+
+00:08:57.656 --> 00:09:00.281
+entender cómo funcionan
+las moléculas de la vida.
+
+00:09:00.559 --> 00:09:03.354
+Su historia está en el
+documental The Thinking Game.
+
+00:09:04.404 --> 00:09:06.918
+Comparemos estos tres hitos, porque cada uno
+
+00:09:06.918 --> 00:09:09.375
+muestra una forma distinta de inteligencia.
+
+00:09:09.845 --> 00:09:13.737
+Deep Blue usaba fuerza bruta y
+reglas de expertos: evaluaba unos
+
+00:09:13.737 --> 00:09:17.994
+200 millones de posiciones por segundo…
+pero solo sabía jugar ajedrez.
+
+00:09:18.464 --> 00:09:20.299
+En Go la fuerza bruta no sirve.
+
+00:09:20.596 --> 00:09:23.392
+AlphaGo aprendió de partidas humanas y jugando
+
+00:09:23.392 --> 00:09:26.612
+millones de partidas contra
+sí mismo, y venció 4 a 1.
+
+00:09:27.082 --> 00:09:30.973
+AlphaFold resolvió un problema
+abierto por casi 50 años,
+
+00:09:30.973 --> 00:09:34.933
+y sus creadores compartieron
+el Nobel de Química en 2024.
+
+00:09:35.403 --> 00:09:37.344
+¿Recuerdas la pregunta del inicio?
+
+00:09:37.747 --> 00:09:41.436
+Aquí está la respuesta: pasamos de
+reglas programadas por personas,
+
+00:09:41.436 --> 00:09:44.574
+a sistemas que aprenden de los
+datos y de la experiencia.
+
+00:09:44.829 --> 00:09:48.115
+ChatGPT es la continuación
+de esa misma tendencia.
+
+00:09:49.165 --> 00:09:51.149
+Ahora, la IA generativa, o gen AI.
+
+00:09:51.424 --> 00:09:54.582
+Es un tipo de inteligencia
+artificial que puede generar
+
+00:09:54.582 --> 00:09:57.568
+contenido original: imágenes,
+texto, música y video.
+
+00:09:58.038 --> 00:10:00.129
 Se basa en modelos de deep learning.
 
-90
-00:08:55.437 --> 00:08:59.469
-Algunos ejemplos son StyleGAN, ChatGPT, GPT-4 y DALL-E.
+00:10:00.385 --> 00:10:03.052
+Por eso, en nuestros círculos,
+estaba en el centro.
 
-91
-00:08:59.749 --> 00:09:04.933
-Las páginas que aparecen abajo muestran gatos y personas que no existen, creados por IA.
+00:10:03.522 --> 00:10:06.722
+Ejemplos: StyleGAN, ChatGPT, GPT-4 y DALL-E.
 
-92
-00:09:06.183 --> 00:09:08.594
-Estos son ejemplos de IA generativa.
+00:10:07.016 --> 00:10:11.091
+Y abajo tienes dos páginas curiosas:
+gatos y personas que no existen.
 
-93
-00:09:08.874 --> 00:09:12.650
-Ninguna de estas personas ni de estos gatos existe en la realidad:
+00:10:12.141 --> 00:10:15.063
+Ninguna de estas personas
+ni de estos gatos existe.
 
-94
-00:09:12.930 --> 00:09:20.269
-todas las imágenes fueron generadas por un modelo que aprendió cómo se ven los rostros y los gatos a partir de millones de fotos.
+00:10:15.345 --> 00:10:18.215
+Las imágenes las generó un
+modelo que aprendió cómo se
 
-95
-00:09:21.517 --> 00:09:28.109
-Esta gráfica compara los principales usos de la IA generativa en dos mil veinticuatro y dos mil veinticinco.
+00:10:18.215 --> 00:10:21.297
+ven los rostros y los gatos a
+partir de millones de fotos.
 
-96
-00:09:28.389 --> 00:09:32.165
-En dos mil veinticuatro, el uso número uno era generar ideas.
+00:10:21.554 --> 00:10:25.949
+Si las ves con calma, a veces se notan
+detalles raros en el fondo o en las orejas.
 
-97
-00:09:32.445 --> 00:09:40.893
-En dos mil veinticinco, el primer lugar pasa a ser terapia y compañía, seguido de organizar la vida y encontrar propósito, que son usos nuevos.
+00:10:26.252 --> 00:10:30.226
+La idea de fondo es esta: el modelo
+no copia una foto, sino que aprende
 
-98
-00:09:41.173 --> 00:09:46.463
-También aparecen el aprendizaje, generar código, la creatividad y una vida más saludable.
+00:10:30.226 --> 00:10:34.145
+los patrones de cómo suele verse una
+cara, y con eso genera una nueva.
 
-99
-00:09:47.717 --> 00:09:52.858
-Para entender qué tiene de especial la IA generativa, comparémosla con la IA tradicional.
+00:10:35.195 --> 00:10:41.275
+Esta gráfica compara los usos más comunes
+de la IA generativa en 2024 y 2025.
 
-100
-00:09:53.138 --> 00:10:00.733
-La IA tradicional clasifica o predice: le das la foto de un gato y responde gato, con noventa y siete por ciento de seguridad.
+00:10:41.745 --> 00:10:45.244
+En 2024, el uso número uno era generar ideas.
 
-101
-00:10:01.013 --> 00:10:03.189
+00:10:45.714 --> 00:10:49.436
+En 2025, el primero pasa a ser
+terapia y compañía, seguido
+
+00:10:49.436 --> 00:10:53.543
+de organizar la vida y encontrar
+propósito, que son usos nuevos.
+
+00:10:53.814 --> 00:10:56.153
+Es decir: la gente ya no solo la usa para
+
+00:10:56.153 --> 00:10:58.720
+trabajar, sino también para temas personales.
+
+00:10:59.770 --> 00:11:03.440
+Para entender qué tiene de especial,
+compárala con la IA tradicional.
+
+00:11:03.910 --> 00:11:07.302
+La IA tradicional clasifica
+o predice: le das la foto
+
+00:11:07.302 --> 00:11:11.206
+de un gato y responde «gato»,
+con 97 por ciento de seguridad.
+
+00:11:11.499 --> 00:11:13.568
 Elige entre opciones que ya existen.
 
-102
-00:10:03.469 --> 00:10:12.365
-La IA generativa, en cambio, crea contenido nuevo: le escribes un gato astronauta en la Luna, estilo acuarela, y produce una imagen que nunca existió.
+00:11:14.038 --> 00:11:17.560
+La generativa crea algo nuevo:
+le pides un gato astronauta en
 
-103
-00:10:12.645 --> 00:10:16.527
-Algunos usos: con texto, ChatGPT redacta un correo formal.
+00:11:17.560 --> 00:11:21.313
+la Luna, estilo acuarela, y produce
+una imagen que nunca existió.
 
-104
-00:10:16.807 --> 00:10:19.303
-Con imágenes, DALL-E crea una ilustración.
+00:11:21.783 --> 00:11:25.340
+Y sirve para todo tipo de contenido:
+texto, imágenes, música y
 
-105
-00:10:19.583 --> 00:10:23.978
-Con música, describes una salsa alegre y el sistema compone una canción.
+00:11:25.340 --> 00:11:29.356
+código, como GitHub Copilot cuando
+te sugiere el resto de una función.
 
-106
-00:10:24.258 --> 00:10:28.951
-Y con código, GitHub Copilot sugiere el resto de una función mientras escribes.
+00:11:30.406 --> 00:11:35.534
+Esta gráfica muestra puntajes de pruebas
+de coeficiente intelectual aplicadas
 
-107
-00:10:30.183 --> 00:10:42.109
-Esta gráfica muestra los resultados de pruebas de coeficiente intelectual aplicadas a distintos modelos de IA entre dos mil veinticuatro y dos mil veintiséis, tanto en preguntas de texto como de visión.
+00:11:35.534 --> 00:11:40.262
+a modelos de IA, entre 2024 y 2026,
+con preguntas de texto y de visión.
 
-108
-00:10:42.389 --> 00:10:44.309
+00:11:40.732 --> 00:11:44.306
 Lo importante es la tendencia:
+los puntajes subieron muy rápido
 
-109
-00:10:44.589 --> 00:10:54.018
-los puntajes han subido rápidamente en muy poco tiempo, con modelos como ChatGPT, Claude, Gemini y Grok superando ya el promedio humano en este tipo de pruebas.
+00:11:44.306 --> 00:11:47.597
+en muy poco tiempo, y modelos
+como ChatGPT, Claude, Gemini
 
-110
-00:10:55.250 --> 00:10:57.063
+00:11:47.597 --> 00:11:51.058
+y Grok ya superan el promedio
+humano en este tipo de pruebas.
+
+00:11:52.108 --> 00:11:53.814
 ¿Música compuesta por IA?
 
-111
-00:10:57.343 --> 00:11:02.079
-En clase se escuchó un ejemplo de una canción creada con inteligencia artificial.
+00:11:54.222 --> 00:11:58.147
+En clase se escuchó una canción
+creada con inteligencia artificial.
 
-112
-00:11:02.359 --> 00:11:04.471
+00:11:58.455 --> 00:12:00.460
 El enlace está en la diapositiva.
 
-113
-00:11:05.717 --> 00:11:11.733
-Aquí hay un comercial hecho con IA, otro ejemplo de cómo la IA generativa ya se usa en publicidad.
+00:12:00.730 --> 00:12:03.733
+Y aquí aparece una pregunta
+que retomaremos en la parte
 
-114
-00:11:12.013 --> 00:11:14.125
-El enlace está en la diapositiva.
+00:12:03.733 --> 00:12:06.682
+de ética: si una IA compone
+una canción, ¿de quién es?
 
-115
-00:11:15.383 --> 00:11:23.725
-Y esta es una competencia deportiva de robots humanoides, que muestra cómo la IA también se combina con la robótica para moverse en el mundo físico.
+00:12:07.732 --> 00:12:11.102
+También hay comerciales hechos
+completamente con IA, como este.
 
-116
-00:11:24.983 --> 00:11:27.031
+00:12:11.395 --> 00:12:14.100
+Lo que antes requería
+cámaras, actores y semanas
+
+00:12:14.100 --> 00:12:17.198
+de edición, hoy se puede
+generar en mucho menos tiempo.
+
+00:12:17.461 --> 00:12:20.917
+Otra muestra de que la IA
+generativa ya se usa en publicidad.
+
+00:12:21.967 --> 00:12:26.017
+Y esta es una competencia deportiva
+de robots humanoides: la IA combinada
+
+00:12:26.017 --> 00:12:30.287
+con robótica, ya no solo en una pantalla,
+sino moviéndose en el mundo físico.
+
+00:12:30.595 --> 00:12:33.845
+Curiosamente, para una máquina
+es más fácil ganar en ajedrez
+
+00:12:33.845 --> 00:12:36.931
+que caminar sin caerse en una
+cancha llena de obstáculos.
+
+00:12:37.981 --> 00:12:39.923
 Veamos casos de uso de la IA.
 
-117
-00:11:27.311 --> 00:11:36.869
-La predicción de crímenes, la predicción de accidentes de tránsito, la detección de incendios forestales y la supervisión de exámenes en línea, conocida como proctoring.
+00:12:40.393 --> 00:12:43.891
+Predicción de crímenes y predicción
+de accidentes de tránsito…
 
-118
-00:11:38.117 --> 00:11:46.181
-Más casos de uso: el autocompletado de texto, el escaneo automático de hojas de vida y los precios dinámicos, que cambian según la demanda.
+00:12:44.361 --> 00:12:47.099
+…detección de incendios
+forestales y supervisión
 
-119
-00:11:47.383 --> 00:11:51.053
-En cada caso de uso conviene preguntarse qué entra y qué sale.
+00:12:47.099 --> 00:12:49.780
+de exámenes en línea,
+conocida como proctoring.
 
-120
-00:11:51.333 --> 00:11:57.477
-En la predicción de crímenes entra el historial de delitos por zona y hora, y sale qué zonas tienen más riesgo.
+00:12:50.076 --> 00:12:53.722
+Fíjate que varios de estos casos
+tocan temas delicados: predecir
 
-121
-00:11:57.757 --> 00:12:03.431
-En accidentes de tránsito entran el clima, la hora y el tráfico, y sale un aviso de riesgo alto.
+00:12:53.722 --> 00:12:57.596
+crímenes o vigilar un examen con
+cámara puede afectar la privacidad,
 
-122
-00:12:03.711 --> 00:12:09.855
-En incendios forestales entran imágenes de cámaras o satélites, y sale una alerta al detectar humo.
+00:12:57.596 --> 00:13:00.615
+y si los datos tienen sesgos,
+las decisiones también.
 
-123
-00:12:10.135 --> 00:12:15.511
-En proctoring entran la cámara y el micrófono, y sale una alerta si se detecta otra persona.
+00:13:00.917 --> 00:13:02.815
+Volveremos a esto en la ética.
 
-124
-00:12:15.791 --> 00:12:19.162
-En autocompletado escribes nos vemos ma, y sugiere mañana.
+00:13:03.865 --> 00:13:07.539
+Y más: el autocompletado de texto,
+que usas cada vez que escribes en
 
-125
-00:12:19.442 --> 00:12:23.645
-En el escaneo de hojas de vida entran quinientos currículums, y sale un ranking.
+00:13:07.539 --> 00:13:11.375
+el celular; el escaneo automático de
+hojas de vida, que muchas empresas
 
-126
-00:12:23.925 --> 00:12:29.023
-Y en precios dinámicos, la tarifa de Uber sube cuando muchas personas piden auto a la vez.
+00:13:11.375 --> 00:13:15.049
+usan para filtrar candidatos antes
+de que una persona los lea; y los
 
-127
-00:12:29.303 --> 00:12:34.167
-El patrón común: todos aprenden de datos pasados para decidir sobre casos nuevos.
+00:13:15.049 --> 00:13:19.588
+precios dinámicos, que cambian según la
+demanda, como pasa con los pasajes de avión.
 
-128
-00:12:35.383 --> 00:12:37.602
-Ahora pasamos a la ética de la IA.
+00:13:20.638 --> 00:13:24.905
+Un truco para entender cualquier caso de
+uso: pregúntate qué entra y qué sale.
 
-129
-00:12:37.882 --> 00:12:44.410
-En clase se vio un video que explica por qué la inteligencia artificial plantea preguntas éticas importantes.
+00:13:25.375 --> 00:13:28.445
+En la predicción de crímenes
+entra el historial de delitos
 
-130
-00:12:44.690 --> 00:12:46.802
-El enlace está en la diapositiva.
+00:13:28.445 --> 00:13:31.199
+por zona y hora, y sale qué
+zonas tienen más riesgo.
 
-131
-00:12:48.050 --> 00:12:57.650
-Los dilemas éticos de la IA son: los sesgos, por ejemplo de género, edad o raza; la toma de decisiones; la privacidad; la propiedad intelectual; y el impacto ambiental.
+00:13:31.484 --> 00:13:34.527
+En incendios, entran imágenes
+de cámaras o satélites,
 
-132
-00:12:58.850 --> 00:13:01.645
-Veamos un ejemplo concreto de cada dilema.
+00:13:34.527 --> 00:13:37.052
+y sale una alerta temprana al detectar humo.
 
-133
-00:13:01.925 --> 00:13:02.693
-Sesgos:
+00:13:37.522 --> 00:13:41.021
+En autocompletado escribes «nos
+vemos ma…», y te sugiere «mañana».
 
-134
-00:13:02.973 --> 00:13:13.767
-en dos mil dieciocho se reportó que una herramienta de reclutamiento de Amazon penalizaba hojas de vida de mujeres, porque aprendió de diez años de contrataciones mayoritariamente masculinas.
+00:13:41.300 --> 00:13:45.674
+Y en precios dinámicos, la tarifa de Uber
+sube cuando muchos piden auto a la vez.
 
-135
-00:13:14.047 --> 00:13:19.957
-Toma de decisiones: si un auto autónomo falla, ¿quién responde, el fabricante, el programador o el dueño?
+00:13:46.144 --> 00:13:47.274
+¿El patrón común?
 
-136
-00:13:20.237 --> 00:13:28.087
-Privacidad: la empresa Clearview AI recopiló miles de millones de fotos de redes sociales sin permiso para reconocimiento facial.
+00:13:47.684 --> 00:13:51.332
+Todos aprenden de datos pasados
+para decidir sobre casos nuevos.
 
-137
-00:13:28.367 --> 00:13:34.767
-Propiedad intelectual: Getty Images demandó a Stability AI por usar sus imágenes para entrenar un generador.
+00:13:52.382 --> 00:13:55.838
+Ahora, la parte que más preguntas
+genera: la ética de la IA.
 
-138
-00:13:35.047 --> 00:13:39.719
-E impacto ambiental: los centros de datos consumen mucha electricidad y agua.
+00:13:56.143 --> 00:13:59.208
+En clase se vio un video
+sobre por qué la inteligencia
 
-139
-00:13:39.999 --> 00:13:46.271
-La lección es que un modelo aprende lo que ve en los datos: si los datos tienen sesgos, el modelo los repite.
+00:13:59.208 --> 00:14:01.818
+artificial plantea dilemas éticos importantes.
 
-140
-00:13:47.517 --> 00:13:52.637
-Un caso famoso es Tay, el chatbot de Microsoft lanzado en Twitter en dos mil dieciséis.
+00:14:02.868 --> 00:14:06.772
+Los dilemas éticos son cinco: los
+sesgos, de género, edad o raza…
 
-141
-00:13:52.917 --> 00:14:02.645
-Aprendía de las conversaciones con los usuarios, y en menos de un día empezó a publicar mensajes racistas y xenófobos, porque copió lo que algunos usuarios le enseñaron.
+00:14:07.242 --> 00:14:09.397
+…la toma de decisiones, la privacidad…
 
-142
-00:14:02.925 --> 00:14:04.781
+00:14:09.867 --> 00:14:12.555
+…la propiedad intelectual,
+y el impacto ambiental.
+
+00:14:13.605 --> 00:14:15.546
+Cada uno tiene ejemplos reales.
+
+00:14:15.791 --> 00:14:19.501
+Sesgos: en 2018 se reportó que
+una herramienta de reclutamiento
+
+00:14:19.501 --> 00:14:23.151
+de Amazon penalizaba hojas de
+vida de mujeres, porque aprendió
+
+00:14:23.151 --> 00:14:26.330
+de años de contrataciones
+mayoritariamente masculinas.
+
+00:14:26.800 --> 00:14:30.149
+Toma de decisiones: si un auto
+autónomo falla, ¿quién responde?
+
+00:14:30.596 --> 00:14:33.007
+¿El fabricante, el programador o el dueño?
+
+00:14:33.477 --> 00:14:36.335
+Privacidad: Clearview AI
+recopiló miles de millones
+
+00:14:36.335 --> 00:14:38.576
+de fotos de redes sociales, sin permiso.
+
+00:14:38.852 --> 00:14:42.079
+Propiedad intelectual: Getty
+Images demandó a Stability
+
+00:14:42.079 --> 00:14:44.954
+AI por usar sus imágenes
+para entrenar un modelo.
+
+00:14:45.424 --> 00:14:48.161
+Y el impacto ambiental:
+entrenar y usar modelos
+
+00:14:48.161 --> 00:14:50.608
+grandes consume mucha electricidad y agua.
+
+00:14:51.078 --> 00:14:54.256
+La lección de fondo: un modelo
+aprende lo que ve en los datos.
+
+00:14:54.539 --> 00:14:57.313
+Si los datos tienen sesgos,
+el modelo los repite.
+
+00:14:58.363 --> 00:15:03.312
+Un caso famoso: Tay, el chatbot de
+Microsoft lanzado en Twitter en 2016.
+
+00:15:03.599 --> 00:15:06.266
+Aprendía de las conversaciones
+con los usuarios…
+
+00:15:06.736 --> 00:15:09.964
+…y en menos de un día empezó
+a publicar mensajes racistas
+
+00:15:09.964 --> 00:15:13.306
+y xenófobos, copiando lo que
+algunos usuarios le enseñaron.
+
+00:15:13.575 --> 00:15:15.345
 Microsoft tuvo que apagarlo.
 
-143
-00:14:05.983 --> 00:14:08.671
-Otro ejemplo de sesgo es Google Translate.
+00:15:15.587 --> 00:15:18.147
+Es justo la lección anterior:
+aprendió lo que vio.
 
-144
-00:14:08.951 --> 00:14:16.311
-Al traducir del turco, que no distingue género en o bir doktor, antes traducía siempre él es doctor, asumiendo que un doctor es hombre.
+00:15:19.197 --> 00:15:21.394
+Otro ejemplo de sesgo: Google Translate.
 
-145
-00:14:16.591 --> 00:14:21.093
-Después de la corrección, muestra las dos opciones: ella es doctora y él es doctor.
+00:15:21.683 --> 00:15:24.888
+El turco no distingue género, y
+antes traducía «o bir doktor»
 
-146
-00:14:22.317 --> 00:14:24.429
-La ética del arte hecho con IA.
+00:15:24.888 --> 00:15:28.041
+siempre como «él es doctor»:
+asumía que un doctor es hombre.
 
-147
-00:14:24.709 --> 00:14:34.479
-Además del costo ambiental, el arte generado por IA plantea preguntas sobre quién es el dueño de la obra, qué tan autónoma es la máquina y cuál es el futuro del arte.
+00:15:28.511 --> 00:15:30.596
+Después de la corrección, muestra las dos
 
-148
-00:14:34.759 --> 00:14:38.365
-La imagen de la derecha es un retrato creado por un algoritmo.
+00:15:30.596 --> 00:15:32.884
+opciones: «ella es doctora» y «él es doctor».
 
-149
-00:14:39.583 --> 00:14:41.823
-Implicaciones de la IA: los deepfakes.
+00:15:33.934 --> 00:15:36.346
+El arte hecho con IA también abre preguntas:
 
-150
-00:14:42.103 --> 00:14:47.394
-A la izquierda está un video real y a la derecha un video generado con IA de la misma persona.
+00:15:36.346 --> 00:15:39.033
+además del costo ambiental,
+¿de quién es la obra?
 
-151
-00:14:47.674 --> 00:14:51.855
-Esto muestra lo difícil que puede ser distinguir lo verdadero de lo falso.
+00:15:39.463 --> 00:15:41.340
+¿Qué tan autónoma es la máquina?
 
-152
-00:14:53.117 --> 00:14:54.311
-Otra implicación:
+00:15:41.796 --> 00:15:43.737
+¿Y qué pasa con el futuro del arte?
 
-153
-00:14:54.591 --> 00:15:07.306
-un estudio de dos mil veintitrés demostró que una IA puede adivinar contraseñas escuchando el sonido de las teclas, con una efectividad de alrededor del noventa y cinco por ciento usando grabaciones hechas con un celular.
+00:15:44.166 --> 00:15:46.726
+El retrato de la derecha lo creó un algoritmo.
 
-154
-00:15:07.586 --> 00:15:09.655
-Es un riesgo de seguridad nuevo.
+00:15:47.776 --> 00:15:49.589
+Otra implicación: los deepfakes.
 
-155
-00:15:10.917 --> 00:15:18.490
-Y una implicación más grave: en Corea del Sur, un robot industrial confundió a un trabajador con una caja de verduras y lo aplastó.
+00:15:49.836 --> 00:15:54.529
+A la izquierda, un video real; a la derecha,
+uno generado con IA de la misma persona.
 
-156
-00:15:18.770 --> 00:15:25.981
-Esto muestra que los errores de un sistema automatizado pueden tener consecuencias fatales, y que la seguridad es fundamental.
+00:15:54.818 --> 00:15:57.858
+Cada vez es más difícil
+distinguir lo verdadero de lo
 
-157
-00:15:27.183 --> 00:15:34.757
-En resumen, esta semana vimos la inteligencia artificial: su definición, su historia, sus casos de uso y sus problemas éticos.
+00:15:57.858 --> 00:16:01.069
+falso, y eso es un riesgo
+enorme para la desinformación.
 
-158
-00:15:35.037 --> 00:15:43.719
-Recuerda la idea central: la IA busca que las máquinas realicen tareas que requieren inteligencia, y hoy lo logra principalmente aprendiendo de datos.
+00:16:01.341 --> 00:16:05.608
+Por eso, antes de compartir un video
+impactante, conviene verificar la fuente.
 
-159
-00:15:43.999 --> 00:15:46.026
-Esto es todo para la semana uno.
+00:16:06.658 --> 00:16:11.117
+Y una que suena a película: en 2023,
+un estudio mostró que una IA puede
+
+00:16:11.117 --> 00:16:15.514
+adivinar contraseñas escuchando el
+sonido de las teclas, con alrededor
+
+00:16:15.514 --> 00:16:20.162
+de 95 por ciento de efectividad, usando
+grabaciones hechas con un celular.
+
+00:16:20.462 --> 00:16:23.124
+Es un buen ejemplo de cómo la IA también abre
+
+00:16:23.124 --> 00:16:25.667
+riesgos de seguridad que antes no existían.
+
+00:16:26.717 --> 00:16:30.089
+La más grave: en Corea del Sur,
+un robot industrial confundió
+
+00:16:30.089 --> 00:16:33.074
+a un trabajador con una caja
+de verduras y lo aplastó.
+
+00:16:33.382 --> 00:16:37.088
+Los errores de un sistema automatizado
+pueden tener consecuencias
+
+00:16:37.088 --> 00:16:39.654
+fatales; por eso la seguridad no es opcional.
+
+00:16:40.704 --> 00:16:44.841
+Y este es el resumen oficial de la
+semana: la definición de inteligencia
+
+00:16:44.841 --> 00:16:48.576
+artificial, su historia, sus casos
+de uso y sus problemas éticos.
+
+00:16:49.626 --> 00:16:51.461
+Antes de terminar, ponte a prueba.
+
+00:16:51.715 --> 00:16:54.147
+Si necesitas más tiempo, pausa el video.
+
+00:16:54.387 --> 00:16:57.412
+Primera pregunta: según la
+pista de si aprende de datos
+
+00:16:57.412 --> 00:17:00.382
+o sigue una regla fija, ¿cuál
+de estos sistemas es IA?
+
+00:17:00.818 --> 00:17:05.127
+¿Una alarma que suena a las seis, el filtro
+de spam de Gmail, o una calculadora?
+
+00:17:10.747 --> 00:17:13.755
+El filtro de spam, porque
+aprendió de millones de correos.
+
+00:17:14.049 --> 00:17:16.801
+La alarma y la calculadora
+siguen reglas fijas.
+
+00:17:17.271 --> 00:17:19.980
+Siguiente: ¿qué provocó el
+segundo invierno de la IA?
+
+00:17:20.415 --> 00:17:25.108
+¿La prueba de Turing, el declive de los
+sistemas expertos, o la llegada de ChatGPT?
+
+00:17:30.728 --> 00:17:33.205
+El declive de los sistemas expertos, que eran
+
+00:17:33.205 --> 00:17:35.571
+caros, inflexibles y difíciles de mantener.
+
+00:17:36.041 --> 00:17:39.646
+Y la última: en la prueba de Turing,
+¿qué papel cumple el jugador C?
+
+00:17:44.266 --> 00:17:46.794
+Es el interrogador: les pregunta a los dos sin
+
+00:17:46.794 --> 00:17:49.322
+verlos, e intenta adivinar cuál es la máquina.
+
+00:17:50.372 --> 00:17:52.249
+Resumamos lo más importante.
+
+00:17:52.719 --> 00:17:55.994
+Uno: según McCarthy, la IA es
+la ciencia y la ingeniería de
+
+00:17:55.994 --> 00:17:59.546
+crear máquinas inteligentes, sin
+tener que imitar a la biología.
+
+00:18:00.016 --> 00:18:04.613
+Dos: la historia tuvo dos inviernos: el de
+los setenta, por expectativas incumplidas,
+
+00:18:04.613 --> 00:18:08.507
+y el de finales de los ochenta, por
+el declive de los sistemas expertos.
+
+00:18:08.977 --> 00:18:12.475
+Tres: la IA contiene al machine
+learning, que contiene al deep learning.
+
+00:18:12.734 --> 00:18:16.275
+Y la IA generativa crea contenido
+nuevo usando deep learning.
+
+00:18:16.745 --> 00:18:20.483
+Y cuatro: los dilemas éticos son
+los sesgos, la toma de decisiones,
+
+00:18:20.483 --> 00:18:23.998
+la privacidad, la propiedad
+intelectual y el impacto ambiental.
+
+00:18:24.280 --> 00:18:26.499
+Un modelo repite lo que ve en los datos.
+
+00:18:27.549 --> 00:18:29.405
+Eso es todo para la semana uno.
+
+00:18:29.692 --> 00:18:33.396
+En el siguiente video vamos a ver la
+diferencia entre IA débil y fuerte,
+
+00:18:33.396 --> 00:18:36.945
+qué es el machine learning, y los
+tipos de datos con los que trabaja.
+
+00:18:37.210 --> 00:18:38.234
+¡Nos vemos ahí!
 

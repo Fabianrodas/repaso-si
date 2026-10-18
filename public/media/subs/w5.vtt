@@ -1,494 +1,873 @@
 WEBVTT
 
-1
-00:00:00.450 --> 00:00:01.538
-Semana cinco.
+00:00:00.500 --> 00:00:03.498
+Imagina una encuesta real
+de salarios: veintiocho mil
 
-2
-00:00:01.818 --> 00:00:07.194
-Veremos qué son los módulos de Python y cómo explorar un dataset real con la librería Pandas.
+00:00:03.498 --> 00:00:06.665
+doscientas veintiséis respuestas,
+en dieciocho columnas.
 
-3
-00:00:08.450 --> 00:00:10.903
-Los resultados de aprendizaje son tres:
+00:00:07.135 --> 00:00:10.677
+Ahora te pregunto: ¿cuántas personas
+respondieron desde Ecuador?
 
-4
-00:00:11.183 --> 00:00:20.421
-definir el concepto de módulo en Python, describir las principales funciones de Pandas para explorar datos, y explorar un dataset real usando esas funciones.
+00:00:11.097 --> 00:00:13.977
+A mano, revisando fila por
+fila, te tomaría horas.
 
-5
-00:00:21.650 --> 00:00:29.650
-Python incluye librerías creadas para distintos propósitos, por ejemplo para calcular estadísticas o hacer operaciones matemáticas.
+00:00:14.447 --> 00:00:16.730
+Con Pandas es una sola línea de código.
 
-6
-00:00:29.930 --> 00:00:33.962
-Para usarlas en el código hay que importarlas con la palabra import.
+00:00:16.996 --> 00:00:18.724
+Y la respuesta: dos personas.
 
-7
-00:00:34.242 --> 00:00:40.109
-Se puede escribir import y el nombre del módulo, o import módulo as alias, para usar un nombre más corto.
+00:00:18.978 --> 00:00:23.095
+Al final de este video vas a entender
+exactamente cómo funciona esa línea.
 
-8
-00:00:41.317 --> 00:00:42.831
-Un ejemplo de módulos.
+00:00:24.145 --> 00:00:27.726
+Semana cinco: módulos de Python y
+exploración de datos con Pandas,
 
-9
-00:00:43.111 --> 00:00:50.045
-Con import math, usamos math punto sqrt de dieciséis, que calcula la raíz cuadrada y devuelve cuatro punto cero.
+00:00:27.726 --> 00:00:31.740
+la librería que convierte a Python en
+una herramienta para analizar datos.
 
-10
-00:00:50.325 --> 00:00:59.647
-Con import statistics as st, usamos el alias: st punto mean de ochenta y cinco, noventa y dos y setenta y ocho devuelve el promedio, ochenta y cinco.
+00:00:32.790 --> 00:00:36.459
+Los resultados de aprendizaje:
+definir qué es un módulo en Python…
 
-11
-00:00:59.927 --> 00:01:06.370
-Con from math import pi, traemos solo pi, y redondeado a cuatro decimales da tres punto uno cuatro uno seis.
+00:00:36.929 --> 00:00:39.539
+…describir las principales funciones de Pandas
 
-12
-00:01:06.650 --> 00:01:13.605
-Pero si escribimos sqrt de veinticinco sin el prefijo math, sale NameError, porque Python no conoce esa función.
+00:00:39.539 --> 00:00:42.433
+para explorar datos, y
+usarlas con un dataset real.
 
-13
-00:01:13.885 --> 00:01:17.853
-Un módulo es como una caja de herramientas: import la trae a tu mesa.
+00:00:43.483 --> 00:00:46.664
+Python trae librerías para
+distintos propósitos, como
 
-14
-00:01:19.117 --> 00:01:22.893
-Pandas es una librería de Python para manejar y analizar datos.
+00:00:46.664 --> 00:00:49.905
+calcular estadísticas o hacer
+operaciones matemáticas.
 
-15
-00:01:23.173 --> 00:01:30.746
-Usa estructuras de datos que facilitan manipular y procesar la información, y se usa mucho en ciencia de datos y machine learning.
+00:00:50.375 --> 00:00:53.596
+Pero para usarlas hay que
+importarlas, con la palabra import.
 
-16
-00:01:31.983 --> 00:01:38.511
-Para instalar Pandas está la guía oficial cuyo enlace aparece en la diapositiva; en Colab ya viene instalada.
+00:00:53.875 --> 00:00:56.495
+Puedes escribir import y
+el nombre del módulo, o
 
-17
-00:01:38.791 --> 00:01:42.013
-Para usarla en Python se escribe import pandas as pd.
+00:00:56.495 --> 00:00:59.443
+import módulo as alias, para
+usar un nombre más corto.
 
-18
-00:01:43.250 --> 00:01:48.071
-El método read_csv lee un archivo de valores separados por comas, o CSV.
+00:00:59.744 --> 00:01:02.304
+¿Por qué no viene todo
+cargado desde el inicio?
 
-19
-00:01:48.351 --> 00:01:56.394
-Devuelve un DataFrame, que es la estructura de datos de Pandas: una tabla que agrupa los valores en columnas y usa un índice para las filas.
+00:01:02.736 --> 00:01:07.792
+Porque Python sería pesadísimo: cada programa
+trae solo las herramientas que necesita.
 
-20
-00:01:56.674 --> 00:02:01.901
-Recibe la ruta del archivo, que puede ser un enlace, y el separador, que por defecto es la coma.
+00:01:08.842 --> 00:01:14.730
+Con import math, usas math punto sqrt de
+16, la raíz cuadrada, y devuelve 4.0.
 
-21
-00:02:03.117 --> 00:02:05.058
-Un ejemplo de read_csv.
+00:01:14.990 --> 00:01:17.998
+Fíjate que se escribe con el
+nombre del módulo adelante.
 
-22
-00:02:05.338 --> 00:02:11.311
-El archivo notas punto csv tiene en la primera línea los encabezados: nombre, edad, ciudad y nota.
+00:01:18.468 --> 00:01:23.908
+Con import statistics as st, usas el
+alias: st punto mean da el promedio, 85.
 
-23
-00:02:11.591 --> 00:02:17.373
-Las siguientes líneas son los datos, separados por comas, como Ana, veinte, Guayaquil, ochenta y cinco.
+00:01:24.158 --> 00:01:25.993
+El alias es como un apodo corto.
 
-24
-00:02:17.653 --> 00:02:25.951
-Con pd punto read_csv de notas punto csv obtenemos un DataFrame con cuatro filas, numeradas del cero al tres, y cuatro columnas.
+00:01:26.463 --> 00:01:29.514
+Con from math import pi
+traes solo lo que necesitas.
 
-25
-00:02:26.231 --> 00:02:32.781
-Un detalle práctico: si el archivo viene de Excel en español, muchas veces usa punto y coma como separador.
+00:01:29.756 --> 00:01:32.946
+Pero si escribes sqrt sin
+el prefijo, sale NameError:
 
-26
-00:02:33.061 --> 00:02:36.239
-Si lo lees sin indicarlo, todo queda en una sola columna.
+00:01:32.946 --> 00:01:35.473
+Python no sabe de dónde viene esa función.
 
-27
-00:02:36.519 --> 00:02:39.634
-La solución es agregar sep igual a punto y coma.
+00:01:35.943 --> 00:01:40.253
+La analogía: un módulo es una caja de
+herramientas, e import la trae a tu mesa.
 
-28
-00:02:40.850 --> 00:02:46.909
-En clase se usó un dataset real de salarios, que viene de la página de datos desordenados de Oscar Baruffa.
+00:01:40.504 --> 00:01:44.472
+Y abajo tienes los más usados:
+math, statistics, pandas y numpy.
 
-29
-00:02:47.189 --> 00:02:50.837
-Los enlaces a la página y al dataset están en la diapositiva.
+00:01:45.522 --> 00:01:48.594
+Pandas es una librería para
+manejar y analizar datos.
 
-30
-00:02:52.050 --> 00:03:01.842
-Estos son los métodos más comunes de Pandas. df punto info devuelve información del DataFrame. df punto describe devuelve un resumen con estadísticas básicas:
+00:01:49.064 --> 00:01:52.862
+Usa estructuras de datos que
+facilitan manipularlos y procesarlos…
 
-31
-00:03:02.122 --> 00:03:10.165
-mínimo, máximo, promedio, conteo y desviación estándar. df de una columna punto unique devuelve los valores únicos de esa columna.
+00:01:53.332 --> 00:01:56.532
+…y se usa muchísimo en ciencia
+de datos y machine learning.
 
-32
-00:03:10.445 --> 00:03:14.071
-Y df punto count devuelve el número de celdas no vacías.
+00:01:56.817 --> 00:02:00.871
+Si vas a trabajar con datos en Python,
+casi seguro vas a usar Pandas.
 
-33
-00:03:15.317 --> 00:03:21.013
-Veamos info y count con un DataFrame pequeño de seis estudiantes, con nombre, edad, ciudad y nota.
+00:02:01.921 --> 00:02:05.953
+Para instalarla está la guía oficial,
+aunque en Colab ya viene instalada.
 
-34
-00:03:21.293 --> 00:03:32.706
-A Sofía le falta la nota, y aparece como NaN, que significa valor vacío. df punto info muestra que hay seis filas y cuatro columnas, el tipo de cada columna y cuántos valores no vacíos tiene:
+00:02:06.210 --> 00:02:08.941
+Y para usarla se escribe import pandas as pd.
 
-35
-00:03:32.986 --> 00:03:34.287
-nota tiene cinco.
+00:02:09.234 --> 00:02:12.264
+Ese pd es el alias que verás
+en todos los ejemplos.
 
-36
-00:03:34.567 --> 00:03:44.701
-Los tipos son object para texto, int64 para enteros y float64 para decimales. df punto count muestra solo el conteo de no vacíos por columna:
+00:02:13.314 --> 00:02:17.858
+El método read_csv lee un archivo de
+valores separados por comas, un CSV.
 
-37
-00:03:44.981 --> 00:03:47.690
+00:02:18.328 --> 00:02:21.080
+Y devuelve un DataFrame:
+la estructura de Pandas.
+
+00:02:21.366 --> 00:02:23.781
+Piensa en una hoja de Excel dentro de Python:
+
+00:02:23.781 --> 00:02:26.358
+columnas con nombre, y un
+índice para las filas.
+
+00:02:26.828 --> 00:02:29.513
+Recibe la ruta del archivo,
+que puede ser un enlace,
+
+00:02:29.513 --> 00:02:31.734
+y el separador, que por defecto es la coma.
+
+00:02:32.784 --> 00:02:33.659
+Así se ve.
+
+00:02:33.907 --> 00:02:36.754
+El archivo notas punto
+csv tiene los encabezados
+
+00:02:36.754 --> 00:02:39.838
+en la primera línea, y cada
+coma separa una columna.
+
+00:02:40.308 --> 00:02:43.465
+Con pd punto read_csv obtienes
+un DataFrame de cuatro
+
+00:02:43.465 --> 00:02:46.623
+filas, numeradas del cero
+al tres, y cuatro columnas.
+
+00:02:47.093 --> 00:02:51.829
+Un detalle práctico: si el archivo viene de
+Excel en español, suele usar punto y coma.
+
+00:02:52.087 --> 00:02:54.604
+Si no lo indicas, todo
+queda en una sola columna.
+
+00:02:54.881 --> 00:02:57.057
+La solución: sep igual a punto y coma.
+
+00:02:58.107 --> 00:03:01.040
+En clase se trabajó con un
+dataset real de salarios,
+
+00:03:01.040 --> 00:03:03.974
+de la página de datos
+desordenados de Oscar Baruffa.
+
+00:03:04.241 --> 00:03:06.438
+Los enlaces están en la diapositiva.
+
+00:03:06.748 --> 00:03:11.185
+Es el mismo proyecto messy data de la
+semana tres: ahora sí lo vamos a explorar.
+
+00:03:12.235 --> 00:03:16.864
+Estos son los métodos más comunes. info
+devuelve información general del DataFrame.
+
+00:03:17.334 --> 00:03:20.158
+describe da un resumen
+con estadísticas básicas:
+
+00:03:20.158 --> 00:03:23.393
+mínimo, máximo, promedio,
+conteo y desviación estándar.
+
+00:03:23.863 --> 00:03:26.470
+unique, sobre una columna,
+devuelve sus valores
+
+00:03:26.470 --> 00:03:29.132
+únicos; y count, cuántas
+celdas no están vacías.
+
+00:03:29.402 --> 00:03:32.128
+Estos cuatro son tu primer
+contacto con cualquier
+
+00:03:32.128 --> 00:03:35.077
+dataset: antes de analizar,
+hay que conocer la tabla.
+
+00:03:36.127 --> 00:03:38.474
+Mira info y count con seis estudiantes.
+
+00:03:38.740 --> 00:03:43.305
+A Sofía le falta la nota, y aparece como
+NaN: así marca Pandas un valor vacío.
+
+00:03:43.775 --> 00:03:46.933
+info muestra seis filas, cuatro
+columnas, el tipo de cada
+
+00:03:46.933 --> 00:03:50.090
+una, y cuántos valores no
+vacíos tiene: nota tiene cinco.
+
+00:03:50.373 --> 00:03:55.941
+Los tipos: object es texto, int64
+son enteros, y float64, decimales.
+
+00:03:56.411 --> 00:04:01.083
+count muestra solo el conteo de no vacíos:
 seis en todas, menos nota, que tiene cinco.
 
-38
-00:03:48.917 --> 00:03:54.762
-Ahora describe y unique. df punto describe calcula estadísticas solo de las columnas numéricas.
+00:04:02.133 --> 00:04:03.135
+Ahora describe.
 
-39
-00:03:55.042 --> 00:03:58.327
-En la columna nota, count es cinco, porque el NaN no cuenta.
+00:04:03.389 --> 00:04:05.821
+Solo trabaja con las columnas numéricas.
 
-40
-00:03:58.607 --> 00:04:03.983
-Mean es el promedio: trescientos setenta y seis entre cinco, que es setenta y cinco punto dos.
+00:04:06.113 --> 00:04:08.716
+En nota, count es cinco,
+porque el NaN no cuenta.
 
-41
-00:04:04.263 --> 00:04:08.829
-Std es la desviación estándar, que mide qué tan separados están los datos.
+00:04:09.011 --> 00:04:11.891
+Y mean es el promedio: 75.2.
 
-42
-00:04:09.109 --> 00:04:13.845
-Min y max son la nota más baja, cincuenta y ocho, y la más alta, noventa y dos.
+00:04:12.361 --> 00:04:15.472
+std es la desviación estándar:
+qué tan separados están
 
-43
-00:04:14.125 --> 00:04:18.370
-Y los percentiles: el cincuenta por ciento es la mediana, setenta y cuatro.
+00:04:15.472 --> 00:04:18.526
+los datos. min y max, la
+nota más baja y la más alta.
 
-44
-00:04:18.650 --> 00:04:24.751
-Además, df de ciudad punto unique devuelve los valores distintos sin repetir: Guayaquil, Quito y Cuenca.
+00:04:18.790 --> 00:04:21.926
+Y el 50 por ciento es la mediana: 74.
 
-45
-00:04:25.031 --> 00:04:29.661
-Describe también sirve para detectar errores, como una edad máxima de doscientos.
+00:04:22.396 --> 00:04:26.854
+unique sobre la ciudad devuelve los valores
+sin repetir: Guayaquil, Quito y Cuenca.
 
-46
-00:04:30.917 --> 00:04:33.285
-Así se explora el dataset de salarios.
+00:04:27.123 --> 00:04:30.430
+Y un consejo: describe sirve
+para detectar errores rápido.
 
-47
-00:04:33.565 --> 00:04:36.637
-Se lee con read_csv y se muestra el DataFrame.
+00:04:30.725 --> 00:04:34.565
+Una edad máxima de 200 te dice
+que alguien escribió mal un dato.
 
-48
-00:04:36.917 --> 00:04:41.781
-Los encabezados son las preguntas completas del formulario, por lo que son muy largos.
+00:04:35.615 --> 00:04:38.986
+Así se ve el dataset de salarios
+al leerlo con read_csv.
 
-49
-00:04:42.983 --> 00:04:52.199
-Para cambiar los encabezados se crea un diccionario de renombrado, donde cada pregunta larga se asocia con un nombre corto, como age, industry o job title.
+00:04:39.456 --> 00:04:41.013
+¿Notas los encabezados?
 
-50
-00:04:52.479 --> 00:04:59.925
-Luego se aplica df igual a df punto rename con columns igual al diccionario, y df punto columns muestra los nuevos nombres.
+00:04:41.449 --> 00:04:44.627
+Son las preguntas completas
+del formulario: larguísimas.
 
-51
-00:05:01.183 --> 00:05:03.146
-Un ejemplo más simple de rename.
+00:04:44.889 --> 00:04:46.617
+Trabajar así es incómodo.
 
-52
-00:05:03.426 --> 00:05:09.143
-Las columnas originales son Nombre del estudiante, Edad entre paréntesis años, y Ciudad de origen.
+00:04:47.667 --> 00:04:51.499
+Para cambiarlos, se crea un diccionario
+de renombrado: cada pregunta
 
-53
-00:05:09.423 --> 00:05:15.439
-Creamos un diccionario llamado mapeo, donde cada nombre viejo apunta a uno nuevo: nombre, edad y ciudad.
+00:04:51.499 --> 00:04:55.049
+larga apunta a un nombre corto,
+como age, industry o job title.
 
-54
-00:05:15.719 --> 00:05:22.013
-Aplicamos df igual a df punto rename con columns igual a mapeo, y la tabla queda con encabezados cortos.
+00:04:55.519 --> 00:04:58.704
+Luego se aplica rename con
+columns igual al diccionario,
 
-55
-00:05:22.293 --> 00:05:23.402
-¿Por qué hacerlo?
+00:04:58.704 --> 00:05:01.321
+y df punto columns muestra los nuevos nombres.
 
-56
-00:05:23.682 --> 00:05:31.703
-Porque formularios como Google Forms usan la pregunta completa como encabezado, y escribirla cada vez es incómodo y propenso a errores.
+00:05:02.371 --> 00:05:03.779
+Un ejemplo más simple.
 
-57
-00:05:31.983 --> 00:05:36.165
-Recuerda guardar el resultado con df igual a, o el cambio se pierde.
+00:05:04.067 --> 00:05:06.601
+Las columnas son «Nombre
+del estudiante», «Edad
 
-58
-00:05:37.383 --> 00:05:45.426
-df punto info muestra la información del dataset de salarios: tiene veintiocho mil doscientas veintiséis filas y dieciocho columnas.
+00:05:06.601 --> 00:05:08.974
+entre paréntesis años» y «Ciudad de origen».
 
-59
-00:05:45.706 --> 00:05:51.658
-Casi todas son de tipo object, es decir texto, y la columna additional comp es float64.
+00:05:09.444 --> 00:05:13.561
+Se crea un diccionario, mapeo, donde
+cada nombre viejo apunta a uno nuevo.
 
-60
-00:05:51.938 --> 00:05:55.437
-También se ve cuántos valores no vacíos tiene cada columna.
+00:05:13.819 --> 00:05:16.720
+Y con rename la tabla queda
+con encabezados cortos.
 
-61
-00:05:56.650 --> 00:06:04.330
-df punto describe muestra las estadísticas básicas de las columnas numéricas, en este caso annual salary y additional comp.
+00:05:17.190 --> 00:05:21.201
+Un detalle importante: hay que
+guardar el resultado con df igual a.
 
-62
-00:06:04.610 --> 00:06:13.015
-Los valores aparecen en notación científica; por ejemplo, el máximo del salario es seis por diez a la nueve, lo que sugiere un dato mal ingresado.
+00:05:21.472 --> 00:05:23.051
+Si no, el cambio se pierde.
 
-63
-00:06:14.250 --> 00:06:19.775
-La función head devuelve los primeros registros del DataFrame; por defecto, los primeros cinco.
+00:05:24.101 --> 00:05:26.853
+info sobre el dataset de
+salarios: veintiocho mil
 
-64
-00:06:20.055 --> 00:06:23.959
-Se puede indicar cuántos mostrar, por ejemplo df punto head de diez.
+00:05:26.853 --> 00:05:29.605
+doscientas veintiséis filas
+y dieciocho columnas.
 
-65
-00:06:25.183 --> 00:06:29.770
-La función tail devuelve los últimos registros; por defecto, los últimos cinco.
+00:05:30.075 --> 00:05:34.853
+Casi todas son object, es decir,
+texto; y additional comp es float64.
 
-66
-00:06:30.050 --> 00:06:34.253
-También se puede indicar la cantidad, por ejemplo df punto tail de ocho.
+00:05:35.160 --> 00:05:38.488
+También ves cuántos valores
+no vacíos tiene cada columna.
 
-67
-00:06:35.517 --> 00:06:41.639
-Un ejemplo con un DataFrame de ocho estudiantes. df punto head de tres muestra las tres primeras filas:
+00:05:39.538 --> 00:05:42.335
+describe muestra las
+estadísticas de las columnas
 
-68
-00:06:41.919 --> 00:06:46.101
-Ana, Luis y María. df punto tail de dos muestra las dos últimas:
+00:05:42.335 --> 00:05:45.533
+numéricas: el salario anual
+y la compensación adicional.
 
-69
-00:06:46.381 --> 00:06:47.597
-Valeria y Pedro.
+00:05:46.003 --> 00:05:47.901
+Están en notación científica.
 
-70
-00:06:47.877 --> 00:06:53.573
-Fíjate en que el índice se conserva: en tail aparecen los índices seis y siete, no cero y uno.
+00:05:48.164 --> 00:05:51.023
+Mira el máximo del salario:
+seis por diez a la nueve.
 
-71
-00:06:53.853 --> 00:06:56.562
-Sin número, head y tail muestran cinco filas.
+00:05:51.325 --> 00:05:54.802
+Seis mil millones al año…
+claramente un dato mal ingresado.
 
-72
-00:06:56.842 --> 00:07:02.261
-Con un dataset de veintiocho mil filas, como el de salarios, es la forma rápida de dar un vistazo.
+00:05:55.852 --> 00:05:59.372
+La función head devuelve las
+primeras filas; por defecto, cinco.
 
-73
-00:07:03.517 --> 00:07:06.034
+00:05:59.842 --> 00:06:03.042
+Y puedes indicar cuántas
+quieres, por ejemplo head de 10.
+
+00:06:04.092 --> 00:06:06.737
+tail hace lo mismo, pero
+con las últimas filas.
+
+00:06:07.020 --> 00:06:09.989
+Por defecto también son
+cinco, aunque la diapositiva
+
+00:06:09.989 --> 00:06:12.673
+diga «first 5»: se refiere
+a las últimas cinco.
+
+00:06:12.974 --> 00:06:15.619
+Y puedes pedir otra cantidad, como tail de 8.
+
+00:06:16.669 --> 00:06:21.426
+Con ocho estudiantes: head de 3 muestra las
+tres primeras filas, Ana, Luis y María.
+
+00:06:21.896 --> 00:06:24.776
+tail de 2 muestra las dos
+últimas: Valeria y Pedro.
+
+00:06:25.040 --> 00:06:27.088
+Y fíjate en el índice: se conserva.
+
+00:06:27.379 --> 00:06:30.237
+En tail ves el 6 y el 7, no el 0 y el 1.
+
+00:06:30.707 --> 00:06:33.718
+Con veintiocho mil filas,
+como el dataset de salarios,
+
+00:06:33.718 --> 00:06:36.617
+head y tail son la forma
+rápida de echar un vistazo.
+
+00:06:37.667 --> 00:06:39.885
 Para eliminar una columna se usa drop.
 
-74
-00:07:06.314 --> 00:07:14.805
-En el ejemplo, df punto drop de timestamp, con axis igual a uno e inplace igual a True, elimina la columna timestamp del DataFrame original.
+00:06:40.172 --> 00:06:43.271
+Aquí, drop de timestamp, con
+axis igual a 1 e inplace
 
-75
-00:07:16.050 --> 00:07:26.589
-Veamos drop con más detalle. df punto drop de edad con axis igual a uno borra una columna. df punto drop de cero con axis igual a cero borra una fila, según su índice.
+00:06:43.271 --> 00:06:46.486
+igual a True, borra esa columna
+del DataFrame original.
 
-76
-00:07:26.869 --> 00:07:31.306
-Pero ojo: después de eso, df sigue intacto, porque drop devuelve una copia.
+00:06:46.776 --> 00:06:50.457
+Timestamp es la fecha y hora en que
+alguien respondió el formulario:
 
-77
-00:07:31.586 --> 00:07:38.733
-Para modificar el original se usa inplace igual a True, o se guarda el resultado con df igual a df punto drop.
+00:06:50.457 --> 00:06:53.326
+para analizar salarios no
+aporta, así que se elimina.
 
-78
-00:07:39.013 --> 00:07:44.261
-Una forma de recordar: axis uno es a lo ancho, columnas; axis cero es a lo largo, filas.
+00:06:54.376 --> 00:06:58.472
+Veámoslo con calma. drop de edad con
+axis igual a 1 borra una columna.
 
-79
-00:07:45.517 --> 00:07:48.290
+00:06:58.726 --> 00:07:02.523
+Y drop de 0 con axis igual a 0
+borra una fila, según su índice.
+
+00:07:02.993 --> 00:07:06.855
+Pero ojo: después de eso, df sigue
+intacto. drop devolvió una copia.
+
+00:07:07.325 --> 00:07:10.607
+Para modificar el original,
+usas inplace igual a True,
+
+00:07:10.607 --> 00:07:13.767
+o guardas el resultado con
+df igual a df punto drop.
+
+00:07:14.237 --> 00:07:18.611
+Y un truco para el axis: 1 es a lo
+ancho, columnas; 0 es a lo largo, filas.
+
+00:07:19.661 --> 00:07:22.157
 Para revisar valores vacíos se usa isna.
 
-80
-00:07:48.570 --> 00:07:54.074
-Devuelve una tabla del mismo tamaño, con True donde hay un valor vacío y False donde hay un valor.
+00:07:22.410 --> 00:07:24.862
+Devuelve una tabla del mismo tamaño, con True
 
-81
-00:07:55.317 --> 00:07:59.989
-isnull hace exactamente lo mismo que isna: marca con True los valores vacíos.
+00:07:24.862 --> 00:07:27.423
+donde hay un vacío, y
+False donde hay un valor.
 
-82
-00:08:01.250 --> 00:08:06.285
-Para contar el total de vacíos por columna se usa df punto isnull punto sum.
+00:07:28.473 --> 00:07:30.905
+isnull hace exactamente lo mismo que isna.
 
-83
-00:08:06.565 --> 00:08:15.781
-En el dataset de salarios, por ejemplo, age no tiene vacíos, additional comp tiene siete mil trescientos setenta y seis, y currency other tiene veintiocho mil uno.
+00:07:31.192 --> 00:07:33.325
+Son dos nombres para la misma función.
 
-84
-00:08:16.983 --> 00:08:18.370
+00:07:33.609 --> 00:07:36.162
+Pero con veintiocho mil filas, mirar una tabla
+
+00:07:36.162 --> 00:07:38.494
+gigante de True y False no sirve de mucho.
+
+00:07:38.746 --> 00:07:40.389
+Necesitamos un resumen…
+
+00:07:41.439 --> 00:07:44.980
+Y para contar los vacíos por
+columna se usa isnull punto sum.
+
+00:07:45.450 --> 00:07:49.689
+En el dataset de salarios, age no tiene
+vacíos, additional comp tiene siete mil
+
+00:07:49.689 --> 00:07:54.304
+trescientos setenta y seis, y currency other,
+veintiocho mil uno: casi nadie la llenó.
+
+00:07:55.354 --> 00:07:56.676
 Un ejemplo pequeño.
 
-85
-00:08:18.650 --> 00:08:28.421
-El DataFrame tiene cuatro filas, con algunos vacíos: a una persona le falta el nombre, a otra la edad, y dos no tienen nota. df punto isna marca True en cada vacío.
+00:07:56.957 --> 00:08:00.626
+A una persona le falta el nombre, a
+otra la edad, y dos no tienen nota.
 
-86
-00:08:28.701 --> 00:08:34.098
-Y df punto isnull punto sum da el total por columna: nombre uno, edad uno y nota dos.
+00:08:00.878 --> 00:08:03.011
+Para Pandas, None y NaN son vacíos.
 
-87
-00:08:34.378 --> 00:08:35.786
+00:08:03.481 --> 00:08:05.486
+isna marca True en cada vacío.
+
+00:08:05.778 --> 00:08:10.258
+Y isnull punto sum da el total por
+columna: nombre 1, edad 1 y nota 2.
+
+00:08:10.728 --> 00:08:12.051
 ¿Por qué funciona sum?
 
-88
-00:08:36.066 --> 00:08:41.335
-Porque Python trata True como uno y False como cero, así que sumar es contar los vacíos.
+00:08:12.468 --> 00:08:15.327
+Porque Python trata True
+como 1 y False como 0.
 
-89
-00:08:41.615 --> 00:08:44.282
-Recuerda que isna e isnull son sinónimos.
+00:08:15.569 --> 00:08:17.638
+Sumar los True es contar los vacíos.
 
-90
-00:08:45.517 --> 00:08:50.466
-Para seleccionar una columna se escribe df y el nombre de la columna entre corchetes.
+00:08:18.688 --> 00:08:22.814
+Para seleccionar una columna, escribes
+df y el nombre de la columna entre
 
-91
-00:08:50.746 --> 00:08:55.375
-En el ejemplo, df de industry muestra la columna industria de todas las filas.
+00:08:22.814 --> 00:08:27.563
+corchetes. df de industry muestra la industria
+de cada persona, junto con su índice.
 
-92
-00:08:56.583 --> 00:09:00.765
-value_counts cuenta cuántas veces aparece cada valor de una columna.
+00:08:27.853 --> 00:08:30.962
+Por eso conviene renombrar
+las columnas: escribir df de
 
-93
-00:09:01.045 --> 00:09:11.263
-En el dataset, la industria más común es Computing or Tech, con cuatro mil setecientas veinticinco personas, seguida de educación superior y organizaciones sin fines de lucro.
+00:08:30.962 --> 00:08:34.467
+industry es mucho más fácil que
+escribir la pregunta completa.
 
-94
-00:09:12.517 --> 00:09:15.375
-unique muestra los valores únicos de una columna.
+00:08:35.517 --> 00:08:38.695
+value_counts cuenta cuántas
+veces aparece cada valor.
 
-95
-00:09:15.655 --> 00:09:25.063
-En la columna country aparecen muchas formas distintas de escribir Estados Unidos: United States, USA, US, U.S., con espacios, en minúsculas o con errores.
+00:08:39.165 --> 00:08:43.887
+La industria más común es Computing or Tech,
+con cuatro mil setecientas veinticinco
 
-96
-00:09:25.343 --> 00:09:28.309
-Para la computadora, cada una es un valor diferente.
+00:08:43.887 --> 00:08:48.211
+personas, seguida de educación superior
+y organizaciones sin fines de lucro.
 
-97
-00:09:29.517 --> 00:09:33.186
-Para limpiar esos valores se usa str punto replace.
+00:08:48.681 --> 00:08:52.302
+Es una tabla de frecuencias, justo
+lo que necesitas para un gráfico
 
-98
-00:09:33.466 --> 00:09:40.783
-En el ejemplo, se reemplaza United States por USA en la columna country, y luego se revisan otra vez los valores únicos.
+00:08:52.302 --> 00:08:55.870
+de barras, como vimos en la semana
+dos con los datos cualitativos.
 
-99
-00:09:41.983 --> 00:09:43.541
-Un ejemplo de limpieza.
+00:08:56.920 --> 00:09:01.315
+Y aquí aparece el gran problema de los datos
+reales. unique sobre la columna country…
 
-100
-00:09:43.821 --> 00:09:52.866
-La columna país tiene Ecuador escrito de cuatro formas: con mayúscula, en minúsculas, con espacios y como EC. value_counts muestra cada forma por separado.
+00:09:01.785 --> 00:09:05.746
+…muestra Estados Unidos escrito de
+muchísimas formas: United States,
 
-101
-00:09:53.146 --> 00:09:57.925
-Para limpiar, primero str punto strip quita los espacios al inicio y al final.
+00:09:05.746 --> 00:09:09.358
+USA, US, con puntos, con espacios,
+en minúsculas, con errores.
 
-102
-00:09:58.205 --> 00:10:01.533
-Luego str punto replace cambia EC por Ecuador.
+00:09:09.657 --> 00:09:12.558
+Para la computadora, cada
+forma es un país distinto.
 
-103
-00:10:01.813 --> 00:10:05.525
-Y str punto title pone la primera letra en mayúscula.
+00:09:13.608 --> 00:09:16.360
+Para limpiarlo se usa str punto replace.
 
-104
-00:10:05.805 --> 00:10:09.517
-Después, value_counts muestra Ecuador cinco veces y Perú una.
+00:09:16.658 --> 00:09:19.812
+Aquí se reemplaza United
+States por USA en la columna
 
-105
-00:10:09.797 --> 00:10:17.967
-Es lo mismo que pasa con United States y USA en el dataset de salarios: cada forma de escribir es un valor distinto hasta que lo limpias.
+00:09:19.812 --> 00:09:23.143
+country, y luego se revisan
+otra vez los valores únicos.
 
-106
-00:10:19.183 --> 00:10:25.007
-Los DataFrames usan índices para obtener el valor de una fila y una columna específicas, con iloc.
+00:09:23.390 --> 00:09:26.659
+Fíjate que todavía quedan
+variantes: limpiar datos reales
 
-107
-00:10:25.287 --> 00:10:30.343
-Se escribe df punto iloc, y entre corchetes el índice de la fila y el de la columna.
+00:09:26.659 --> 00:09:29.641
+es un proceso de varias
+pasadas, no un solo comando.
 
-108
-00:10:30.623 --> 00:10:37.471
-Por ejemplo, df punto iloc de cero y catorce devuelve Master's degree: el nivel educativo de la primera persona.
+00:09:30.691 --> 00:09:32.525
+Un ejemplo pequeño de limpieza.
 
-109
-00:10:38.717 --> 00:10:45.202
-Aquí se usa iloc para seleccionar varias filas y columnas por posición, usando rangos como en el slicing.
+00:09:32.787 --> 00:09:35.775
+La columna país tiene Ecuador
+escrito de cuatro formas:
 
-110
-00:10:46.450 --> 00:10:50.077
-Con iloc también se pueden mostrar ciertas filas de una columna.
+00:09:35.775 --> 00:09:38.654
+con mayúscula, en minúsculas,
+con espacios y como EC.
 
-111
-00:10:50.357 --> 00:10:57.759
-Por ejemplo, df de job title punto iloc de cero a quince muestra las filas de la cero a la catorce de la columna de cargos.
+00:09:39.124 --> 00:09:43.923
+str punto strip quita los espacios al
+inicio y al final; str punto replace
 
-112
-00:10:58.983 --> 00:11:06.834
-Un ejemplo de iloc. iloc usa solo números de posición, empezando en cero. df punto iloc de cero y dos devuelve Guayaquil:
+00:09:43.923 --> 00:09:48.852
+cambia EC por Ecuador; y str punto title
+pone la primera letra en mayúscula.
 
-113
-00:11:07.114 --> 00:11:16.223
-fila cero, columna dos, que es la ciudad de Ana. df punto iloc de uno a tres devuelve las filas uno y dos, porque el tres no se incluye, igual que en el slicing.
+00:09:49.322 --> 00:09:52.799
+Y después, value_counts muestra
+Ecuador cinco veces y Perú una.
 
-114
-00:11:16.503 --> 00:11:24.269
-Y df punto iloc con dos puntos y la lista cero y tres devuelve todas las filas, pero solo las columnas cero y tres: nombre y nota.
+00:09:53.103 --> 00:09:54.959
+Datos limpios, conteo correcto.
 
-115
-00:11:25.517 --> 00:11:28.951
-Para seleccionar filas según una condición se usa loc.
+00:09:55.253 --> 00:09:59.221
+Exactamente lo que pasa con United
+States en el dataset de salarios.
 
-116
-00:11:29.231 --> 00:11:36.741
-En el ejemplo, df punto loc donde country es igual a Ecuador devuelve las filas de las personas que indicaron Ecuador como país.
+00:10:00.271 --> 00:10:03.346
+Para obtener un valor por su
+posición se usa iloc: entre
 
-117
-00:11:37.983 --> 00:11:46.111
-Un ejemplo de loc. df punto loc donde nota es mayor o igual que setenta devuelve solo los estudiantes aprobados: Ana, María y Carlos.
+00:10:03.346 --> 00:10:06.201
+corchetes, el número de fila
+y el número de columna.
 
-118
-00:11:46.391 --> 00:11:51.319
-Sofía no aparece porque su nota es NaN, y NaN mayor o igual que setenta es falso.
+00:10:06.671 --> 00:10:10.331
+iloc de 0 y 14 devuelve Master's
+degree: el nivel educativo
 
-119
-00:11:51.599 --> 00:11:58.234
-También se puede combinar una condición con columnas: los estudiantes de Guayaquil, mostrando solo nombre y nota.
+00:10:10.331 --> 00:10:13.370
+de la primera persona, que
+está en la columna 14.
 
-120
-00:11:58.514 --> 00:12:02.141
-Y loc de dos y nombre devuelve María, buscando por etiqueta.
+00:10:13.625 --> 00:10:18.553
+Recuerda que se cuenta desde cero: la
+columna 14 es en realidad la número quince.
 
-121
-00:12:02.421 --> 00:12:08.885
-La diferencia: iloc usa posiciones numéricas; loc usa etiquetas, nombres de columnas y condiciones.
+00:10:19.603 --> 00:10:22.270
+iloc también acepta rangos,
+como en el slicing,
 
-122
-00:12:10.117 --> 00:12:17.071
-En resumen, esta semana vimos los módulos de Python, una introducción a Pandas, y cómo analizar un dataset con Pandas.
+00:10:22.270 --> 00:10:25.107
+para seleccionar varias
+filas y columnas a la vez.
 
-123
-00:12:17.351 --> 00:12:19.485
-Esto es todo para la semana cinco.
+00:10:26.157 --> 00:10:30.127
+Y se puede combinar con una
+columna: df de job title punto iloc
+
+00:10:30.127 --> 00:10:34.413
+de 0 a 15 muestra las filas de la
+0 a la 14 de la columna de cargos.
+
+00:10:34.689 --> 00:10:36.652
+Otra vez, el final no se incluye.
+
+00:10:37.702 --> 00:10:39.131
+Un ejemplo de iloc.
+
+00:10:39.412 --> 00:10:42.186
+Usa solo números de
+posición, empezando en cero.
+
+00:10:42.656 --> 00:10:47.221
+iloc de 0 y 2 devuelve Guayaquil:
+fila 0, columna 2, la ciudad de Ana.
+
+00:10:47.691 --> 00:10:52.918
+iloc de 1 a 3 devuelve las filas 1 y 2: el
+3 no se incluye, igual que en el slicing.
+
+00:10:53.388 --> 00:10:56.373
+Y con dos puntos y la lista
+0 y 3, obtienes todas
+
+00:10:56.373 --> 00:10:59.724
+las filas, pero solo las
+columnas 0 y 3: nombre y nota.
+
+00:11:00.774 --> 00:11:05.278
+Para seleccionar filas que cumplan una
+condición se usa loc. df punto loc donde
+
+00:11:05.278 --> 00:11:09.840
+country es igual a Ecuador devuelve las
+personas que respondieron desde Ecuador.
+
+00:11:10.133 --> 00:11:12.480
+Esta es la línea del inicio: dos personas.
+
+00:11:13.530 --> 00:11:16.839
+Mira loc con los estudiantes.
+loc donde nota es mayor o
+
+00:11:16.839 --> 00:11:20.570
+igual que 70 devuelve solo los
+aprobados: Ana, María y Carlos.
+
+00:11:21.040 --> 00:11:21.850
+¿Y Sofía?
+
+00:11:22.282 --> 00:11:26.463
+No aparece, porque su nota es NaN, y
+NaN mayor o igual que 70 es falso.
+
+00:11:26.933 --> 00:11:29.819
+También puedes combinar una
+condición con columnas:
+
+00:11:29.819 --> 00:11:32.480
+los de Guayaquil, mostrando
+solo nombre y nota.
+
+00:11:32.777 --> 00:11:36.212
+Y loc de 2 y nombre devuelve
+María, buscando por etiqueta.
+
+00:11:36.682 --> 00:11:39.747
+La diferencia clave: iloc
+usa posiciones numéricas;
+
+00:11:39.747 --> 00:11:42.933
+loc usa etiquetas, nombres
+de columnas y condiciones.
+
+00:11:43.983 --> 00:11:47.615
+Y este es el resumen oficial:
+módulos de Python, una introducción
+
+00:11:47.615 --> 00:11:50.297
+a Pandas, y cómo analizar
+un dataset con Pandas.
+
+00:11:51.347 --> 00:11:54.355
+Antes del quiz, ordenemos todo
+como un kit de preguntas.
+
+00:11:54.648 --> 00:11:56.099
+Primero: ¿cómo es la tabla?
+
+00:11:56.527 --> 00:11:58.980
+Para eso están info, describe, head y tail.
+
+00:11:59.450 --> 00:12:03.973
+Segundo: ¿qué falta? isna, o isnull punto
+sum para contar los vacíos por columna.
+
+00:12:04.443 --> 00:12:07.003
+Tercero: ¿qué valores hay?
+unique y value_counts.
+
+00:12:07.278 --> 00:12:10.798
+Ahí descubres problemas como los
+veinte nombres de Estados Unidos.
+
+00:12:11.268 --> 00:12:13.977
+Cuarto: limpiar. rename
+para los encabezados, drop
+
+00:12:13.977 --> 00:12:16.794
+para borrar, y strip y
+replace para corregir textos.
+
+00:12:17.264 --> 00:12:18.565
+Y quinto: seleccionar.
+
+00:12:18.808 --> 00:12:23.224
+Una columna con corchetes, iloc por
+posición, y loc por etiqueta o condición.
+
+00:12:24.274 --> 00:12:26.109
+Antes de terminar, ponte a prueba.
+
+00:12:26.363 --> 00:12:28.795
+Si necesitas más tiempo, pausa el video.
+
+00:12:29.036 --> 00:12:32.385
+Primera pregunta: ¿qué devuelve
+df punto isnull punto sum?
+
+00:12:37.005 --> 00:12:41.421
+El número de valores vacíos en cada
+columna, porque cada True cuenta como uno.
+
+00:12:41.891 --> 00:12:45.518
+Siguiente: ejecutas df punto drop
+de edad, con axis igual a 1.
+
+00:12:45.804 --> 00:12:47.767
+¿Desaparece la columna de df?
+
+00:12:53.387 --> 00:12:55.392
+No, porque drop devuelve una copia.
+
+00:12:55.668 --> 00:12:58.307
+Para cambiar el original, usas inplace igual
+
+00:12:58.307 --> 00:13:01.065
+a True, o guardas el resultado con df igual a.
+
+00:13:01.535 --> 00:13:04.202
+Y la última: para obtener solo las filas con
+
+00:13:04.202 --> 00:13:06.869
+nota mayor o igual que 70, ¿usas iloc o loc?
+
+00:13:11.489 --> 00:13:16.075
+loc, porque filtra por condición. iloc
+solo trabaja con posiciones numéricas.
+
+00:13:17.125 --> 00:13:19.003
+Resumamos lo más importante.
+
+00:13:19.473 --> 00:13:22.484
+Uno: un módulo se trae con
+import; puedes ponerle un
+
+00:13:22.484 --> 00:13:25.958
+alias, como pd para Pandas, o
+traer solo una parte con from.
+
+00:13:26.428 --> 00:13:29.771
+Dos: read_csv convierte un
+archivo en un DataFrame, y para
+
+00:13:29.771 --> 00:13:33.575
+explorarlo usas info, describe,
+head, tail, unique y value_counts.
+
+00:13:34.045 --> 00:13:37.829
+Tres: para limpiar, rename cambia
+encabezados, drop borra columnas
+
+00:13:37.829 --> 00:13:42.130
+o filas, isnull punto sum cuenta vacíos,
+y strip y replace corrigen textos.
+
+00:13:42.600 --> 00:13:45.984
+Y cuatro: para seleccionar, una
+columna va entre corchetes,
+
+00:13:45.984 --> 00:13:49.597
+iloc trabaja con posiciones, y
+loc con etiquetas y condiciones.
+
+00:13:50.647 --> 00:13:52.610
+Eso es todo para la semana cinco.
+
+00:13:52.881 --> 00:13:56.861
+En el siguiente video vemos variables
+dependientes e independientes,
+
+00:13:56.861 --> 00:13:59.495
+regresión, y gráficos con Matplotlib y NumPy.
+
+00:13:59.778 --> 00:14:00.802
+¡Nos vemos ahí!
 

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Slide } from "../components/Slide";
-import { slideSrc, subsSrc, VIDEOS, videoSrc, WEEK_INFO, WEEK_PAGES, type WeekNum } from "../data/meta";
+import { Bubble } from "../components/Sheet";
+import { slideSrc, subsSrc, VIDEOS, videoSrc, WEEK_PAGES, WEEK_SHORT, type WeekNum } from "../data/meta";
 import { navigate } from "../lib/router";
 import { load, save } from "../lib/storage";
 
-const K_POS = "si-video-positions";
+const K_POS = "si-video-positions-v2";
 
 function Player({ w }: { w: WeekNum }) {
   const ref = useRef<HTMLVideoElement>(null);
@@ -83,7 +83,7 @@ function Player({ w }: { w: WeekNum }) {
         playsInline
         preload="metadata"
         poster={slideSrc(WEEK_PAGES[w])}
-        aria-label={`Video de la semana ${w}`}
+        aria-label={`Video de la Week ${w}`}
       >
         <track kind="subtitles" src={subsSrc(w)} srcLang="es" label="Español" default />
       </video>
@@ -96,38 +96,26 @@ export default function Videos({ query }: { query: URLSearchParams }) {
   const qw = Number(query.get("w"));
   const w = (qw >= 1 && qw <= 7 ? qw : 1) as WeekNum;
   const meta = VIDEOS.find((v) => v.w === w)!;
+  const pick = (n: WeekNum) => navigate(`/videos?w=${n}`, { replace: true, keepScroll: true });
 
   return (
-    <div className="stack">
-      <Slide title={`Week ${w}`} id="video" number={`${meta.dur} min`} progress={w / 7}
-        aside={<span className="bar-note">{WEEK_INFO[w].dates}</span>}>
-        <p className="video-topic">{WEEK_INFO[w].topic}</p>
-        <Player key={w} w={w} />
-        <div className="video-actions">
-          <p className="muted">Los subtítulos en español vienen activados; puedes quitarlos desde el menú del reproductor.</p>
-          <button type="button" className="link-btn" onClick={() => navigate(`/diapositivas?p=${WEEK_PAGES[w]}`)}>Ver las diapositivas de esta semana</button>
-        </div>
-      </Slide>
-
-      <section aria-labelledby="playlist-title" className="playlist-wrap">
-        <h2 id="playlist-title" className="section-title">Las 7 semanas</h2>
-        <ol className="playlist">
-          {VIDEOS.map((v) => (
-            <li key={v.w}>
-              <a
-                href={`/videos?w=${v.w}`}
-                className={`week-tile ${v.w === w ? "is-current" : ""}`}
-                aria-current={v.w === w ? "true" : undefined}
-                onClick={(e) => { e.preventDefault(); navigate(`/videos?w=${v.w}`, { keepScroll: false }); }}
-              >
-                <span className="week-tile-num"><small>Week</small>{v.w}</span>
-                <span className="week-tile-text">{WEEK_INFO[v.w].topic}</span>
-                <span className="week-tile-dur">{v.dur}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </section>
+    <div className="videos">
+      <h1 className="page-title">Videos</h1>
+      <div className="vweeks" role="group" aria-label="Elegir semana">
+        {VIDEOS.map((v) => (
+          <a key={v.w} href={`/videos?w=${v.w}`} className="vweek" aria-current={v.w === w ? "true" : undefined}
+            onClick={(e) => { e.preventDefault(); pick(v.w); }}>
+            <Bubble size="md" filled={v.w === w}>{v.w}</Bubble>
+            <span>{v.dur}</span>
+          </a>
+        ))}
+      </div>
+      <Player key={w} w={w} />
+      <div className="vinfo">
+        <h2>Week {w}: {WEEK_SHORT[w]}</h2>
+        <p>{meta.dur} min, subtítulos en español</p>
+        <button type="button" className="link" onClick={() => navigate(`/diapositivas?p=${WEEK_PAGES[w]}`)}>Ver las diapositivas de esta semana</button>
+      </div>
     </div>
   );
 }

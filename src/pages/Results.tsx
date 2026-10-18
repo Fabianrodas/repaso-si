@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { Slide } from "../components/Slide";
+import { PenCircle, Tick } from "../components/Sheet";
 import { WEEK_SHORT, type WeekNum } from "../data/meta";
 import { navigate } from "../lib/router";
-import { useQuiz } from "../quiz/QuizContext";
+import { useQuiz, type StartKind } from "../quiz/QuizContext";
 import { CodeBlock } from "../quiz/QuestionView";
-import { answerText, computeResult, correctText, fmt1, fmtTime, PASS, shuffle, TYPE_LABEL } from "../quiz/engine";
+import { answerText, computeResult, correctText, fmt1, fmtTime, PASS, shuffle } from "../quiz/engine";
 
-type Filter = "review" | "all" | "ok";
+type Filter = "review" | "all";
 
 export default function Results() {
   const { last, start } = useQuiz();
@@ -19,94 +19,97 @@ export default function Results() {
 
   const pass = result.score >= PASS;
   const failed = result.rows.filter((r) => r.f < 1).map((r) => r.q.id);
-  const rows = result.rows.map((r, i) => ({ ...r, n: i + 1 })).filter((r) => (filter === "all" ? true : filter === "ok" ? r.f === 1 : r.f < 1));
+  const rows = result.rows.map((r, i) => ({ ...r, n: i + 1 })).filter((r) => (filter === "all" ? true : r.f < 1));
+  const weeks = (Object.keys(result.byWeek) as unknown as WeekNum[]).map(Number).sort() as WeekNum[];
+  const again: StartKind | null = last.mode === "lesson" && last.week ? { mode: "lesson", week: last.week }
+    : last.mode === "random" ? { mode: "random" } : last.mode === "bank" ? { mode: "bank" } : null;
+  const go = (k: StartKind) => { start(k); navigate("/quiz"); };
 
   return (
-    <div className="stack">
-      <div className={`cover result-cover ${pass ? "is-pass" : "is-fail"}`}>
-        <div className="cover-block">
-          <p className="result-label">{last.label}</p>
-          <p className="result-score" aria-label={`Nota ${fmt1(result.score)} sobre 100`}>
-            <span>{fmt1(result.score)}</span><small>/100</small>
-          </p>
-          <p className="cover-line result-verdict">{pass ? "Aprobado: superas la nota mínima de 70." : `Aún no llegas a 70. Te faltan ${fmt1(PASS - result.score)} puntos de nota.`}</p>
+    <div className="results">
+      <section className="grade" aria-labelledby="grade-title">
+        <h1 id="grade-title" className="sr-only">Resultado</h1>
+        <p className="grade-label">{last.label}</p>
+        <div className="grade-score" aria-label={`Nota ${fmt1(result.score)} sobre 100`}>
+          <PenCircle />
+          <span className="grade-n">{fmt1(result.score)}</span>
+          <span className="grade-of">/100</span>
         </div>
-      </div>
-
-      <Slide title="Resumen del intento" id="summary" number={1}>
-        <dl className="stats">
-          <div><dt>Puntos</dt><dd>{fmt1(result.earned)} de {result.possible}</dd></div>
+        <p className={`grade-verdict ${pass ? "is-pass" : "is-fail"}`}>{pass ? "Aprobado" : `Te faltan ${fmt1(PASS - result.score)} para llegar a 70`}</p>
+        <dl className="grade-stats">
           <div><dt>Correctas</dt><dd>{result.nOk}</dd></div>
-          <div><dt>Parciales</dt><dd>{result.nPart}</dd></div>
+          {result.nPart ? <div><dt>Parciales</dt><dd>{result.nPart}</dd></div> : null}
           <div><dt>Incorrectas</dt><dd>{result.nBad}</dd></div>
+          <div><dt>Puntos</dt><dd>{fmt1(result.earned)}/{result.possible}</dd></div>
           <div><dt>Tiempo</dt><dd>{fmtTime(last.elapsed)}</dd></div>
         </dl>
-        <div className="btn-row">
+        <div className="row grade-actions">
           {failed.length ? (
-            <button type="button" className="btn primary" onClick={() => { start({ ids: shuffle(failed), label: `Repaso de ${failed.length} preguntas falladas` }); navigate("/quiz"); }}>
-              Repasar las {failed.length} falladas
+            <button type="button" className="btn primary" onClick={() => go({ mode: "review", ids: shuffle(failed), label: `Repaso de ${failed.length} falladas` })}>
+              Repasar {failed.length} fallada{failed.length === 1 ? "" : "s"}
             </button>
           ) : null}
-          <button type="button" className="btn" onClick={() => { start("exam"); navigate("/quiz"); }}>Nuevo examen de 20</button>
-          <button type="button" className="btn ghost" onClick={() => navigate("/")}>Volver al inicio</button>
+          {again ? <button type="button" className="btn" onClick={() => go(again)}>Otra vez</button> : null}
+          <button type="button" className="btn quiet" onClick={() => navigate("/")}>Inicio</button>
         </div>
-      </Slide>
+      </section>
 
-      <Slide title="Resultado por semana" id="byweek" number={2}>
-        <ul className="week-bars">
-          {(Object.keys(result.byWeek) as unknown as WeekNum[]).sort().map((wk) => {
-            const w = Number(wk) as WeekNum;
-            const v = result.byWeek[w]!;
-            const pct = (v.earned / v.possible) * 100;
-            const tone = pct >= PASS ? "ok" : pct >= 40 ? "part" : "bad";
-            return (
-              <li key={w}>
-                <span className="wb-name">Week {w}</span>
-                <span className="wb-topic">{WEEK_SHORT[w]}</span>
-                <span className={`wb-track tone-${tone}`} role="img" aria-label={`${Math.round(pct)} por ciento`}><i style={{ width: `${pct}%` }} /></span>
-                <span className="wb-val">{Math.round(pct)}%</span>
-              </li>
-            );
-          })}
-        </ul>
-      </Slide>
-
-      <Slide title="Revisión de respuestas" id="review" number={3}
-        aside={
-          <div className="seg" role="group" aria-label="Filtrar">
-            {([["review", `Para repasar (${result.nPart + result.nBad})`], ["all", "Todas"], ["ok", `Correctas (${result.nOk})`]] as [Filter, string][]).map(([f, label]) => (
-              <button key={f} type="button" aria-pressed={filter === f} onClick={() => setFilter(f)}>{label}</button>
-            ))}
-          </div>
-        }>
-        {rows.length ? (
-          <ol className="review-list">
-            {rows.map((r) => {
-              const cls = r.f === 1 ? "ok" : r.f > 0 ? "part" : "bad";
+      {weeks.length > 1 ? (
+        <section className="sheet byweek" aria-labelledby="bw-title">
+          <h2 id="bw-title">Por semana</h2>
+          <ul>
+            {weeks.map((w) => {
+              const v = result.byWeek[w]!;
+              const pct = (v.earned / v.possible) * 100;
               return (
-                <li key={r.q.id} className={`review-item tone-${cls}`}>
-                  <div className="review-head">
-                    <span className="review-n">{r.n}</span>
-                    <span className="tag">Week {r.q.w}: {r.q.topic}</span>
-                    <span className="tag">{TYPE_LABEL[r.q.type]}</span>
-                    <span className={`review-pts tone-text-${cls}`}>{fmt1(r.earned)} de {r.q.pts} pts</span>
+                <li key={w}>
+                  <span className="bw-w">Week {w}</span>
+                  <span className="bw-t">{WEEK_SHORT[w]}</span>
+                  <span className={`bw-bar ${pct >= PASS ? "is-pass" : "is-fail"}`} role="img" aria-label={`${Math.round(pct)} por ciento`}><i style={{ width: `${pct}%` }} /></span>
+                  <span className="bw-v">{Math.round(pct)}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : null}
+
+      <section className="review" aria-labelledby="rv-title">
+        <div className="review-head">
+          <h2 id="rv-title">Revisión</h2>
+          <div className="seg" role="group" aria-label="Filtrar preguntas">
+            <button type="button" aria-pressed={filter === "review"} onClick={() => setFilter("review")}>Para repasar ({result.nPart + result.nBad})</button>
+            <button type="button" aria-pressed={filter === "all"} onClick={() => setFilter("all")}>Todas ({result.rows.length})</button>
+          </div>
+        </div>
+        {rows.length ? (
+          <ol className="rv-list">
+            {rows.map((r) => {
+              const tone = r.f === 1 ? "ok" : r.f > 0 ? "part" : "bad";
+              return (
+                <li key={r.q.id} className={`rv rv-${tone}`}>
+                  <div className="rv-top">
+                    <span className="rv-n">{r.n}</span>
+                    <Tick ok={r.f === 1} />
+                    <span className="rv-topic">Week {r.q.w}: {r.q.topic}</span>
+                    <span className="rv-pts">{fmt1(r.earned)}/{r.q.pts} pts</span>
                   </div>
-                  <p className="review-q">{r.q.q}</p>
+                  <p className="rv-q">{r.q.q}</p>
                   {r.q.code ? <CodeBlock code={r.q.code} /> : null}
-                  <dl className="review-ans">
-                    <div><dt>Tu respuesta</dt><dd>{answerText(r.q, r.a)}</dd></div>
+                  <dl className="rv-ans">
+                    {r.f < 1 ? <div><dt>Tu respuesta</dt><dd>{answerText(r.q, r.a)}</dd></div> : null}
                     <div><dt>Correcta</dt><dd>{correctText(r.q)}</dd></div>
                   </dl>
-                  <p className="review-ex">{r.q.explain}</p>
-                  <p className="review-src">{r.q.src}. <button type="button" className="link-btn" onClick={() => navigate(`/diapositivas?p=${r.q.page}`)}>Ver diapositiva {r.q.page}</button></p>
+                  <p className="rv-why">{r.q.explain}</p>
+                  <button type="button" className="link" onClick={() => navigate(`/diapositivas?p=${r.q.page}`)}>Ver diapositiva {r.q.page}</button>
                 </li>
               );
             })}
           </ol>
         ) : (
-          <p className="muted">{filter === "ok" ? "Ninguna respuesta completamente correcta todavía." : "No tienes preguntas para repasar. Todas fueron correctas."}</p>
+          <p className="empty">Todo correcto. No hay nada que repasar.</p>
         )}
-      </Slide>
+      </section>
     </div>
   );
 }

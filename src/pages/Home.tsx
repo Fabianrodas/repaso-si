@@ -1,121 +1,93 @@
-import { Cover, Slide } from "../components/Slide";
+import { useState } from "react";
+import { Modal } from "../components/Modal";
+import { Bubble } from "../components/Sheet";
 import { WEEKS, WEEK_SHORT } from "../data/meta";
 import { navigate } from "../lib/router";
-import { useQuiz } from "../quiz/QuizContext";
-import { EXAM_QUOTA, fmt1, fmtTime, isAnswered, PASS, QMAP, QUESTIONS, TOTAL_POINTS } from "../quiz/engine";
-
-const ptsCount = QUESTIONS.reduce<Record<number, number>>((acc, q) => ((acc[q.pts] = (acc[q.pts] ?? 0) + 1), acc), {});
+import { useQuiz, TOTAL_Q, type StartKind } from "../quiz/QuizContext";
+import { fmt1, fmtTime, isAnswered, PASS, QMAP, RANDOM_N, weekIds } from "../quiz/engine";
 
 export default function Home() {
-  const { start, stored, resume, discard, options, setOptions, history } = useQuiz();
+  const { start, stored, resume, discard, options, setOptions, history, best } = useQuiz();
+  const [pending, setPending] = useState<StartKind | null>(null);
 
-  const go = (kind: "exam" | "bank") => { start(kind); navigate("/quiz"); };
-  const doneStored = stored ? stored.ids.filter((id) => isAnswered(QMAP[id], stored.answers[id])).length : 0;
+  const answered = stored ? stored.ids.filter((id) => isAnswered(QMAP[id], stored.answers[id])).length : 0;
+  const begin = (k: StartKind) => { start(k); navigate("/quiz"); };
+  const go = (k: StartKind) => (stored && answered > 0 ? setPending(k) : begin(k));
 
   return (
-    <div className="stack">
-      <Cover title="Intelligent Systems" lines={["Repaso para el examen", "100 preguntas, 7 videos y 249 diapositivas de las semanas 1 a 7"]} />
+    <div className="home">
+      <h1 className="hero">¿Qué repasas hoy?</h1>
 
       {stored ? (
         <div className="resume" role="region" aria-label="Intento sin terminar">
-          <p><strong>Tienes un intento sin terminar.</strong> {stored.label}: {doneStored} de {stored.ids.length} respondidas, {fmtTime(stored.elapsed)} de tiempo.</p>
-          <div className="btn-row">
-            <button type="button" className="btn ghost" onClick={discard}>Descartar</button>
-            <button type="button" className="btn primary" onClick={() => { resume(); navigate("/quiz"); }}>Continuar intento</button>
+          <p><b>{stored.label}</b> sin terminar: {answered} de {stored.ids.length} respondidas, {fmtTime(stored.elapsed)}</p>
+          <div className="row">
+            <button type="button" className="btn quiet" onClick={discard}>Descartar</button>
+            <button type="button" className="btn primary" onClick={() => { resume(); navigate("/quiz"); }}>Continuar</button>
           </div>
         </div>
       ) : null}
 
-      <Slide title="Elige cómo practicar" id="modes" number={1}>
-        <div className="modes">
-          <article className="mode">
-            <p className="mode-num" aria-hidden="true">20</p>
-            <h3>Examen</h3>
-            <ul className="dots">
-              <li>20 preguntas al azar, repartidas entre las 7 semanas.</li>
-              <li>Cada intento sale distinto.</li>
-              <li>Toma entre 25 y 30 minutos.</li>
-            </ul>
-            <button type="button" className="btn primary" onClick={() => go("exam")}>Empezar examen</button>
-          </article>
-          <article className="mode">
-            <p className="mode-num" aria-hidden="true">100</p>
-            <h3>Banco completo</h3>
-            <ul className="dots">
-              <li>Las 100 preguntas, {TOTAL_POINTS} puntos posibles.</li>
-              <li>Tu avance se guarda si cierras la página.</li>
-              <li>En orden por semana o al azar.</li>
-            </ul>
-            <button type="button" className="btn primary" onClick={() => go("bank")}>Empezar banco completo</button>
-          </article>
-        </div>
-        <div className="mode-options">
-          <label className="check">
-            <input type="checkbox" checked={options.instant} onChange={(e) => setOptions({ ...options, instant: e.target.checked })} />
-            <span>Mostrar la respuesta correcta al contestar cada pregunta</span>
-          </label>
-          <label className="check">
-            <input type="checkbox" checked={options.shuffleBank} onChange={(e) => setOptions({ ...options, shuffleBank: e.target.checked })} />
-            <span>Banco completo en orden aleatorio</span>
-          </label>
-        </div>
-      </Slide>
+      <section className="sheet lessons" aria-labelledby="lessons-title">
+        <header className="sheet-head">
+          <h2 id="lessons-title">Lección por semana</h2>
+          <p>{weekIds(1).length} preguntas de cada semana</p>
+        </header>
+        <ol className="weeks">
+          {WEEKS.map((w) => (
+            <li key={w}>
+              <button type="button" className="week" onClick={() => go({ mode: "lesson", week: w })}
+                aria-label={`Lección Week ${w}: ${WEEK_SHORT[w]}${best[w] !== undefined ? `, mejor nota ${fmt1(best[w]!)}` : ""}`}>
+                <Bubble size="lg" filled={best[w] !== undefined}>{w}</Bubble>
+                <span className="week-name">{WEEK_SHORT[w]}</span>
+                {best[w] !== undefined ? <span className={`week-best ${best[w]! >= PASS ? "is-pass" : ""}`}>Mejor: {fmt1(best[w]!)}</span> : null}
+              </button>
+            </li>
+          ))}
+        </ol>
+      </section>
 
-      <div className="two-col">
-        <Slide title="Cómo se califica" id="grading" number={2}>
-          <ul className="dots">
-            <li>Cada pregunta vale entre 2 y 5 puntos según su dificultad.</li>
-            <li>Relacionar, ordenar y varias correctas dan crédito parcial; en varias correctas, una marca equivocada resta.</li>
-            <li>Tu nota es tus puntos divididos para los puntos posibles, por 100. Se aprueba con {PASS}.</li>
-          </ul>
-          <div className="pts-legend" aria-label="Distribución de puntos">
-            {Object.keys(ptsCount).sort().map((p) => (
-              <span key={p} className="pts-tag"><b>{p} pts</b> {ptsCount[Number(p)]} preguntas</span>
-            ))}
-          </div>
-        </Slide>
-
-        <Slide title="Tus intentos" id="history" number={3}>
-          {history.length ? (
-            <table className="tbl history">
-              <thead><tr><th scope="col">Fecha</th><th scope="col">Modo</th><th scope="col" className="num">Nota</th></tr></thead>
-              <tbody>
-                {history.slice(0, 6).map((h) => (
-                  <tr key={h.id + h.date}>
-                    <td>{new Date(h.date).toLocaleDateString("es-EC", { day: "2-digit", month: "short" })}</td>
-                    <td>{h.label}</td>
-                    <td className={`num score ${h.score >= PASS ? "pass" : "fail"}`}>{fmt1(h.score)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ) : (
-            <p className="muted">Cuando termines un examen o el banco, tus notas aparecerán aquí. Se guardan solo en este navegador.</p>
-          )}
-        </Slide>
+      <div className="mixes">
+        <button type="button" className="mix" onClick={() => go({ mode: "random" })}>
+          <span className="mix-n">{RANDOM_N}</span>
+          <span className="mix-t"><b>Al azar</b><span>de todas las semanas</span></span>
+        </button>
+        <button type="button" className="mix" onClick={() => go({ mode: "bank" })}>
+          <span className="mix-n">{TOTAL_Q}</span>
+          <span className="mix-t"><b>Banco completo</b><span>todas las preguntas</span></span>
+        </button>
       </div>
 
-      <Slide title="Qué cubre el banco de preguntas" id="coverage" number={4}>
-        <div className="tbl-scroll">
-          <table className="tbl">
-            <thead><tr><th scope="col">Semana</th><th scope="col">Tema</th><th scope="col" className="num">Preguntas</th><th scope="col" className="num">Puntos</th><th scope="col" className="num hide-sm">En el examen</th></tr></thead>
-            <tbody>
-              {WEEKS.map((w) => {
-                const qs = QUESTIONS.filter((q) => q.w === w);
-                return (
-                  <tr key={w}>
-                    <td className="nowrap">Week {w}</td>
-                    <td>{WEEK_SHORT[w]}</td>
-                    <td className="num">{qs.length}</td>
-                    <td className="num">{qs.reduce((s, q) => s + q.pts, 0)}</td>
-                    <td className="num hide-sm">{EXAM_QUOTA[w]}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </Slide>
+      <label className="switch">
+        <input type="checkbox" checked={options.instant} onChange={(e) => setOptions({ ...options, instant: e.target.checked })} />
+        <span className="switch-ui" aria-hidden="true" />
+        <span>Ver la respuesta al contestar cada pregunta</span>
+      </label>
+
+      {history.length ? (
+        <section className="recent" aria-labelledby="recent-title">
+          <h2 id="recent-title">Últimos intentos</h2>
+          <ul>
+            {history.slice(0, 5).map((h) => (
+              <li key={h.id + h.date}>
+                <span className="recent-name">{h.label}</span>
+                <span className="recent-date">{new Date(h.date).toLocaleDateString("es-EC", { day: "numeric", month: "short" })}</span>
+                <span className={`recent-score ${h.score >= PASS ? "is-pass" : "is-fail"}`}>{fmt1(h.score)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {pending ? (
+        <Modal title="Tienes un intento sin terminar" onClose={() => setPending(null)}
+          actions={[
+            { label: "Continuar el anterior", onClick: () => { setPending(null); resume(); navigate("/quiz"); } },
+            { label: "Empezar uno nuevo", primary: true, onClick: () => { const k = pending; setPending(null); begin(k); } },
+          ]}>
+          {stored?.label}: llevas {answered} de {stored?.ids.length}. Si empiezas otro, se pierde ese avance.
+        </Modal>
+      ) : null}
     </div>
   );
 }

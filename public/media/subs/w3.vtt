@@ -1,686 +1,1043 @@
 WEBVTT
 
-1
-00:00:00.450 --> 00:00:01.431
-Semana tres.
+00:00:00.500 --> 00:00:02.143
+Mira esta línea de código.
 
-2
-00:00:01.711 --> 00:00:11.674
-Aprenderemos qué son Jupyter Notebook y Google Colab, los tipos de celdas, y los fundamentos de Python: impresión, rangos, bucles, condicionales, funciones y colecciones.
+00:00:02.446 --> 00:00:05.113
+Imprime una lista hecha con range, de 2 a 8.
 
-3
-00:00:12.917 --> 00:00:15.370
-Los resultados de aprendizaje son tres:
+00:00:05.371 --> 00:00:06.801
+¿El 8 aparece, o no?
 
-4
-00:00:15.650 --> 00:00:24.077
-describir el concepto de Jupyter Notebook, describir los tipos de celdas disponibles en Google Colab, y crear un notebook en Google Colab con Python.
+00:00:07.271 --> 00:00:09.944
+Y esta otra: una variable
+con la palabra PYTHON,
 
-5
-00:00:25.317 --> 00:00:34.191
-Jupyter Notebook es una aplicación cliente servidor que permite editar y ejecutar notebooks, es decir, documentos con código, desde el navegador web.
+00:00:09.944 --> 00:00:12.561
+y unos corchetes con dos
+puntos y un menos uno.
 
-6
-00:00:34.471 --> 00:00:39.058
-El código se ejecuta gracias a un kernel, que funciona como un motor de cálculo.
+00:00:12.847 --> 00:00:14.170
+¿Qué crees que imprime?
 
-7
-00:00:39.338 --> 00:00:43.669
-Hay kernels para varios lenguajes; en el caso de Python se llama IPython.
+00:00:14.640 --> 00:00:17.303
+Si dudaste en alguna, no
+te preocupes: al final
 
-8
-00:00:44.917 --> 00:00:53.130
-Google Colaboratory, también llamado Colab o Google Colab, es una herramienta creada por Google en dos mil diecisiete para desarrollar notebooks.
+00:00:17.303 --> 00:00:19.909
+de este video las vas a resolver sin pensarlo.
 
-9
-00:00:53.410 --> 00:01:02.007
-Es un servicio de Jupyter Notebook alojado en la nube, que no requiere ninguna configuración previa: solo abres el navegador y empiezas a programar.
+00:00:20.959 --> 00:00:25.012
+Semana tres: Jupyter Notebook, Google
+Colab y los fundamentos de Python.
 
-10
-00:01:03.250 --> 00:01:05.170
+00:00:25.279 --> 00:00:28.628
+Es la semana donde pasamos de
+la teoría a escribir código.
+
+00:00:29.678 --> 00:00:32.714
+Los resultados de aprendizaje
+son tres: describir qué es
+
+00:00:32.714 --> 00:00:36.185
+Jupyter Notebook, describir los
+tipos de celdas de Google Colab…
+
+00:00:36.655 --> 00:00:38.980
+…y crear un notebook en Colab con Python.
+
+00:00:40.030 --> 00:00:43.714
+Jupyter Notebook es una aplicación
+cliente servidor para editar y
+
+00:00:43.714 --> 00:00:47.795
+ejecutar notebooks, es decir, documentos
+con código, desde el navegador.
+
+00:00:48.265 --> 00:00:52.063
+Lo que ejecuta el código es el kernel,
+una especie de motor de cálculo.
+
+00:00:52.370 --> 00:00:56.061
+Hay kernels para varios lenguajes;
+el de Python se llama IPython.
+
+00:00:56.531 --> 00:01:00.845
+La gracia de un notebook es que mezcla
+código, resultados y explicaciones en
+
+00:01:00.845 --> 00:01:05.726
+un mismo documento: como un cuaderno donde
+cada ejercicio muestra su respuesta debajo.
+
+00:01:06.776 --> 00:01:10.492
+Google Colaboratory, o simplemente
+Colab, es una herramienta
+
+00:01:10.492 --> 00:01:13.837
+creada por Google en 2017
+para trabajar con notebooks.
+
+00:01:14.307 --> 00:01:17.678
+Es un servicio de Jupyter alojado
+en la nube: no instalas nada.
+
+00:01:17.937 --> 00:01:22.566
+Abres el navegador y empiezas a programar,
+incluso desde una computadora prestada.
+
+00:01:23.616 --> 00:01:25.472
 Así se ve un notebook en Colab.
 
-11
-00:01:05.450 --> 00:01:07.925
-Arriba está el nombre del archivo y el menú.
+00:01:25.942 --> 00:01:28.033
+Arriba, el nombre del archivo y el menú.
 
-12
-00:01:08.205 --> 00:01:10.061
-A la izquierda, las herramientas.
+00:01:28.503 --> 00:01:31.596
+Y en el centro, las celdas,
+donde escribes código o texto.
 
-13
-00:01:10.341 --> 00:01:13.519
-Y en el centro, las celdas donde escribes código o texto.
+00:01:31.848 --> 00:01:35.197
+A la izquierda tienes herramientas
+como la búsqueda y los archivos.
 
-14
-00:01:14.783 --> 00:01:23.551
-En Colab hay cuatro tipos de celdas: la celda de código, la celda de encabezado de sección, la celda de texto y la celda de código borrador, o scratch.
+00:01:36.247 --> 00:01:40.322
+En Colab hay cuatro tipos de celdas:
+de código, de encabezado de sección…
 
-15
-00:01:24.783 --> 00:01:30.778
-Las celdas de texto usan Markdown, un lenguaje de marcado ligero creado por John Gruber en dos mil cuatro.
+00:01:40.792 --> 00:01:43.550
+…de texto, y la celda de
+código borrador, o scratch,
 
-16
-00:01:31.058 --> 00:01:35.538
-Sirve para agregar formato, enlaces e imágenes a archivos de texto plano.
+00:01:43.550 --> 00:01:46.573
+para pruebas rápidas que no
+quieres dejar en el notebook.
 
-17
-00:01:35.818 --> 00:01:39.061
-Por ejemplo, con un numeral al inicio creas un título.
+00:01:47.623 --> 00:01:50.423
+Las celdas de texto usan Markdown, un lenguaje
 
-18
-00:01:40.317 --> 00:01:42.258
-Veamos un ejemplo de Markdown.
+00:01:50.423 --> 00:01:53.405
+de marcado ligero creado
+por John Gruber en 2004.
 
-19
-00:01:42.538 --> 00:01:46.229
-A la izquierda está lo que escribes y a la derecha lo que se muestra.
+00:01:53.875 --> 00:01:56.694
+Sirve para dar formato,
+poner enlaces e imágenes
 
-20
-00:01:46.509 --> 00:01:51.543
-Un numeral seguido de texto crea un título grande, y dos numerales crean un subtítulo.
+00:01:56.694 --> 00:01:59.101
+en texto plano, con símbolos muy simples.
 
-21
-00:01:51.823 --> 00:01:56.687
-El texto entre dos asteriscos sale en negrita, y entre un asterisco sale en cursiva.
+00:01:59.353 --> 00:02:02.387
+En un notebook lo usas para
+explicar qué hace cada parte
 
-22
-00:01:56.967 --> 00:01:59.613
-Un guion al inicio de la línea crea una lista.
+00:02:02.387 --> 00:02:05.583
+del código, como harías con
+títulos y notas en un cuaderno.
 
-23
-00:01:59.893 --> 00:02:04.714
-El texto entre corchetes seguido de un enlace entre paréntesis crea un hipervínculo.
+00:02:06.633 --> 00:02:08.553
+Mira lo que escribes y lo que se ve.
 
-24
-00:02:04.994 --> 00:02:08.557
-Y el texto entre comillas invertidas se muestra como código.
+00:02:08.851 --> 00:02:12.456
+Un numeral crea un título grande;
+dos numerales, un subtítulo.
 
-25
-00:02:08.837 --> 00:02:14.341
-Un detalle: un salto de línea simple no separa párrafos; para eso hay que dejar una línea en blanco.
+00:02:12.926 --> 00:02:16.489
+Dos asteriscos ponen el texto en
+negrita, y uno solo, en cursiva.
 
-26
-00:02:15.583 --> 00:02:21.386
-Para insertar una celda de texto, la primera opción es ir al menú Insertar y elegir Celda de texto.
+00:02:16.747 --> 00:02:18.731
+Un guion al inicio crea una lista.
 
-27
-00:02:22.650 --> 00:02:28.538
-La segunda opción es pasar el cursor entre dos celdas y hacer clic en el botón más Texto que aparece.
+00:02:19.201 --> 00:02:22.943
+El texto entre corchetes seguido
+de un enlace entre paréntesis crea
 
-28
-00:02:29.783 --> 00:02:32.215
-Aquí ves una celda de texto en edición.
+00:02:22.943 --> 00:02:26.796
+un hipervínculo, y las comillas
+invertidas muestran algo como código.
 
-29
-00:02:32.495 --> 00:02:38.426
-A la izquierda escribes, con una barra de herramientas para dar formato, y a la derecha aparece la vista previa.
+00:02:27.266 --> 00:02:29.911
+Y a la derecha, el resultado ya formateado.
 
-30
-00:02:39.650 --> 00:02:43.746
-La celda de encabezado de sección crea una nueva sección en el notebook.
+00:02:30.173 --> 00:02:33.693
+Un detalle: para separar párrafos
+hay que dejar una línea en blanco.
 
-31
-00:02:44.026 --> 00:02:47.183
-Para editar su texto, haz doble clic sobre la celda.
+00:02:34.743 --> 00:02:37.629
+Para insertar una celda de
+texto, la primera opción
 
-32
-00:02:48.383 --> 00:02:51.818
-La celda de código muestra un par de corchetes a la izquierda.
+00:02:37.629 --> 00:02:40.119
+es el menú Insertar, y luego Celda de texto.
 
-33
-00:02:52.098 --> 00:02:59.437
-Cuando la ejecutas, aparece un número dentro de los corchetes que indica el orden de ejecución de esa celda respecto a las demás.
+00:02:41.169 --> 00:02:43.769
+La segunda, más rápida:
+pasa el cursor entre dos
 
-34
-00:02:59.717 --> 00:03:02.298
-En el ejemplo, la celda tiene el número dos.
+00:02:43.769 --> 00:02:46.694
+celdas y haz clic en el botón
+«más Texto» que aparece.
 
-35
-00:03:03.517 --> 00:03:07.655
-Para ejecutar celdas, se usa el menú Entorno de ejecución, o Runtime.
+00:02:47.744 --> 00:02:50.791
+Al editar una celda de texto,
+a la izquierda escribes, con
 
-36
-00:03:07.935 --> 00:03:13.909
-Ahí puedes ejecutar todas las celdas, las anteriores, la celda seleccionada, o reiniciar la sesión.
+00:02:50.791 --> 00:02:54.101
+una barra para dar formato, y a
+la derecha ves la vista previa.
 
-37
-00:03:15.117 --> 00:03:18.039
-Un ejemplo de por qué importa el número de ejecución.
+00:02:55.151 --> 00:02:57.886
+La celda de encabezado de
+sección crea una nueva
 
-38
-00:03:18.319 --> 00:03:22.202
-Ejecutas tres celdas en orden: en la primera, x igual a diez.
+00:02:57.886 --> 00:03:00.506
+sección, útil para organizar notebooks largos.
 
-39
-00:03:22.482 --> 00:03:25.149
-En la segunda, x igual a x más cinco.
+00:03:00.792 --> 00:03:03.544
+Para editar su texto, haz
+doble clic sobre ella.
 
-40
-00:03:25.429 --> 00:03:28.117
-En la tercera, imprimes x, y sale quince.
+00:03:04.594 --> 00:03:07.751
+La celda de código muestra
+unos corchetes a la izquierda.
 
-41
-00:03:28.397 --> 00:03:38.359
-Ahora, si vuelves a ejecutar la segunda y la tercera celda, los números cambian a cuatro y cinco, y se imprime veinte, porque x ya valía quince y se le sumó cinco otra vez.
+00:03:08.221 --> 00:03:11.383
+Al ejecutarla, aparece un
+número dentro de los corchetes:
 
-42
-00:03:38.639 --> 00:03:45.466
-El notebook recuerda las variables entre celdas, y lo que importa es el orden en que ejecutas, no el orden en que aparecen.
+00:03:11.383 --> 00:03:14.045
+el orden en que se ejecutó
+respecto a las demás.
 
-43
-00:03:45.746 --> 00:03:52.253
-Si los resultados no tienen sentido, usa Runtime, Restart session and run all, para ejecutar todo desde cero.
+00:03:14.313 --> 00:03:16.233
+Aquí, la celda es la número 2.
 
-44
-00:03:53.517 --> 00:04:02.711
-Para borrar una celda hay dos opciones: desde el menú Editar, eligiendo Borrar celdas seleccionadas, o con el ícono de papelera que aparece en la esquina de la celda.
+00:03:17.283 --> 00:03:20.589
+Para ejecutar, se usa el menú
+Entorno de ejecución, o Runtime.
 
-45
-00:04:03.917 --> 00:04:04.962
+00:03:20.895 --> 00:03:23.708
+Ahí puedes ejecutar todo,
+las celdas anteriores,
+
+00:03:23.708 --> 00:03:25.993
+la seleccionada, o reiniciar la sesión.
+
+00:03:26.238 --> 00:03:30.483
+Para una sola celda, lo más rápido es
+el botón de play, o Control más Enter.
+
+00:03:31.533 --> 00:03:33.816
+Y aquí viene algo que confunde a muchos.
+
+00:03:34.064 --> 00:03:37.200
+Ejecutas tres celdas en orden: x igual a 10,
+
+00:03:37.200 --> 00:03:40.336
+luego x igual a x más 5, y luego imprimes x.
+
+00:03:40.601 --> 00:03:41.497
+Sale 15.
+
+00:03:41.967 --> 00:03:44.762
+Ahora vuelves a ejecutar
+la segunda y la tercera.
+
+00:03:45.057 --> 00:03:48.204
+Los números cambian a 4 y 5… y se imprime 20,
+
+00:03:48.204 --> 00:03:51.351
+porque x ya valía 15 y se le sumó 5 otra vez.
+
+00:03:51.821 --> 00:03:55.115
+La lección: el notebook recuerda
+las variables, y lo que importa
+
+00:03:55.115 --> 00:03:58.050
+es el orden en que ejecutas,
+no el orden en que aparecen.
+
+00:03:58.315 --> 00:04:02.752
+Si algo no tiene sentido, usa Restart
+session and run all para empezar de cero.
+
+00:04:03.802 --> 00:04:07.317
+Para borrar una celda hay dos
+opciones: el menú Editar, con Borrar
+
+00:04:07.317 --> 00:04:11.098
+celdas seleccionadas, o el ícono de
+papelera en la esquina de la celda.
+
+00:04:12.148 --> 00:04:13.129
 Ahora, Python.
 
-46
-00:04:05.242 --> 00:04:08.933
-Fue creado por Guido van Rossum a finales de los años ochenta.
+00:04:13.377 --> 00:04:16.151
+Lo creó Guido van Rossum
+a finales de los ochenta.
 
-47
-00:04:09.213 --> 00:04:12.903
-Es un lenguaje de alto nivel, interpretado y multiplataforma.
+00:04:16.621 --> 00:04:19.501
+Es de alto nivel, interpretado
+y multiplataforma.
 
-48
-00:04:13.183 --> 00:04:18.773
-Los bloques de código se definen con sangría, es decir, con indentación, y no necesitan llaves.
+00:04:19.763 --> 00:04:23.363
+Alto nivel quiere decir que se
+parece más al lenguaje humano que al
 
-49
-00:04:19.053 --> 00:04:24.194
-Su versión actual es la tres punto catorce punto siete, de agosto de dos mil veintiséis.
+00:04:23.363 --> 00:04:27.285
+de la máquina; interpretado, que se
+ejecuta línea por línea, sin compilar
 
-50
-00:04:25.450 --> 00:04:31.765
-El clásico hola mundo en Python usa la función print, que recibe un texto entre comillas simples o dobles.
+00:04:27.285 --> 00:04:31.369
+antes; y multiplataforma, que el mismo
+código corre en Windows, Mac o Linux.
 
-51
-00:04:32.045 --> 00:04:35.415
-Al ejecutar print de Hello world, se muestra Hello world.
+00:04:31.839 --> 00:04:36.361
+Y algo muy suyo: los bloques de código
+se definen con sangría, no con llaves.
 
-52
-00:04:36.650 --> 00:04:38.399
-Ejemplo: suma de dos números.
+00:04:36.655 --> 00:04:39.962
+Esa sangría no es decoración:
+cambia lo que hace el programa.
 
-53
-00:04:38.679 --> 00:04:44.631
-Se crea la variable num1 con valor diez, num2 con valor veinte, y res igual a num1 más num2.
+00:04:40.229 --> 00:04:44.752
+Su versión actual es la
+3.14.7, de agosto de 2026.
 
-54
-00:04:44.911 --> 00:04:47.151
-Luego print de res muestra treinta.
+00:04:45.802 --> 00:04:48.377
+El clásico hola mundo usa
+la función print, que
 
-55
-00:04:48.383 --> 00:04:51.263
-Hay distintas formas de mostrar valores con print.
+00:04:48.377 --> 00:04:51.007
+recibe un texto entre
+comillas simples o dobles.
 
-56
-00:04:51.543 --> 00:04:57.239
-Primero, separando con comas: el texto y la variable se separan automáticamente con un espacio.
+00:04:51.477 --> 00:04:53.781
+print de Hello world muestra: Hello world.
 
-57
-00:04:57.519 --> 00:05:02.511
-Segundo, con un f-string: pones una f antes de las comillas y la variable entre llaves.
+00:04:54.831 --> 00:04:58.948
+Un ejemplo sencillo: num1 vale 10,
+num2 vale 20, y res es la suma.
 
-58
-00:05:02.791 --> 00:05:08.615
-Y tercero, uniendo textos con el signo más, convirtiendo el número a texto con la función str.
+00:04:59.231 --> 00:05:01.129
+Al imprimir res, sale 30.
 
-59
-00:05:09.850 --> 00:05:11.535
-Practiquemos con un ejemplo.
+00:05:01.380 --> 00:05:05.774
+Fíjate que no hace falta declarar el tipo
+de las variables: Python lo deduce solo.
 
-60
-00:05:11.815 --> 00:05:17.511
-Tenemos nombre igual a Ana, edad igual a veinte, y promedio igual a ocho punto siete cinco seis.
+00:05:06.824 --> 00:05:09.384
+print tiene varias formas de mostrar valores.
 
-61
-00:05:17.791 --> 00:05:20.799
-Con comas, print muestra: Nombre Ana, Edad veinte.
+00:05:09.679 --> 00:05:13.925
+La primera, separando con comas: Python
+agrega un espacio entre cada parte.
 
-62
-00:05:21.079 --> 00:05:26.349
-Con un f-string, escribimos el nombre y la edad entre llaves, y sale: Ana tiene veinte años.
+00:05:14.395 --> 00:05:16.848
+La segunda, con un f-string: una f antes de
 
-63
-00:05:26.629 --> 00:05:34.031
-Si dentro de las llaves ponemos promedio, dos puntos, punto dos f, se redondea a dos decimales: ocho punto setenta y seis.
+00:05:16.848 --> 00:05:19.301
+las comillas, y las variables entre llaves.
 
-64
-00:05:34.311 --> 00:05:38.642
-Con el signo más, todo debe ser texto, por eso usamos str de edad.
+00:05:19.771 --> 00:05:24.870
+Y la tercera, uniendo textos con el signo
+más, convirtiendo el número a texto con str.
 
-65
-00:05:38.922 --> 00:05:45.066
-Y si olvidamos el str, sale un TypeError, porque Python no puede unir un texto con un número entero.
+00:05:25.141 --> 00:05:28.170
+De las tres, el f-string suele
+ser la más cómoda y legible.
 
-66
-00:05:46.317 --> 00:05:50.882
-La función range es una función integrada que genera una secuencia de números.
+00:05:29.220 --> 00:05:34.617
+Practiquemos con nombre Ana,
+edad 20 y un promedio de 8.756.
 
-67
-00:05:51.162 --> 00:05:55.642
-Por defecto, empieza en cero y llega hasta el número indicado, con pasos de uno.
+00:05:34.897 --> 00:05:37.265
+Con comas, sale: Nombre Ana, Edad 20.
 
-68
-00:05:55.922 --> 00:06:00.765
-Su sintaxis es range de start, end y step, donde start y step son opcionales.
+00:05:37.735 --> 00:05:40.039
+Con un f-string, Ana tiene 20 años.
 
-69
-00:06:01.983 --> 00:06:13.226
-Ejemplos de range. range de cinco genera cero, uno, dos, tres y cuatro. range de dos a ocho genera del dos al siete. range de cero a diez con paso tres genera cero, tres, seis y nueve.
+00:05:40.289 --> 00:05:43.560
+Y si en las llaves pones promedio, dos puntos,
 
-70
-00:06:13.506 --> 00:06:19.031
-Y range de diez a cero con paso menos dos cuenta hacia atrás: diez, ocho, seis, cuatro y dos.
+00:05:43.560 --> 00:05:46.902
+punto dos f, se redondea
+a dos decimales: 8.76.
 
-71
-00:06:19.311 --> 00:06:25.007
-La regla de oro es que el número final nunca se incluye: range de dos a ocho llega hasta siete.
+00:05:47.372 --> 00:05:51.361
+Con el signo más, todo debe ser
+texto, por eso se usa str de edad.
 
-72
-00:06:25.287 --> 00:06:28.146
-Por defecto, el inicio es cero y el paso es uno.
+00:05:51.632 --> 00:05:56.048
+Y si lo olvidas, aparece un TypeError:
+Python no puede unir un texto con un número.
 
-73
-00:06:29.383 --> 00:06:31.943
+00:05:57.098 --> 00:05:59.936
+La función range genera
+una secuencia de números.
+
+00:06:00.203 --> 00:06:03.083
+Por defecto empieza en cero
+y avanza de uno en uno.
+
+00:06:03.553 --> 00:06:06.283
+Su sintaxis es range de start, end y step.
+
+00:06:06.568 --> 00:06:08.637
+El start y el step son opcionales.
+
+00:06:09.687 --> 00:06:14.317
+range de 5 genera del 0 al 4.
+range de 2 a 8, del 2 al 7.
+
+00:06:14.603 --> 00:06:15.171
+¿Ves?
+
+00:06:15.561 --> 00:06:19.060
+Ya tienes la respuesta a la
+primera pregunta: el 8 no aparece.
+
+00:06:19.530 --> 00:06:23.135
+range de 0 a 10 con paso 3 da 0, 3, 6 y 9.
+
+00:06:23.410 --> 00:06:29.213
+Y con paso negativo cuenta hacia atrás: de
+10 a 0, de dos en dos, da 10, 8, 6, 4 y 2.
+
+00:06:29.683 --> 00:06:32.179
+La regla de oro: el final nunca se incluye.
+
+00:06:32.463 --> 00:06:35.236
+Y si das un solo número,
+ese número es el final.
+
+00:06:36.286 --> 00:06:38.654
 El bucle for repite un bloque de código.
 
-74
-00:06:32.223 --> 00:06:36.554
-En el ejemplo, for num in range de cero a trece con paso dos, imprime num.
-
-75
-00:06:36.834 --> 00:06:39.949
-El resultado son los números pares del cero al doce.
-
-76
-00:06:41.183 --> 00:06:43.765
-Otro ejemplo de for: calcular un promedio.
-
-77
-00:06:44.045 --> 00:06:50.658
-Tenemos notas igual a una lista con ochenta y cinco, noventa y dos y setenta y ocho, y total empieza en cero.
-
-78
-00:06:50.938 --> 00:06:54.330
-En cada vuelta, el bucle toma una nota y la suma al total.
-
-79
-00:06:54.610 --> 00:06:57.575
-En la primera vuelta, total pasa a ochenta y cinco.
-
-80
-00:06:57.855 --> 00:07:00.309
-En la segunda, a ciento setenta y siete.
-
-81
-00:07:00.589 --> 00:07:03.277
-En la tercera, a doscientos cincuenta y cinco.
-
-82
-00:07:03.557 --> 00:07:09.829
-Al final, fuera del bucle, se imprime el promedio: doscientos cincuenta y cinco entre tres, que es ochenta y cinco.
-
-83
-00:07:10.109 --> 00:07:15.890
-Lo que tiene sangría se repite en cada vuelta; lo que no tiene sangría se ejecuta una sola vez.
-
-84
-00:07:16.170 --> 00:07:20.010
-El segundo ejemplo usa range para imprimir la tabla del siete.
-
-85
-00:07:21.250 --> 00:07:24.706
-Las sentencias if, elif y else permiten tomar decisiones.
-
-86
-00:07:24.986 --> 00:07:26.842
-En el ejemplo, num vale dos.
-
-87
-00:07:27.122 --> 00:07:30.109
-Si num es menor que cero, imprime que es negativo.
-
-88
-00:07:30.389 --> 00:07:33.610
-Si no, y es mayor que diez, imprime que es mayor que diez.
-
-89
-00:07:33.890 --> 00:07:37.815
-Si no se cumple nada, imprime que es mayor que cero y menor que diez.
-
-90
-00:07:38.095 --> 00:07:40.826
-Como num es dos, se imprime esa última opción.
-
-91
-00:07:42.050 --> 00:07:44.226
-Un ejemplo para calificar una nota.
-
-92
-00:07:44.506 --> 00:07:47.877
-Si la nota es mayor o igual que noventa, imprime Excelente.
-
-93
-00:07:48.157 --> 00:07:51.421
-Si no, y es mayor o igual que setenta, imprime Aprobado.
-
-94
-00:07:51.701 --> 00:07:53.429
-Si no, imprime Reprobado.
-
-95
-00:07:53.709 --> 00:07:55.821
-Con setenta y dos sale Aprobado.
-
-96
-00:07:56.101 --> 00:07:59.791
-Con setenta también, porque mayor o igual incluye el setenta.
-
-97
-00:08:00.071 --> 00:08:01.650
-Con cuarenta, Reprobado.
-
-98
-00:08:01.930 --> 00:08:11.509
-Y con noventa y cinco sale Excelente, aunque también sea mayor que setenta, porque las condiciones se revisan en orden y solo se ejecuta el primer bloque verdadero.
-
-99
-00:08:11.789 --> 00:08:16.034
-El else no lleva condición: atrapa todo lo que no cumplió las anteriores.
-
-100
-00:08:17.250 --> 00:08:20.557
-Las funciones en Python se definen con la palabra def.
-
-101
-00:08:20.837 --> 00:08:24.783
-En el ejemplo se define la función showMessage, que imprime un mensaje.
-
-102
-00:08:25.063 --> 00:08:31.101
-Luego, al llamarla con showMessage y paréntesis, se ejecuta y muestra: Invoking the method showMessage.
-
-103
-00:08:32.317 --> 00:08:38.397
-Esta función, calculateOperation, recibe dos números y un operador, que por defecto es el signo más.
-
-104
-00:08:38.677 --> 00:08:42.986
-Según el operador, resta, multiplica, divide o, si no es ninguno de esos, suma.
-
-105
-00:08:43.266 --> 00:08:45.229
-Al final imprime el resultado.
-
-106
-00:08:46.450 --> 00:08:48.242
-Aquí se llama a la función.
-
-107
-00:08:48.522 --> 00:08:55.391
-Sin indicar el operador, calculateOperation de tres y dos usa el valor por defecto y suma: el resultado es cinco.
-
-108
-00:08:55.671 --> 00:08:59.191
-Indicando el operador de multiplicación, el resultado es seis.
-
-109
-00:09:00.450 --> 00:09:02.285
-Un ejemplo más de funciones.
-
-110
-00:09:02.565 --> 00:09:16.175
-Definimos calcular área, que recibe base y altura, con altura igual a uno por defecto, y retorna base por altura. calcular área de cinco y tres da quince. calcular área de cinco, sin altura, usa el valor por defecto y da cinco.
-
-111
-00:09:16.455 --> 00:09:22.322
-Gracias a return, el valor se puede seguir usando: calcular área de cuatro y dos, más uno, da nueve.
-
-112
-00:09:22.602 --> 00:09:28.533
-En cambio, la función saludar solo hace print: muestra Hola Ana, pero devuelve None, porque no tiene return.
-
-113
-00:09:28.813 --> 00:09:33.229
-Esa es la diferencia: print solo muestra en pantalla; return entrega un valor.
-
-114
-00:09:34.450 --> 00:09:38.973
-Algunas colecciones básicas de Python son la lista, la tupla y el diccionario.
-
-115
-00:09:40.183 --> 00:09:44.727
-Las listas son un tipo de dato para guardar varios valores en una sola variable.
-
-116
-00:09:45.007 --> 00:09:48.847
-Una lista es ordenada, modificable y admite valores repetidos.
-
-117
-00:09:49.127 --> 00:09:52.434
-Se accede a sus elementos con índices que empiezan en cero.
-
-118
-00:09:52.714 --> 00:09:57.471
-Se crea con corchetes, separando los elementos con comas, o con la función list.
-
-119
-00:09:58.717 --> 00:10:02.621
-En el ejemplo, lst es una lista con uno, tres, cinco y siete.
-
-120
-00:10:02.901 --> 00:10:07.274
-Para obtener el número de elementos se usa la función len, que devuelve cuatro.
-
-121
-00:10:08.517 --> 00:10:17.882
-Un ejemplo con listas. frutas tiene mango, guineo y piña. frutas en la posición cero es mango, y en la posición menos uno, que siempre es el último, es piña.
-
-122
-00:10:18.162 --> 00:10:26.055
-Como la lista es modificable, cambiamos la posición uno por maracuyá, y con append agregamos otro mango, porque se permiten repetidos.
-
-123
-00:10:26.335 --> 00:10:29.706
-Ahora la lista tiene cuatro elementos, y len devuelve cuatro.
-
-124
-00:10:29.986 --> 00:10:37.090
-Pero frutas en la posición cuatro da IndexError, porque se cuenta desde cero: con cuatro elementos, el último índice es tres.
-
-125
-00:10:38.317 --> 00:10:44.653
-Las tuplas son estructuras que guardan datos inmutables, es decir, que no se pueden modificar una vez creadas.
-
-126
-00:10:44.933 --> 00:10:49.477
-Pueden guardar elementos de distintos tipos, e incluso listas u otras tuplas.
-
-127
-00:10:49.757 --> 00:10:53.319
-Se crean con paréntesis, separando los elementos con comas.
-
-128
-00:10:54.583 --> 00:10:58.402
-En el ejemplo, tpl es una tupla con dos, cuatro, cinco y seis.
-
-129
-00:10:58.682 --> 00:11:04.335
-La función type sirve para verificar el tipo de dato de una variable, y en este caso devuelve tuple.
-
-130
-00:11:05.583 --> 00:11:11.301
-Un ejemplo con tuplas. punto es la tupla tres y cuatro, y punto en la posición cero devuelve tres.
-
-131
-00:11:11.581 --> 00:11:17.682
-Pero si intentamos cambiarlo con punto cero igual a diez, sale un TypeError, porque la tupla es inmutable.
-
-132
-00:11:17.962 --> 00:11:22.079
-También puede tener tipos mezclados, como un texto, un número y una lista.
-
-133
-00:11:22.359 --> 00:11:28.375
-La diferencia con la lista: la lista usa corchetes y es modificable, ideal para una lista de compras.
-
-134
-00:11:28.655 --> 00:11:35.055
-La tupla usa paréntesis y no se puede modificar, ideal para coordenadas, los días de la semana o una fecha.
-
-135
-00:11:36.317 --> 00:11:41.842
-El slicing es un operador para extraer porciones de secuencias como textos, listas y tuplas.
-
-136
-00:11:42.122 --> 00:11:46.495
-Su sintaxis lleva tres valores entre corchetes separados por dos puntos.
-
-137
-00:11:46.775 --> 00:11:50.381
-Start, opcional, es el índice inicial, y por defecto es cero.
-
-138
-00:11:50.661 --> 00:11:56.293
-Stop, opcional, es el índice final, que no se incluye, y por defecto es el largo de la secuencia.
-
-139
-00:11:56.573 --> 00:11:59.367
-Y el tercero es el paso, que por defecto es uno.
-
-140
-00:12:00.583 --> 00:12:11.911
-Este es el ejemplo de slicing de la clase. lst es diez, ocho, seis, cuatro, dos. lst2 es una copia de lst, y luego se cambia la posición uno de lst2 por diez.
-
-141
-00:12:12.191 --> 00:12:15.477
-Después se imprimen varias porciones de lst2.
-
-142
-00:12:16.717 --> 00:12:19.063
-Veamos los resultados de ese ejemplo.
-
-143
-00:12:19.343 --> 00:12:33.935
-Después del cambio, lst2 es diez, diez, seis, cuatro, dos. lst2 desde tres hasta el final da cuatro y dos. lst2 hasta tres da diez, diez y seis, porque el tres no se incluye. lst2 de uno a menos uno da diez, seis y cuatro:
-
-144
-00:12:34.215 --> 00:12:45.821
-desde la posición uno hasta antes del último. lst2 de menos uno a uno da una lista vacía, porque empieza en el último elemento y avanza hacia la derecha, así que nunca llega a la posición uno.
-
-145
-00:12:46.101 --> 00:12:50.815
-Y lst original no cambió, porque lst con dos puntos creó una copia.
-
-146
-00:12:52.050 --> 00:12:54.482
-El slicing también funciona con textos.
-
-147
-00:12:54.762 --> 00:12:59.029
-Con la palabra PYTHON: de cero a dos da PY, las posiciones cero y uno.
-
-148
-00:12:59.309 --> 00:13:01.805
-Desde dos hasta el final da THON.
-
-149
-00:13:02.085 --> 00:13:05.605
-Menos tres hasta el final da los últimos tres: HON.
-
-150
-00:13:05.885 --> 00:13:10.877
-Con paso dos, es decir dos puntos dos puntos dos, toma una letra sí y otra no: PTO.
-
-151
-00:13:11.157 --> 00:13:15.381
-Y con paso menos uno, da la palabra al revés: NOHTYP.
-
-152
-00:13:15.661 --> 00:13:19.266
-El tercer valor es el paso: cuántas posiciones avanzar.
-
-153
-00:13:20.517 --> 00:13:24.762
-Los diccionarios son estructuras que guardan datos en pares de clave y valor.
-
-154
-00:13:25.042 --> 00:13:29.031
-Pueden guardar números, textos, listas e incluso otros diccionarios.
-
-155
-00:13:29.311 --> 00:13:33.258
-Se crean con llaves, escribiendo cada clave, dos puntos y su valor.
-
-156
-00:13:34.517 --> 00:13:42.047
-Características de los diccionarios: son mutables, no tienen un orden por posición, y las claves son únicas dentro de un diccionario.
-
-157
-00:13:43.250 --> 00:13:49.010
-En el ejemplo se crea un diccionario vacío con llaves, y al imprimirlo se muestran las llaves vacías.
-
-158
-00:13:49.290 --> 00:13:54.773
-Luego se crean dic1 y dic2, cada uno con un usuario y un id, y se imprime dic1.
-
-159
-00:13:55.983 --> 00:14:01.381
-Con el método get se obtiene un valor según su clave: dic1 punto get de id devuelve cien.
-
-160
-00:14:01.661 --> 00:14:10.343
-También se puede crear un diccionario a partir de otros: dic3 contiene a dic1 y dic2 como valores de las claves customer1 y customer2.
-
-161
-00:14:11.583 --> 00:14:18.261
-Un ejemplo con diccionarios. estudiante tiene las claves nombre, edad y materias. estudiante de nombre devuelve Ana.
-
-162
-00:14:18.541 --> 00:14:23.917
-Como es mutable, cambiamos la edad a veintiuno y agregamos una clave nueva, ciudad, con Guayaquil.
-
-163
-00:14:24.197 --> 00:14:30.405
-Con get y un valor por defecto, pedimos teléfono, que no existe, y devuelve No registrado, en lugar de dar error.
-
-164
-00:14:30.685 --> 00:14:36.466
-Si repetimos una clave al crear un diccionario, se queda el último valor, porque las claves son únicas.
-
-165
-00:14:36.746 --> 00:14:41.781
-Y estudiante en la posición cero da KeyError, porque no hay índices: se accede por clave.
-
-166
-00:14:42.061 --> 00:14:46.221
-Es como una agenda de contactos: buscas por el nombre y obtienes el número.
-
-167
-00:14:47.450 --> 00:14:50.607
-Como práctica, se trabajó con un dataset desordenado.
-
-168
-00:14:50.887 --> 00:14:51.954
-Los pasos son:
-
-169
-00:14:52.234 --> 00:15:02.431
-ir a la página del proyecto messy data, analizar las preguntas del formulario de Google, abrir las respuestas, exportarlas como archivo CSV y analizarlas con Python.
-
-170
-00:15:03.650 --> 00:15:10.946
-En resumen, esta semana vimos conceptos básicos de Python, las colecciones de Python, y cómo empezar a analizar un dataset.
-
-171
-00:15:11.226 --> 00:15:13.210
-Esto es todo para la semana tres.
+00:06:38.951 --> 00:06:44.199
+Aquí, for num in range de 0 a 13 con paso
+2 imprime los números pares del 0 al 12.
+
+00:06:44.496 --> 00:06:45.904
+¿Por qué no el 14?
+
+00:06:46.312 --> 00:06:49.192
+Porque el 13 es el final,
+y el final no se incluye.
+
+00:06:50.242 --> 00:06:53.192
+Un ejemplo más útil: el
+promedio de unas notas. total
+
+00:06:53.192 --> 00:06:56.365
+empieza en cero, y en cada
+vuelta el bucle suma una nota.
+
+00:06:56.835 --> 00:06:59.416
+Primera vuelta, total pasa a 85.
+
+00:06:59.696 --> 00:07:01.744
+Segunda, a 177.
+
+00:07:02.023 --> 00:07:04.284
+Tercera, a 255.
+
+00:07:04.754 --> 00:07:09.298
+Y al final se divide: 255 entre 3 da 85.
+
+00:07:09.578 --> 00:07:12.261
+Lo que tiene sangría se repite en cada vuelta;
+
+00:07:12.261 --> 00:07:15.060
+lo que no tiene sangría
+se ejecuta una sola vez.
+
+00:07:15.530 --> 00:07:18.965
+Y el segundo ejemplo usa range
+para imprimir la tabla del 7.
+
+00:07:20.015 --> 00:07:23.386
+Las sentencias if, elif y else
+permiten tomar decisiones.
+
+00:07:23.856 --> 00:07:25.157
+Aquí num vale 2.
+
+00:07:25.428 --> 00:07:26.601
+¿Es menor que cero?
+
+00:07:27.050 --> 00:07:27.522
+No.
+
+00:07:27.766 --> 00:07:28.982
+¿Es mayor que 10?
+
+00:07:29.402 --> 00:07:30.191
+Tampoco.
+
+00:07:30.487 --> 00:07:33.858
+Entonces entra al else: es
+mayor que cero y menor que 10.
+
+00:07:34.101 --> 00:07:36.351
+Por cierto, elif es la abreviatura de else
+
+00:07:36.351 --> 00:07:38.922
+if: «si no se cumplió lo
+anterior, prueba esto».
+
+00:07:39.972 --> 00:07:41.914
+Un ejemplo para calificar notas.
+
+00:07:42.166 --> 00:07:45.146
+Si la nota es mayor o igual
+que 90, Excelente; si
+
+00:07:45.146 --> 00:07:48.310
+es mayor o igual que 70,
+Aprobado; si no, Reprobado.
+
+00:07:48.780 --> 00:07:50.700
+Con 72, Aprobado.
+
+00:07:50.945 --> 00:07:54.380
+Con 70 también, porque mayor
+o igual incluye el 70.
+
+00:07:54.628 --> 00:07:56.121
+Con 40, Reprobado.
+
+00:07:56.591 --> 00:07:57.999
+¿Y con 95?
+
+00:07:58.402 --> 00:08:01.068
+Excelente, aunque también sea mayor que 70.
+
+00:08:01.377 --> 00:08:05.942
+Las condiciones se revisan en orden, y solo
+se ejecuta el primer bloque verdadero.
+
+00:08:06.412 --> 00:08:10.444
+El else no lleva condición: atrapa
+todo lo que no cumplió las anteriores.
+
+00:08:11.494 --> 00:08:14.012
+Las funciones se definen con la palabra def.
+
+00:08:14.287 --> 00:08:17.039
+Aquí se define showMessage,
+que imprime un mensaje.
+
+00:08:17.304 --> 00:08:20.291
+Y al llamarla, con su nombre
+y paréntesis, se ejecuta.
+
+00:08:20.595 --> 00:08:23.881
+Definirla no la ejecuta: solo
+la deja lista para usarla.
+
+00:08:24.186 --> 00:08:25.252
+¿Y para qué sirven?
+
+00:08:25.692 --> 00:08:30.086
+Para no repetir código: escribes algo una
+vez, y lo usas las veces que quieras.
+
+00:08:31.136 --> 00:08:34.173
+Esta función, calculateOperation,
+recibe dos números
+
+00:08:34.173 --> 00:08:36.918
+y un operador, que por
+defecto es el signo más.
+
+00:08:37.175 --> 00:08:41.186
+Según el operador, resta, multiplica
+o divide; y si no es ninguno, suma.
+
+00:08:42.236 --> 00:08:46.929
+Al llamarla sin el operador, usa el
+valor por defecto y suma: 3 más 2 da 5.
+
+00:08:47.399 --> 00:08:50.237
+Y si le pasas el signo
+de multiplicación, da 6.
+
+00:08:51.287 --> 00:08:54.553
+Un ejemplo más: calcular área
+recibe base y altura, con
+
+00:08:54.553 --> 00:08:57.879
+altura igual a 1 por defecto,
+y retorna base por altura.
+
+00:08:58.349 --> 00:09:00.781
+calcular área de 5 y 3 da 15.
+
+00:09:01.067 --> 00:09:04.309
+Y de 5, sin altura, usa el
+valor por defecto: da 5.
+
+00:09:04.779 --> 00:09:07.811
+Gracias a return, el resultado se puede seguir
+
+00:09:07.811 --> 00:09:10.710
+usando: calcular área de 4 y 2, más 1, da 9.
+
+00:09:11.180 --> 00:09:14.977
+En cambio, saludar solo hace print:
+muestra «Hola Ana»… pero devuelve None.
+
+00:09:15.246 --> 00:09:19.363
+Esa es la diferencia clave: print muestra
+en pantalla; return entrega un valor.
+
+00:09:20.413 --> 00:09:24.595
+Ahora, las colecciones básicas de Python:
+la lista, la tupla y el diccionario.
+
+00:09:24.895 --> 00:09:28.501
+Las tres guardan varios valores,
+pero cada una tiene sus reglas.
+
+00:09:29.551 --> 00:09:32.729
+Las listas guardan varios
+valores en una sola variable.
+
+00:09:33.199 --> 00:09:36.591
+Son ordenadas, modificables
+y admiten valores repetidos.
+
+00:09:36.887 --> 00:09:40.151
+Y se accede a cada elemento con
+un índice que empieza en cero.
+
+00:09:40.440 --> 00:09:43.195
+Piensa en el índice como
+cuántos pasos te alejas
+
+00:09:43.195 --> 00:09:46.008
+del inicio: el primer
+elemento está a cero pasos.
+
+00:09:46.478 --> 00:09:51.022
+Se crean con corchetes, separando los
+elementos con comas, o con la función list.
+
+00:09:52.072 --> 00:09:55.009
+En el ejemplo, lst tiene 1, 3, 5 y 7, y la
+
+00:09:55.009 --> 00:09:58.365
+función len devuelve
+cuántos elementos tiene: 4.
+
+00:09:59.415 --> 00:10:03.100
+Mira una lista en acción: frutas
+tiene mango, guineo y piña. frutas
+
+00:10:03.100 --> 00:10:06.839
+en cero es mango, y en menos uno,
+que siempre es el último, es piña.
+
+00:10:07.309 --> 00:10:10.645
+Como es modificable, cambiamos
+la posición 1 por maracuyá,
+
+00:10:10.645 --> 00:10:13.923
+y con append agregamos otro
+mango: se permiten repetidos.
+
+00:10:14.393 --> 00:10:18.169
+Ahora tiene 4 elementos… pero
+frutas en 4 da IndexError.
+
+00:10:18.442 --> 00:10:19.110
+¿Por qué?
+
+00:10:19.522 --> 00:10:23.703
+Porque se cuenta desde cero: con 4
+elementos, el último índice es 3.
+
+00:10:24.753 --> 00:10:29.255
+Las tuplas guardan datos inmutables: una
+vez creadas, no se pueden modificar.
+
+00:10:29.725 --> 00:10:33.415
+Pueden mezclar tipos, e incluso
+contener listas u otras tuplas.
+
+00:10:33.702 --> 00:10:35.302
+Y se crean con paréntesis.
+
+00:10:36.352 --> 00:10:41.856
+Aquí tpl es una tupla con 2, 4, 5 y 6, y
+la función type confirma su tipo: tuple.
+
+00:10:42.906 --> 00:10:46.256
+punto es la tupla 3, 4.
+punto en cero devuelve 3.
+
+00:10:46.525 --> 00:10:50.471
+Pero si intentas cambiarlo, sale un
+TypeError: la tupla es inmutable.
+
+00:10:50.941 --> 00:10:53.395
+¿Para qué sirve algo que no se puede cambiar?
+
+00:10:53.812 --> 00:10:56.644
+Justamente para datos que
+no deben cambiar por error:
+
+00:10:56.644 --> 00:10:59.209
+coordenadas, una fecha,
+o los días de la semana.
+
+00:11:00.259 --> 00:11:04.078
+El slicing sirve para extraer
+porciones de textos, listas y tuplas.
+
+00:11:04.548 --> 00:11:08.262
+Lleva tres valores entre corchetes,
+separados por dos puntos: inicio,
+
+00:11:08.262 --> 00:11:12.569
+que por defecto es cero; fin, que no se
+incluye; y paso, que por defecto es uno.
+
+00:11:13.619 --> 00:11:17.776
+Este es el ejemplo de la
+clase: lst tiene 10, 8, 6, 4 y
+
+00:11:17.776 --> 00:11:22.387
+2; lst2 es una copia, y luego
+se cambia su posición 1 por 10.
+
+00:11:22.689 --> 00:11:24.844
+Después se imprimen varias porciones.
+
+00:11:25.894 --> 00:11:29.563
+Después del cambio, lst2 es 10, 10, 6, 4 y 2.
+
+00:11:29.861 --> 00:11:32.272
+Desde 3 hasta el final da 4 y 2.
+
+00:11:32.531 --> 00:11:35.475
+Hasta 3 da 10, 10 y 6, porque el 3 no entra.
+
+00:11:35.945 --> 00:11:40.723
+De 1 a menos 1 da 10, 6 y 4: desde la
+posición 1 hasta antes del último.
+
+00:11:41.193 --> 00:11:44.507
+Y de menos 1 a 1 da una lista
+vacía: empieza en el último
+
+00:11:44.507 --> 00:11:48.169
+y avanza hacia la derecha, así
+que nunca llega a la posición 1.
+
+00:11:48.469 --> 00:11:52.565
+Además, lst no cambió, porque los
+dos puntos solos crearon una copia.
+
+00:11:53.615 --> 00:11:57.156
+Para que el slicing no te confunda
+nunca más, míralo con cajas.
+
+00:11:57.433 --> 00:12:01.465
+En la palabra PYTHON, cada letra tiene
+una posición, y se cuenta desde cero.
+
+00:12:01.935 --> 00:12:04.790
+Y también se puede contar
+desde el final, con números
+
+00:12:04.790 --> 00:12:07.375
+negativos: menos uno es
+siempre la última letra.
+
+00:12:07.845 --> 00:12:11.728
+De cero a dos tomas desde la posición
+cero hasta antes de la dos: PY.
+
+00:12:12.032 --> 00:12:14.613
+El final nunca se incluye, igual que en range.
+
+00:12:15.083 --> 00:12:19.329
+Desde menos tres hasta el final
+tomas las tres últimas letras: HON.
+
+00:12:19.799 --> 00:12:22.423
+Con paso dos, saltas de dos en dos: P, T, O.
+
+00:12:22.893 --> 00:12:27.181
+Y con paso menos uno, recorres
+la palabra al revés: NOHTYP.
+
+00:12:27.471 --> 00:12:29.775
+Esa era la segunda pregunta del inicio.
+
+00:12:30.825 --> 00:12:35.540
+Esta diapositiva del PDF resume justo lo
+que acabamos de ver, con la misma palabra.
+
+00:12:35.840 --> 00:12:38.789
+Te sirve para repasarlo
+con calma: el tercer valor
+
+00:12:38.789 --> 00:12:42.091
+es el paso, y funciona igual
+en listas, tuplas y textos.
+
+00:12:43.141 --> 00:12:46.362
+Los diccionarios guardan datos
+en pares de clave y valor.
+
+00:12:46.832 --> 00:12:50.651
+Pueden guardar números, textos,
+listas e incluso otros diccionarios.
+
+00:12:50.947 --> 00:12:53.550
+Se crean con llaves: clave, dos puntos, valor.
+
+00:12:54.600 --> 00:12:56.892
+Sus características: son mutables, y no se
+
+00:12:56.892 --> 00:12:59.293
+accede a ellos por posición, sino por clave…
+
+00:12:59.763 --> 00:13:02.473
+…y las claves son únicas
+dentro de un diccionario.
+
+00:13:03.523 --> 00:13:06.074
+En el ejemplo se crea un diccionario vacío con
+
+00:13:06.074 --> 00:13:08.792
+llaves, y al imprimirlo
+se ven las llaves vacías.
+
+00:13:09.053 --> 00:13:12.424
+Luego dic1 y dic2 guardan un
+usuario y un id cada uno.
+
+00:13:13.474 --> 00:13:18.274
+Con el método get se obtiene un valor por su
+clave: dic1 punto get de id devuelve 100.
+
+00:13:18.578 --> 00:13:23.612
+Y se puede armar un diccionario con otros
+adentro: dic3 contiene a dic1 y dic2.
+
+00:13:23.898 --> 00:13:26.199
+Así se representan datos con niveles, como
+
+00:13:26.199 --> 00:13:28.719
+un cliente que tiene sus propios datos dentro.
+
+00:13:29.769 --> 00:13:33.908
+estudiante tiene nombre, edad y materias.
+estudiante de nombre devuelve Ana.
+
+00:13:34.378 --> 00:13:37.352
+Como es mutable, cambiamos
+la edad a 21 y agregamos
+
+00:13:37.352 --> 00:13:39.626
+una clave nueva, ciudad, con Guayaquil.
+
+00:13:40.096 --> 00:13:42.918
+Con get y un valor por
+defecto, pedimos teléfono, que
+
+00:13:42.918 --> 00:13:46.005
+no existe, y devuelve «No
+registrado» en vez de dar error.
+
+00:13:46.475 --> 00:13:49.099
+Si repites una clave, se
+queda el último valor.
+
+00:13:49.365 --> 00:13:53.525
+Y estudiante en cero da KeyError, porque
+no hay índices: se accede por clave.
+
+00:13:53.769 --> 00:13:57.075
+Es como una agenda: buscas por
+el nombre y obtienes el número.
+
+00:13:58.125 --> 00:14:00.685
+Pongamos las tres colecciones lado a lado.
+
+00:14:00.985 --> 00:14:04.154
+La lista se escribe con corchetes,
+la tupla con paréntesis,
+
+00:14:04.154 --> 00:14:07.108
+y el diccionario con llaves,
+en pares de clave y valor.
+
+00:14:07.578 --> 00:14:10.821
+La lista y el diccionario se
+pueden modificar; la tupla, no.
+
+00:14:11.291 --> 00:14:14.491
+A la lista y a la tupla accedes
+por índice, empezando en cero.
+
+00:14:14.754 --> 00:14:16.247
+Al diccionario, por clave.
+
+00:14:16.717 --> 00:14:20.109
+Y cada una tiene su uso ideal:
+la lista para cosas que cambian,
+
+00:14:20.109 --> 00:14:23.448
+como una lista de compras; la
+tupla para datos fijos, como una
+
+00:14:23.448 --> 00:14:26.893
+fecha; y el diccionario para buscar
+por nombre, como una agenda.
+
+00:14:27.943 --> 00:14:30.802
+Para practicar, se trabajó
+con un dataset desordenado.
+
+00:14:31.078 --> 00:14:33.567
+Primero se entra al proyecto messy data y se
+
+00:14:33.567 --> 00:14:36.283
+analizan las preguntas
+del formulario de Google.
+
+00:14:36.753 --> 00:14:41.553
+Luego se abren las respuestas, se exportan
+como CSV, y se analizan con Python.
+
+00:14:41.803 --> 00:14:44.704
+Es justo lo que haremos con
+Pandas en la semana cinco.
+
+00:14:45.174 --> 00:14:46.390
+¿Por qué desordenado?
+
+00:14:46.788 --> 00:14:50.327
+Porque es una encuesta real: la
+misma respuesta aparece escrita
+
+00:14:50.327 --> 00:14:53.529
+de muchas formas, hay campos
+vacíos y formatos distintos.
+
+00:14:53.827 --> 00:14:57.645
+Así son los datos en la vida real,
+y limpiarlos es parte del trabajo.
+
+00:14:58.695 --> 00:15:02.087
+Y este es el resumen oficial:
+conceptos básicos de Python,
+
+00:15:02.087 --> 00:15:05.245
+las colecciones, y cómo
+empezar a analizar un dataset.
+
+00:15:06.295 --> 00:15:08.129
+Antes de terminar, ponte a prueba.
+
+00:15:08.384 --> 00:15:10.816
+Si necesitas más tiempo, pausa el video.
+
+00:15:11.056 --> 00:15:15.600
+Primera pregunta: ¿qué imprime una lista
+hecha con range de 1 a 10, con paso 3?
+
+00:15:22.220 --> 00:15:23.458
+1, 4 y 7.
+
+00:15:23.701 --> 00:15:27.050
+Empieza en 1, salta de tres en
+tres, y el 10 no se incluye.
+
+00:15:27.520 --> 00:15:31.744
+Siguiente: quieres guardar los días de la
+semana para que nadie los cambie por error.
+
+00:15:32.025 --> 00:15:34.478
+¿Usas una lista, una tupla o un diccionario?
+
+00:15:39.098 --> 00:15:40.847
+Una tupla, porque es inmutable.
+
+00:15:41.317 --> 00:15:45.819
+Y la última: tienes dos celdas: x
+igual a 10, y x igual a x más 5.
+
+00:15:46.100 --> 00:15:49.023
+Ejecutas la primera, y
+luego dos veces la segunda.
+
+00:15:49.277 --> 00:15:50.493
+¿Cuánto vale x?
+
+00:15:56.113 --> 00:15:58.119
+20: diez, más cinco, más cinco.
+
+00:15:58.392 --> 00:16:00.845
+Lo que importa es el orden en que ejecutas.
+
+00:16:01.895 --> 00:16:03.773
+Resumamos lo más importante.
+
+00:16:04.243 --> 00:16:07.540
+Uno: Jupyter permite trabajar
+con notebooks en el navegador,
+
+00:16:07.540 --> 00:16:11.112
+y el código lo ejecuta un kernel,
+que en Python se llama IPython.
+
+00:16:11.366 --> 00:16:13.072
+Colab es Jupyter en la nube.
+
+00:16:13.542 --> 00:16:18.172
+Dos: hay celdas de código, de texto con
+Markdown, de encabezado de sección y scratch.
+
+00:16:18.440 --> 00:16:21.725
+Y el número entre corchetes
+indica el orden de ejecución.
+
+00:16:22.195 --> 00:16:26.329
+Tres: en Python la sangría define los
+bloques, range nunca incluye el final,
+
+00:16:26.329 --> 00:16:30.408
+if elif else ejecuta el primer bloque
+verdadero, y return entrega un valor.
+
+00:16:30.878 --> 00:16:34.012
+Y cuatro: la lista es modificable,
+la tupla es inmutable,
+
+00:16:34.012 --> 00:16:36.596
+y el diccionario guarda
+pares de clave y valor.
+
+00:16:36.878 --> 00:16:39.054
+El slicing es inicio, fin y paso.
+
+00:16:40.104 --> 00:16:42.003
+Eso es todo para la semana tres.
+
+00:16:42.286 --> 00:16:45.218
+En el siguiente video vemos
+qué son los algoritmos y los
+
+00:16:45.218 --> 00:16:48.515
+modelos, cómo se divide un dataset,
+y los tipos de aprendizaje.
+
+00:16:48.794 --> 00:16:49.818
+¡Nos vemos ahí!
 

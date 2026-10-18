@@ -21,23 +21,23 @@ export const WEEK_INFO: Record<WeekNum, { topic: string; dates: string }> = {
 };
 
 export const WEEK_SHORT: Record<WeekNum, string> = {
-  1: "Introducción a la IA",
-  2: "Datos, ML y ciencia de datos",
+  1: "Qué es la IA",
+  2: "Datos y machine learning",
   3: "Colab y Python",
-  4: "Modelos y tipos de aprendizaje",
-  5: "Módulos y Pandas",
-  6: "Regresión, Matplotlib y NumPy",
-  7: "Loss, cost y mejor ajuste",
+  4: "Tipos de aprendizaje",
+  5: "Pandas",
+  6: "Regresión y NumPy",
+  7: "Pérdida y costo",
 };
 
 export const VIDEOS: { w: WeekNum; dur: string; seconds: number }[] = [
-  { w: 1, dur: "15:46", seconds: 946 },
-  { w: 2, dur: "16:25", seconds: 985 },
-  { w: 3, dur: "15:13", seconds: 913 },
-  { w: 4, dur: "10:14", seconds: 614 },
-  { w: 5, dur: "12:19", seconds: 740 },
-  { w: 6, dur: "13:50", seconds: 831 },
-  { w: 7, dur: "3:34", seconds: 214 },
+  { w: 1, dur: "18:40", seconds: 1120 },
+  { w: 2, dur: "18:59", seconds: 1140 },
+  { w: 3, dur: "16:51", seconds: 1012 },
+  { w: 4, dur: "12:46", seconds: 766 },
+  { w: 5, dur: "14:02", seconds: 843 },
+  { w: 6, dur: "15:22", seconds: 923 },
+  { w: 7, dur: "11:21", seconds: 681 },
 ];
 
 export const videoSrc = (w: WeekNum) => `/media/videos/w${w}/index.m3u8`;

@@ -1,690 +1,1218 @@
 WEBVTT
 
-1
-00:00:00.450 --> 00:00:01.410
-Semana dos.
+00:00:00.500 --> 00:00:02.847
+Antes de empezar, tres preguntas trampa.
 
-2
-00:00:01.690 --> 00:00:10.309
-Veremos la diferencia entre IA débil e IA fuerte, qué son el machine learning y la ciencia de datos, los tipos de datos y los métodos para recolectarlos.
+00:00:03.098 --> 00:00:05.914
+Primera: Siri entiende lo
+que le dices y te responde.
 
-3
-00:00:11.517 --> 00:00:14.887
-Los resultados de aprendizaje de esta semana son cuatro:
+00:00:06.208 --> 00:00:08.192
+¿Eso la convierte en una IA fuerte?
 
-4
-00:00:15.167 --> 00:00:18.389
-describir la diferencia entre IA débil e IA fuerte;
+00:00:08.662 --> 00:00:11.008
+Segunda: tu número de celular es un número.
 
-5
-00:00:18.669 --> 00:00:21.314
-describir los tipos de datos estadísticos;
+00:00:11.312 --> 00:00:13.019
+¿Es un dato cuantitativo?
 
-6
-00:00:21.594 --> 00:00:24.453
-describir los tipos de datos según su estructura;
+00:00:13.489 --> 00:00:17.073
+Y tercera: un archivo JSON tiene
+sus datos bien organizados.
 
-7
-00:00:24.733 --> 00:00:28.125
-y describir los distintos métodos para recolectar datos.
+00:00:17.321 --> 00:00:18.815
+¿Es un dato estructurado?
 
-8
-00:00:29.383 --> 00:00:32.263
-Empezamos con el argumento de la habitación china.
+00:00:19.285 --> 00:00:20.970
+Las tres respuestas son «no».
 
-9
-00:00:32.543 --> 00:00:42.335
-La imagen muestra a una persona dentro de una caja, con un libro de instrucciones, que recibe mensajes por una ranura de entrada y devuelve respuestas por una ranura de salida.
+00:00:21.222 --> 00:00:24.529
+Y al terminar este video vas
+a saber exactamente por qué.
 
-10
-00:00:43.583 --> 00:00:47.423
-Este experimento mental fue propuesto por el filósofo John Searle.
+00:00:25.579 --> 00:00:28.642
+Semana dos: IA débil y fuerte,
+machine learning, ciencia
 
-11
-00:00:47.703 --> 00:00:54.039
-Una persona que no sabe chino está dentro de una habitación, y afuera hay una persona china que le envía mensajes.
+00:00:28.642 --> 00:00:31.595
+de datos, tipos de datos y
+métodos para recolectarlos.
 
-12
-00:00:54.319 --> 00:01:00.634
-La persona de adentro usa un manual de instrucciones para poder responder a lo que escribe la persona china.
+00:00:32.645 --> 00:00:35.077
+Los resultados de aprendizaje son cuatro.
 
-13
-00:01:01.850 --> 00:01:10.618
-El experimento le da a la persona china la impresión de que está hablando con alguien que sabe chino, pero eso no significa que la persona de adentro lo sepa.
+00:00:35.360 --> 00:00:38.389
+Describir la diferencia
+entre IA débil e IA fuerte…
 
-14
-00:01:10.898 --> 00:01:21.693
-La conclusión es que, si una máquina demuestra ser inteligente, por ejemplo pasando la prueba de Turing, eso no significa que realmente sea inteligente ni que tenga una mente como los humanos.
+00:00:38.859 --> 00:00:43.403
+…describir los tipos de datos estadísticos
+y los tipos de datos según su estructura…
 
-15
-00:01:22.917 --> 00:01:24.517
+00:00:43.873 --> 00:00:46.604
+…y describir los métodos
+para recolectar datos.
+
+00:00:47.654 --> 00:00:51.259
+Empezamos con un experimento mental
+famoso: la habitación china.
+
+00:00:51.540 --> 00:00:54.932
+Hay una persona dentro de una caja,
+con un libro de instrucciones.
+
+00:00:55.199 --> 00:00:57.525
+Recibe mensajes por una ranura de entrada,
+
+00:00:57.525 --> 00:01:00.127
+y devuelve respuestas por
+una ranura de salida.
+
+00:01:01.177 --> 00:01:03.310
+Lo propuso el filósofo John Searle.
+
+00:01:03.780 --> 00:01:06.874
+Dentro de la habitación hay
+una persona que no sabe chino.
+
+00:01:07.160 --> 00:01:09.678
+Afuera, una persona china le envía mensajes.
+
+00:01:09.944 --> 00:01:14.125
+Y la de adentro usa un manual de instrucciones
+para responder lo que le escriben.
+
+00:01:15.175 --> 00:01:18.339
+Desde afuera, la persona china
+siente que habla con alguien
+
+00:01:18.339 --> 00:01:21.127
+que sabe chino… pero la de
+adentro no entiende nada.
+
+00:01:21.597 --> 00:01:25.691
+Y aquí está la conclusión importante:
+si una máquina parece inteligente,
+
+00:01:25.691 --> 00:01:29.386
+por ejemplo porque pasa la prueba
+de Turing, eso no significa que
+
+00:01:29.386 --> 00:01:33.139
+realmente sea inteligente, ni que
+tenga una mente como la nuestra.
+
+00:01:34.189 --> 00:01:35.725
 Veámoslo paso a paso.
 
-16
-00:01:24.797 --> 00:01:28.594
-Por la ranura entra un mensaje en chino que significa ¿cómo estás?
+00:01:36.003 --> 00:01:39.246
+Por la ranura entra un mensaje
+que significa «¿cómo estás?».
 
-17
-00:01:28.874 --> 00:01:34.271
-La persona busca en el manual, que dice: si ves estos símbolos, copia y devuelve estos otros.
+00:01:39.716 --> 00:01:43.812
+La persona busca en el manual: «si ves
+estos símbolos, devuelve estos otros».
 
-18
-00:01:34.551 --> 00:01:38.519
-Por la ranura sale una respuesta que significa estoy bien, gracias.
+00:01:44.089 --> 00:01:46.841
+Solo compara formas, como
+quien compara dibujos.
 
-19
-00:01:38.799 --> 00:01:43.941
-Desde afuera, las respuestas son perfectas y parece que adentro hay alguien que habla chino.
+00:01:47.311 --> 00:01:49.743
+Y sale la respuesta: «estoy bien, gracias».
 
-20
-00:01:44.221 --> 00:01:49.170
-Desde adentro, la persona no entiende ni una palabra: solo compara formas de símbolos.
+00:01:50.014 --> 00:01:51.465
+Desde afuera, perfecto.
 
-21
-00:01:49.450 --> 00:01:55.829
-Es como un estudiante que copia las respuestas de un solucionario: entrega un deber perfecto sin entender el tema.
+00:01:51.737 --> 00:01:53.700
+Desde adentro, cero comprensión.
 
-22
-00:01:56.109 --> 00:02:00.482
-Searle dice que un programa hace lo mismo: procesar símbolos no es comprender.
+00:01:54.170 --> 00:01:56.485
+Es como copiar un deber de un solucionario:
 
-23
-00:02:01.717 --> 00:02:05.215
-La IA débil se enfoca en realizar tareas específicas.
+00:01:56.485 --> 00:01:58.799
+lo entregas perfecto, sin entender el tema.
 
-24
-00:02:05.495 --> 00:02:13.367
-Ejemplos de IA débil son los chatbots, los filtros de spam en el correo, Google Maps, y los asistentes inteligentes como Siri y Alexa.
+00:01:59.068 --> 00:02:03.206
+Searle dice que un programa hace lo mismo:
+procesar símbolos no es comprender.
 
-25
-00:02:14.583 --> 00:02:20.535
-La IA fuerte, en cambio, sería capaz de realizar acciones de la misma forma que lo haría un ser humano:
+00:02:03.676 --> 00:02:07.165
+Y esto sigue vigente: cuando un
+chatbot moderno te responde con
 
-26
-00:02:20.815 --> 00:02:30.159
-resolver problemas y aprender nuevas habilidades por su cuenta, usar lo aprendido en distintas tareas, y adaptarse al entorno ante situaciones imprevistas.
+00:02:07.165 --> 00:02:10.930
+fluidez, ¿entiende lo que dice, o
+solo maneja muy bien los símbolos?
 
-27
-00:02:31.383 --> 00:02:33.410
-Comparemos ambas con un ejemplo.
+00:02:11.335 --> 00:02:12.743
+Searle diría lo segundo.
 
-28
-00:02:33.690 --> 00:02:40.815
-La IA débil hace una sola tarea, y muy bien: Siri pone una alarma, Deep Blue juega ajedrez, un filtro clasifica correos.
+00:02:13.038 --> 00:02:16.088
+Hay quienes no están de acuerdo,
+y el debate sigue abierto.
 
-29
-00:02:41.095 --> 00:02:46.855
-Si cambias la tarea, no puede: Deep Blue no sabe jugar damas y el filtro de spam no puede traducir.
+00:02:16.380 --> 00:02:19.005
+Lo importante para el
+curso es la idea: parecer
 
-30
-00:02:47.135 --> 00:02:56.373
-La IA fuerte haría cualquier tarea intelectual humana: imagina un asistente que aprende cocina, luego medicina y luego a manejar, solo y sin reprogramarlo.
+00:02:19.005 --> 00:02:21.351
+inteligente no es lo mismo que comprender.
 
-31
-00:02:56.653 --> 00:03:04.567
-Hoy toda la IA real es IA débil; la IA fuerte sigue siendo hipotética y aparece en la ciencia ficción, como JARVIS o HAL nueve mil.
+00:02:22.401 --> 00:02:24.491
+De aquí sale la primera distinción.
 
-32
-00:03:04.847 --> 00:03:10.138
-Un truco para recordar: la IA débil es un especialista, la IA fuerte sería un todólogo.
+00:02:24.771 --> 00:02:28.099
+La IA débil se enfoca en
+realizar tareas específicas.
 
-33
-00:03:11.383 --> 00:03:20.130
-La filosofía de la inteligencia artificial es la disciplina que busca entender la naturaleza de la IA y sus implicaciones legales, sociales y éticas.
+00:02:28.569 --> 00:02:31.072
+Ejemplos: los chatbots, los filtros de spam,
 
-34
-00:03:20.410 --> 00:03:28.602
-Intenta responder preguntas como: ¿puede una máquina actuar de forma inteligente y resolver un problema que una persona resolvería pensando?
+00:02:31.072 --> 00:02:33.518
+Google Maps y asistentes como Siri y Alexa.
 
-35
-00:03:28.882 --> 00:03:31.975
-¿Son lo mismo la inteligencia humana y la de las máquinas?
+00:02:33.792 --> 00:02:36.606
+También se le llama IA
+estrecha, porque su habilidad
 
-36
-00:03:32.255 --> 00:03:35.498
-¿Es el cerebro humano esencialmente una computadora?
+00:02:36.606 --> 00:02:39.637
+es estrecha: brilla en lo
+suyo, y fuera de eso no sirve.
 
-37
-00:03:35.778 --> 00:03:40.343
-¿Puede una máquina tener mente, estados mentales y conciencia como los humanos?
+00:02:40.687 --> 00:02:44.291
+La IA fuerte, en cambio, sería
+capaz de actuar como lo haría una
 
-38
-00:03:41.583 --> 00:03:49.669
-Como contenido adicional, se recomienda el curso gratuito en línea Elements of AI, que explica los fundamentos de la inteligencia artificial.
+00:02:44.291 --> 00:02:48.346
+persona: resolver problemas y aprender
+nuevas habilidades por su cuenta…
 
-39
-00:03:49.949 --> 00:03:52.061
+00:02:48.816 --> 00:02:53.488
+…usar lo aprendido en tareas distintas, y
+adaptarse a situaciones que nadie previó.
+
+00:02:53.747 --> 00:02:56.605
+Es decir, una inteligencia
+general, como la nuestra,
+
+00:02:56.605 --> 00:02:59.571
+que no necesita que la
+programen para cada cosa nueva.
+
+00:03:00.621 --> 00:03:01.496
+Comparemos.
+
+00:03:01.779 --> 00:03:04.129
+La IA débil hace una sola cosa, y muy bien:
+
+00:03:04.129 --> 00:03:06.643
+Siri pone una alarma, Deep Blue juega ajedrez.
+
+00:03:07.113 --> 00:03:09.807
+Pero si le cambias la tarea,
+no puede: Deep Blue no
+
+00:03:09.807 --> 00:03:12.766
+sabe jugar damas, y el filtro
+de spam no puede traducir.
+
+00:03:13.236 --> 00:03:16.796
+La IA fuerte haría cualquier tarea
+intelectual humana: aprender
+
+00:03:16.796 --> 00:03:20.468
+cocina, luego medicina, luego a
+manejar… sola, sin reprogramarla.
+
+00:03:20.938 --> 00:03:21.941
+¿Y existe hoy?
+
+00:03:22.342 --> 00:03:22.814
+No.
+
+00:03:23.058 --> 00:03:26.021
+Toda la IA real es débil;
+la fuerte sigue siendo
+
+00:03:26.021 --> 00:03:28.861
+hipotética, como JARVIS o HAL 9000 en el cine.
+
+00:03:29.123 --> 00:03:31.774
+Así que la respuesta a la
+primera pregunta trampa
+
+00:03:31.774 --> 00:03:34.371
+es: Siri es IA débil, por
+muy bien que converse.
+
+00:03:34.841 --> 00:03:39.812
+Un truco para recordarlo: la IA débil es un
+especialista; la fuerte sería un todólogo.
+
+00:03:40.862 --> 00:03:45.312
+Todo esto pertenece a la filosofía de la
+inteligencia artificial: la disciplina
+
+00:03:45.312 --> 00:03:49.875
+que busca entender la naturaleza de la IA
+y sus implicaciones legales, sociales y
+
+00:03:49.875 --> 00:03:50.270
+éticas.
+
+00:03:50.740 --> 00:03:55.198
+Intenta responder preguntas como: ¿puede
+una máquina actuar de forma inteligente?
+
+00:03:55.607 --> 00:03:58.529
+¿Son lo mismo la inteligencia
+humana y la de una máquina?
+
+00:03:58.999 --> 00:04:02.498
+¿Puede una máquina tener mente,
+estados mentales y conciencia?
+
+00:04:02.958 --> 00:04:05.560
+Preguntas que, por ahora,
+nadie ha cerrado del todo.
+
+00:04:06.030 --> 00:04:09.850
+Fíjate que la habitación china
+responde justamente a estas preguntas:
+
+00:04:09.850 --> 00:04:14.222
+Searle argumenta que actuar de forma
+inteligente no basta para tener una mente.
+
+00:04:15.272 --> 00:04:18.937
+Como contenido adicional, se
+recomienda el curso gratuito Elements
+
+00:04:18.937 --> 00:04:22.547
+of AI, que explica los fundamentos
+de la inteligencia artificial.
+
+00:04:22.832 --> 00:04:24.837
 El enlace está en la diapositiva.
 
-40
-00:03:53.317 --> 00:03:57.327
-Este diagrama muestra cómo la IA se relaciona con otras disciplinas.
+00:04:25.887 --> 00:04:28.938
+Ahora veamos cómo encaja la
+IA con otras disciplinas.
 
-41
-00:03:57.607 --> 00:04:03.709
-La inteligencia artificial y la ciencia de datos se superponen, y en esa intersección está el machine learning.
+00:04:29.181 --> 00:04:32.573
+La inteligencia artificial y la
+ciencia de datos se superponen…
 
-42
-00:04:03.989 --> 00:04:18.111
-A su alrededor aparecen áreas como estadística y matemáticas, sistemas de datos, computación de alto rendimiento, robótica, procesamiento de lenguaje y visión por computadora, y todo esto se aplica a las ciencias sociales, naturales y de la salud.
+00:04:33.043 --> 00:04:35.837
+…y justo en la intersección
+está el machine learning.
 
-43
-00:04:19.317 --> 00:04:23.711
-Aquí se compara ciencia de datos, inteligencia artificial y machine learning.
+00:04:36.307 --> 00:04:39.887
+Alrededor aparecen la estadística,
+las matemáticas, los sistemas
 
-44
-00:04:23.991 --> 00:04:28.343
-La ciencia de datos abarca la recolección, preparación y análisis de datos.
+00:04:39.887 --> 00:04:43.411
+de datos, la robótica, el lenguaje
+y la visión por computadora.
 
-45
-00:04:28.623 --> 00:04:35.663
-La inteligencia artificial es la tecnología para que las máquinas entiendan, aprendan y tomen decisiones inteligentes.
+00:04:43.708 --> 00:04:47.505
+Y todo eso se aplica en las ciencias
+sociales, naturales y de la salud.
 
-46
-00:04:35.943 --> 00:04:40.701
-Y el machine learning es un subconjunto de la IA y una herramienta de la ciencia de datos:
+00:04:48.555 --> 00:04:50.966
+Este otro diagrama lo dice con círculos.
 
-47
-00:04:40.981 --> 00:04:47.594
-son algoritmos que permiten a las máquinas mejorar con aprendizaje supervisado, no supervisado y por refuerzo.
+00:04:51.436 --> 00:04:55.169
+La ciencia de datos abarca recolectar,
+preparar y analizar datos.
 
-48
-00:04:48.850 --> 00:04:54.141
-El machine learning es un subcampo de la inteligencia artificial que se enfoca en la estadística.
+00:04:55.639 --> 00:04:58.841
+La IA es la tecnología para
+que las máquinas entiendan,
 
-49
-00:04:54.421 --> 00:05:02.741
-La computadora resuelve problemas aprendiendo de ciertos datos y luego usa esa experiencia para resolver el problema en situaciones nuevas.
+00:04:58.841 --> 00:05:01.228
+aprendan y tomen decisiones inteligentes.
 
-50
-00:05:03.021 --> 00:05:08.759
-Los sistemas mejoran en una tarea específica a medida que ganan experiencia o acumulan datos.
+00:05:01.698 --> 00:05:04.980
+Y el machine learning es un
+subconjunto de la IA, y a la vez
 
-51
-00:05:09.983 --> 00:05:14.783
-Para entender la diferencia, comparemos programación tradicional con machine learning.
+00:05:04.980 --> 00:05:08.370
+una herramienta de la ciencia de
+datos: algoritmos que mejoran
 
-52
-00:05:15.063 --> 00:05:19.927
-En la programación tradicional, tú das los datos y las reglas, y obtienes las respuestas.
+00:05:08.370 --> 00:05:11.597
+con aprendizaje supervisado,
+no supervisado y por refuerzo.
 
-53
-00:05:20.207 --> 00:05:26.010
-Por ejemplo: si el color es naranja y la textura es rugosa, la fruta es naranja; si no, es manzana.
+00:05:12.647 --> 00:05:14.588
+Entonces, ¿qué es el machine learning?
 
-54
-00:05:26.290 --> 00:05:29.191
-Pero ¿qué pasa con una manzana amarilla rugosa?
+00:05:14.991 --> 00:05:19.023
+Un subcampo de la inteligencia artificial
+que se enfoca en la estadística.
 
-55
-00:05:29.471 --> 00:05:30.559
+00:05:19.493 --> 00:05:22.676
+La computadora aprende de
+ciertos datos, y luego usa esa
+
+00:05:22.676 --> 00:05:26.085
+experiencia para resolver el
+problema en situaciones nuevas.
+
+00:05:26.555 --> 00:05:29.616
+Y lo clave: el sistema mejora
+en una tarea específica
+
+00:05:29.616 --> 00:05:32.273
+a medida que gana experiencia o acumula datos.
+
+00:05:32.521 --> 00:05:36.023
+Piensa en las recomendaciones de
+una app de música: el primer día
+
+00:05:36.023 --> 00:05:39.795
+te sugiere cualquier cosa; después
+de un mes, ya sabe lo que te gusta.
+
+00:05:40.054 --> 00:05:42.956
+Nadie reescribió el programa:
+aprendió de tus datos.
+
+00:05:44.006 --> 00:05:48.251
+La mejor forma de entenderlo es compararlo
+con la programación tradicional.
+
+00:05:48.721 --> 00:05:52.051
+En la tradicional, tú das los
+datos y las reglas, y obtienes
+
+00:05:52.051 --> 00:05:55.548
+respuestas: si es naranja y rugosa,
+es naranja; si no, manzana.
+
+00:05:55.857 --> 00:05:57.820
+¿Y una manzana amarilla rugosa?
+
+00:05:58.248 --> 00:05:59.272
 La regla falla.
 
-56
-00:05:30.839 --> 00:05:36.663
-En machine learning es al revés: das los datos y las respuestas, y el algoritmo descubre las reglas.
-
-57
-00:05:36.943 --> 00:05:43.173
-Le pasas mil frutas con su peso, color, textura y la etiqueta correcta, y el modelo aprende a distinguirlas.
-
-58
-00:05:43.453 --> 00:05:47.271
-Con más ejemplos, mejora: eso significa que el sistema aprende.
-
-59
-00:05:48.517 --> 00:05:57.007
-La ciencia de datos es un enfoque multidisciplinario que combina varios campos, como el machine learning, la estadística y las ciencias de la computación.
-
-60
-00:05:57.287 --> 00:06:04.349
-Se enfoca en analizar grandes volúmenes de datos para extraer información, entender patrones y luego tomar decisiones.
-
-61
-00:06:05.583 --> 00:06:08.271
-Un ejemplo de ciencia de datos en una tienda.
-
-62
-00:06:08.551 --> 00:06:12.263
-La pregunta del negocio es: ¿por qué bajaron las ventas en agosto?
-
-63
-00:06:12.543 --> 00:06:17.919
-Paso uno, recolectar: ventas diarias, clima, promociones y visitas a la web de dos años.
-
-64
-00:06:18.199 --> 00:06:22.786
-Paso dos, limpiar: quitar ventas duplicadas y corregir fechas mal escritas.
-
-65
-00:06:23.066 --> 00:06:29.423
-Paso tres, analizar: con gráficos se descubre que las ventas caen los días de lluvia y cuando no hay promoción.
-
-66
-00:06:29.703 --> 00:06:35.805
-Paso cuatro, modelar: un modelo predice las ventas de la próxima semana según el pronóstico del clima.
-
-67
-00:06:36.085 --> 00:06:40.394
-Y paso cinco, decidir: lanzar promociones en línea los días lluviosos.
-
-68
-00:06:40.674 --> 00:06:45.517
-Así se combinan estadística, computación y machine learning para tomar decisiones.
-
-69
-00:06:46.717 --> 00:06:49.554
-Ahora, la diferencia entre dato e información.
-
-70
-00:06:49.834 --> 00:06:58.367
-Dato viene del latín datum, que significa algo dado: es la representación simbólica de una situación, que por sí sola carece de significado.
-
-71
-00:06:58.647 --> 00:07:07.671
-Información viene del latín informatio, que significa dar forma a la mente o instruir: son datos procesados e interpretados que transmiten un mensaje.
-
-72
-00:07:08.917 --> 00:07:12.735
-La información es el resultado de combinar datos con contexto.
-
-73
-00:07:13.015 --> 00:07:16.898
-El contexto es, por ejemplo, la unidad de medida en la que está el dato.
-
-74
-00:07:17.178 --> 00:07:23.002
-Ejemplos: uno punto cincuenta metros, donde uno punto cincuenta es el dato y metros es el contexto.
-
-75
-00:07:23.282 --> 00:07:26.695
-Cabello negro: cabello es el contexto y negro es el dato.
-
-76
-00:07:26.975 --> 00:07:29.877
-Seis perros: seis es el dato y perros el contexto.
-
-77
-00:07:31.117 --> 00:07:36.109
-Este esquema lo resume: información es igual a dato, más contexto, más significado.
-
-78
-00:07:36.389 --> 00:07:38.778
-El dato son hechos y cifras en bruto.
-
-79
-00:07:39.058 --> 00:07:43.986
-La información es el dato procesado dentro de un contexto para darle significado.
-
-80
-00:07:45.250 --> 00:07:46.317
-Más ejemplos.
-
-81
-00:07:46.597 --> 00:07:55.855
-El dato treinta y ocho punto cinco, en el contexto de la temperatura corporal de un paciente, nos da la información de que tiene fiebre y debería ver a un médico.
-
-82
-00:07:56.135 --> 00:08:01.917
-El dato quinientos noventa y tres, como código telefónico de país, nos dice que corresponde a Ecuador.
-
-83
-00:08:02.197 --> 00:08:06.762
-El dato rojo, como color actual del semáforo, significa que debes detenerte.
-
-84
-00:08:07.042 --> 00:08:13.997
-Y el dato sesenta y cinco, como nota sobre cien en un curso que pide setenta, significa que no alcanza para aprobar.
-
-85
-00:08:14.277 --> 00:08:22.362
-Fíjate en dos cosas: el mismo dato cambia de significado según el contexto, y un dato no tiene que ser un número: rojo también es un dato.
-
-86
-00:08:23.583 --> 00:08:26.826
-Los tipos de datos estadísticos son dos grandes grupos.
-
-87
-00:08:27.106 --> 00:08:30.391
-Los cuantitativos, que pueden ser discretos o continuos.
-
-88
-00:08:30.671 --> 00:08:33.978
-Y los cualitativos, que pueden ser ordinales o nominales.
-
-89
-00:08:35.183 --> 00:08:42.309
-Los datos cuantitativos son valores numéricos que se pueden analizar obteniendo estadísticas como promedios y percentiles.
-
-90
-00:08:42.589 --> 00:08:49.821
-Los datos cualitativos son atributos que pueden tener un valor numérico, pero ese número no tiene significado matemático.
-
-91
-00:08:51.050 --> 00:08:54.101
-Los datos cuantitativos también se llaman numéricos.
-
-92
-00:08:54.381 --> 00:08:58.455
-Pueden ser discretos, que son números enteros, como quince o cuarenta.
-
-93
-00:08:58.735 --> 00:09:03.877
-O continuos, que son números con decimales, como tres punto quince o veintitrés punto dos.
-
-94
-00:09:05.117 --> 00:09:08.317
-Los datos cualitativos también se llaman categóricos.
-
-95
-00:09:08.597 --> 00:09:13.589
-Pueden ser nominales, que son variables que no se pueden ordenar, como femenino o masculino.
-
-96
-00:09:13.869 --> 00:09:17.410
-U ordinales, que sí se pueden ordenar, como bajo, medio y alto.
-
-97
-00:09:18.650 --> 00:09:20.463
-Ejemplos de tipos de datos.
-
-98
-00:09:20.743 --> 00:09:24.989
-Cuantitativos: el peso, la estatura, el número de estudiantes en un aula.
-
-99
-00:09:25.269 --> 00:09:28.298
-Cualitativos: el género, la etnia, la ciudad natal.
-
-100
-00:09:29.517 --> 00:09:33.399
-Practiquemos clasificando las variables de una encuesta estudiantil.
-
-101
-00:09:33.679 --> 00:09:37.754
-La edad en años cumplidos, por ejemplo veinte, es cuantitativa discreta.
-
-102
-00:09:38.034 --> 00:09:40.658
-El número de materias, seis, también es discreta.
-
-103
-00:09:40.938 --> 00:09:46.933
-La estatura, uno punto setenta y dos metros, es cuantitativa continua, igual que el promedio general.
-
-104
-00:09:47.213 --> 00:09:49.858
-La ciudad de origen es cualitativa nominal.
-
-105
-00:09:50.138 --> 00:09:57.733
-Y atención: el número de celular también es cualitativo nominal, aunque sea un número, porque promediar celulares no tiene sentido.
-
-106
-00:09:58.013 --> 00:10:03.047
-El nivel de inglés y la talla de camiseta son cualitativos ordinales, porque tienen orden.
-
-107
-00:10:03.327 --> 00:10:06.783
-Las preguntas clave son: ¿tiene sentido sacar el promedio?
-
-108
-00:10:07.063 --> 00:10:08.514
-Si no, es cualitativa.
-
-109
-00:10:08.794 --> 00:10:10.010
-¿Se puede ordenar?
-
-110
-00:10:10.290 --> 00:10:11.890
-Entonces es ordinal.
-
-111
-00:10:12.170 --> 00:10:13.642
-¿Puede tener decimales?
-
-112
-00:10:13.922 --> 00:10:15.543
-Entonces es continua.
-
-113
-00:10:16.783 --> 00:10:19.749
-Cada tipo de dato tiene un gráfico recomendado.
-
-114
-00:10:20.029 --> 00:10:22.738
-Para datos nominales, el gráfico de pastel.
-
-115
-00:10:23.018 --> 00:10:25.215
-Para ordinales, el gráfico de barras.
-
-116
-00:10:25.495 --> 00:10:27.309
-Para discretos, también barras.
-
-117
-00:10:27.589 --> 00:10:29.594
-Y para continuos, el histograma.
-
-118
-00:10:30.850 --> 00:10:33.879
-Aquí tienes los cuatro gráficos con datos de ejemplo.
-
-119
-00:10:34.159 --> 00:10:41.242
-La ciudad de origen, que es nominal, se muestra en un pastel, porque son pocas categorías sin orden que forman partes de un todo.
-
-120
-00:10:41.522 --> 00:10:46.386
-La satisfacción, que es ordinal, va en barras respetando el orden: baja, media, alta.
-
-121
-00:10:46.666 --> 00:10:51.658
-El número de hermanos, que es discreto, va en barras separadas, una por cada valor entero.
-
-122
-00:10:51.938 --> 00:10:58.743
-Y la estatura, que es continua, va en un histograma, donde las barras están pegadas porque representan rangos de valores.
-
-123
-00:10:59.983 --> 00:11:08.026
-Una frase de Mark Twain para reflexionar: los datos son como la basura; más te vale saber qué vas a hacer con ellos antes de recolectarlos.
-
-124
-00:11:09.250 --> 00:11:14.605
-Según su estructura, los datos pueden ser estructurados, no estructurados o semiestructurados.
-
-125
-00:11:14.885 --> 00:11:22.330
-La imagen muestra la misma información en los tres formatos: como texto libre, como etiquetas tipo XML, y como una tabla.
-
-126
-00:11:23.583 --> 00:11:31.007
-Los datos estructurados son datos ordenados que se obtienen de fuentes como encuestas, formularios, hojas de Excel y bases de datos.
-
-127
-00:11:31.287 --> 00:11:36.130
-Son fáciles de manejar por su estructura: están organizados en filas y columnas.
-
-128
-00:11:37.383 --> 00:11:40.221
-Los datos no estructurados carecen de estructura.
-
-129
-00:11:40.501 --> 00:11:45.215
-Se encuentran en redes sociales, videos, comentarios o transcripciones de llamadas.
-
-130
-00:11:45.495 --> 00:11:49.570
-Requieren más esfuerzo para manejarlos por la complejidad de su formato.
-
-131
-00:11:50.783 --> 00:11:59.039
-Los datos semiestructurados tienen cierta estructura, porque usan etiquetas para organizar los datos, lo que facilita crear jerarquías y grupos.
-
-132
-00:11:59.319 --> 00:12:04.546
-Por ejemplo, los correos electrónicos, los archivos JSON y los archivos XML.
-
-133
-00:12:04.826 --> 00:12:07.834
-Son más fáciles de almacenar que los no estructurados.
-
-134
-00:12:09.050 --> 00:12:12.250
-Veamos la misma información en las tres estructuras.
-
-135
-00:12:12.530 --> 00:12:18.951
-Estructurada: una tabla con columnas nombre, edad y carrera, donde María tiene veinte años y estudia Sistemas.
-
-136
-00:12:19.231 --> 00:12:21.813
-Está lista para Excel o una base de datos.
-
-137
-00:12:22.093 --> 00:12:31.543
-Semiestructurada: un JSON con claves como nombre, edad, carrera y redes; las claves organizan los datos, pero cada registro puede tener campos distintos.
-
-138
-00:12:31.823 --> 00:12:37.327
-No estructurada: un mensaje de WhatsApp que dice hola, soy María, tengo veinte y estudio Sistemas.
-
-139
-00:12:37.607 --> 00:12:41.597
-Para sacar el nombre o la edad hay que procesarlo, por ejemplo con IA.
-
-140
-00:12:41.877 --> 00:12:45.738
-La regla: más estructura significa más facilidad para analizar.
-
-141
-00:12:46.983 --> 00:12:51.975
-Según el método de recolección, los datos pueden ser observacionales o experimentales.
-
-142
-00:12:52.255 --> 00:13:01.962
-Los observacionales se recolectan observando a un sujeto en su ambiente natural, sin alterar ninguna variable, por ejemplo las preferencias de las personas sobre un producto.
-
-143
-00:13:02.242 --> 00:13:09.901
-Los experimentales se recolectan bajo condiciones controladas, por ejemplo un test A/B para evaluar el diseño de una página web.
-
-144
-00:13:11.117 --> 00:13:12.738
-Un ejemplo de cada uno.
-
-145
-00:13:13.018 --> 00:13:19.205
-Observacional: en la cafetería se anota cuántos cafés se venden por hora durante una semana, sin cambiar nada.
-
-146
-00:13:19.485 --> 00:13:25.245
-A las siete se venden cuarenta y ocho, a las diez veintiuno, y a la una de la tarde treinta y cinco.
-
-147
-00:13:25.525 --> 00:13:29.343
-Concluimos que la mayor demanda es temprano, pero no sabemos por qué.
-
-148
-00:13:29.623 --> 00:13:38.050
-Experimental: una tienda en línea muestra a la mitad de los visitantes un botón gris, la versión A, y a la otra mitad un botón rojo, la versión B.
-
-149
-00:13:38.330 --> 00:13:43.002
-Con el gris compran cuarenta y uno de mil, y con el rojo cincuenta y tres de mil.
-
-150
-00:13:43.282 --> 00:13:47.250
-Como solo cambió el color, la diferencia se puede atribuir al botón.
-
-151
-00:13:48.450 --> 00:13:56.535
-Hay varios tipos de estudios observacionales: el estudio transversal, el de casos y controles, el de cohorte y el longitudinal, entre otros.
-
-152
-00:13:57.783 --> 00:14:04.567
-El estudio transversal observa diferentes grupos en un período específico de tiempo, como una fotografía de un momento.
-
-153
-00:14:04.847 --> 00:14:08.815
-Por ejemplo, medir qué tan común es una enfermedad en una población.
-
-154
-00:14:10.050 --> 00:14:19.415
-El estudio de casos y controles investiga las causas de una enfermedad comparando dos grupos: uno con la enfermedad, los casos, y otro sin ella, los controles.
-
-155
-00:14:19.695 --> 00:14:23.663
-La idea es identificar factores que contribuyen a la enfermedad.
-
-156
-00:14:23.943 --> 00:14:32.242
-Por ejemplo, la relación entre una dieta alta en grasas y el cáncer de colon, examinando los hábitos alimenticios de personas con y sin cáncer.
-
-157
-00:14:33.450 --> 00:14:38.250
-El estudio de cohorte observa a un grupo de personas, la cohorte, a lo largo del tiempo.
-
-158
-00:14:38.530 --> 00:14:47.575
-Normalmente se divide en grupos que comparten ciertas características o exposiciones, como comportamientos o factores ambientales, y luego se comparan.
-
-159
-00:14:47.855 --> 00:14:54.895
-Por ejemplo, analizar los efectos a largo plazo de la dieta, el estilo de vida y los medicamentos en la salud de las mujeres.
-
-160
-00:14:56.117 --> 00:15:01.834
-El estudio longitudinal observa al mismo grupo de sujetos durante mucho tiempo, por ejemplo años.
-
-161
-00:15:02.114 --> 00:15:06.039
-Sirve para encontrar cambios en el tiempo e identificar tendencias.
-
-162
-00:15:06.319 --> 00:15:14.874
-Por ejemplo, estudiar el estilo de vida de personas con características similares para descubrir qué factores contribuyen a un envejecimiento exitoso.
-
-163
-00:15:16.117 --> 00:15:24.394
-Para diferenciarlos, apliquemos los cuatro diseños a una sola pregunta: ¿el uso de redes sociales afecta el sueño de los universitarios?
-
-164
-00:15:24.674 --> 00:15:28.813
-Transversal: se encuesta a quinientos estudiantes una sola vez, en octubre.
-
-165
-00:15:29.093 --> 00:15:38.885
-Casos y controles: se toman cincuenta estudiantes con insomnio y cincuenta sin insomnio, y se compara su uso de redes en el último año; es decir, se mira hacia atrás.
-
-166
-00:15:39.165 --> 00:15:48.551
-Cohorte: se sigue a estudiantes que usan redes más de cuatro horas al día y a otros que usan menos de una, y tras tres años se compara quiénes desarrollaron insomnio.
-
-167
-00:15:48.831 --> 00:15:53.951
-Longitudinal: se mide a los mismos doscientos estudiantes cada año durante cinco años.
-
-168
-00:15:54.231 --> 00:15:56.941
-Ninguno interviene: todos son observacionales.
-
-169
-00:15:57.221 --> 00:15:59.354
-Cambia cuándo y a quién se observa.
-
-170
-00:16:00.583 --> 00:16:10.461
-Si necesitas datasets para practicar, estas son buenas fuentes: Kaggle, Google Dataset Search, Data.Gov, Datahub.io y el repositorio de machine learning de UCI.
-
-171
-00:16:11.717 --> 00:16:22.618
-En resumen, esta semana vimos la definición de machine learning y de ciencia de datos, los tipos de datos estadísticos, los tipos de datos según su estructura y los métodos de recolección de datos.
-
-172
-00:16:22.898 --> 00:16:24.882
-Esto es todo para la semana dos.
+00:05:59.742 --> 00:06:04.067
+En machine learning es al revés: das los
+datos y las respuestas, y el algoritmo
+
+00:06:04.067 --> 00:06:07.955
+descubre las reglas, por ejemplo a
+partir de mil frutas ya etiquetadas.
+
+00:06:08.425 --> 00:06:10.174
+Y con más ejemplos, mejora.
+
+00:06:10.423 --> 00:06:13.815
+Eso es exactamente lo que significa
+que un sistema «aprende».
+
+00:06:14.865 --> 00:06:18.303
+La ciencia de datos es un enfoque
+multidisciplinario: combina
+
+00:06:18.303 --> 00:06:21.628
+machine learning, estadística
+y ciencias de la computación.
+
+00:06:22.098 --> 00:06:25.174
+Su objetivo: analizar grandes
+volúmenes de datos para
+
+00:06:25.174 --> 00:06:28.541
+extraer información, entender
+patrones y tomar decisiones.
+
+00:06:28.844 --> 00:06:33.328
+La diferencia con el machine learning: el
+machine learning es una de sus herramientas;
+
+00:06:33.328 --> 00:06:37.292
+la ciencia de datos es todo el proceso,
+desde la pregunta hasta la decisión.
+
+00:06:38.342 --> 00:06:39.814
+Un ejemplo en una tienda.
+
+00:06:40.097 --> 00:06:43.532
+La pregunta del negocio: ¿por qué
+bajaron las ventas en agosto?
+
+00:06:44.002 --> 00:06:47.906
+Primero se recolectan ventas, clima,
+promociones y visitas a la web.
+
+00:06:48.164 --> 00:06:51.321
+Luego se limpian: duplicados
+fuera, fechas corregidas.
+
+00:06:51.791 --> 00:06:56.356
+Al analizar, aparece el patrón: las ventas
+caen los días de lluvia y sin promoción.
+
+00:06:56.615 --> 00:07:00.284
+Y un modelo predice las ventas de
+la próxima semana según el clima.
+
+00:07:00.754 --> 00:07:04.082
+Con eso se decide: promociones
+en línea los días lluviosos.
+
+00:07:04.368 --> 00:07:08.656
+Estadística, computación y machine
+learning, trabajando juntos para decidir.
+
+00:07:09.706 --> 00:07:13.780
+Ahora, una diferencia que parece obvia
+pero no lo es: dato contra información.
+
+00:07:14.250 --> 00:07:16.426
+Dato viene del latín datum, algo dado.
+
+00:07:16.731 --> 00:07:20.357
+Es una representación simbólica
+que, sola, no tiene significado.
+
+00:07:20.827 --> 00:07:23.857
+Información viene de informatio,
+dar forma a la mente.
+
+00:07:24.120 --> 00:07:27.747
+Son datos procesados e interpretados
+que transmiten un mensaje.
+
+00:07:28.217 --> 00:07:32.185
+Imagina una hoja de cálculo llena de
+números, sin títulos en las columnas.
+
+00:07:32.456 --> 00:07:34.462
+Son datos, pero no te dicen nada.
+
+00:07:34.759 --> 00:07:37.296
+En cuanto alguien escribe
+«edad» o «nota final»
+
+00:07:37.296 --> 00:07:40.050
+arriba, esos mismos números
+se vuelven información.
+
+00:07:41.100 --> 00:07:43.758
+La información es el
+resultado de combinar datos
+
+00:07:43.758 --> 00:07:46.305
+con contexto, por ejemplo la unidad de medida.
+
+00:07:46.775 --> 00:07:51.596
+1.50 metros: 1.50 es el dato
+y metros es el contexto.
+
+00:07:51.863 --> 00:07:54.764
+Cabello negro: negro es el
+dato, cabello el contexto.
+
+00:07:55.058 --> 00:07:57.661
+6 perros: 6 es el dato, perros el contexto.
+
+00:07:58.131 --> 00:08:02.205
+Sin contexto, un «6» no dice nada:
+¿6 perros, 6 años, 6 dólares?
+
+00:08:02.637 --> 00:08:05.368
+El contexto es lo que lo
+convierte en información.
+
+00:08:06.418 --> 00:08:09.288
+Este esquema lo resume en
+una fórmula: información
+
+00:08:09.288 --> 00:08:11.986
+es igual a dato, más
+contexto, más significado.
+
+00:08:12.292 --> 00:08:15.271
+El dato son hechos y cifras
+en bruto; la información
+
+00:08:15.271 --> 00:08:17.391
+es ese dato procesado en un contexto.
+
+00:08:18.441 --> 00:08:20.681
+Mira cómo cambia todo con el contexto.
+
+00:08:20.960 --> 00:08:26.742
+38.5 como temperatura de un paciente
+significa: tiene fiebre, que vea a un médico.
+
+00:08:27.212 --> 00:08:30.540
+593 como código de país es Ecuador.
+
+00:08:30.847 --> 00:08:32.809
+Rojo, en un semáforo, es: detente.
+
+00:08:33.072 --> 00:08:36.912
+Y 65 sobre 100, si el mínimo
+es 70, es: no apruebas.
+
+00:08:37.382 --> 00:08:40.200
+Dos lecciones: el mismo
+dato cambia de significado
+
+00:08:40.200 --> 00:08:43.356
+según el contexto, y un dato
+no tiene que ser un número.
+
+00:08:43.597 --> 00:08:45.197
+«Rojo» también es un dato.
+
+00:08:46.247 --> 00:08:49.396
+Los tipos de datos estadísticos
+se dividen en dos grandes
+
+00:08:49.396 --> 00:08:52.711
+grupos: cuantitativos, que pueden
+ser discretos o continuos…
+
+00:08:53.181 --> 00:08:56.232
+…y cualitativos, que pueden
+ser ordinales o nominales.
+
+00:08:57.282 --> 00:09:00.068
+Los cuantitativos son valores
+numéricos con los que
+
+00:09:00.068 --> 00:09:03.127
+puedes sacar estadísticas,
+como promedios y percentiles.
+
+00:09:03.597 --> 00:09:06.435
+Los cualitativos son
+atributos que pueden tener un
+
+00:09:06.435 --> 00:09:09.613
+número… pero ese número no
+tiene significado matemático.
+
+00:09:09.897 --> 00:09:13.332
+Guarda esta idea: es la clave
+de la segunda pregunta trampa.
+
+00:09:14.382 --> 00:09:16.985
+Los cuantitativos también se llaman numéricos.
+
+00:09:17.455 --> 00:09:20.996
+Pueden ser discretos, números
+enteros como 15 o 40…
+
+00:09:21.466 --> 00:09:26.202
+…o continuos, números con
+decimales como 3.15 o 23.2.
+
+00:09:26.496 --> 00:09:29.931
+Un truco: si lo cuentas, es
+discreto; si lo mides, es continuo.
+
+00:09:30.981 --> 00:09:33.648
+Los cualitativos también
+se llaman categóricos.
+
+00:09:34.118 --> 00:09:38.064
+Pueden ser nominales, que no se pueden
+ordenar, como femenino o masculino…
+
+00:09:38.534 --> 00:09:41.841
+…u ordinales, que sí tienen un
+orden, como bajo, medio y alto.
+
+00:09:42.095 --> 00:09:46.511
+Ojo: aunque tengan orden, la distancia
+entre bajo y medio no es un número exacto.
+
+00:09:46.772 --> 00:09:48.948
+Por eso siguen siendo cualitativos.
+
+00:09:49.998 --> 00:09:54.734
+Ejemplos de cuantitativos: el peso, la estatura
+y el número de estudiantes en un aula.
+
+00:09:54.990 --> 00:09:57.464
+Con ellos sí tiene sentido sacar un promedio.
+
+00:09:57.934 --> 00:10:01.113
+Y de cualitativos: el género,
+la etnia y la ciudad natal.
+
+00:10:01.415 --> 00:10:03.293
+¿El promedio de ciudades natales?
+
+00:10:03.751 --> 00:10:04.626
+No existe.
+
+00:10:04.867 --> 00:10:06.019
+Esa es la pista.
+
+00:10:07.069 --> 00:10:10.610
+Cuando dudes del tipo de una variable,
+hazte dos preguntas, en orden.
+
+00:10:10.894 --> 00:10:13.368
+La primera: ¿tiene sentido sacar el promedio?
+
+00:10:13.838 --> 00:10:16.718
+Si no tiene sentido, es
+cualitativa, o categórica.
+
+00:10:16.985 --> 00:10:19.183
+Entonces preguntas: ¿se puede ordenar?
+
+00:10:19.580 --> 00:10:22.055
+Si sí, es ordinal, como bajo, medio y alto.
+
+00:10:22.350 --> 00:10:24.739
+Si no, es nominal, como la ciudad de origen.
+
+00:10:25.209 --> 00:10:28.111
+Si sí tiene sentido
+promediarla, es cuantitativa.
+
+00:10:28.383 --> 00:10:30.410
+Y preguntas: ¿puede tener decimales?
+
+00:10:30.857 --> 00:10:33.055
+Si puede, es continua, como la estatura.
+
+00:10:33.300 --> 00:10:36.586
+Si solo toma enteros, es discreta,
+como el número de hermanos.
+
+00:10:37.056 --> 00:10:37.781
+Probemos.
+
+00:10:38.027 --> 00:10:41.633
+La talla de camiseta no se promedia,
+pero tiene orden: ordinal.
+
+00:10:41.925 --> 00:10:43.610
+¿Promediar números de celular?
+
+00:10:44.026 --> 00:10:48.335
+No tiene sentido: nominal, y esa es la
+respuesta a la segunda pregunta trampa.
+
+00:10:48.617 --> 00:10:51.924
+Y la temperatura sí se promedia
+y tiene decimales: continua.
+
+00:10:52.974 --> 00:10:55.299
+Apliquémoslo a una encuesta estudiantil.
+
+00:10:55.568 --> 00:10:59.109
+La edad en años cumplidos y el
+número de materias son discretas.
+
+00:10:59.406 --> 00:11:02.030
+La estatura y el promedio general, continuas.
+
+00:11:02.500 --> 00:11:04.420
+La ciudad de origen es nominal.
+
+00:11:04.721 --> 00:11:07.537
+Y otra vez el celular:
+nominal, aunque sea un número.
+
+00:11:08.007 --> 00:11:11.741
+El nivel de inglés y la talla de
+camiseta tienen orden: son ordinales.
+
+00:11:12.791 --> 00:11:15.649
+Cada tipo de dato tiene
+su gráfico recomendado.
+
+00:11:15.891 --> 00:11:18.600
+Para nominales, el pastel;
+para ordinales, barras.
+
+00:11:19.070 --> 00:11:22.441
+Para discretos, también barras;
+y para continuos, el histograma.
+
+00:11:22.734 --> 00:11:25.634
+La diferencia entre barras e
+histograma parece pequeña,
+
+00:11:25.634 --> 00:11:28.533
+pero importa: en las barras
+cada barra es una categoría
+
+00:11:28.533 --> 00:11:31.907
+o un valor; en el histograma, cada
+barra es un rango de valores.
+
+00:11:32.957 --> 00:11:34.963
+Aquí los cuatro con datos de ejemplo.
+
+00:11:35.222 --> 00:11:39.617
+La ciudad, nominal, en un pastel: pocas
+categorías sin orden que forman un todo.
+
+00:11:40.087 --> 00:11:44.183
+La satisfacción, ordinal, en barras que
+respetan el orden: baja, media, alta.
+
+00:11:44.653 --> 00:11:49.111
+El número de hermanos, discreto, en barras
+separadas, una por cada valor entero.
+
+00:11:49.581 --> 00:11:52.094
+Y la estatura, continua, en un histograma, con
+
+00:11:52.094 --> 00:11:54.552
+las barras pegadas porque representan rangos.
+
+00:11:55.602 --> 00:11:59.318
+Una frase de Mark Twain para pensar:
+los datos son como la basura;
+
+00:11:59.318 --> 00:12:03.090
+más te vale saber qué vas a hacer
+con ellos antes de recolectarlos.
+
+00:12:03.338 --> 00:12:06.815
+Recolectar datos sin una pregunta
+clara es acumular basura.
+
+00:12:07.109 --> 00:12:11.141
+Primero la pregunta, después los datos:
+igual que en el ejemplo de la tienda.
+
+00:12:12.191 --> 00:12:15.325
+Según su estructura, los datos
+pueden ser estructurados,
+
+00:12:15.325 --> 00:12:17.396
+no estructurados o semiestructurados.
+
+00:12:17.866 --> 00:12:20.603
+La imagen muestra la misma
+información en los tres
+
+00:12:20.603 --> 00:12:23.669
+formatos: como texto libre,
+con etiquetas, y como tabla.
+
+00:12:24.719 --> 00:12:27.485
+Los estructurados son datos
+ordenados que vienen de
+
+00:12:27.485 --> 00:12:30.522
+encuestas, formularios, hojas
+de Excel o bases de datos.
+
+00:12:30.992 --> 00:12:34.832
+Son fáciles de manejar porque están
+organizados en filas y columnas.
+
+00:12:35.123 --> 00:12:38.060
+Piensa en una hoja de Excel
+con las notas del curso:
+
+00:12:38.060 --> 00:12:41.053
+cada fila es un estudiante,
+y cada columna, una nota.
+
+00:12:42.103 --> 00:12:45.315
+Los no estructurados no tienen
+estructura: están en redes
+
+00:12:45.315 --> 00:12:48.695
+sociales, videos, comentarios
+o transcripciones de llamadas.
+
+00:12:49.165 --> 00:12:52.067
+Por eso requieren más
+esfuerzo para procesarlos.
+
+00:12:52.349 --> 00:12:54.983
+Piensa en los comentarios
+de una publicación: hay
+
+00:12:54.983 --> 00:12:57.618
+mucha información ahí,
+pero no viene en columnas.
+
+00:12:57.903 --> 00:13:01.658
+Para analizarlos, primero hay que
+convertirlos en algo con estructura.
+
+00:13:02.708 --> 00:13:05.654
+Los semiestructurados tienen
+cierta estructura, porque
+
+00:13:05.654 --> 00:13:08.873
+usan etiquetas para organizar
+los datos y crear jerarquías.
+
+00:13:09.173 --> 00:13:12.714
+Ejemplos: los correos, los
+archivos JSON y los XML.
+
+00:13:13.184 --> 00:13:16.887
+Y aquí está la tercera pregunta
+trampa: un JSON está organizado,
+
+00:13:16.887 --> 00:13:20.011
+sí, pero con etiquetas, no
+con filas y columnas fijas.
+
+00:13:20.262 --> 00:13:21.926
+Por eso es semiestructurado.
+
+00:13:22.396 --> 00:13:25.383
+Además, se almacenan más fácil
+que los no estructurados.
+
+00:13:26.433 --> 00:13:29.036
+La misma información en las tres estructuras.
+
+00:13:29.290 --> 00:13:33.002
+Estructurada: una tabla con nombre,
+edad y carrera, lista para Excel.
+
+00:13:33.472 --> 00:13:35.882
+Semiestructurada: un JSON con claves.
+
+00:13:36.157 --> 00:13:40.296
+Las claves organizan, pero cada
+registro puede tener campos distintos.
+
+00:13:40.766 --> 00:13:43.027
+No estructurada: un mensaje de WhatsApp.
+
+00:13:43.283 --> 00:13:46.462
+Para sacar el nombre o la edad,
+primero hay que procesarlo.
+
+00:13:46.932 --> 00:13:49.662
+La regla: más estructura,
+más fácil de analizar.
+
+00:13:50.712 --> 00:13:54.894
+Según cómo se recolectan, los datos
+pueden ser observacionales: se observa
+
+00:13:54.894 --> 00:13:59.246
+sin alterar nada, por ejemplo las
+preferencias de la gente sobre un producto.
+
+00:13:59.716 --> 00:14:02.965
+O experimentales: se recolectan
+en condiciones controladas,
+
+00:14:02.965 --> 00:14:06.158
+como un test A/B para evaluar
+el diseño de una página web.
+
+00:14:06.628 --> 00:14:11.151
+La diferencia clave es una sola: si el
+investigador interviene, o solo observa.
+
+00:14:12.201 --> 00:14:14.752
+Observacional: en la
+cafetería se anota cuántos
+
+00:14:14.752 --> 00:14:17.086
+cafés se venden por hora, sin cambiar nada.
+
+00:14:17.337 --> 00:14:20.964
+Se ve que la demanda es mayor
+temprano… pero no sabemos por qué.
+
+00:14:21.434 --> 00:14:24.054
+Experimental: una tienda
+muestra un botón gris a
+
+00:14:24.054 --> 00:14:27.002
+la mitad de los visitantes
+y uno rojo a la otra mitad.
+
+00:14:27.301 --> 00:14:31.525
+Como solo cambió el color, la diferencia
+en compras se puede atribuir al botón.
+
+00:14:31.825 --> 00:14:33.852
+Esa es la ventaja del experimento.
+
+00:14:34.322 --> 00:14:39.165
+En resumen: observar te dice qué pasa;
+experimentar te ayuda a saber por qué pasa.
+
+00:14:40.215 --> 00:14:44.139
+Dentro de los observacionales hay
+varios tipos de estudio: transversal,
+
+00:14:44.139 --> 00:14:47.511
+de casos y controles, de cohorte
+y longitudinal, entre otros.
+
+00:14:48.561 --> 00:14:51.246
+El estudio transversal
+observa distintos grupos
+
+00:14:51.246 --> 00:14:53.531
+en un momento específico, como una foto.
+
+00:14:53.777 --> 00:14:57.084
+Por ejemplo, qué tan común es
+una enfermedad en una población.
+
+00:14:57.554 --> 00:15:00.161
+Como es una sola foto,
+es rápido y barato… pero
+
+00:15:00.161 --> 00:15:02.823
+no muestra cómo cambian
+las cosas con el tiempo.
+
+00:15:03.873 --> 00:15:07.799
+El de casos y controles compara dos
+grupos: uno con la enfermedad, los
+
+00:15:07.799 --> 00:15:12.342
+casos, y otro sin ella, los controles,
+para identificar qué factores contribuyen.
+
+00:15:12.812 --> 00:15:16.152
+Por ejemplo, la relación entre
+una dieta alta en grasas y el
+
+00:15:16.152 --> 00:15:19.938
+cáncer de colon, revisando los
+hábitos de personas con y sin cáncer.
+
+00:15:20.206 --> 00:15:22.682
+La clave de este diseño: parte del resultado,
+
+00:15:22.682 --> 00:15:25.433
+la enfermedad, y mira hacia
+atrás buscando causas.
+
+00:15:26.483 --> 00:15:29.832
+El de cohorte sigue a un grupo, la
+cohorte, a lo largo del tiempo.
+
+00:15:30.101 --> 00:15:34.901
+Normalmente se divide según características
+o exposiciones, y luego se comparan.
+
+00:15:35.371 --> 00:15:38.306
+Por ejemplo, los efectos a
+largo plazo de la dieta, el
+
+00:15:38.306 --> 00:15:41.622
+estilo de vida y los medicamentos
+en la salud de las mujeres.
+
+00:15:41.897 --> 00:15:44.682
+Aquí es al revés que en
+casos y controles: se parte
+
+00:15:44.682 --> 00:15:47.849
+de la exposición y se mira
+hacia adelante, a ver qué pasa.
+
+00:15:48.899 --> 00:15:51.923
+Y el longitudinal observa al
+mismo grupo durante mucho
+
+00:15:51.923 --> 00:15:55.171
+tiempo, incluso años, para
+encontrar cambios y tendencias.
+
+00:15:55.454 --> 00:15:58.440
+Por ejemplo, qué factores
+contribuyen a envejecer bien.
+
+00:15:58.910 --> 00:16:03.326
+Si el transversal es una foto, el
+longitudinal es una película del mismo grupo.
+
+00:16:04.376 --> 00:16:08.106
+Para no confundirlos, apliquemos
+los cuatro a una sola pregunta:
+
+00:16:08.106 --> 00:16:11.544
+¿las redes sociales afectan el
+sueño de los universitarios?
+
+00:16:12.014 --> 00:16:15.406
+Transversal: se encuesta a
+500 estudiantes una sola vez.
+
+00:16:15.647 --> 00:16:18.110
+Casos y controles: se compara a estudiantes
+
+00:16:18.110 --> 00:16:20.917
+con insomnio y sin insomnio,
+mirando hacia atrás.
+
+00:16:21.387 --> 00:16:23.812
+Cohorte: se sigue a quienes
+usan mucho las redes
+
+00:16:23.812 --> 00:16:26.187
+y a quienes casi no, y
+años después se compara.
+
+00:16:26.438 --> 00:16:29.638
+Longitudinal: se mide a los
+mismos estudiantes cada año.
+
+00:16:30.108 --> 00:16:32.945
+En ninguno se interviene:
+todos son observacionales.
+
+00:16:33.219 --> 00:16:35.672
+Lo que cambia es cuándo y a quién se observa.
+
+00:16:36.722 --> 00:16:41.275
+Y si quieres datasets para practicar,
+estas son buenas fuentes: Kaggle, Google
+
+00:16:41.275 --> 00:16:46.002
+Dataset Search, Data.Gov, Datahub.io y el
+repositorio de machine learning de UCI.
+
+00:16:46.472 --> 00:16:50.114
+Kaggle, además, tiene competencias
+y notebooks de otras personas,
+
+00:16:50.114 --> 00:16:53.363
+así que es ideal para aprender
+viendo cómo trabajan otros.
+
+00:16:54.413 --> 00:16:58.455
+Este es el resumen oficial: machine
+learning y ciencia de datos, los tipos
+
+00:16:58.455 --> 00:17:02.989
+de datos estadísticos, los tipos según su
+estructura, y los métodos de recolección.
+
+00:17:04.039 --> 00:17:05.874
+Antes de terminar, ponte a prueba.
+
+00:17:06.128 --> 00:17:08.560
+Si necesitas más tiempo, pausa el video.
+
+00:17:08.801 --> 00:17:12.107
+Primera pregunta: ¿qué concluye
+Searle con la habitación china?
+
+00:17:12.522 --> 00:17:16.091
+¿Que las máquinas ya piensan como
+humanos, que procesar símbolos no
+
+00:17:16.091 --> 00:17:20.138
+es lo mismo que comprender, o que la
+prueba de Turing es imposible de pasar?
+
+00:17:25.758 --> 00:17:28.766
+Que procesar símbolos no es
+lo mismo que comprender.
+
+00:17:29.075 --> 00:17:32.126
+Una máquina puede parecer
+inteligente sin entender nada.
+
+00:17:32.596 --> 00:17:35.057
+Siguiente: el número de
+hermanos de un estudiante,
+
+00:17:35.057 --> 00:17:37.567
+¿qué tipo de dato es, y qué
+gráfico le corresponde?
+
+00:17:43.187 --> 00:17:45.925
+Es cuantitativo discreto,
+porque solo toma valores
+
+00:17:45.925 --> 00:17:48.499
+enteros, y le corresponde
+un gráfico de barras.
+
+00:17:48.969 --> 00:17:51.599
+Y la última: una tienda
+muestra un botón rojo a
+
+00:17:51.599 --> 00:17:54.622
+la mitad de sus visitantes
+y uno gris a la otra mitad.
+
+00:17:54.891 --> 00:17:56.598
+¿Qué método de recolección es?
+
+00:18:01.218 --> 00:18:05.292
+Experimental: es un test A/B, donde se
+controla una sola variable, el color.
+
+00:18:06.342 --> 00:18:08.220
+Resumamos lo más importante.
+
+00:18:08.690 --> 00:18:12.096
+Uno: la IA débil hace tareas
+específicas, y es toda la IA que
+
+00:18:12.096 --> 00:18:15.836
+existe hoy; la fuerte haría cualquier
+tarea humana y es hipotética.
+
+00:18:16.084 --> 00:18:20.159
+Y la habitación china nos recuerda que
+procesar símbolos no es comprender.
+
+00:18:20.629 --> 00:18:24.712
+Dos: el machine learning aprende de
+los datos y mejora con la experiencia;
+
+00:18:24.712 --> 00:18:28.906
+la ciencia de datos los analiza para
+extraer información y tomar decisiones.
+
+00:18:29.376 --> 00:18:32.832
+Tres: la información es dato,
+más contexto, más significado.
+
+00:18:33.140 --> 00:18:35.811
+Y los datos pueden ser
+cuantitativos, discretos
+
+00:18:35.811 --> 00:18:38.708
+o continuos, o cualitativos,
+nominales u ordinales.
+
+00:18:39.178 --> 00:18:43.335
+Y cuatro: según su estructura, hay
+datos estructurados, semiestructurados
+
+00:18:43.335 --> 00:18:47.946
+y no estructurados; y según cómo se
+recolectan, observacionales o experimentales.
+
+00:18:48.996 --> 00:18:50.831
+Eso es todo para la semana dos.
+
+00:18:51.094 --> 00:18:53.551
+En el siguiente video pasamos a la práctica:
+
+00:18:53.551 --> 00:18:56.342
+Jupyter, Google Colab y
+los fundamentos de Python.
+
+00:18:56.604 --> 00:18:57.628
+¡Nos vemos ahí!
 

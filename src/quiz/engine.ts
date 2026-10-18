@@ -17,21 +17,19 @@ export const TOTAL_POINTS = QUESTIONS.reduce((s, q) => s + q.pts, 0);
 export const PASS = 70;
 
 export const TYPE_LABEL: Record<Question["type"], string> = {
-  mc: "Opción múltiple",
-  multi: "Varias correctas",
+  mc: "Una respuesta",
+  multi: "Varias respuestas",
   tf: "Verdadero o falso",
   match: "Relacionar",
   order: "Ordenar",
   input: "Respuesta corta",
 };
 
-/** Preguntas por semana en el examen de 20 (proporcional al peso de cada semana). */
-export const EXAM_QUOTA: Record<WeekNum, number> = { 1: 3, 2: 3, 3: 4, 4: 3, 5: 3, 6: 3, 7: 1 };
-
-export type Mode = "exam" | "bank" | "review";
+export type Mode = "lesson" | "random" | "bank" | "review";
 export type Attempt = {
   id: string;
   mode: Mode;
+  week?: WeekNum;
   label: string;
   ids: string[];
   idx: number;
@@ -47,6 +45,8 @@ export type Attempt = {
   finishedAt?: number;
 };
 
+export const RANDOM_N = 20;
+
 export function shuffle<T>(arr: T[]): T[] {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -56,16 +56,12 @@ export function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function pickExam(): string[] {
-  const ids: string[] = [];
-  (Object.keys(EXAM_QUOTA) as unknown as WeekNum[]).forEach((wk) => {
-    const w = Number(wk) as WeekNum;
-    ids.push(...shuffle(QUESTIONS.filter((q) => q.w === w).map((q) => q.id)).slice(0, EXAM_QUOTA[w]));
-  });
-  return shuffle(ids);
-}
+export const weekIds = (w: WeekNum) => QUESTIONS.filter((q) => q.w === w).map((q) => q.id);
+export const pickLesson = (w: WeekNum) => shuffle(weekIds(w));
+export const pickRandom = (n = RANDOM_N) => shuffle(QUESTIONS.map((q) => q.id)).slice(0, n);
+export const pickBank = () => shuffle(QUESTIONS.map((q) => q.id));
 
-export function createAttempt(mode: Mode, ids: string[], label: string, instant: boolean): Attempt {
+export function createAttempt(mode: Mode, ids: string[], label: string, instant: boolean, week?: WeekNum): Attempt {
   const perm: Attempt["perm"] = {};
   const choices: Attempt["choices"] = {};
   const order0: Attempt["order0"] = {};
@@ -82,7 +78,7 @@ export function createAttempt(mode: Mode, ids: string[], label: string, instant:
   }
   return {
     id: Math.random().toString(36).slice(2, 10),
-    mode, label, ids, idx: 0, answers: {}, checked: {}, flags: {}, perm, choices, order0, instant,
+    mode, week, label, ids, idx: 0, answers: {}, checked: {}, flags: {}, perm, choices, order0, instant,
     elapsed: 0, startedAt: Date.now(),
   };
 }

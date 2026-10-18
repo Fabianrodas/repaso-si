@@ -1,174 +1,700 @@
 WEBVTT
 
-1
-00:00:00.450 --> 00:00:01.538
-Semana siete.
+00:00:00.500 --> 00:00:01.737
+Mira estos datos.
 
-2
-00:00:01.818 --> 00:00:11.418
-Veremos cómo se mide el error de un modelo de regresión, y la diferencia entre la función de pérdida y la función de costo, para encontrar la recta que mejor se ajusta a los datos.
+00:00:02.034 --> 00:00:04.479
+Son las horas que estudiaron diez compañeros,
 
-3
-00:00:12.650 --> 00:00:15.189
-Los resultados de aprendizaje son cuatro:
+00:00:04.479 --> 00:00:06.706
+y la nota que sacó cada uno en el examen.
 
-4
-00:00:15.469 --> 00:00:19.586
-describir la diferencia entre la función de pérdida y la función de costo;
+00:00:07.176 --> 00:00:10.077
+Ahora te propongo tres
+rectas: la A, la B y la C.
 
-5
-00:00:19.866 --> 00:00:23.173
-describir las métricas para evaluar el ajuste de un modelo;
+00:00:10.384 --> 00:00:14.352
+Las tres pasan por en medio de los
+puntos, y las tres parecen razonables.
 
-6
-00:00:23.453 --> 00:00:25.799
-definir el concepto de serie en Pandas;
+00:00:14.629 --> 00:00:16.570
+Si tuvieras que quedarte con una…
 
-7
-00:00:26.079 --> 00:00:29.237
-y describir los pasos para crear gráficos con Pandas.
+00:00:17.123 --> 00:00:18.253
+¿cuál elegirías?
 
-8
-00:00:29.517 --> 00:00:31.991
-En este material se cubren los dos primeros.
+00:00:19.723 --> 00:00:23.414
+Seguramente dirías algo como: «la
+B, la del medio, se ve mejor».
 
-9
-00:00:33.250 --> 00:00:35.255
-¿Cómo encontrar el mejor ajuste?
+00:00:23.657 --> 00:00:25.556
+Y probablemente tengas razón.
 
-10
-00:00:35.535 --> 00:00:43.279
-Se usa una métrica para cuantificar la precisión de la regresión lineal, que también se conoce como función de pérdida, o loss function.
+00:00:25.822 --> 00:00:28.094
+Pero fíjate en el problema: «se ve mejor»
 
-11
-00:00:43.559 --> 00:00:49.682
-La pérdida es el resultado de la diferencia entre los datos reales y los datos obtenidos por la regresión.
+00:00:28.094 --> 00:00:30.644
+no es algo que una computadora pueda calcular.
 
-12
-00:00:50.917 --> 00:00:57.125
-Se calcula el error, o residuo, que es la diferencia entre el valor observado y el valor que predice el modelo.
+00:00:31.114 --> 00:00:33.055
+Una computadora no tiene ojos.
 
-13
-00:00:57.405 --> 00:01:03.293
-En el ejemplo, para x igual a veinte, el valor observado es diez, y la predicción, Y gorro, es cinco.
+00:00:33.337 --> 00:00:36.556
+Necesita un número que diga qué
+tan mal lo hace cada recta,
 
-14
-00:01:03.573 --> 00:01:06.346
-El error es diez menos cinco, es decir, cinco.
+00:00:36.556 --> 00:00:39.993
+para poder compararlas y quedarse
+con la que menos se equivoca.
 
-15
-00:01:07.583 --> 00:01:12.575
-Hagamos el cálculo punto por punto, con el modelo Y gorro igual a dos X más uno.
+00:00:40.233 --> 00:00:43.582
+Construir ese número es,
+justamente, el tema de esta semana.
 
-16
-00:01:12.855 --> 00:01:19.767
-Para X igual a uno, el valor real es cinco y la predicción es tres: el error es más dos, el modelo se quedó corto.
+00:00:44.632 --> 00:00:48.067
+Bienvenido a la semana siete:
+funciones de pérdida y de costo.
 
-17
-00:01:20.047 --> 00:01:26.106
-Para X igual a dos, el real es cuatro y la predicción cinco: el error es menos uno, el modelo se pasó.
+00:00:48.350 --> 00:00:52.616
+O, dicho de otra forma, cómo encontrar la
+recta que mejor se ajusta a los datos.
 
-18
-00:01:26.386 --> 00:01:30.205
-Para X igual a tres, real nueve, predicción siete: error más dos.
+00:00:53.666 --> 00:00:55.800
+Antes de arrancar, un repaso rapidito.
 
-19
-00:01:30.485 --> 00:01:34.773
-Y para X igual a cuatro, real ocho, predicción nueve: error menos uno.
+00:00:56.099 --> 00:01:02.371
+La semana pasada vimos que un modelo de
+regresión lineal es una recta: ŷ = w·x + b.
 
-20
-00:01:35.053 --> 00:01:40.578
-Un error positivo significa que el punto está arriba de la recta, y uno negativo, que está abajo.
+00:01:02.841 --> 00:01:04.441
+La w es el peso.
 
-21
-00:01:40.858 --> 00:01:49.007
-Pero ojo: si sumas los errores, da solo dos, aunque el modelo falló por seis unidades en total, porque los positivos y negativos se cancelan.
+00:01:04.727 --> 00:01:08.396
+En la gráfica es la pendiente, o sea,
+qué tan inclinada está la recta.
 
-22
-00:01:49.287 --> 00:01:52.167
-Por eso se usan cuadrados o valores absolutos.
+00:01:08.697 --> 00:01:13.390
+Y la b es el bias, el intercepto: la altura
+donde la recta corta el eje vertical.
 
-23
-00:01:53.383 --> 00:02:00.679
-La idea de encontrar la recta que mejor se ajusta a los datos es que el error entre el valor observado y la predicción sea mínimo.
+00:01:13.860 --> 00:01:17.977
+También vimos que np.polyfit
+encuentra esa recta por nosotros.
 
-24
-00:02:00.959 --> 00:02:05.759
-En el gráfico, las líneas verticales entre cada punto y la recta son los errores.
+00:01:18.276 --> 00:01:21.816
+Con las horas de estudio y las notas, nos
 
-25
-00:02:06.983 --> 00:02:09.842
-Comparemos dos rectas sobre los mismos datos.
+00:01:21.816 --> 00:01:25.700
+dio una pendiente de 4.71 y un bias de 46.29.
 
-26
-00:02:10.122 --> 00:02:18.037
-La recta A deja algunos puntos muy lejos, hasta tres unidades, y su error cuadrático medio, o MSE, es dos punto sesenta y siete.
+00:01:26.170 --> 00:01:30.160
+Pero aquí viene la pregunta interesante:
+¿por qué esos números, y no otros?
 
-27
-00:02:18.317 --> 00:02:23.693
-La recta B pasa cerca de todos los puntos, y su MSE es cero punto cincuenta y tres.
+00:01:30.568 --> 00:01:34.280
+¿Qué criterio usó polyfit para
+decidir que esa era la mejor recta?
 
-28
-00:02:23.973 --> 00:02:27.194
-Como el error de B es menor, la recta B se ajusta mejor.
+00:01:34.725 --> 00:01:37.861
+Esa respuesta es lo que vamos
+a construir hoy, paso a paso.
 
-29
-00:02:27.474 --> 00:02:35.154
-Entrenar un modelo de regresión es justamente eso: buscar la pendiente y el bias que hacen que este error sea lo más pequeño posible.
+00:01:38.911 --> 00:01:41.898
+Estos son los resultados de
+aprendizaje de la semana.
 
-30
-00:02:36.383 --> 00:02:40.906
-Pérdida y costo suelen definirse de forma parecida, pero hay una distinción.
+00:01:42.174 --> 00:01:45.288
+Son cuatro, pero el material se
+concentra en los dos primeros.
 
-31
-00:02:41.186 --> 00:02:45.602
-La función de pérdida se refiere al error de una sola muestra de entrenamiento.
+00:01:45.758 --> 00:01:49.199
+Entender la diferencia entre la
+función de pérdida y la función de
 
-32
-00:02:45.882 --> 00:02:51.109
-La función de costo es el promedio de la función de pérdida en todo el dataset de entrenamiento.
+00:01:49.199 --> 00:01:53.161
+costo, y conocer las métricas para
+evaluar qué tan bien se ajusta un modelo.
 
-33
-00:02:52.317 --> 00:02:57.074
-Con los mismos cuatro datos de antes: la pérdida de cada dato es su error al cuadrado.
+00:01:53.436 --> 00:01:55.980
+Los otros dos, sobre las series y los gráficos
 
-34
-00:02:57.354 --> 00:03:00.106
-Para el primero, más dos al cuadrado es cuatro.
+00:01:55.980 --> 00:01:58.855
+con Pandas, no se desarrollan
+en estas diapositivas.
 
-35
-00:03:00.386 --> 00:03:03.095
-Para el segundo, menos uno al cuadrado es uno.
+00:01:59.905 --> 00:02:04.492
+La primera diapositiva lanza la pregunta
+clave: ¿cómo encontramos el mejor ajuste?
 
-36
-00:03:03.375 --> 00:03:05.274
-Luego cuatro y uno otra vez.
+00:02:04.903 --> 00:02:09.020
+La respuesta: usando una métrica que
+mida qué tan precisa es la regresión.
 
-37
-00:03:05.554 --> 00:03:06.749
-La suma es diez.
+00:02:09.267 --> 00:02:12.893
+A esa métrica también se le llama
+función de pérdida, o loss function.
 
-38
-00:03:07.029 --> 00:03:13.109
-La función de pérdida corresponde a un solo dato; por ejemplo, para X igual a uno, la pérdida es cuatro.
+00:02:13.363 --> 00:02:14.686
+¿Y qué es la pérdida?
 
-39
-00:03:13.389 --> 00:03:19.149
-La función de costo es el promedio de todas las pérdidas: diez entre cuatro, que es dos punto cinco.
+00:02:15.103 --> 00:02:17.685
+Es el resultado de la
+diferencia entre los datos
 
-40
-00:03:19.429 --> 00:03:23.973
-Ese promedio de errores al cuadrado se llama MSE, error cuadrático medio.
+00:02:17.685 --> 00:02:20.052
+reales y los datos que obtiene la regresión.
 
-41
-00:03:24.253 --> 00:03:29.095
-Una analogía: la pérdida es tu nota en un deber, y el costo es tu promedio del parcial.
+00:02:20.324 --> 00:02:22.849
+En otras palabras: compara
+lo que pasó de verdad
 
-42
-00:03:29.375 --> 00:03:32.341
-Con esto terminamos el repaso de las siete semanas.
+00:02:22.849 --> 00:02:25.060
+con lo que el modelo dijo que iba a pasar.
 
-43
-00:03:32.621 --> 00:03:34.413
-Mucho éxito en tu examen.
+00:02:25.530 --> 00:02:27.130
+Piensa en el nombre: pérdida.
+
+00:02:27.410 --> 00:02:30.738
+Cada vez que el modelo se equivoca,
+pierde un poco de precisión.
+
+00:02:31.045 --> 00:02:33.819
+Una pérdida grande es un
+modelo que falla mucho.
+
+00:02:34.088 --> 00:02:36.800
+Y una pérdida de cero
+sería un modelo perfecto…
+
+00:02:36.800 --> 00:02:39.165
+algo que en la vida real casi nunca pasa.
+
+00:02:40.215 --> 00:02:43.002
+Vamos a la pieza más pequeña
+de todo esto: el error
+
+00:02:43.002 --> 00:02:45.570
+de un solo punto, que
+también se llama residuo.
+
+00:02:45.842 --> 00:02:49.789
+Es la diferencia entre el valor observado
+y el valor que predice el modelo.
+
+00:02:50.259 --> 00:02:53.331
+En el ejemplo, tenemos un
+dato con x igual a 20.
+
+00:02:53.609 --> 00:02:55.828
+Su valor real, el observado, es 10.
+
+00:02:56.087 --> 00:02:57.900
+O sea, el punto (20, 10).
+
+00:02:58.370 --> 00:03:01.080
+Para ese mismo x, el modelo predice 5.
+
+00:03:01.376 --> 00:03:06.283
+Esa es la y gorro: el sombrerito sobre la y
+significa «esto es lo que el modelo cree».
+
+00:03:06.753 --> 00:03:10.934
+Entonces, el error es y menos y
+gorro: 10 menos 5, igual a 5.
+
+00:03:11.204 --> 00:03:13.807
+El modelo se quedó corto por cinco unidades.
+
+00:03:14.277 --> 00:03:16.986
+Un detalle que parece menor,
+pero no lo es: el orden.
+
+00:03:17.231 --> 00:03:19.236
+Siempre es real menos predicción.
+
+00:03:19.506 --> 00:03:22.621
+Si lo haces al revés, te sale
+el mismo número con el signo
+
+00:03:22.621 --> 00:03:25.629
+cambiado… y, como vamos a ver,
+el signo nos cuenta algo.
+
+00:03:26.679 --> 00:03:28.834
+¿Cómo se ve ese error en una gráfica?
+
+00:03:29.246 --> 00:03:32.087
+Aquí está el punto real,
+en (20, 10), y aquí la
+
+00:03:32.087 --> 00:03:35.049
+recta del modelo, que en
+x igual a 20 pasa por 5.
+
+00:03:35.519 --> 00:03:38.889
+El error es esta distancia vertical
+entre el punto y la recta.
+
+00:03:39.162 --> 00:03:42.091
+Vertical, ojo: no medimos en
+diagonal, porque lo que nos
+
+00:03:42.091 --> 00:03:45.072
+importa es cuánto se equivocó
+el modelo en el valor de y.
+
+00:03:46.122 --> 00:03:48.063
+Ahora hagámoslo con varios puntos.
+
+00:03:48.333 --> 00:03:52.579
+Usamos el modelo ŷ = 2x +
+1, y cuatro datos reales.
+
+00:03:53.049 --> 00:03:57.102
+Para x igual a 1, el valor real
+es 5 y el modelo predice 3.
+
+00:03:57.368 --> 00:03:58.392
+Error: más 2.
+
+00:03:58.651 --> 00:04:02.192
+El punto está arriba de la recta,
+así que el modelo se quedó corto.
+
+00:04:02.662 --> 00:04:05.606
+Para x igual a 2: real 4, predicción 5.
+
+00:04:05.898 --> 00:04:07.072
+Error: menos 1.
+
+00:04:07.355 --> 00:04:09.915
+Ahora el punto está abajo; el modelo se pasó.
+
+00:04:10.385 --> 00:04:14.652
+Con x igual a 3 el error es más
+2, y con x igual a 4, menos 1.
+
+00:04:15.122 --> 00:04:16.188
+¿Ves el patrón?
+
+00:04:16.630 --> 00:04:18.891
+Error positivo: punto arriba de la recta.
+
+00:04:19.141 --> 00:04:20.827
+Error negativo: punto abajo.
+
+00:04:21.082 --> 00:04:23.792
+El signo te dice hacia
+qué lado falló el modelo.
+
+00:04:24.842 --> 00:04:26.527
+Ahora, una idea tentadora.
+
+00:04:26.800 --> 00:04:30.917
+Para medir qué tan mal lo hace el modelo,
+¿por qué no sumamos todos los errores?
+
+00:04:31.361 --> 00:04:33.899
+Más 2, menos 1, más 2, menos 1… da 2.
+
+00:04:34.369 --> 00:04:38.636
+Pero mira las distancias: el modelo
+falló por 2, por 1, por 2 y por 1.
+
+00:04:38.912 --> 00:04:41.834
+En total, se equivocó por
+6 unidades, no por 2.
+
+00:04:42.304 --> 00:04:43.051
+¿Qué pasó?
+
+00:04:43.493 --> 00:04:46.843
+Los errores positivos y negativos
+se cancelaron entre sí.
+
+00:04:47.091 --> 00:04:50.006
+Es más: podrías tener una
+recta malísima, con errores
+
+00:04:50.006 --> 00:04:53.363
+enormes hacia arriba y hacia
+abajo, y que la suma te dé cero.
+
+00:04:53.613 --> 00:04:55.277
+¡Y pensarías que es perfecta!
+
+00:04:55.747 --> 00:04:59.097
+Por eso, antes de juntar los
+errores, les quitamos el signo.
+
+00:04:59.365 --> 00:05:03.823
+Hay dos formas típicas: elevarlos al
+cuadrado, o tomar su valor absoluto.
+
+00:05:04.873 --> 00:05:08.393
+Con valor absoluto, los
+errores quedan en 2, 1, 2 y 1.
+
+00:05:08.670 --> 00:05:11.252
+Con el cuadrado, en 4, 1, 4 y 1.
+
+00:05:11.492 --> 00:05:16.121
+Si sacamos el promedio, el primero
+da 1.5, y el segundo, 2.5.
+
+00:05:16.591 --> 00:05:21.071
+Al promedio de los valores absolutos se
+le llama error absoluto medio, o MAE.
+
+00:05:21.321 --> 00:05:25.033
+Y al promedio de los cuadrados,
+error cuadrático medio, o MSE.
+
+00:05:25.280 --> 00:05:28.416
+Este último es el que aparece
+en los ejemplos del curso.
+
+00:05:28.886 --> 00:05:33.238
+El cuadrado tiene un efecto interesante:
+castiga mucho más los errores grandes.
+
+00:05:33.513 --> 00:05:36.115
+Un error de 1, al cuadrado, sigue siendo 1.
+
+00:05:36.417 --> 00:05:38.166
+Uno de 3 ya vale 9.
+
+00:05:38.437 --> 00:05:39.376
+Y uno de 10…
+
+00:05:39.953 --> 00:05:40.806
+¡vale 100!
+
+00:05:41.276 --> 00:05:44.270
+O sea, para el MSE, equivocarse
+muchísimo en un solo
+
+00:05:44.270 --> 00:05:47.207
+punto es peor que equivocarse
+un poquito en varios.
+
+00:05:47.481 --> 00:05:52.046
+Esto ya es material extra, pero te ayuda
+a entender por qué el MSE es tan usado.
+
+00:05:53.096 --> 00:05:56.154
+Con todo esto, ya podemos
+entender la idea central de la
+
+00:05:56.154 --> 00:05:59.375
+semana: la recta que mejor se
+ajusta a los datos es aquella
+
+00:05:59.375 --> 00:06:02.760
+en la que el error entre lo
+observado y lo predicho es mínimo.
+
+00:06:03.230 --> 00:06:07.475
+En esta gráfica, cada línea vertical
+entre un punto y la recta es un error.
+
+00:06:07.720 --> 00:06:10.571
+Buscar el mejor ajuste es
+buscar la recta que haga
+
+00:06:10.571 --> 00:06:13.821
+que esas líneas, en conjunto,
+sean lo más cortas posible.
+
+00:06:14.291 --> 00:06:16.728
+Ojo, eso no significa que la recta tenga que
+
+00:06:16.728 --> 00:06:19.219
+pasar por todos los puntos; casi nunca puede.
+
+00:06:19.521 --> 00:06:22.828
+Significa que, sumando todo,
+se equivoque lo menos posible.
+
+00:06:23.878 --> 00:06:27.761
+Volvamos a los datos del inicio y
+probemos con una recta casi plana.
+
+00:06:28.037 --> 00:06:30.490
+Fíjate en los errores: algunos son enormes.
+
+00:06:30.749 --> 00:06:35.869
+Su MSE, el promedio de los errores
+al cuadrado, es alto: 66.4.
+
+00:06:36.339 --> 00:06:38.494
+Ahora vamos a inclinarla poco a poco.
+
+00:06:38.759 --> 00:06:42.129
+Mira el número: a medida que la
+recta se acerca a los puntos,
+
+00:06:42.129 --> 00:06:45.500
+el MSE baja… baja… y si la
+inclinamos de más, vuelve a subir.
+
+00:06:45.970 --> 00:06:49.682
+Si dibujamos el MSE de cada
+recta, nos queda esta forma de U.
+
+00:06:49.930 --> 00:06:54.005
+La mejor recta es la del fondo de la U:
+la que tiene el menor costo posible.
+
+00:06:54.475 --> 00:06:57.291
+Y aquí está la respuesta
+a la pregunta del inicio.
+
+00:06:57.540 --> 00:07:04.964
+La recta A tiene un MSE de 25.3, la C, de
+33.1, y la B, la del medio, de solo 15.1.
+
+00:07:05.270 --> 00:07:08.001
+Ya no decidimos a ojo:
+decidimos con un número.
+
+00:07:08.471 --> 00:07:12.858
+Esto es, en esencia, lo que hizo
+np.polyfit la semana pasada: encontrar
+
+00:07:12.858 --> 00:07:17.431
+la pendiente y el bias que dejan el
+error cuadrático en su punto más bajo.
+
+00:07:17.696 --> 00:07:21.258
+Entrenar un modelo de regresión
+es eso: bajar al fondo de esta U.
+
+00:07:21.728 --> 00:07:25.578
+Como dato extra: en modelos más
+grandes, ese fondo se busca bajando
+
+00:07:25.578 --> 00:07:29.600
+por la curva paso a paso, con un
+método llamado descenso de gradiente.
+
+00:07:29.885 --> 00:07:31.485
+Pero la idea es la misma.
+
+00:07:32.535 --> 00:07:36.845
+En el PDF tienes un ejemplo con la
+misma idea: seis puntos y dos rectas.
+
+00:07:37.139 --> 00:07:43.517
+La recta A deja algunos puntos hasta a tres
+unidades de distancia, y su MSE es 2.67.
+
+00:07:43.987 --> 00:07:48.446
+La recta B pasa cerca de
+todos, y su MSE es 0.53.
+
+00:07:48.737 --> 00:07:50.935
+Menor error, mejor ajuste: gana la B.
+
+00:07:51.985 --> 00:07:55.590
+Y ahora, la distinción que más se
+pregunta: pérdida contra costo.
+
+00:07:55.842 --> 00:07:58.946
+La diapositiva lo dice claro:
+los dos términos se suelen
+
+00:07:58.946 --> 00:08:01.773
+definir de forma parecida,
+pero hay una diferencia.
+
+00:08:02.243 --> 00:08:06.467
+La función de pérdida se refiere al error
+de una sola muestra de entrenamiento.
+
+00:08:06.746 --> 00:08:07.898
+Un dato, un error.
+
+00:08:08.368 --> 00:08:10.885
+La función de costo es el
+promedio de la función
+
+00:08:10.885 --> 00:08:13.402
+de pérdida en todo el
+conjunto de entrenamiento.
+
+00:08:13.661 --> 00:08:16.264
+Todos los datos, resumidos en un solo número.
+
+00:08:16.734 --> 00:08:19.216
+Una forma fácil de recordarlo: la pérdida es
+
+00:08:19.216 --> 00:08:21.811
+individual; el costo es el promedio del grupo.
+
+00:08:22.861 --> 00:08:24.739
+Piénsalo con un juego de dardos.
+
+00:08:24.986 --> 00:08:27.856
+Lanzas cuatro dardos, y cada uno cae a cierta
+
+00:08:27.856 --> 00:08:30.789
+distancia del centro: 3 centímetros, 1, 2 y 2.
+
+00:08:31.259 --> 00:08:33.788
+La distancia de cada dardo es como la pérdida:
+
+00:08:33.788 --> 00:08:36.592
+mide qué tan mal te fue en
+ese tiro, y solo en ese.
+
+00:08:37.062 --> 00:08:41.265
+Ahora, si alguien te pregunta qué tal
+juegas, no le vas a contar tiro por tiro.
+
+00:08:41.528 --> 00:08:46.093
+Le das un promedio: 3 más 1 más 2
+más 2, entre 4, da 2 centímetros.
+
+00:08:46.353 --> 00:08:48.900
+Esa es la idea de la función de costo: un solo
+
+00:08:48.900 --> 00:08:51.281
+número que resume cómo lo haces en general.
+
+00:08:52.331 --> 00:08:55.169
+Llevemos esto a números, con
+los cuatro datos de antes.
+
+00:08:55.458 --> 00:08:59.086
+La pérdida de cada dato es su
+error al cuadrado: más 2 al
+
+00:08:59.086 --> 00:09:03.159
+cuadrado da 4; menos 1 al cuadrado,
+1; y luego, otra vez, 4 y 1.
+
+00:09:03.629 --> 00:09:06.061
+Cada uno de esos valores es una pérdida.
+
+00:09:06.316 --> 00:09:09.794
+Por ejemplo, la pérdida del
+dato con x igual a 1 es 4.
+
+00:09:10.264 --> 00:09:16.472
+Y el costo es el promedio de todas: 4 más
+1 más 4 más 1 da 10; entre 4 datos, 2.5.
+
+00:09:16.768 --> 00:09:21.227
+Ese promedio de errores al cuadrado
+es el MSE, el error cuadrático medio.
+
+00:09:21.697 --> 00:09:25.116
+La diapositiva propone otra
+analogía que funciona muy bien: la
+
+00:09:25.116 --> 00:09:28.865
+pérdida es tu nota en un deber, y
+el costo, tu promedio del parcial.
+
+00:09:29.915 --> 00:09:31.750
+Antes de terminar, ponte a prueba.
+
+00:09:32.004 --> 00:09:34.436
+Si necesitas más tiempo, pausa el video.
+
+00:09:34.676 --> 00:09:38.623
+Primera pregunta: un dato real
+vale 12, y el modelo predijo 15.
+
+00:09:38.901 --> 00:09:40.011
+¿Cuál es el error?
+
+00:09:40.404 --> 00:09:42.751
+¿Y dónde queda el punto respecto a la recta?
+
+00:09:48.371 --> 00:09:50.653
+El error es 12 menos 15: menos 3.
+
+00:09:50.936 --> 00:09:55.139
+Es negativo, así que el modelo se pasó,
+y el punto queda debajo de la recta.
+
+00:09:55.609 --> 00:09:59.385
+Segunda: tres datos tienen errores
+de más 2, menos 2 y más 4.
+
+00:09:59.686 --> 00:10:03.462
+Si la pérdida es el error al cuadrado,
+¿cuánto vale la función de costo?
+
+00:10:10.082 --> 00:10:12.599
+Las pérdidas son 4, 4 y 16.
+
+00:10:12.870 --> 00:10:16.048
+Suman 24, y entre 3 datos, el costo es 8.
+
+00:10:16.518 --> 00:10:19.065
+Y la última, rapidita: ¿la función de pérdida
+
+00:10:19.065 --> 00:10:21.894
+se calcula sobre un dato,
+o sobre todo el dataset?
+
+00:10:26.514 --> 00:10:27.730
+Sobre un solo dato.
+
+00:10:27.998 --> 00:10:32.051
+La que usa todo el dataset es la función
+de costo, que promedia las pérdidas.
+
+00:10:33.101 --> 00:10:34.978
+Resumamos lo más importante.
+
+00:10:35.448 --> 00:10:39.288
+Uno: el error, o residuo, es real
+menos predicción: y menos y gorro.
+
+00:10:39.564 --> 00:10:43.511
+Si es positivo, el punto está arriba
+de la recta; si es negativo, abajo.
+
+00:10:43.981 --> 00:10:47.138
+Dos: los errores no se suman
+tal cual, porque se cancelan.
+
+00:10:47.421 --> 00:10:50.771
+Primero se elevan al cuadrado,
+o se toma su valor absoluto.
+
+00:10:51.241 --> 00:10:54.330
+Tres: la pérdida es el error
+de una muestra; el costo es
+
+00:10:54.330 --> 00:10:57.641
+el promedio de las pérdidas en
+todo el dataset, como el MSE.
+
+00:10:58.111 --> 00:11:01.268
+Y cuatro: la mejor recta es
+la que tiene el menor costo.
+
+00:11:01.531 --> 00:11:04.795
+Entrenar es buscar la pendiente
+y el bias que lo hacen mínimo.
+
+00:11:05.845 --> 00:11:10.005
+Con esto cerramos la semana siete, y
+también el repaso de las siete semanas.
+
+00:11:10.259 --> 00:11:13.425
+La próxima vez que veas una
+recta de regresión, recuerda que
+
+00:11:13.425 --> 00:11:17.065
+detrás hay una pregunta muy simple:
+¿cuánto me equivoco, en promedio?
+
+00:11:17.517 --> 00:11:19.202
+¡Mucho éxito en tu examen!
 

@@ -11,7 +11,7 @@ const Videos = lazy(() => import("./pages/Videos"));
 const Slides = lazy(() => import("./pages/Slides"));
 
 const TITLES: Record<string, string> = {
-  "/": "Quiz",
+  "/": "Practicar",
   "/quiz": "Quiz en curso",
   "/resultados": "Resultados",
   "/videos": "Videos",
@@ -22,7 +22,7 @@ export default function App() {
   const { path, query } = useRoute();
 
   useEffect(() => {
-    document.title = `${TITLES[path] ?? "Página no encontrada"} · Intelligent Systems`;
+    document.title = `${TITLES[path] ?? "Página no encontrada"} | Sistemas Inteligentes`;
   }, [path]);
 
   let page: React.ReactNode;
@@ -40,7 +40,7 @@ export default function App() {
       <a href="#main" className="skip-link">Saltar al contenido</a>
       <Header path={path} />
       <main id="main" className="wrap main" tabIndex={-1}>
-        <Suspense fallback={<div className="loading" role="status">Cargando…</div>}>{page}</Suspense>
+        <Suspense fallback={<div className="loading" role="status">Cargando</div>}>{page}</Suspense>
       </main>
       <Footer />
     </QuizProvider>

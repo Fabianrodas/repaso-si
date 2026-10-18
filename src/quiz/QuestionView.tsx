@@ -1,32 +1,25 @@
 import { useEffect, useRef } from "react";
-import { ArrowDown, ArrowUp, Check, X } from "../components/Icons";
+import { ArrowDown, ArrowUp } from "../components/Icons";
+import { Bubble, Tick } from "../components/Sheet";
 import { correctText, fmt1, grade, TYPE_LABEL, type Answer, type Attempt, type Question } from "./engine";
 
 const LETTERS = "ABCDEFGH";
 
 export function QuestionMeta({ q }: { q: Question }) {
   return (
-    <div className="q-meta">
-      <span className="tag tag-pts">{q.pts} puntos</span>
-      <span className="tag">Week {q.w}: {q.topic}</span>
-      <span className="tag">{TYPE_LABEL[q.type]}</span>
-    </div>
+    <p className="q-meta">
+      <span>Week {q.w}: {q.topic}</span>
+      <span className="q-pts">{q.pts} pts</span>
+      {q.type !== "mc" ? <span>{TYPE_LABEL[q.type]}</span> : null}
+    </p>
   );
 }
 
 export function CodeBlock({ code }: { code: string }) {
-  return (
-    <pre className="code"><code>{code}</code></pre>
-  );
+  return <pre className="code"><code>{code}</code></pre>;
 }
 
-type Props = {
-  q: Question;
-  attempt: Attempt;
-  locked: boolean;
-  onAnswer: (a: Answer) => void;
-  onEnter?: () => void;
-};
+type Props = { q: Question; attempt: Attempt; locked: boolean; onAnswer: (a: Answer) => void; onEnter?: () => void };
 
 export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
   const a = attempt.answers[q.id];
@@ -42,12 +35,11 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
     const isCorrect = (oi: number) => (q.type === "mc" ? oi === q.answer : q.answer.includes(oi));
     return (
       <div>
-        {q.type === "multi" ? <p className="hint">Marca todas las que sean correctas. Cada marca equivocada resta.</p> : null}
-        <div className="options" role={q.type === "mc" ? "radiogroup" : "group"} aria-label="Opciones">
+        {q.type === "multi" ? <p className="hint">Marca todas las correctas. Una marca de más resta.</p> : null}
+        <div className="opts" role={q.type === "mc" ? "radiogroup" : "group"} aria-label="Opciones">
           {order.map((oi, k) => {
             const on = selected(oi);
-            let state = "";
-            if (locked) state = isCorrect(oi) ? "is-correct" : on ? "is-wrong" : "";
+            const state = locked ? (isCorrect(oi) ? "ok" : on ? "bad" : undefined) : undefined;
             return (
               <button
                 key={oi}
@@ -55,7 +47,7 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
                 role={q.type === "mc" ? "radio" : "checkbox"}
                 aria-checked={on}
                 disabled={locked}
-                className={`option ${q.type === "multi" ? "option-multi" : ""} ${on ? "is-on" : ""} ${state}`}
+                className={`opt ${on ? "is-on" : ""} ${state ? `is-${state}` : ""}`}
                 onClick={() => {
                   if (q.type === "mc") onAnswer(oi);
                   else {
@@ -65,8 +57,9 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
                   }
                 }}
               >
-                <span className="option-key" aria-hidden="true">{locked && state === "is-correct" ? <Check size={15} /> : locked && state === "is-wrong" ? <X size={15} /> : LETTERS[k]}</span>
-                <span className="option-text">{q.options[oi]}</span>
+                <Bubble filled={on} state={state === "ok" && !on ? "key" : state}>{LETTERS[k]}</Bubble>
+                <span className="opt-txt">{q.options[oi]}</span>
+                {state ? <Tick ok={state === "ok"} /> : null}
               </button>
             );
           })}
@@ -77,14 +70,16 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
 
   if (q.type === "tf") {
     return (
-      <div className="options options-tf" role="radiogroup" aria-label="Verdadero o falso">
+      <div className="opts opts-tf" role="radiogroup" aria-label="Verdadero o falso">
         {([[true, "Verdadero"], [false, "Falso"]] as const).map(([v, label]) => {
           const on = a === v;
-          const state = locked ? (v === q.answer ? "is-correct" : on ? "is-wrong" : "") : "";
+          const state = locked ? (v === q.answer ? "ok" : on ? "bad" : undefined) : undefined;
           return (
-            <button key={label} type="button" role="radio" aria-checked={on} disabled={locked} className={`option ${on ? "is-on" : ""} ${state}`} onClick={() => onAnswer(v)}>
-              <span className="option-key" aria-hidden="true">{label[0]}</span>
-              <span className="option-text">{label}</span>
+            <button key={label} type="button" role="radio" aria-checked={on} disabled={locked}
+              className={`opt ${on ? "is-on" : ""} ${state ? `is-${state}` : ""}`} onClick={() => onAnswer(v)}>
+              <Bubble filled={on} state={state === "ok" && !on ? "key" : state}>{label[0]}</Bubble>
+              <span className="opt-txt">{label}</span>
+              {state ? <Tick ok={state === "ok"} /> : null}
             </button>
           );
         })}
@@ -97,19 +92,14 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
     const choices = attempt.choices[q.id] ?? q.pairs.map((p) => p[1]);
     return (
       <div className="match">
-        <p className="hint">Elige la opción que corresponde a cada elemento. Una opción puede repetirse.</p>
         {q.pairs.map((p, i) => {
           const id = `m-${q.id}-${i}`;
-          const state = locked ? (cur[i] === p[1] ? "is-correct" : "is-wrong") : "";
+          const state = locked ? (cur[i] === p[1] ? "is-ok" : "is-bad") : "";
           return (
             <div key={i} className={`match-row ${state}`}>
-              <label htmlFor={id} className="match-left">{p[0]}</label>
-              <select
-                id={id}
-                value={cur[i]}
-                disabled={locked}
-                onChange={(e) => { const v = cur.slice(); v[i] = e.target.value; onAnswer(v); }}
-              >
+              <label htmlFor={id}>{p[0]}</label>
+              <select id={id} value={cur[i]} disabled={locked}
+                onChange={(e) => { const v = cur.slice(); v[i] = e.target.value; onAnswer(v); }}>
                 <option value="">Elige…</option>
                 {choices.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
@@ -124,37 +114,34 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
     const ord = (a as number[] | undefined) ?? attempt.order0[q.id] ?? q.items.map((_, i) => i);
     const move = (i: number, d: number) => { const o = ord.slice(); [o[i], o[i + d]] = [o[i + d], o[i]]; onAnswer(o); };
     return (
-      <div>
-        <p className="hint">Mueve cada elemento con las flechas hasta dejarlos en orden. Si ya está bien, solo continúa.</p>
-        <ol className="order">
-          {ord.map((it, i) => {
-            const state = locked ? (it === i ? "is-correct" : "is-wrong") : "";
-            return (
-              <li key={it} className={`order-item ${state}`}>
-                <span className="order-pos" aria-hidden="true">{i + 1}</span>
-                <span className="order-text">{q.items[it]}</span>
-                <span className="order-moves">
-                  <button type="button" className="icon-btn" aria-label={`Subir: ${q.items[it]}`} disabled={locked || i === 0} onClick={() => move(i, -1)}><ArrowUp size={16} /></button>
-                  <button type="button" className="icon-btn" aria-label={`Bajar: ${q.items[it]}`} disabled={locked || i === ord.length - 1} onClick={() => move(i, 1)}><ArrowDown size={16} /></button>
-                </span>
-              </li>
-            );
-          })}
-        </ol>
-      </div>
+      <ol className="order">
+        {ord.map((it, i) => {
+          const state = locked ? (it === i ? "is-ok" : "is-bad") : "";
+          return (
+            <li key={it} className={`order-row ${state}`}>
+              <Bubble size="sm">{i + 1}</Bubble>
+              <span className="order-txt">{q.items[it]}</span>
+              <span className="order-btns">
+                <button type="button" className="icon-btn" aria-label={`Subir: ${q.items[it]}`} disabled={locked || i === 0} onClick={() => move(i, -1)}><ArrowUp size={16} /></button>
+                <button type="button" className="icon-btn" aria-label={`Bajar: ${q.items[it]}`} disabled={locked || i === ord.length - 1} onClick={() => move(i, 1)}><ArrowDown size={16} /></button>
+              </span>
+            </li>
+          );
+        })}
+      </ol>
     );
   }
 
-  // input
-  const state = locked ? (grade(q, a) === 1 ? "is-correct" : "is-wrong") : "";
+  const state = locked ? (grade(q, a) === 1 ? "is-ok" : "is-bad") : "";
   return (
     <div className="short">
       <label htmlFor={`inp-${q.id}`} className="sr-only">Tu respuesta</label>
       <input
         ref={inputRef}
         id={`inp-${q.id}`}
-        className={`input ${state}`}
+        className={`field ${state}`}
         type="text"
+        inputMode={q.numeric ? "decimal" : "text"}
         autoComplete="off"
         autoCapitalize="off"
         spellCheck={false}
@@ -170,19 +157,14 @@ export function QuestionBody({ q, attempt, locked, onAnswer, onEnter }: Props) {
 
 export function Feedback({ q, a, onSlide }: { q: Question; a: Answer | undefined; onSlide: (p: number) => void }) {
   const f = grade(q, a);
-  const cls = f === 1 ? "ok" : f > 0 ? "part" : "bad";
-  const verdict = f === 1 ? `Correcta. Sumas ${fmt1(q.pts)} puntos.` : f > 0 ? `Parcialmente correcta. Sumas ${fmt1(q.pts * f)} de ${q.pts} puntos.` : `Incorrecta. 0 de ${q.pts} puntos.`;
+  const tone = f === 1 ? "ok" : f > 0 ? "part" : "bad";
+  const verdict = f === 1 ? `Correcta: +${fmt1(q.pts)} pts` : f > 0 ? `Parcial: ${fmt1(q.pts * f)} de ${q.pts} pts` : `Incorrecta: 0 de ${q.pts} pts`;
   return (
-    <div className={`feedback ${cls}`} role="status">
-      <p className="feedback-verdict">{verdict}</p>
-      {f < 1 ? (
-        <div className="feedback-answer"><span>Respuesta correcta</span><p>{correctText(q)}</p></div>
-      ) : null}
-      <p>{q.explain}</p>
-      <p className="feedback-src">
-        {q.src}.{" "}
-        <button type="button" className="link-btn" onClick={() => onSlide(q.page)}>Ver diapositiva {q.page}</button>
-      </p>
+    <div className={`fb fb-${tone}`} role="status">
+      <p className="fb-verdict"><Tick ok={f === 1} /> {verdict}</p>
+      {f < 1 ? <p className="fb-key"><span>Respuesta:</span> {correctText(q)}</p> : null}
+      <p className="fb-why">{q.explain}</p>
+      <button type="button" className="link" onClick={() => onSlide(q.page)}>Ver diapositiva {q.page}</button>
     </div>
   );
 }
