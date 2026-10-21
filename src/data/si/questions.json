@@ -2400,24 +2400,6 @@
  {
   "id": "w7-02",
   "w": 7,
-  "topic": "Mejor ajuste",
-  "type": "mc",
-  "pts": 4,
-  "q": "Según la diapositiva, la pérdida es el resultado de…",
-  "options": [
-   "sumar todas las predicciones",
-   "la diferencia entre los datos reales y los datos obtenidos por la regresión",
-   "multiplicar las features por los pesos",
-   "contar los datos nulos"
-  ],
-  "answer": 1,
-  "explain": "«The loss is the result of the difference between the actual data and the data obtained by the linear regression».",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 243
- },
- {
-  "id": "w7-03",
-  "w": 7,
   "topic": "Error o residuo",
   "type": "mc",
   "pts": 4,
@@ -2434,7 +2416,7 @@
   "page": 244
  },
  {
-  "id": "w7-04",
+  "id": "w7-03",
   "w": 7,
   "topic": "Error o residuo",
   "type": "mc",
@@ -2452,77 +2434,7 @@
   "page": 244
  },
  {
-  "id": "w7-05",
-  "w": 7,
-  "topic": "Error o residuo",
-  "type": "input",
-  "pts": 4,
-  "q": "Un dato observado vale y = 12 y el modelo predice ŷ = 15. Escribe el error (y − ŷ).",
-  "answer": [
-   "-3"
-  ],
-  "numeric": true,
-  "placeholder": "Escribe un número",
-  "explain": "12 − 15 = −3. Es negativo porque el modelo predijo más de lo observado.",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 244
- },
- {
-  "id": "w7-06",
-  "w": 7,
-  "topic": "Error o residuo",
-  "type": "mc",
-  "pts": 3,
-  "q": "En error = y − ŷ, ¿qué representa ŷ?",
-  "options": [
-   "El valor observado",
-   "El valor predicho por el modelo",
-   "El promedio de los datos",
-   "La pendiente"
-  ],
-  "answer": 1,
-  "explain": "y es el valor observado; ŷ (y gorro) es la predicción.",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 244
- },
- {
-  "id": "w7-07",
-  "w": 7,
-  "topic": "Mejor ajuste",
-  "type": "mc",
-  "pts": 4,
-  "q": "¿Cuál es la idea de encontrar la recta que mejor se ajusta a los datos?",
-  "options": [
-   "Que pase exactamente por todos los puntos",
-   "Que el error entre lo observado y lo predicho sea mínimo",
-   "Que tenga la mayor pendiente",
-   "Que empiece en el origen"
-  ],
-  "answer": 1,
-  "explain": "«…the error obtained between the observed value and the prediction is minimal».",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 246
- },
- {
-  "id": "w7-08",
-  "w": 7,
-  "topic": "Mejor ajuste",
-  "type": "mc",
-  "pts": 3,
-  "q": "En la gráfica de la diapositiva, ¿qué son las líneas verticales entre cada punto y la recta de regresión?",
-  "options": [
-   "Los errores de cada punto",
-   "Las features",
-   "Los pesos",
-   "Los ejes"
-  ],
-  "answer": 0,
-  "explain": "Cada línea vertical marca la distancia entre el valor observado y la predicción: el error.",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 246
- },
- {
-  "id": "w7-09",
+  "id": "w7-04",
   "w": 7,
   "topic": "Pérdida vs costo",
   "type": "match",
@@ -2546,7 +2458,7 @@
   "page": 248
  },
  {
-  "id": "w7-10",
+  "id": "w7-05",
   "w": 7,
   "topic": "Pérdida vs costo",
   "type": "input",
@@ -2562,55 +2474,7 @@
   "page": 248
  },
  {
-  "id": "w7-11",
-  "w": 7,
-  "topic": "Pérdida vs costo",
-  "type": "mc",
-  "pts": 4,
-  "q": "Alguien dice: «la función de costo mide el error de un solo dato». ¿Es correcto?",
-  "options": [
-   "Sí",
-   "No: eso es la función de pérdida; el costo promedia las pérdidas de todo el dataset",
-   "No: el costo es la pendiente",
-   "Sí, pero solo en clasificación"
-  ],
-  "answer": 1,
-  "explain": "La pérdida es de una muestra; el costo es el promedio en todo el dataset de entrenamiento.",
-  "src": "Week 7 · Loss function vs cost function",
-  "page": 248
- },
- {
-  "id": "w7-12",
-  "w": 7,
-  "topic": "Pérdida vs costo",
-  "type": "mc",
-  "pts": 4,
-  "q": "Tienes las pérdidas de 10 muestras de entrenamiento. ¿Cuántos valores da la función de costo?",
-  "options": [
-   "10, uno por muestra",
-   "Uno: el promedio de las 10 pérdidas",
-   "Ninguno",
-   "20"
-  ],
-  "answer": 1,
-  "explain": "El costo resume todo el dataset en un solo número: el promedio de las pérdidas.",
-  "src": "Week 7 · Loss function vs cost function",
-  "page": 248
- },
- {
-  "id": "w7-13",
-  "w": 7,
-  "topic": "Error o residuo",
-  "type": "tf",
-  "pts": 2,
-  "q": "Si la recta de regresión pasa exactamente por un punto, el error de ese punto es 0.",
-  "answer": true,
-  "explain": "Verdadero: el valor observado y la predicción son iguales, así que y − ŷ = 0.",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 244
- },
- {
-  "id": "w7-14",
+  "id": "w7-06",
   "w": 7,
   "topic": "Error o residuo",
   "type": "mc",
@@ -2628,25 +2492,7 @@
   "page": 244
  },
  {
-  "id": "w7-15",
-  "w": 7,
-  "topic": "Error o residuo",
-  "type": "mc",
-  "pts": 4,
-  "q": "Un punto tiene y = 10 y el modelo predice ŷ = 5. ¿Dónde está el punto respecto a la recta?",
-  "options": [
-   "Arriba de la recta",
-   "Abajo de la recta",
-   "Sobre la recta",
-   "No se puede saber"
-  ],
-  "answer": 0,
-  "explain": "El valor observado (10) es mayor que la predicción (5): el punto queda arriba y el error es positivo.",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 244
- },
- {
-  "id": "w7-16",
+  "id": "w7-07",
   "w": 7,
   "topic": "Mejor ajuste",
   "type": "mc",
@@ -2664,78 +2510,264 @@
   "page": 246
  },
  {
-  "id": "w7-17",
+  "id": "w7-08",
   "w": 7,
-  "topic": "Error o residuo",
+  "topic": "Fórmulas de las métricas",
+  "type": "match",
+  "pts": 5,
+  "q": "Relaciona cada métrica con su fórmula.",
+  "pairs": [
+   [
+    "MAE",
+    "(1/n) Σ |yᵢ − ŷᵢ|"
+   ],
+   [
+    "MSE",
+    "(1/n) Σ (yᵢ − ŷᵢ)²"
+   ],
+   [
+    "RMSE",
+    "√[(1/n) Σ (yᵢ − ŷᵢ)²]"
+   ],
+   [
+    "RAE",
+    "Σ |yᵢ − ŷᵢ| / Σ |yᵢ − ȳ|"
+   ]
+  ],
+  "extra": [
+   "Σ (yᵢ − ŷᵢ)"
+  ],
+  "explain": "MAE promedia los valores absolutos, MSE los cuadrados, RMSE es la raíz del MSE y RAE compara con predecir siempre el promedio ȳ.",
+  "src": "Week 7 · MAE, MSE, RMSE y RAE",
+  "page": 252
+ },
+ {
+  "id": "w7-09",
+  "w": 7,
+  "topic": "MAE",
   "type": "input",
   "pts": 4,
-  "q": "Un punto observado es (60, 12) y el modelo predice ŷ = 14. ¿Cuál es el error y − ŷ?",
+  "q": "Cuatro datos tienen errores de +2, −1, +2 y −1. ¿Cuánto vale el MAE?",
   "answer": [
-   "-2"
+   "1.5",
+   "1,5"
   ],
   "numeric": true,
-  "placeholder": "Escribe un número",
-  "explain": "12 − 14 = −2: el modelo se pasó por 2 unidades.",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 244
+  "placeholder": "MAE",
+  "explain": "|2| + |−1| + |2| + |−1| = 6; 6 / 4 = 1.5.",
+  "src": "Week 7 · Ejemplo: MAE, MSE y RMSE con los mismos 4 datos",
+  "page": 253
  },
  {
-  "id": "w7-18",
+  "id": "w7-10",
   "w": 7,
-  "topic": "Error o residuo",
+  "topic": "MSE",
+  "type": "input",
+  "pts": 5,
+  "q": "Tres datos tienen errores de +1, −1 y +4. ¿Cuánto vale el MSE?",
+  "answer": [
+   "6"
+  ],
+  "numeric": true,
+  "placeholder": "MSE",
+  "explain": "1² + (−1)² + 4² = 1 + 1 + 16 = 18; 18 / 3 = 6.",
+  "src": "Week 7 · MSE (Mean Squared Error)",
+  "page": 255
+ },
+ {
+  "id": "w7-11",
+  "w": 7,
+  "topic": "Outliers",
   "type": "mc",
   "pts": 4,
-  "q": "Para el punto (20, 10) con ŷ = 5, alguien calcula ŷ − y en vez de y − ŷ. ¿Qué obtiene?",
+  "q": "¿Por qué el MSE es muy sensible a los outliers?",
   "options": [
-   "5",
-   "−5: el mismo valor con el signo contrario",
-   "15",
-   "0"
+   "Porque eleva los errores al cuadrado antes de promediar, y un error grande crece mucho",
+   "Porque ignora los errores negativos",
+   "Porque divide para el promedio de los datos",
+   "Porque usa el valor absoluto"
   ],
-  "answer": 1,
-  "explain": "ŷ − y = 5 − 10 = −5. Por eso importa el orden: observado menos predicción.",
-  "src": "Week 7 · How to find the best fit?",
-  "page": 244
+  "answer": 0,
+  "explain": "Al elevar al cuadrado, un error de 5 aporta 25: un solo valor atípico dispara el MSE. El MAE, en cambio, lo cuenta como 5.",
+  "src": "Week 7 · ¿Por qué el MSE es sensible a los outliers?",
+  "page": 256
  },
  {
-  "id": "w7-19",
+  "id": "w7-12",
   "w": 7,
-  "topic": "Pérdida vs costo",
+  "topic": "Outliers",
+  "type": "mc",
+  "pts": 3,
+  "q": "Modelo A: errores 1, 1, 1, 1, 1. Modelo B: errores 0, 0, 0, 0, 5. ¿Qué pasa con sus MAE?",
+  "options": [
+   "Son iguales (1 y 1): el MAE no distingue cómo se reparte el error",
+   "El de B es 5 veces mayor",
+   "El de A es mayor",
+   "El de B es 0"
+  ],
+  "answer": 0,
+  "explain": "Ambos suman 5 en valor absoluto: MAE = 5/5 = 1. El MSE sí los distingue: 1 frente a 5.",
+  "src": "Week 7 · ¿Por qué el MSE es sensible a los outliers?",
+  "page": 256
+ },
+ {
+  "id": "w7-13",
+  "w": 7,
+  "topic": "RMSE",
   "type": "mc",
   "pts": 4,
-  "q": "¿Sobre qué conjunto se promedia la función de pérdida para obtener la función de costo?",
+  "q": "Un modelo predice precios en dólares y su MSE es 400. ¿Cuánto vale el RMSE y en qué unidad está?",
   "options": [
-   "Solo una muestra",
-   "Todo el dataset de entrenamiento",
-   "Solo el dataset de prueba",
-   "Solo los datos con error positivo"
+   "20 dólares",
+   "20 dólares al cuadrado",
+   "400 dólares",
+   "200 dólares"
   ],
-  "answer": 1,
-  "explain": "«…the average of the loss function across the entire training dataset».",
-  "src": "Week 7 · Loss function vs cost function",
-  "page": 248
+  "answer": 0,
+  "explain": "RMSE = √MSE = √400 = 20, y usa la misma unidad que la variable de salida: dólares.",
+  "src": "Week 7 · RMSE (Root Mean Squared Error)",
+  "page": 257
  },
  {
-  "id": "w7-20",
+  "id": "w7-14",
   "w": 7,
-  "topic": "Pérdida vs costo",
+  "topic": "RAE y RSE",
+  "type": "mc",
+  "pts": 4,
+  "q": "El RAE y el RSE comparan el error del modelo contra el de un modelo más simple. ¿Qué predice ese modelo simple?",
+  "options": [
+   "Siempre el promedio de los datos (ȳ)",
+   "Siempre 0",
+   "El valor máximo de los datos",
+   "Una recta con pendiente 1"
+  ],
+  "answer": 0,
+  "explain": "El denominador usa yᵢ − ȳ: el error de predecir siempre el promedio. Un buen modelo obtiene valores cercanos a 0.",
+  "src": "Week 7 · RAE (Relative Absolute Error)",
+  "page": 259
+ },
+ {
+  "id": "w7-15",
+  "w": 7,
+  "topic": "R²",
+  "type": "input",
+  "pts": 4,
+  "q": "Un modelo tiene RSE = 0,2. ¿Cuánto vale su R²?",
+  "answer": [
+   "0.8",
+   "0,8",
+   ".8"
+  ],
+  "numeric": true,
+  "placeholder": "R²",
+  "explain": "R² = 1 − RSE = 1 − 0,2 = 0,8.",
+  "src": "Week 7 · R2 (R-squared)",
+  "page": 262
+ },
+ {
+  "id": "w7-16",
+  "w": 7,
+  "topic": "R²",
+  "type": "mc",
+  "pts": 4,
+  "q": "Según la diapositiva, ¿qué indica un R² = 0,3?",
+  "options": [
+   "Que el 30 % de la variable dependiente se predice con la independiente",
+   "Que el modelo se equivoca en un 30 %",
+   "Que el MSE vale 0,3",
+   "Que el 70 % de las predicciones son exactas"
+  ],
+  "answer": 0,
+  "explain": "R² representa la fuerza de la relación lineal: 0,3 significa que el 30 % de la variable dependiente es predicha por la independiente.",
+  "src": "Week 7 · R2 (R-squared)",
+  "page": 262
+ },
+ {
+  "id": "w7-17",
+  "w": 7,
+  "topic": "Consideraciones sobre las métricas",
   "type": "multi",
-  "pts": 4,
-  "q": "¿Qué afirmaciones son correctas?",
+  "pts": 5,
+  "q": "¿Qué afirmaciones son correctas según «Some considerations regarding metrics»?",
   "options": [
-   "La pérdida se refiere al error de una sola muestra",
-   "El costo es el promedio de las pérdidas en todo el dataset de entrenamiento",
-   "Buscar el mejor ajuste es buscar el error mínimo",
-   "Pérdida y costo son exactamente lo mismo",
-   "El residuo es la suma de todas las predicciones"
+   "Valores más bajos de MAE, MSE y RMSE significan mayor precisión",
+   "Un valor alto de R² es deseable",
+   "El RMSE es más apropiado que el R² para comparar modelos de regresión",
+   "Un R² cercano a 0 indica un modelo muy preciso"
   ],
   "answer": [
    0,
    1,
    2
   ],
-  "explain": "Pérdida: una muestra. Costo: promedio en el dataset. Mejor ajuste: error mínimo.",
-  "src": "Week 7 · Loss function vs cost function",
-  "page": 248
+  "explain": "En las métricas de error se busca un valor bajo; en R², uno alto (cerca de 1). Para comparar modelos de regresión se recomienda el RMSE.",
+  "src": "Week 7 · Some considerations regarding metrics",
+  "page": 264
+ },
+ {
+  "id": "w7-18",
+  "w": 7,
+  "topic": "Series en Pandas",
+  "type": "mc",
+  "pts": 3,
+  "q": "¿Qué es una Series en Pandas?",
+  "options": [
+   "Un arreglo de una dimensión con etiquetas, como una sola columna de un DataFrame",
+   "Una tabla de dos dimensiones con filas y columnas",
+   "Una lista de Python que solo acepta números",
+   "Un tipo de gráfico de Pandas"
+  ],
+  "answer": 0,
+  "explain": "Una Series es un arreglo unidimensional etiquetado que puede guardar cualquier tipo de dato; otra forma de verla es como una columna de un DataFrame.",
+  "src": "Week 7 · Series in Pandas",
+  "page": 266
+ },
+ {
+  "id": "w7-19",
+  "w": 7,
+  "topic": "Series en Pandas",
+  "type": "mc",
+  "pts": 4,
+  "q": "¿Qué imprime este código?",
+  "code": "import pandas as pd\nser1 = pd.Series([1, 7, 2], index=[\"x\", \"y\", \"z\"])\nprint(ser1[\"z\"])",
+  "options": [
+   "2",
+   "z",
+   "7",
+   "[1, 7, 2]"
+  ],
+  "answer": 0,
+  "explain": "En una Series se accede a cada valor por su etiqueta: ser1[\"z\"] devuelve 2.",
+  "src": "Week 7 · Ejemplo: Series en Pandas",
+  "page": 268
+ },
+ {
+  "id": "w7-20",
+  "w": 7,
+  "topic": "Gráficos con Pandas",
+  "type": "match",
+  "pts": 4,
+  "q": "En df.plot(kind=…), relaciona cada valor de kind con el gráfico que produce.",
+  "pairs": [
+   [
+    "'bar'",
+    "Barras: comparar cantidades entre categorías"
+   ],
+   [
+    "'box'",
+    "Caja: mediana, cuartiles y extremos"
+   ],
+   [
+    "'pie'",
+    "Pastel: proporción de cada parte"
+   ],
+   [
+    "'scatter'",
+    "Dispersión: relación entre dos variables"
+   ]
+  ],
+  "explain": "Pandas soporta, entre otros, bar, box, pie y scatter. En figsize=(ancho, alto) las medidas van en pulgadas.",
+  "src": "Week 7 · Plots with Pandas",
+  "page": 270
  }
 ]

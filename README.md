@@ -4,7 +4,7 @@ App web para repasar dos materias. La página de inicio (`/`) deja elegir la mat
 
 | Materia | Ruta | Unidades | Preguntas | Videos | Diapositivas |
 | --- | --- | --- | --- | --- | --- |
-| Sistemas Inteligentes | `/si` | Weeks 1 a 7 | 140 | 7 | 249 |
+| Sistemas Inteligentes | `/si` | Weeks 1 a 7 | 140 | 7 | 273 |
 | Ingeniería de Software II | `/is2` | Temas 1 a 8 | 160 | 8 | 289 |
 
 En cada materia:
