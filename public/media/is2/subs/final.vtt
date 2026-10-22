@@ -1,0 +1,2495 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:03.800
+Este es el repaso final de
+Ingeniería de Software dos: los
+
+00:00:03.800 --> 00:00:07.327
+conceptos más importantes de los
+ocho temas, en un solo video.
+
+00:00:07.797 --> 00:00:11.755
+La primera mitad trata de cómo se
+gestiona y se construye el software:
+
+00:00:11.755 --> 00:00:16.053
+configuración, cambios, integración
+continua, buenas prácticas e inspección.
+
+00:00:16.299 --> 00:00:20.950
+La segunda, de cómo se prueba: definiciones,
+valor límite y clases de equivalencia.
+
+00:00:22.000 --> 00:00:24.133
+Tema uno: gestión de la configuración.
+
+00:00:25.183 --> 00:00:26.997
+¿Por qué hace falta todo esto?
+
+00:00:27.451 --> 00:00:30.409
+Porque los sistemas de software
+cambian constantemente,
+
+00:00:30.409 --> 00:00:32.721
+mientras se desarrollan y mientras se usan.
+
+00:00:33.191 --> 00:00:37.128
+Los sistemas cambian todo el tiempo:
+se descubren errores, cambian los
+
+00:00:37.128 --> 00:00:41.404
+requisitos, salen nuevas plataformas y
+la competencia saca funciones nuevas.
+
+00:00:42.454 --> 00:00:46.012
+La gestión de la configuración,
+o CM, se ocupa de las políticas,
+
+00:00:46.012 --> 00:00:50.070
+los procesos y las herramientas para
+gestionar esos sistemas que cambian.
+
+00:00:50.540 --> 00:00:54.615
+Cada vez que se cambia el software, se
+crea una nueva versión del sistema.
+
+00:00:55.085 --> 00:00:58.263
+Por eso, un sistema no es una
+sola cosa: es un conjunto
+
+00:00:58.263 --> 00:01:01.442
+de versiones, y cada una puede
+necesitar mantenimiento.
+
+00:01:01.688 --> 00:01:03.944
+Piensa en una app: hay personas usando la
+
+00:01:03.944 --> 00:01:06.530
+versión de hace tres
+meses, y otras la de ayer.
+
+00:01:07.580 --> 00:01:09.266
+Este diagrama las relaciona.
+
+00:01:09.565 --> 00:01:13.767
+Las propuestas de cambio entran por la
+gestión del cambio, que decide qué se hace.
+
+00:01:14.237 --> 00:01:18.205
+La gestión de versiones administra
+las versiones de cada componente…
+
+00:01:18.675 --> 00:01:22.558
+…la construcción del sistema las junta
+para crear versiones del sistema…
+
+00:01:23.028 --> 00:01:25.441
+…y la gestión de lanzamiento convierte algunas
+
+00:01:25.441 --> 00:01:28.169
+de esas versiones en
+lanzamientos para los clientes.
+
+00:01:29.219 --> 00:01:32.431
+Gestión de versiones: llevar el
+seguimiento de las múltiples
+
+00:01:32.431 --> 00:01:35.535
+versiones de los componentes,
+y garantizar que los cambios
+
+00:01:35.535 --> 00:01:38.371
+de distintos desarrolladores
+no interfieran entre sí.
+
+00:01:38.841 --> 00:01:42.820
+Construcción del sistema: ensamblar
+los componentes, los datos y las
+
+00:01:42.820 --> 00:01:47.033
+bibliotecas, y luego compilarlos y
+vincularlos para crear un ejecutable.
+
+00:01:48.083 --> 00:01:52.690
+Gestión del cambio: seguir las solicitudes
+de cambio de clientes y desarrolladores,
+
+00:01:52.690 --> 00:01:56.019
+calcular su costo e impacto, y
+decidir si se hacen y cuándo.
+
+00:01:56.489 --> 00:01:59.765
+Gestión de lanzamiento: preparar
+el software para entregarlo,
+
+00:01:59.765 --> 00:02:02.719
+y registrar qué versiones se
+entregaron a los clientes.
+
+00:02:03.769 --> 00:02:05.155
+Ahora, el vocabulario.
+
+00:02:05.433 --> 00:02:09.273
+Esta parte suele aparecer en las
+evaluaciones, así que vamos despacio.
+
+00:02:09.743 --> 00:02:14.223
+Una línea base es un conjunto de versiones
+de componentes que forman un sistema.
+
+00:02:14.475 --> 00:02:18.550
+Está controlada: sus componentes no
+cambian, y siempre se puede recrear.
+
+00:02:19.020 --> 00:02:23.372
+Ramificación: crear una nueva línea de
+código a partir de una versión existente.
+
+00:02:23.619 --> 00:02:26.051
+Las dos líneas pueden avanzar por separado.
+
+00:02:26.521 --> 00:02:30.745
+Línea de código: el conjunto de versiones
+de un componente, y de lo que depende.
+
+00:02:31.215 --> 00:02:34.805
+Control de configuración: el
+proceso que garantiza que todas las
+
+00:02:34.805 --> 00:02:38.788
+versiones se registren y se mantengan
+durante toda la vida del sistema.
+
+00:02:39.258 --> 00:02:43.475
+Y un elemento de configuración, o SCI,
+es cualquier artefacto bajo control,
+
+00:02:43.475 --> 00:02:47.578
+con un identificador único: diseño,
+código, datos de prueba o documentos.
+
+00:02:48.628 --> 00:02:49.631
+Más términos.
+
+00:02:49.911 --> 00:02:52.421
+Línea principal: la secuencia de líneas base
+
+00:02:52.421 --> 00:02:54.817
+que representan las versiones del sistema.
+
+00:02:55.287 --> 00:02:59.533
+Fusión: crear una nueva versión uniendo
+versiones de distintas líneas de código.
+
+00:03:00.003 --> 00:03:02.797
+Lanzamiento: una versión
+entregada a los clientes.
+
+00:03:03.041 --> 00:03:07.670
+Repositorio: la base de datos compartida de
+versiones, con información de sus cambios.
+
+00:03:08.140 --> 00:03:10.700
+Construcción del sistema: crear el ejecutable
+
+00:03:10.700 --> 00:03:13.431
+compilando y vinculando
+las versiones correctas.
+
+00:03:13.901 --> 00:03:16.989
+Versión: una instancia de un
+elemento de configuración,
+
+00:03:16.989 --> 00:03:18.786
+siempre con identificador único.
+
+00:03:19.086 --> 00:03:23.160
+Y espacio de trabajo: tu área privada,
+donde modificas sin afectar a nadie.
+
+00:03:24.210 --> 00:03:26.918
+Es el proceso de seguir
+las distintas versiones de
+
+00:03:26.918 --> 00:03:29.842
+los componentes, y de los
+sistemas en los que se usan.
+
+00:03:30.312 --> 00:03:34.536
+Garantiza que los cambios de distintos
+desarrolladores no interfieran entre sí.
+
+00:03:35.006 --> 00:03:38.548
+En otras palabras: administrar
+líneas de código y líneas base.
+
+00:03:38.857 --> 00:03:41.929
+Y para eso necesitamos sistemas
+de control de versiones.
+
+00:03:42.979 --> 00:03:44.707
+Aquí lo ves en un diagrama.
+
+00:03:44.979 --> 00:03:48.578
+Cada componente, A, B y C, tiene
+su propia línea de código con
+
+00:03:48.578 --> 00:03:52.467
+varias versiones; abajo están las
+librerías y componentes externos.
+
+00:03:52.937 --> 00:03:55.945
+Una línea base toma una
+versión concreta de cada uno.
+
+00:03:56.217 --> 00:03:59.396
+La versión uno usa A, B uno
+punto dos y C uno punto uno.
+
+00:03:59.866 --> 00:04:03.983
+La versión dos usa A uno punto tres,
+B uno punto dos y C uno punto dos.
+
+00:04:04.259 --> 00:04:07.438
+Y la secuencia de líneas base
+forma la línea principal.
+
+00:04:08.488 --> 00:04:11.005
+¿Qué ofrece un sistema
+de control de versiones?
+
+00:04:11.430 --> 00:04:16.209
+Primero, identificación: cada versión
+recibe un identificador único al enviarse.
+
+00:04:16.679 --> 00:04:19.352
+Segundo, el historial de
+cambios: queda registrado
+
+00:04:19.352 --> 00:04:21.650
+cómo se pasó de una versión a la siguiente.
+
+00:04:22.120 --> 00:04:25.064
+Y tercero, desarrollo
+independiente: varias personas
+
+00:04:25.064 --> 00:04:28.178
+pueden trabajar en el mismo
+componente al mismo tiempo.
+
+00:04:29.228 --> 00:04:32.233
+Además, soporte de proyectos:
+un mismo sistema puede
+
+00:04:32.233 --> 00:04:35.180
+manejar varios proyectos
+que comparten componentes.
+
+00:04:35.650 --> 00:04:39.443
+Y gestión de almacenamiento: en
+vez de guardar copias completas de
+
+00:04:39.443 --> 00:04:43.522
+todo, usa mecanismos eficientes que
+evitan duplicar archivos idénticos.
+
+00:04:44.572 --> 00:04:46.130
+Hay dos tipos modernos.
+
+00:04:46.407 --> 00:04:50.951
+En los centralizados, un único repositorio
+maestro guarda todas las versiones.
+
+00:04:51.208 --> 00:04:53.363
+Subversion es el ejemplo típico.
+
+00:04:53.833 --> 00:04:58.697
+En los distribuidos existen varias copias
+completas del repositorio al mismo tiempo.
+
+00:04:59.004 --> 00:05:00.220
+El ejemplo es Git.
+
+00:05:01.270 --> 00:05:05.067
+Las ventajas frente a uno centralizado:
+hay un mecanismo de respaldo.
+
+00:05:05.345 --> 00:05:09.164
+Si el repositorio se daña, se
+restaura desde cualquier copia local.
+
+00:05:09.634 --> 00:05:12.791
+Se puede trabajar sin conexión,
+haciendo commits sin red.
+
+00:05:13.261 --> 00:05:16.653
+Y se puede compilar y probar todo
+el sistema en el equipo local.
+
+00:05:17.703 --> 00:05:19.666
+Por último, cómo se ahorra espacio.
+
+00:05:19.959 --> 00:05:22.877
+En lugar de guardar cada
+versión completa, se guarda
+
+00:05:22.877 --> 00:05:26.188
+un delta: la lista de diferencias
+entre una versión y otra.
+
+00:05:26.658 --> 00:05:30.087
+La versión más reciente se guarda
+completa, y las anteriores
+
+00:05:30.087 --> 00:05:32.888
+se reconstruyen aplicando
+los deltas hacia atrás.
+
+00:05:33.180 --> 00:05:36.786
+Git, además, empaqueta esos deltas
+para reducir más el tamaño.
+
+00:05:37.836 --> 00:05:41.526
+Tema dos: construcción de sistemas,
+gestión del cambio y lanzamientos.
+
+00:05:42.576 --> 00:05:47.077
+Construir un sistema es crear un sistema
+completo y ejecutable, compilando y
+
+00:05:47.077 --> 00:05:51.636
+vinculando sus componentes, las bibliotecas
+externas, la configuración y otra
+
+00:05:51.636 --> 00:05:52.347
+información.
+
+00:05:52.817 --> 00:05:55.452
+Las entradas son el código
+fuente, los archivos
+
+00:05:55.452 --> 00:05:58.086
+de configuración y de
+datos, y las bibliotecas…
+
+00:05:58.556 --> 00:06:01.564
+…el sistema automatizado de
+construcción las procesa…
+
+00:06:02.034 --> 00:06:06.429
+…y produce el sistema ejecutable, las
+pruebas ejecutables y sus resultados.
+
+00:06:07.479 --> 00:06:10.956
+En la construcción pueden intervenir
+tres plataformas distintas.
+
+00:06:11.426 --> 00:06:13.890
+El sistema de desarrollo, con las herramientas
+
+00:06:13.890 --> 00:06:16.674
+y el espacio de trabajo
+privado de cada programador.
+
+00:06:17.144 --> 00:06:20.547
+El servidor de gestión de versiones
+y de construcción: recibe
+
+00:06:20.547 --> 00:06:23.950
+el check-in del código y construye
+las versiones ejecutables.
+
+00:06:24.420 --> 00:06:27.790
+Y el sistema objetivo, donde
+finalmente corre el ejecutable.
+
+00:06:28.840 --> 00:06:32.995
+La versión que se entrega al cliente se
+genera en el servidor de construcción,
+
+00:06:32.995 --> 00:06:36.670
+no en la máquina de un desarrollador:
+así se construye siempre igual.
+
+00:06:37.720 --> 00:06:41.922
+Lo ideal es construir el sistema
+completo con un solo comando o un clic.
+
+00:06:42.201 --> 00:06:45.188
+Para eso, las herramientas
+ofrecen varias funciones.
+
+00:06:45.658 --> 00:06:48.897
+Generan scripts de compilación,
+se integran con el control
+
+00:06:48.897 --> 00:06:52.527
+de versiones, recompilan solo lo
+necesario y crean el ejecutable.
+
+00:06:52.997 --> 00:06:56.357
+Además, automatizan las pruebas,
+informan si la construcción
+
+00:06:56.357 --> 00:06:58.821
+tuvo éxito o falló, y generan documentación.
+
+00:06:59.871 --> 00:07:03.852
+Los cambios son inevitables: las
+necesidades de la organización cambian,
+
+00:07:03.852 --> 00:07:07.445
+hay errores que reparar y el sistema
+debe adaptarse a su entorno.
+
+00:07:07.915 --> 00:07:10.649
+El objetivo: controlar la
+evolución del sistema,
+
+00:07:10.649 --> 00:07:13.440
+y priorizar los cambios
+más urgentes y rentables.
+
+00:07:13.910 --> 00:07:18.076
+Y para eso hace falta un proceso
+definido: analizar costos y beneficios,
+
+00:07:18.076 --> 00:07:22.763
+aprobar los cambios que valen la pena, y
+rastrear qué componentes se modificaron.
+
+00:07:23.813 --> 00:07:25.093
+Este es el proceso.
+
+00:07:25.340 --> 00:07:28.924
+El cliente envía una solicitud
+de cambio, que se abrevia CR.
+
+00:07:29.394 --> 00:07:32.020
+Soporte al cliente la
+revisa, y la registra o la
+
+00:07:32.020 --> 00:07:34.919
+cierra, por ejemplo si está
+duplicada o no es válida.
+
+00:07:35.389 --> 00:07:38.064
+La junta de control de cambios, el CCB, evalúa
+
+00:07:38.064 --> 00:07:40.680
+las solicitudes y selecciona cuáles se harán.
+
+00:07:41.150 --> 00:07:44.045
+Y desarrollo analiza la
+implementación y el impacto,
+
+00:07:44.045 --> 00:07:46.995
+modifica y prueba el software,
+y cierra la solicitud.
+
+00:07:48.045 --> 00:07:50.179
+¿Qué factores influyen en la decisión?
+
+00:07:50.627 --> 00:07:53.656
+Las consecuencias de no hacer
+el cambio, y sus beneficios.
+
+00:07:54.126 --> 00:07:56.985
+El número de usuarios afectados,
+y el costo de hacerlo.
+
+00:07:57.455 --> 00:08:01.636
+Y el ciclo de lanzamiento: si cabe en
+la próxima versión o conviene esperar.
+
+00:08:02.686 --> 00:08:06.483
+Para aplicaciones web, los cambios
+se clasifican en cuatro clases.
+
+00:08:06.765 --> 00:08:10.754
+Clase uno, corrección local: corrige
+un error o mejora un contenido local.
+
+00:08:11.224 --> 00:08:15.427
+Clase dos, impacto funcional: afecta
+a otros objetos o componentes.
+
+00:08:15.897 --> 00:08:18.846
+Clase tres, impacto amplio:
+cambios grandes en toda
+
+00:08:18.846 --> 00:08:22.083
+la aplicación, en funcionalidad,
+contenido o navegación.
+
+00:08:22.553 --> 00:08:25.579
+Y clase cuatro, cambio de
+diseño: un cambio importante
+
+00:08:25.579 --> 00:08:28.996
+de interfaz o de navegación que
+el usuario nota de inmediato.
+
+00:08:30.046 --> 00:08:34.526
+Una versión del sistema, en este sentido,
+es la que se distribuye a los clientes.
+
+00:08:34.827 --> 00:08:36.790
+Y no es solo el código ejecutable.
+
+00:08:37.260 --> 00:08:40.762
+También incluye archivos de
+configuración, archivos de datos como
+
+00:08:40.762 --> 00:08:44.534
+los mensajes de error en varios
+idiomas, y el programa de instalación.
+
+00:08:45.004 --> 00:08:49.762
+Y la documentación, más el embalaje y la
+publicidad diseñados para ese lanzamiento.
+
+00:08:50.812 --> 00:08:55.377
+Con números: el equipo genera las versiones
+uno punto cero hasta uno punto cinco.
+
+00:08:55.631 --> 00:08:58.294
+La uno punto tres se entrega como R uno punto
+
+00:08:58.294 --> 00:09:01.135
+cero, y la uno punto cinco
+como R uno punto uno.
+
+00:09:01.605 --> 00:09:04.208
+La regla para recordar: toda versión entregada
+
+00:09:04.208 --> 00:09:06.981
+es un lanzamiento, pero
+no toda versión se lanza.
+
+00:09:07.451 --> 00:09:10.569
+Y el lanzamiento incluye el
+ejecutable, la configuración,
+
+00:09:10.569 --> 00:09:12.976
+los datos, el instalador y la documentación.
+
+00:09:14.026 --> 00:09:15.904
+¿Qué motiva un nuevo lanzamiento?
+
+00:09:16.332 --> 00:09:19.212
+La competencia, si un rival
+sacó funciones nuevas.
+
+00:09:19.682 --> 00:09:23.074
+Los requisitos de marketing, por
+ejemplo una fecha comprometida.
+
+00:09:23.544 --> 00:09:27.512
+Los cambios de plataforma, como una
+nueva versión del sistema operativo.
+
+00:09:27.982 --> 00:09:31.956
+Y la calidad técnica: si hay fallas
+graves que afectan a muchos clientes,
+
+00:09:31.956 --> 00:09:35.875
+se hace un nuevo lanzamiento; las
+fallas menores se reparan con parches.
+
+00:09:36.925 --> 00:09:38.845
+Tema tres: integración continua.
+
+00:09:39.895 --> 00:09:41.367
+Primero, tres palabras.
+
+00:09:41.657 --> 00:09:44.485
+Construir: el conjunto de
+actividades para generar,
+
+00:09:44.485 --> 00:09:46.926
+probar, inspeccionar e implementar software.
+
+00:09:47.396 --> 00:09:49.842
+Continuo: aquí no significa algo que nunca
+
+00:09:49.842 --> 00:09:52.580
+se detiene, sino algo que
+ocurre repetidamente.
+
+00:09:53.050 --> 00:09:55.821
+E integración: combinar
+piezas de código separadas
+
+00:09:55.821 --> 00:09:57.871
+para ver cómo funcionan como un todo.
+
+00:09:58.921 --> 00:10:01.746
+La integración continua es
+una práctica de equipo:
+
+00:10:01.746 --> 00:10:04.063
+todos integran su trabajo con frecuencia.
+
+00:10:04.533 --> 00:10:07.391
+Normalmente cada persona
+integra al menos una vez
+
+00:10:07.391 --> 00:10:10.250
+al día, así que hay varias
+integraciones diarias.
+
+00:10:10.720 --> 00:10:14.309
+Y cada integración se verifica
+con una compilación automatizada,
+
+00:10:14.309 --> 00:10:17.675
+que incluye pruebas, para detectar
+errores lo antes posible.
+
+00:10:18.725 --> 00:10:19.983
+Estos son los pasos.
+
+00:10:20.291 --> 00:10:22.851
+Uno: extraer el sistema principal del control
+
+00:10:22.851 --> 00:10:25.411
+de versiones a tu espacio de trabajo privado.
+
+00:10:25.881 --> 00:10:29.230
+Dos: construir el sistema y
+correr las pruebas automáticas.
+
+00:10:29.529 --> 00:10:32.857
+Si fallan, la base ya está rota,
+y hay que arreglarla primero.
+
+00:10:33.327 --> 00:10:34.799
+Tres: hacer tus cambios.
+
+00:10:35.269 --> 00:10:39.322
+Cuatro: construir otra vez en tu
+espacio privado y repetir las pruebas.
+
+00:10:39.625 --> 00:10:41.204
+Si fallan, sigues editando.
+
+00:10:42.254 --> 00:10:46.499
+Cinco: cuando todo pasa, registras el
+sistema en el servidor de compilación.
+
+00:10:46.969 --> 00:10:49.721
+Seis: el servidor compila
+y ejecuta las pruebas.
+
+00:10:50.018 --> 00:10:53.038
+Con Git, además, traes los
+cambios recientes de otros,
+
+00:10:53.038 --> 00:10:55.778
+por si alguien modificó
+algo mientras trabajabas.
+
+00:10:56.248 --> 00:10:59.132
+Y siete: si todo pasa en el
+servidor, los cambios se
+
+00:10:59.132 --> 00:11:02.349
+confirman como una nueva línea
+base en la línea principal.
+
+00:11:03.399 --> 00:11:05.234
+Las prácticas clave son diez.
+
+00:11:05.529 --> 00:11:09.796
+Un único repositorio de fuentes, y una
+compilación automatizada y rápida.
+
+00:11:10.266 --> 00:11:12.855
+Que la compilación se pruebe sola, y que todos
+
+00:11:12.855 --> 00:11:15.556
+contribuyan a la línea
+principal todos los días.
+
+00:11:16.026 --> 00:11:18.974
+Cada contribución debe
+construir la línea principal,
+
+00:11:18.974 --> 00:11:21.808
+y las compilaciones rotas
+se reparan de inmediato.
+
+00:11:22.278 --> 00:11:24.731
+Probar en un clon del entorno de producción, y
+
+00:11:24.731 --> 00:11:27.398
+que cualquiera pueda obtener
+el último ejecutable.
+
+00:11:27.868 --> 00:11:31.558
+Que todos vean lo que está pasando,
+y automatizar la implementación.
+
+00:11:32.608 --> 00:11:35.404
+Los beneficios: reducir
+riesgos, porque integrar
+
+00:11:35.404 --> 00:11:38.432
+muchas veces al día permite
+detectar defectos antes.
+
+00:11:38.902 --> 00:11:43.404
+Reducir procesos manuales repetitivos:
+todo se ejecuta solo en cada commit.
+
+00:11:43.874 --> 00:11:47.311
+Y tener software listo para
+implementar en cualquier momento,
+
+00:11:47.311 --> 00:11:50.466
+gracias a cambios pequeños e
+integrados con regularidad.
+
+00:11:51.516 --> 00:11:54.438
+También da visibilidad:
+información en tiempo real del
+
+00:11:54.438 --> 00:11:57.361
+estado de la compilación y
+de las métricas de calidad.
+
+00:11:57.831 --> 00:12:00.551
+Y confianza: en cada
+compilación se sabe que se
+
+00:12:00.551 --> 00:12:03.676
+ejecutaron las pruebas y se
+cumplieron los estándares.
+
+00:12:04.726 --> 00:12:05.964
+Pero tiene límites.
+
+00:12:06.258 --> 00:12:09.245
+En sistemas muy grandes,
+compilar y probar puede tardar
+
+00:12:09.245 --> 00:12:12.124
+tanto que no es práctico
+hacerlo varias veces al día.
+
+00:12:12.594 --> 00:12:15.913
+Y si la plataforma de desarrollo
+es distinta a la de destino,
+
+00:12:15.913 --> 00:12:19.122
+quizá no puedas ejecutar las
+pruebas en tu espacio privado.
+
+00:12:20.172 --> 00:12:23.747
+La entrega continua es una extensión
+de la integración continua:
+
+00:12:23.747 --> 00:12:27.490
+permite lanzar cambios a los clientes
+rápido y de forma sostenible.
+
+00:12:27.960 --> 00:12:30.968
+Además de las pruebas, se
+automatiza el lanzamiento: la
+
+00:12:30.968 --> 00:12:34.360
+aplicación se puede publicar en
+cualquier momento con un clic.
+
+00:12:34.830 --> 00:12:39.886
+Y el ritmo es flexible: se decide publicar
+cada día, cada semana o cada quince días.
+
+00:12:40.936 --> 00:12:43.581
+Este diagrama de Atlassian
+muestra la diferencia.
+
+00:12:43.866 --> 00:12:47.706
+La integración continua automatiza
+las compilaciones y las pruebas.
+
+00:12:48.176 --> 00:12:51.520
+En la entrega continua todo está
+automatizado hasta producción,
+
+00:12:51.520 --> 00:12:54.704
+pero el paso a producción es
+manual: una persona lo aprueba.
+
+00:12:55.174 --> 00:12:58.907
+Y en el despliegue continuo, hasta
+ese último paso es automático.
+
+00:12:59.957 --> 00:13:03.086
+El despliegue continuo va un
+paso más allá: cada cambio
+
+00:13:03.086 --> 00:13:06.101
+que pasa todas las etapas
+se publica automáticamente.
+
+00:13:06.571 --> 00:13:09.899
+Sin intervención humana: solo
+una prueba fallida lo detiene.
+
+00:13:10.369 --> 00:13:14.721
+Y los desarrolladores ven su trabajo
+publicado minutos después de terminarlo.
+
+00:13:15.771 --> 00:13:19.875
+Para fijarlo: integración continua
+llega hasta software probado; entrega
+
+00:13:19.875 --> 00:13:23.921
+continua, a publicar con un clic;
+despliegue continuo, a publicar solo.
+
+00:13:24.391 --> 00:13:26.951
+Un banco con todo automatizado, pero donde un
+
+00:13:26.951 --> 00:13:29.852
+gerente aprueba cada
+publicación: entrega continua.
+
+00:13:30.322 --> 00:13:33.038
+Netflix publicando sin
+intervención humana cada
+
+00:13:33.038 --> 00:13:35.869
+cambio que pasa las pruebas:
+despliegue continuo.
+
+00:13:36.128 --> 00:13:40.501
+Y un equipo que prueba en cada push pero
+instala a mano: solo integración continua.
+
+00:13:41.551 --> 00:13:44.453
+Tema cuatro: prácticas y
+estándares de codificación.
+
+00:13:45.503 --> 00:13:46.633
+¿Por qué importa?
+
+00:13:47.089 --> 00:13:49.607
+Porque la calidad de la
+construcción del código
+
+00:13:49.607 --> 00:13:51.804
+afecta muchísimo la calidad del software.
+
+00:13:52.274 --> 00:13:55.246
+Influye en la mantenibilidad
+y la extensibilidad: qué
+
+00:13:55.246 --> 00:13:58.610
+tan fácil es leer el código, y
+agregar comportamiento nuevo.
+
+00:13:59.660 --> 00:14:01.409
+Tres definiciones de expertos.
+
+00:14:01.700 --> 00:14:04.181
+Dave Thomas: el código limpio puede ser leído
+
+00:14:04.181 --> 00:14:06.607
+y mejorado por alguien distinto de su autor.
+
+00:14:07.077 --> 00:14:11.319
+Bjarne Stroustrup, el creador de C más
+más: la lógica debe ser sencilla para
+
+00:14:11.319 --> 00:14:15.952
+que los errores no se escondan, con pocas
+dependencias y un buen manejo de errores.
+
+00:14:16.422 --> 00:14:19.200
+Y Ward Cunningham: sabes
+que es código limpio cuando
+
+00:14:19.200 --> 00:14:22.246
+cada rutina que lees hace
+prácticamente lo que esperabas.
+
+00:14:23.296 --> 00:14:24.682
+Son nueve categorías.
+
+00:14:24.987 --> 00:14:29.830
+Uno, nombres con significado: para variables,
+funciones, clases, paquetes y archivos.
+
+00:14:30.300 --> 00:14:31.964
+Dos, funciones bien escritas.
+
+00:14:32.259 --> 00:14:34.542
+Tres, el uso adecuado de los comentarios.
+
+00:14:35.592 --> 00:14:39.858
+Cuatro, formato: un conjunto de reglas
+simples en el que el equipo esté de acuerdo.
+
+00:14:40.328 --> 00:14:44.552
+Cinco, objetos y estructuras de datos,
+manteniendo privadas las variables.
+
+00:14:44.844 --> 00:14:46.295
+Seis, manejo de errores.
+
+00:14:47.345 --> 00:14:51.462
+Siete, límites: integrar limpiamente
+el código de terceros con el nuestro.
+
+00:14:51.932 --> 00:14:54.236
+Ocho, pruebas unitarias bien escritas.
+
+00:14:54.489 --> 00:14:57.090
+Y nueve, clases: el código
+no está limpio hasta
+
+00:14:57.090 --> 00:15:00.078
+cuidar también los niveles
+superiores de organización.
+
+00:15:01.128 --> 00:15:03.432
+Práctica uno: nombres con significado.
+
+00:15:03.674 --> 00:15:05.722
+Usa nombres que revelen la intención.
+
+00:15:06.192 --> 00:15:09.082
+No es lo mismo una variable
+llamada d que elapsed time
+
+00:15:09.082 --> 00:15:12.186
+in days, o days since creation:
+el nombre dice qué guarda.
+
+00:15:12.656 --> 00:15:15.373
+Y evita la desinformación:
+dos nombres que solo
+
+00:15:15.373 --> 00:15:18.438
+varían un poco, como estos,
+son fáciles de confundir.
+
+00:15:19.488 --> 00:15:22.282
+Evita las codificaciones,
+como prefijos: en lugar
+
+00:15:22.282 --> 00:15:24.906
+de I Shape Factory, simplemente Shape Factory.
+
+00:15:25.376 --> 00:15:27.318
+Y elige una palabra por concepto.
+
+00:15:27.579 --> 00:15:31.910
+Si usas cliente, no mezcles con consumidor
+para lo mismo: elige una y mantenla.
+
+00:15:32.960 --> 00:15:34.539
+Práctica dos: funciones.
+
+00:15:34.833 --> 00:15:37.372
+Deben ser pequeñas, y hacer una sola cosa.
+
+00:15:37.842 --> 00:15:42.108
+Sobre los argumentos: prefiere cero, uno
+o dos, y evita tres siempre que puedas.
+
+00:15:42.578 --> 00:15:43.247
+¿Por qué?
+
+00:15:43.658 --> 00:15:48.053
+Porque con muchos argumentos es muy
+difícil probar todas las combinaciones.
+
+00:15:49.103 --> 00:15:52.225
+Sin efectos secundarios: la
+función no debe hacer cosas
+
+00:15:52.225 --> 00:15:55.119
+ocultas, como cambiar
+variables que nadie esperaba.
+
+00:15:55.589 --> 00:15:58.992
+Separación comando-consulta:
+una función cambia el estado de
+
+00:15:58.992 --> 00:16:02.736
+un objeto, o devuelve información
+sobre él, pero no las dos cosas.
+
+00:16:03.206 --> 00:16:06.470
+Y prefiere excepciones antes
+que devolver códigos de error.
+
+00:16:07.520 --> 00:16:08.970
+Y no repitas código.
+
+00:16:09.440 --> 00:16:12.195
+Si un algoritmo está
+copiado en varios lugares,
+
+00:16:12.195 --> 00:16:14.539
+cada cambio exige varias modificaciones.
+
+00:16:14.839 --> 00:16:17.890
+Y cada copia es una oportunidad
+para repetir un error.
+
+00:16:18.940 --> 00:16:20.604
+Práctica tres: comentarios.
+
+00:16:20.861 --> 00:16:24.466
+La idea central: los comentarios
+no compensan el código malo.
+
+00:16:24.711 --> 00:16:27.762
+Muchas veces se escriben para
+explicar código confuso.
+
+00:16:28.232 --> 00:16:31.714
+Los buenos comentarios son los
+legales, los informativos, los que
+
+00:16:31.714 --> 00:16:35.677
+explican la intención, los que aclaran,
+y los que advierten consecuencias.
+
+00:16:36.727 --> 00:16:37.986
+Y estos son malos.
+
+00:16:38.233 --> 00:16:40.815
+Los comentarios de ruido,
+como «constructor por
+
+00:16:40.815 --> 00:16:43.396
+defecto» sobre un
+constructor: no agregan nada.
+
+00:16:43.866 --> 00:16:46.938
+Los marcadores de posición,
+como una línea llena de barras.
+
+00:16:47.408 --> 00:16:51.419
+Y los comentarios de llave de cierre,
+que marcan dónde termina cada bloque.
+
+00:16:51.714 --> 00:16:54.573
+Si los necesitas, la
+función es demasiado larga.
+
+00:16:55.623 --> 00:16:57.521
+Práctica seis: manejo de errores.
+
+00:16:57.783 --> 00:17:00.258
+Usa excepciones en lugar de códigos de error.
+
+00:17:00.728 --> 00:17:05.272
+Cada excepción debe dar suficiente contexto
+para saber dónde y por qué ocurrió.
+
+00:17:05.742 --> 00:17:08.611
+Define las excepciones
+pensando en quien las recibe,
+
+00:17:08.611 --> 00:17:11.481
+y separa la lógica de negocio
+del manejo de errores.
+
+00:17:11.951 --> 00:17:15.151
+Y dos reglas cortas: no
+devuelvas null, y no pases null.
+
+00:17:16.201 --> 00:17:17.694
+Práctica nueve: clases.
+
+00:17:17.947 --> 00:17:20.726
+Se organizan siguiendo la
+convención estándar, con
+
+00:17:20.726 --> 00:17:23.728
+encapsulación: lo interno
+privado, pero sin fanatismo.
+
+00:17:24.198 --> 00:17:27.894
+Las clases deben ser pequeñas, con
+el principio de responsabilidad
+
+00:17:27.894 --> 00:17:31.814
+única, y alta cohesión: sus métodos
+y variables forman un todo lógico.
+
+00:17:32.284 --> 00:17:33.948
+Y organizadas para el cambio.
+
+00:17:34.998 --> 00:17:37.537
+Es una guía que define un
+estilo de programación.
+
+00:17:38.007 --> 00:17:41.069
+Garantiza que todo el equipo
+escriba siguiendo las mismas
+
+00:17:41.069 --> 00:17:43.810
+pautas, y hace que el código
+sea fácil de entender.
+
+00:17:44.280 --> 00:17:47.376
+Mejora la calidad del sistema,
+y reduce la posibilidad
+
+00:17:47.376 --> 00:17:50.701
+de introducir vulnerabilidades
+o problemas de rendimiento.
+
+00:17:51.751 --> 00:17:53.202
+¿Por qué lo necesitamos?
+
+00:17:53.644 --> 00:17:57.953
+Porque el ochenta por ciento del costo de
+vida de un software se va en mantenimiento.
+
+00:17:58.423 --> 00:18:02.669
+Y casi ningún software lo mantiene su
+autor original durante toda su vida.
+
+00:18:02.909 --> 00:18:04.872
+Otra persona va a leer tu código.
+
+00:18:05.922 --> 00:18:07.309
+Convenciones de nombres.
+
+00:18:07.571 --> 00:18:11.880
+Las clases son sustantivos, con la primera
+letra de cada palabra en mayúscula.
+
+00:18:12.350 --> 00:18:16.318
+Los métodos son verbos, empezando en
+minúscula, como run o getBackground.
+
+00:18:16.627 --> 00:18:21.277
+Las variables también empiezan en minúscula,
+con nombres cortos pero con significado.
+
+00:18:21.747 --> 00:18:24.682
+Y las constantes van en
+mayúsculas, con las palabras
+
+00:18:24.682 --> 00:18:26.995
+separadas por guion bajo, como MAX_WIDTH.
+
+00:18:28.045 --> 00:18:31.053
+Tema cinco: inspección de
+código y análisis estático.
+
+00:18:32.103 --> 00:18:35.456
+Es el proceso de analizar
+automáticamente el comportamiento
+
+00:18:35.456 --> 00:18:39.037
+de los programas, con dos objetivos:
+optimización y corrección.
+
+00:18:39.507 --> 00:18:40.701
+Y hay dos enfoques.
+
+00:18:41.004 --> 00:18:44.759
+El análisis estático examina el
+código fuente sin ejecutarlo.
+
+00:18:45.229 --> 00:18:48.706
+El análisis dinámico analiza el
+programa mientras se ejecuta.
+
+00:18:49.756 --> 00:18:52.631
+El análisis estático es
+examinar el código fuente
+
+00:18:52.631 --> 00:18:55.154
+para descubrir debilidades, sin ejecutarlo.
+
+00:18:55.624 --> 00:18:56.626
+¿Cuándo se hace?
+
+00:18:57.083 --> 00:19:00.155
+Después de codificar y antes
+de las pruebas unitarias.
+
+00:19:00.421 --> 00:19:03.855
+Así, los defectos aparecen antes
+de que el programa se ejecute.
+
+00:19:04.905 --> 00:19:05.801
+¿Quién lo hace?
+
+00:19:06.243 --> 00:19:09.124
+Puede ser una máquina: un
+análisis automatizado que
+
+00:19:09.124 --> 00:19:12.344
+recorre el código y detecta
+las reglas que no se cumplen.
+
+00:19:12.814 --> 00:19:15.712
+O una persona: la revisión
+de código, para verificar
+
+00:19:15.712 --> 00:19:18.276
+que se usen los estándares y las convenciones.
+
+00:19:18.746 --> 00:19:23.354
+Las máquinas son los linters y los analizadores
+del IDE o de la integración continua.
+
+00:19:23.636 --> 00:19:27.668
+Y la revisión la hace un colega, alguien
+distinto de quien escribió el código.
+
+00:19:28.718 --> 00:19:33.497
+El análisis dinámico ejecuta el programa
+y genera una traza de su comportamiento.
+
+00:19:33.744 --> 00:19:36.986
+Identifica vulnerabilidades
+en el entorno de ejecución.
+
+00:19:37.456 --> 00:19:39.978
+En resumen: el estático no ejecuta el código,
+
+00:19:39.978 --> 00:19:42.555
+se hace antes, y encuentra reglas incumplidas.
+
+00:19:42.825 --> 00:19:46.559
+El dinámico sí lo ejecuta, durante
+la ejecución, y obtiene trazas.
+
+00:19:47.609 --> 00:19:51.740
+Primero, un detalle de nombres:
+inspección de código, análisis de código
+
+00:19:51.740 --> 00:19:55.929
+estático, análisis estático y análisis
+de programa estático son lo mismo.
+
+00:19:56.399 --> 00:19:58.340
+No implica ejecutar el software…
+
+00:19:58.810 --> 00:20:01.839
+…y detecta posibles defectos
+en una etapa temprana.
+
+00:20:02.889 --> 00:20:05.044
+¿Qué atributos de calidad puede evaluar?
+
+00:20:05.444 --> 00:20:09.028
+La fiabilidad, que el software
+funcione bien de forma consistente.
+
+00:20:09.498 --> 00:20:12.378
+La mantenibilidad, qué
+tan fácil es modificarlo.
+
+00:20:12.628 --> 00:20:15.786
+Y la capacidad de prueba, qué
+tan fácil es verificarlo.
+
+00:20:16.256 --> 00:20:18.976
+También la reutilización,
+la portabilidad, y otros
+
+00:20:18.976 --> 00:20:21.696
+como la seguridad, la
+eficiencia y la legibilidad.
+
+00:20:22.746 --> 00:20:23.620
+¿Qué detecta?
+
+00:20:24.065 --> 00:20:28.523
+Gestión inadecuada de recursos, como un
+FileReader que nunca se cierra: una fuga.
+
+00:20:28.993 --> 00:20:31.627
+Operaciones ilegales:
+división por cero, acceso
+
+00:20:31.627 --> 00:20:34.540
+fuera de los límites de un
+arreglo, desbordamientos.
+
+00:20:35.010 --> 00:20:37.704
+Código y datos muertos:
+lo que nunca se ejecuta
+
+00:20:37.704 --> 00:20:40.685
+o nunca se usa, como una
+línea después de un return.
+
+00:20:41.155 --> 00:20:43.875
+Y código incompleto:
+variables sin inicializar,
+
+00:20:43.875 --> 00:20:46.595
+ramas incompletas, o
+bucles que nunca terminan.
+
+00:20:47.645 --> 00:20:51.741
+Las ventajas: encuentra las debilidades
+en la ubicación exacta del código.
+
+00:20:52.211 --> 00:20:54.657
+La pueden hacer desarrolladores capacitados,
+
+00:20:54.657 --> 00:20:57.437
+y deja un código más fácil
+de entender para otros.
+
+00:20:57.907 --> 00:21:01.662
+Y el costo de corregir es menor,
+porque los defectos se detectan antes.
+
+00:21:01.971 --> 00:21:04.508
+Mira el gráfico: corregir en producción cuesta
+
+00:21:04.508 --> 00:21:07.155
+muchísimo más que corregir
+mientras se codifica.
+
+00:21:08.205 --> 00:21:12.450
+Además, detecta defectos que las pruebas
+dinámicas casi no pueden encontrar.
+
+00:21:12.920 --> 00:21:15.885
+Código inalcanzable, como una
+línea después de un throw.
+
+00:21:16.137 --> 00:21:18.185
+Variables declaradas que no se usan.
+
+00:21:18.425 --> 00:21:20.089
+Y funciones que nadie llama.
+
+00:21:21.139 --> 00:21:24.425
+Las limitaciones: si se hace
+a mano, consume mucho tiempo.
+
+00:21:24.672 --> 00:21:26.891
+Y no siempre hay personal capacitado.
+
+00:21:27.361 --> 00:21:31.052
+Las herramientas producen falsos
+positivos y falsos negativos.
+
+00:21:31.293 --> 00:21:33.661
+Y son tan buenas como las reglas que usan.
+
+00:21:34.711 --> 00:21:36.311
+Comparemos con las pruebas.
+
+00:21:36.608 --> 00:21:39.615
+El análisis estático no
+ejecuta el código, se aplica
+
+00:21:39.615 --> 00:21:42.795
+temprano, y sus resultados
+no dependen de las entradas.
+
+00:21:43.265 --> 00:21:48.171
+Sus resultados se generalizan a ejecuciones
+futuras, es menos costoso y muy rápido.
+
+00:21:48.641 --> 00:21:52.641
+Pero tiene una tasa muy alta de
+falsos positivos, usa aproximaciones,
+
+00:21:52.641 --> 00:21:56.641
+y lo más importante: no sirve para
+verificar la corrección funcional.
+
+00:21:56.895 --> 00:21:58.474
+Para eso están las pruebas.
+
+00:21:59.524 --> 00:22:00.249
+Ejemplos.
+
+00:22:00.516 --> 00:22:03.454
+Un falso positivo: la
+herramienta avisa de un posible
+
+00:22:03.454 --> 00:22:06.724
+null, pero si obtener nunca
+devuelve null, la alerta sobra.
+
+00:22:07.194 --> 00:22:10.053
+Un falso negativo: un descuento mal calculado.
+
+00:22:10.308 --> 00:22:12.919
+El código cumple todas las
+reglas, pero no hace lo
+
+00:22:12.919 --> 00:22:15.791
+que pidió el cliente, y ninguna
+herramienta lo reporta.
+
+00:22:16.261 --> 00:22:19.503
+Por eso el análisis estático
+no reemplaza a las pruebas.
+
+00:22:20.553 --> 00:22:22.473
+Se agrupan en cuatro categorías.
+
+00:22:22.726 --> 00:22:26.651
+Comprobación estática: encontrar
+errores de codificación comunes.
+
+00:22:27.121 --> 00:22:30.001
+Detección de errores:
+encontrarlos y reportarlos.
+
+00:22:30.471 --> 00:22:34.845
+Verificación de software: garantizar la
+ausencia de errores con demostraciones.
+
+00:22:35.139 --> 00:22:39.107
+E inferencia de tipos: especificar y
+comprobar propiedades del programa.
+
+00:22:40.157 --> 00:22:42.871
+La comparación: PMD busca defectos potenciales
+
+00:22:42.871 --> 00:22:45.939
+y buenas prácticas; FindBugs,
+errores y rendimiento.
+
+00:22:46.409 --> 00:22:50.313
+PMD analiza el código fuente;
+FindBugs, el bytecode compilado.
+
+00:22:50.783 --> 00:22:55.263
+PMD usa reglas configurables; FindBugs,
+un catálogo de patrones de error.
+
+00:22:55.524 --> 00:22:58.426
+Y como encuentran cosas
+distintas, se usan juntas.
+
+00:22:59.476 --> 00:23:01.182
+Tema seis: pruebas de software.
+
+00:23:02.232 --> 00:23:03.427
+¿Qué son las pruebas?
+
+00:23:03.830 --> 00:23:08.332
+Un proceso de búsqueda: ejecutar un programa
+con la intención de encontrar errores.
+
+00:23:08.802 --> 00:23:12.229
+Y son actividades planificadas,
+hechas de forma sistemática,
+
+00:23:12.229 --> 00:23:15.884
+para descubrir errores cometidos
+en el diseño y la construcción.
+
+00:23:16.934 --> 00:23:20.774
+Ahora, las definiciones, que
+vienen del ISTQB y del IEEE.
+
+00:23:21.071 --> 00:23:23.844
+Un error, o equivocación,
+lo comete una persona.
+
+00:23:24.091 --> 00:23:28.464
+Y se propaga: un error en los requisitos
+crece en el diseño, y más en el código.
+
+00:23:28.934 --> 00:23:33.563
+Un defecto, o fallo, es el resultado de ese
+error: está en un diagrama o en el código.
+
+00:23:33.825 --> 00:23:34.998
+Y es estático.
+
+00:23:35.468 --> 00:23:38.718
+Hay faltas de comisión, cuando
+se introduce algo incorrecto,
+
+00:23:38.718 --> 00:23:41.697
+y faltas de omisión, cuando
+falta algo que debía estar.
+
+00:23:42.747 --> 00:23:45.876
+La falla ocurre cuando se
+ejecuta el código defectuoso,
+
+00:23:45.876 --> 00:23:48.721
+y el sistema no puede
+cumplir parte de su función.
+
+00:23:49.191 --> 00:23:53.201
+El incidente es el síntoma que alerta
+al usuario de que ocurrió una falla.
+
+00:23:53.671 --> 00:23:56.789
+La prueba es ejercitar el
+software con casos de prueba,
+
+00:23:56.789 --> 00:23:59.453
+para encontrar fallas o
+demostrar que funciona.
+
+00:23:59.923 --> 00:24:02.329
+Y un caso de prueba tiene una identidad, y
+
+00:24:02.329 --> 00:24:04.851
+un conjunto de entradas y salidas esperadas.
+
+00:24:05.901 --> 00:24:07.885
+Una sola historia que lo junta todo.
+
+00:24:08.142 --> 00:24:12.259
+El requisito dice: diez por ciento de
+descuento en compras desde cien dólares.
+
+00:24:12.729 --> 00:24:15.252
+El analista entiende «más
+de cien» y lo escribe
+
+00:24:15.252 --> 00:24:17.508
+así: es el error, una persona se equivoca.
+
+00:24:17.978 --> 00:24:20.332
+En el código queda total mayor que cien: es
+
+00:24:20.332 --> 00:24:22.906
+el defecto, y está ahí
+aunque nadie lo ejecute.
+
+00:24:23.376 --> 00:24:27.749
+Un cliente compra exactamente cien dólares
+y no recibe el descuento: es la falla.
+
+00:24:28.014 --> 00:24:31.107
+Y cuando ve su recibo y
+reclama, ese es el incidente.
+
+00:24:31.577 --> 00:24:35.993
+El caso de prueba que lo encuentra: total
+igual a cien, salida esperada noventa.
+
+00:24:37.043 --> 00:24:40.542
+Este es el modelo del ciclo de
+vida para pruebas, el modelo en V.
+
+00:24:40.822 --> 00:24:43.566
+A la izquierda, el desarrollo:
+requisitos, diseño
+
+00:24:43.566 --> 00:24:46.198
+de alto nivel, diseño
+detallado y codificación.
+
+00:24:46.668 --> 00:24:50.051
+A la derecha, las pruebas que
+verifican cada etapa: unitarias
+
+00:24:50.051 --> 00:24:53.435
+para el código, integración para
+el diseño detallado, sistema
+
+00:24:53.435 --> 00:24:56.375
+para el alto nivel, y
+aceptación para los requisitos.
+
+00:24:57.425 --> 00:24:58.747
+Los niveles de prueba.
+
+00:24:59.024 --> 00:25:01.776
+Unitarias: se prueban
+componentes individuales.
+
+00:25:02.246 --> 00:25:05.851
+Integración: las unidades se
+combinan y se prueban como grupo.
+
+00:25:06.321 --> 00:25:09.287
+Sistema: el software completo,
+contra los requisitos.
+
+00:25:09.757 --> 00:25:12.935
+Y aceptación: si el sistema
+es aceptable para el cliente.
+
+00:25:13.985 --> 00:25:17.996
+La esencia de las pruebas es definir
+un buen conjunto de casos de prueba.
+
+00:25:18.466 --> 00:25:21.840
+Un caso completo tiene un
+identificador, una declaración de
+
+00:25:21.840 --> 00:25:25.442
+propósito, las condiciones previas
+y posteriores, las entradas…
+
+00:25:25.912 --> 00:25:29.069
+…los resultados esperados, y
+un historial de ejecuciones.
+
+00:25:30.119 --> 00:25:33.789
+Para pensar en el comportamiento de
+un programa usamos dos conjuntos.
+
+00:25:34.073 --> 00:25:38.724
+S, la especificación: lo que el programa
+debería hacer, como las historias de usuario.
+
+00:25:39.194 --> 00:25:41.562
+Y P, el programa: lo que realmente hace.
+
+00:25:42.032 --> 00:25:45.765
+Lo que está en uno pero no en el
+otro son problemas: comportamientos
+
+00:25:45.765 --> 00:25:48.730
+no especificados, o
+especificaciones no implementadas.
+
+00:25:48.994 --> 00:25:51.405
+La intersección es lo que está pedido y hecho.
+
+00:25:52.455 --> 00:25:54.012
+Así se leen las regiones.
+
+00:25:54.298 --> 00:25:57.221
+La dos y la cinco: requerimientos
+que no se probaron.
+
+00:25:57.691 --> 00:26:00.891
+La uno y la cuatro: requerimientos
+con sus casos de prueba.
+
+00:26:01.181 --> 00:26:04.189
+La uno, además, implementados
+y probados: lo ideal.
+
+00:26:04.659 --> 00:26:06.963
+La tres: código probado que nadie pidió.
+
+00:26:07.206 --> 00:26:09.425
+La seis: código que nadie pidió ni probó.
+
+00:26:09.721 --> 00:26:12.900
+Y la siete: pruebas que no
+corresponden a ningún requisito.
+
+00:26:13.950 --> 00:26:17.982
+El problema fundamental: ningún
+sistema puede probarse completamente.
+
+00:26:18.452 --> 00:26:21.414
+Las soluciones: priorizar
+las pruebas según el riesgo,
+
+00:26:21.414 --> 00:26:24.212
+porque importa más qué
+pruebas que cuántas pruebas.
+
+00:26:24.682 --> 00:26:27.125
+Priorizar por probabilidad e impacto, para
+
+00:26:27.125 --> 00:26:29.802
+encontrar primero los errores más importantes.
+
+00:26:30.093 --> 00:26:33.698
+Y diseñar las pruebas con cuidado,
+con metodología y técnicas.
+
+00:26:34.748 --> 00:26:38.018
+Un buen caso de prueba tiene
+alta probabilidad de encontrar
+
+00:26:38.018 --> 00:26:41.233
+un error: hay que imaginar cómo
+podría fallar el software.
+
+00:26:41.703 --> 00:26:44.144
+No es redundante: el tiempo es limitado, y
+
+00:26:44.144 --> 00:26:46.759
+cada prueba debe tener un propósito distinto.
+
+00:26:47.229 --> 00:26:50.165
+Es el mejor de su clase: el
+que tiene más probabilidad
+
+00:26:50.165 --> 00:26:52.285
+de descubrir toda una clase de errores.
+
+00:26:52.755 --> 00:26:55.095
+Y no es ni muy simple ni muy complejo: se
+
+00:26:55.095 --> 00:26:57.662
+ejecuta por separado, con un propósito claro.
+
+00:26:58.712 --> 00:27:01.041
+Las pruebas funcionales también se llaman
+
+00:27:01.041 --> 00:27:03.597
+basadas en especificaciones, o de caja negra.
+
+00:27:03.873 --> 00:27:07.628
+Se hacen sobre la interfaz y se
+centran en los requisitos funcionales.
+
+00:27:08.098 --> 00:27:12.663
+Las estructurales se llaman basadas en
+código, de caja blanca, o de caja de vidrio.
+
+00:27:12.928 --> 00:27:14.592
+Prueban la estructura interna.
+
+00:27:15.642 --> 00:27:17.114
+Sus técnicas son tres.
+
+00:27:17.410 --> 00:27:20.504
+Valor límite: probar los
+extremos de los rangos válidos.
+
+00:27:20.974 --> 00:27:24.856
+Clases de equivalencia: agrupar las
+entradas que se comportan igual.
+
+00:27:25.326 --> 00:27:29.145
+Y tablas de decisión: combinar
+condiciones y acciones en una tabla.
+
+00:27:29.449 --> 00:27:32.180
+Las dos primeras las vemos al final del video.
+
+00:27:33.230 --> 00:27:36.144
+Con ellas se derivan casos
+que garanticen que cada
+
+00:27:36.144 --> 00:27:38.883
+ruta independiente se
+ejecute al menos una vez…
+
+00:27:39.353 --> 00:27:43.833
+…que cada decisión lógica se pruebe por
+su lado verdadero y por su lado falso…
+
+00:27:44.303 --> 00:27:47.224
+…que los bucles se ejecuten
+en sus límites y dentro de
+
+00:27:47.224 --> 00:27:50.469
+ellos, y que las estructuras de
+datos internas sean válidas.
+
+00:27:51.519 --> 00:27:53.929
+Ningún enfoque por sí solo es suficiente.
+
+00:27:54.399 --> 00:27:56.954
+Las técnicas funcionales
+cubren lo especificado,
+
+00:27:56.954 --> 00:27:59.242
+pero no ven lo que el programa hace de más.
+
+00:27:59.483 --> 00:28:03.430
+Las estructurales cubren el programa,
+pero no lo que se pidió y no se hizo.
+
+00:28:04.480 --> 00:28:08.786
+Por eso se necesitan ambos: una
+combinación sensata da la confianza de las
+
+00:28:08.786 --> 00:28:13.674
+pruebas basadas en especificaciones, y la
+medición de las pruebas basadas en código.
+
+00:28:14.724 --> 00:28:16.943
+Tema siete: análisis del valor límite.
+
+00:28:17.993 --> 00:28:20.951
+La verificación comprueba
+que el software cumple los
+
+00:28:20.951 --> 00:28:23.966
+requisitos funcionales y no
+funcionales establecidos.
+
+00:28:24.436 --> 00:28:28.536
+La validación garantiza que el software
+cumpla las expectativas del cliente:
+
+00:28:28.536 --> 00:28:33.012
+demuestra que es lo que el cliente necesita,
+no solo lo que dice la especificación.
+
+00:28:34.062 --> 00:28:36.324
+Barry Boehm lo resumió en dos preguntas.
+
+00:28:36.602 --> 00:28:40.037
+Verificación: ¿estamos construyendo
+el producto correctamente?
+
+00:28:40.507 --> 00:28:43.494
+Validación: ¿estamos construyendo
+el producto correcto?
+
+00:28:43.964 --> 00:28:47.889
+Y las pruebas son parte de ese
+proceso más amplio, llamado V y V.
+
+00:28:48.939 --> 00:28:51.930
+ROV, variable de sólo
+resultados: influye en el valor
+
+00:28:51.930 --> 00:28:55.147
+de la salida, pero no en el
+camino que sigue el programa.
+
+00:28:55.457 --> 00:28:58.657
+Se prueba con un valor, sus
+límites y valores fuera de rango.
+
+00:28:59.127 --> 00:29:01.819
+GV, variable de puerta: decide qué ruta o qué
+
+00:29:01.819 --> 00:29:04.631
+cálculo se ejecuta; aparece
+en las condiciones.
+
+00:29:04.927 --> 00:29:06.762
+Hay que cubrir todas las rutas.
+
+00:29:07.232 --> 00:29:12.416
+Y SNM, variable que no debería importar: no
+debería afectar la salida que se prueba.
+
+00:29:12.718 --> 00:29:15.897
+No se prueba; solo se hace
+una verificación preliminar.
+
+00:29:16.947 --> 00:29:18.995
+Un ejercicio con el costo de envío.
+
+00:29:19.243 --> 00:29:21.611
+Hay un if por el destino, y otro por el peso.
+
+00:29:22.081 --> 00:29:25.417
+destino y peso son de puerta:
+deciden la rama, así que hay
+
+00:29:25.417 --> 00:29:29.271
+que cubrir sus rutas. cantidad es
+de sólo resultados: valor límite.
+
+00:29:29.537 --> 00:29:32.567
+Y el color de la caja no
+debería importar: SNM.
+
+00:29:33.037 --> 00:29:35.959
+El truco: si la variable
+aparece en un if, es de puerta.
+
+00:29:36.227 --> 00:29:38.958
+Si solo entra en el cálculo,
+de sólo resultados.
+
+00:29:39.252 --> 00:29:41.321
+Si no aparece, no debería importar.
+
+00:29:42.371 --> 00:29:43.800
+¿Por qué esta técnica?
+
+00:29:44.229 --> 00:29:48.282
+Porque se producen más errores en los
+límites del dominio que en el centro.
+
+00:29:48.752 --> 00:29:53.317
+Tiene cuatro variantes: normal, solo valores
+válidos y una variable extrema a la vez…
+
+00:29:53.787 --> 00:29:57.367
+…robusta, que agrega valores fuera
+de rango; peor caso, con varias
+
+00:29:57.367 --> 00:30:01.489
+variables extremas a la vez; y robusta
+en el peor caso, que combina las dos.
+
+00:30:02.539 --> 00:30:06.549
+La idea básica: los errores aparecen
+cerca de los valores extremos.
+
+00:30:06.820 --> 00:30:10.660
+Por ejemplo, un bucle que usa menor
+cuando debía usar menor o igual.
+
+00:30:11.130 --> 00:30:15.290
+Ese error de uno más, uno menos, solo se
+detecta con valores justo en el límite.
+
+00:30:15.760 --> 00:30:18.930
+Por eso se usan cinco valores:
+el mínimo, justo encima del
+
+00:30:18.930 --> 00:30:22.373
+mínimo, un valor nominal, justo
+debajo del máximo, y el máximo.
+
+00:30:23.423 --> 00:30:26.942
+Por ejemplo: si el requisito
+dice «18 años o más» y el
+
+00:30:26.942 --> 00:30:30.591
+código usa mayor que 18, con
+10 y con 30 la prueba pasa.
+
+00:30:30.859 --> 00:30:32.224
+Con 18, falla.
+
+00:30:32.694 --> 00:30:35.510
+Los valores del centro
+nunca revelan el defecto.
+
+00:30:35.751 --> 00:30:38.140
+Solo el valor justo en el límite lo encuentra.
+
+00:30:38.610 --> 00:30:42.693
+Con valor límite normal, para edades de
+dieciocho a ciento veinte, se prueban:
+
+00:30:42.693 --> 00:30:46.567
+dieciocho, diecinueve, sesenta y nueve,
+ciento diecinueve y ciento veinte.
+
+00:30:46.809 --> 00:30:49.134
+El dieciocho está incluido por diseño.
+
+00:30:50.184 --> 00:30:52.872
+En general, cada variable
+aporta cuatro valores,
+
+00:30:52.872 --> 00:30:55.560
+y se suma un caso con
+todas en su valor nominal.
+
+00:30:56.030 --> 00:30:59.955
+Una variable, cinco casos; dos, nueve;
+tres, trece; cuatro, diecisiete.
+
+00:31:00.425 --> 00:31:03.355
+Esto se basa en el supuesto
+de falla única: los fallos
+
+00:31:03.355 --> 00:31:06.719
+rara vez se deben a dos problemas
+que ocurren al mismo tiempo.
+
+00:31:07.769 --> 00:31:10.747
+La variante robusta agrega
+dos valores por variable:
+
+00:31:10.747 --> 00:31:14.126
+uno justo encima del máximo y
+otro justo debajo del mínimo.
+
+00:31:14.596 --> 00:31:18.223
+Así se comprueba cómo maneja el
+sistema las entradas no válidas.
+
+00:31:18.496 --> 00:31:21.696
+Fórmula: seis n más uno; con
+dos variables, trece pruebas.
+
+00:31:22.746 --> 00:31:25.680
+La variante del peor caso
+se pregunta qué pasa cuando
+
+00:31:25.680 --> 00:31:28.613
+varias variables están en
+un extremo al mismo tiempo.
+
+00:31:29.083 --> 00:31:31.770
+Se usa cuando las variables
+interactúan de forma
+
+00:31:31.770 --> 00:31:34.288
+compleja y una falla tendría un gran impacto.
+
+00:31:34.758 --> 00:31:37.798
+Rechaza el supuesto de falla
+única, y combina todos los
+
+00:31:37.798 --> 00:31:40.838
+valores de todas las variables:
+el producto cartesiano.
+
+00:31:41.888 --> 00:31:44.854
+Con dos variables: cinco a
+la n, veinticinco pruebas.
+
+00:31:45.324 --> 00:31:49.014
+Se combinan los cinco valores de cada
+variable con los cinco de la otra.
+
+00:31:49.263 --> 00:31:53.530
+Y crece de forma exponencial: con tres
+variables ya son ciento veinticinco.
+
+00:31:54.580 --> 00:31:57.695
+Y la robusta en el peor caso
+combina los siete valores de
+
+00:31:57.695 --> 00:32:01.193
+cada variable: siete a la n,
+cuarenta y nueve con dos variables.
+
+00:32:01.663 --> 00:32:05.845
+Se la conoce como prueba paranoica:
+la más exhaustiva, y la más costosa.
+
+00:32:06.895 --> 00:32:10.780
+Un ejercicio con dos variables: edad
+de dieciocho a sesenta y cinco,
+
+00:32:10.780 --> 00:32:15.065
+con nominal cuarenta, y plazo de seis
+a sesenta meses, con nominal treinta.
+
+00:32:15.535 --> 00:32:18.031
+La edad toma dieciocho, diecinueve, sesenta y
+
+00:32:18.031 --> 00:32:20.805
+cuatro y sesenta y cinco,
+con el plazo en treinta.
+
+00:32:21.104 --> 00:32:25.520
+El plazo toma seis, siete, cincuenta y
+nueve y sesenta, con la edad en cuarenta.
+
+00:32:25.790 --> 00:32:27.454
+Más el caso central: nueve.
+
+00:32:27.924 --> 00:32:30.600
+La robusta agrega cuatro: diecisiete y sesenta
+
+00:32:30.600 --> 00:32:33.044
+y seis años, y cinco y sesenta y un meses.
+
+00:32:33.331 --> 00:32:34.440
+Trece en total.
+
+00:32:34.698 --> 00:32:38.730
+El peor caso da veinticinco, y la
+robusta peor caso, cuarenta y nueve.
+
+00:32:39.780 --> 00:32:40.911
+Las limitaciones.
+
+00:32:41.172 --> 00:32:44.083
+Funciona bien con varias
+variables independientes
+
+00:32:44.083 --> 00:32:46.697
+que representan cantidades físicas acotadas.
+
+00:32:47.167 --> 00:32:49.973
+Pero hay límites que no son
+obvios, como el máximo de
+
+00:32:49.973 --> 00:32:52.991
+la edad, y variables donde no
+aplica, como las booleanas.
+
+00:32:53.461 --> 00:32:57.834
+Las variables enumeradas, como depósito,
+retiro o consulta, no tienen límites.
+
+00:32:58.084 --> 00:33:02.414
+Y si las variables dependen entre sí,
+como día, mes y año bisiesto, no sirve.
+
+00:33:02.884 --> 00:33:06.148
+Además, ignora el significado de
+la función y de las variables.
+
+00:33:07.198 --> 00:33:09.396
+Y el tema ocho: clases de equivalencia.
+
+00:33:10.446 --> 00:33:13.560
+El valor límite tiene un
+supuesto oculto: trata todas
+
+00:33:13.560 --> 00:33:16.675
+las variables como si fueran
+ROV, de sólo resultados.
+
+00:33:17.145 --> 00:33:20.655
+Las consecuencias: las variables
+se tratan como independientes,
+
+00:33:20.655 --> 00:33:23.886
+se prueba una entrada a la vez,
+y se asume la falla única.
+
+00:33:24.356 --> 00:33:27.706
+Pero con las variables de puerta,
+ese supuesto no se cumple.
+
+00:33:28.756 --> 00:33:31.977
+Con una variable de puerta,
+probar un solo valor no alcanza.
+
+00:33:32.263 --> 00:33:35.752
+Hay que probar tres casos: menor
+o igual que mil ochocientos,
+
+00:33:35.752 --> 00:33:38.898
+entre mil ochocientos y quince
+mil, y desde quince mil.
+
+00:33:39.368 --> 00:33:42.461
+Decimos que la cantidad tiene
+tres clases de equivalencia.
+
+00:33:42.711 --> 00:33:45.271
+Por ahora ignoramos los
+valores fuera de rango.
+
+00:33:46.321 --> 00:33:50.424
+La definición: dos valores pertenecen
+a la misma clase si la especificación
+
+00:33:50.424 --> 00:33:53.980
+los trata igual, es decir, si hacen
+que se ejecute la misma ruta.
+
+00:33:54.450 --> 00:33:58.567
+Si un valor de la clase detecta un
+error, los demás probablemente también.
+
+00:33:58.864 --> 00:34:01.723
+Por eso basta con un
+representante de cada clase.
+
+00:34:02.773 --> 00:34:07.722
+De la ruta al dato de prueba: EC uno, amount
+hasta mil ochocientos, representante mil.
+
+00:34:08.029 --> 00:34:12.231
+EC dos, entre mil ochocientos y
+quince mil, representante ocho mil.
+
+00:34:12.524 --> 00:34:15.767
+EC tres, desde quince mil,
+representante veinte mil.
+
+00:34:16.237 --> 00:34:19.593
+Fíjate: las clases se definen a
+partir de la salida, la ruta;
+
+00:34:19.593 --> 00:34:23.170
+pero los valores que se prueban
+se toman del dominio, la entrada.
+
+00:34:24.220 --> 00:34:26.673
+Una buena partición tiene dos propiedades.
+
+00:34:26.928 --> 00:34:29.463
+Completitud: la unión de
+todas las clases cubre
+
+00:34:29.463 --> 00:34:31.728
+todo el dominio, ningún valor queda fuera.
+
+00:34:32.198 --> 00:34:36.849
+Y no redundancia: las clases no se
+superponen, ningún valor se prueba dos veces.
+
+00:34:37.899 --> 00:34:41.461
+Un ejercicio con la contraseña
+de ocho a dieciséis caracteres.
+
+00:34:41.931 --> 00:34:45.921
+Tres clases: menos de ocho, entre
+ocho y dieciséis, y más de dieciséis.
+
+00:34:46.185 --> 00:34:48.830
+Con un representante de cada una, tres casos.
+
+00:34:49.300 --> 00:34:54.207
+Y si la combinas con valor límite, pruebas
+además siete, ocho, dieciséis y diecisiete.
+
+00:34:54.512 --> 00:34:58.779
+Las clases dicen qué probar; el valor
+límite, dónde suelen estar los errores.
+
+00:34:59.829 --> 00:35:03.690
+El tipo: dentro del conjunto de
+habitaciones, válida; fuera, no válida.
+
+00:35:04.160 --> 00:35:07.132
+La edad tiene más: entero o
+no entero, entre dieciocho
+
+00:35:07.132 --> 00:35:09.664
+y cien, menor que dieciocho, o mayor que cien.
+
+00:35:10.134 --> 00:35:13.142
+Y el género: F o M, válida;
+cualquier otro, no válida.
+
+00:35:13.413 --> 00:35:15.973
+En total, cuatro válidas y cinco no válidas.
+
+00:35:17.023 --> 00:35:21.097
+El género y el tipo son variables de
+puerta: juntas deciden el descuento.
+
+00:35:21.567 --> 00:35:24.132
+Los hombres siempre tienen
+cero por ciento; las
+
+00:35:24.132 --> 00:35:26.751
+mujeres, veinte en sencilla
+y diez en las demás.
+
+00:35:27.221 --> 00:35:31.893
+Hay tres comportamientos distintos, y cada
+uno necesita al menos un caso de prueba.
+
+00:35:32.943 --> 00:35:36.283
+La prueba débil busca la cobertura
+de código: el número mínimo
+
+00:35:36.283 --> 00:35:39.514
+de pruebas, para que cada línea
+se ejecute al menos una vez.
+
+00:35:39.984 --> 00:35:43.067
+La prueba fuerte busca la
+cobertura de ruta: el número
+
+00:35:43.067 --> 00:35:45.979
+máximo, probando todas las
+combinaciones de clases.
+
+00:35:46.449 --> 00:35:50.033
+En los dos casos, por ahora, se
+excluyen los valores fuera de rango.
+
+00:35:51.083 --> 00:35:54.358
+Alternativa uno, pruebas fuertes:
+todas las combinaciones,
+
+00:35:54.358 --> 00:35:56.843
+tres por dos por cuatro, veinticuatro casos.
+
+00:35:57.116 --> 00:35:58.652
+Es la cobertura de ruta.
+
+00:35:59.122 --> 00:36:01.625
+Alternativa dos, pruebas débiles: el máximo
+
+00:36:01.625 --> 00:36:04.477
+entre tres, dos y cuatro,
+es decir, cuatro casos.
+
+00:36:04.720 --> 00:36:07.749
+Es la cobertura de código:
+visitar cada línea una vez.
+
+00:36:08.799 --> 00:36:11.172
+Un error frecuente: en este diseño, x uno
+
+00:36:11.172 --> 00:36:13.834
+está bien cubierta, con un caso en cada clase.
+
+00:36:14.304 --> 00:36:18.848
+Pero los tres casos están en la misma
+clase de x dos, y la otra nunca se prueba.
+
+00:36:19.318 --> 00:36:23.926
+La regla: toda clase de todas las variables
+debe tener al menos un caso de prueba.
+
+00:36:24.976 --> 00:36:25.872
+Las fórmulas.
+
+00:36:26.138 --> 00:36:28.314
+Débil normal: el máximo de las clases.
+
+00:36:28.574 --> 00:36:30.217
+Fuerte normal: el producto.
+
+00:36:30.687 --> 00:36:33.581
+Débil robusta: el máximo,
+más las clases no válidas
+
+00:36:33.581 --> 00:36:36.191
+de cada variable: tres más dos más dos, siete.
+
+00:36:36.441 --> 00:36:40.345
+Fuerte robusta: el producto de cada
+número de clases más dos: veinte.
+
+00:36:40.815 --> 00:36:43.685
+En las robustas, cada
+variable aporta dos clases no
+
+00:36:43.685 --> 00:36:46.724
+válidas: una por debajo y
+otra por encima de su rango.
+
+00:36:47.774 --> 00:36:52.233
+La debilidad de esta técnica: la equivalencia
+fuerte a veces genera redundancia.
+
+00:36:52.703 --> 00:36:55.881
+Pasa cuando se ignoran las
+dependencias entre variables.
+
+00:36:56.164 --> 00:36:59.812
+En el hostal, el tipo de habitación
+solo importa si el género es F.
+
+00:37:00.862 --> 00:37:04.830
+La fuerte normal daría ocho casos,
+pero solo hay tres comportamientos.
+
+00:37:05.300 --> 00:37:07.838
+Con hombres, los cuatro
+tipos prueban lo mismo.
+
+00:37:08.089 --> 00:37:11.972
+Basta con tres: hombre en sencilla,
+mujer en sencilla y mujer en doble.
+
+00:37:13.022 --> 00:37:15.727
+Para profundizar: el monto
+también es una variable
+
+00:37:15.727 --> 00:37:18.270
+de puerta, porque decide
+qué tasas son válidas.
+
+00:37:18.563 --> 00:37:20.953
+Conviene dividir su clase válida en dos.
+
+00:37:21.423 --> 00:37:24.015
+Así aparecen casos que
+el análisis por variable
+
+00:37:24.015 --> 00:37:26.607
+no cubre: cien mil dólares
+con diez por ciento.
+
+00:37:26.884 --> 00:37:30.233
+Cada valor es válido por
+separado, pero la combinación no.
+
+00:37:31.283 --> 00:37:33.801
+Antes de terminar, cinco preguntas rápidas.
+
+00:37:34.105 --> 00:37:36.473
+Pausa el video si necesitas más tiempo.
+
+00:37:36.735 --> 00:37:39.743
+Primera pregunta: un conjunto
+controlado de versiones
+
+00:37:39.743 --> 00:37:42.751
+de componentes, que siempre
+se puede recrear, es una…
+
+00:37:47.371 --> 00:37:48.267
+Línea base.
+
+00:37:48.547 --> 00:37:50.723
+En Git se suele marcar con una etiqueta.
+
+00:37:51.193 --> 00:37:53.528
+Siguiente: todo está automatizado, pero una
+
+00:37:53.528 --> 00:37:55.972
+persona decide cuándo publicar en producción.
+
+00:37:56.216 --> 00:37:58.221
+¿Es entrega o despliegue continuo?
+
+00:38:03.841 --> 00:38:05.078
+Entrega continua.
+
+00:38:05.386 --> 00:38:08.884
+En el despliegue continuo, hasta
+la publicación es automática.
+
+00:38:09.354 --> 00:38:12.318
+Siguiente: el código tiene
+total mayor que cien cuando
+
+00:38:12.318 --> 00:38:15.008
+debía ser mayor o igual,
+y nadie lo ha ejecutado.
+
+00:38:15.271 --> 00:38:17.234
+¿Es un error, un defecto o una falla?
+
+00:38:22.854 --> 00:38:25.328
+Un defecto: está en el código y es estático.
+
+00:38:25.603 --> 00:38:28.184
+La falla aparece cuando se ejecuta con cien.
+
+00:38:28.654 --> 00:38:31.501
+Siguiente: valor límite con
+tres variables: ¿cuántos
+
+00:38:31.501 --> 00:38:34.073
+casos dan la variante
+normal y la de peor caso?
+
+00:38:40.693 --> 00:38:42.677
+La normal, cuatro ene más uno: trece.
+
+00:38:42.926 --> 00:38:45.593
+El peor caso, cinco a la
+ene: ciento veinticinco.
+
+00:38:46.063 --> 00:38:49.711
+Y la última: x uno tiene cuatro
+clases y x dos tiene tres.
+
+00:38:49.978 --> 00:38:53.135
+¿Cuántos casos en la débil
+normal y en la fuerte normal?
+
+00:38:59.755 --> 00:39:01.846
+En la débil normal, el máximo: cuatro.
+
+00:39:02.125 --> 00:39:04.280
+En la fuerte normal, el producto: doce.
+
+00:39:05.330 --> 00:39:07.972
+Y eso es todo: de la
+gestión de la configuración
+
+00:39:07.972 --> 00:39:10.834
+hasta las clases de
+equivalencia, en un solo repaso.
+
+00:39:11.139 --> 00:39:15.342
+Practica con las preguntas de cada tema
+en la app, y ¡mucho éxito en tu examen!
+

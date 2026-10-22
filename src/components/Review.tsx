@@ -44,7 +44,7 @@ export function ReviewBlock({ r, storage }: { r: Review; storage: string }) {
             <li key={c.t}>
               <button type="button" className="rf-ch" aria-current={i === cur ? "true" : undefined} onClick={() => jump(c.t)}>
                 <span className="rf-n" aria-hidden="true">{i + 1}</span>
-                <span className="rf-l"><b>{c.label}</b><small>{c.sub}</small></span>
+                <span className="rf-l"><b>{c.label}</b>{c.sub ? <small>{c.sub}</small> : null}</span>
                 <span className="rf-t">{mmss(c.t)}</span>
               </button>
             </li>

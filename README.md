@@ -13,7 +13,7 @@ En cada materia:
 - **Videos**: un video narrado por unidad, con subtítulos en español.
 - **Diapositivas**: el PDF unificado (con ejemplos y ejercicios resueltos extra) y su descarga.
 
-En Sistemas Inteligentes, la página principal tiene además el **Repaso final**: un video de ~40 minutos con los conceptos más importantes de las siete semanas y capítulos que saltan a cada parte (`review` en `src/subjects/si.ts`, video en `public/media/videos/final`).
+En cada materia, la página principal tiene además el **Repaso final**: un video de ~40 minutos con los conceptos más importantes y capítulos que saltan a cada parte (`review` en `src/subjects/si.ts` e `is2.ts`; videos en `public/media/videos/final` y `public/media/is2/videos/final`).
 
 Las rutas antiguas (`/quiz`, `/videos`, `/diapositivas`, `/resultados`) redirigen a `/si/...`.
 

@@ -52,4 +52,23 @@ export const IS2: Subject = {
   questions: raw as unknown as Question[],
   storage: "is2",
   favicon: "/favicon-is2.svg",
+  review: {
+    title: "Repaso final de los ocho temas",
+    blurb: "Los conceptos que más se evalúan de cada tema en un solo video, de la gestión de la configuración a las clases de equivalencia, con un quiz de cierre.",
+    dur: "39:17",
+    src: "/media/is2/videos/final/index.m3u8",
+    subs: "/media/is2/subs/final.vtt",
+    poster: "/media/is2/videos/final/poster.webp",
+    chapters: [
+      { t: 22, label: "Gestión de la configuración", sub: "" },
+      { t: 337, label: "Construcción, cambios y lanzamientos", sub: "" },
+      { t: 576, label: "Integración continua", sub: "" },
+      { t: 821, label: "Prácticas de codificación", sub: "" },
+      { t: 1108, label: "Inspección de código", sub: "" },
+      { t: 1379, label: "Pruebas de software", sub: "" },
+      { t: 1694, label: "Valor límite", sub: "" },
+      { t: 1987, label: "Clases de equivalencia", sub: "" },
+      { t: 2251, label: "Quiz final", sub: "5 preguntas" },
+    ],
+  },
 };

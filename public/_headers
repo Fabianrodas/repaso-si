@@ -60,3 +60,6 @@
 
 /media/videos/final/index.m3u8
   Content-Type: application/vnd.apple.mpegurl
+
+/media/is2/videos/final/index.m3u8
+  Content-Type: application/vnd.apple.mpegurl
