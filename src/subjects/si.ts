@@ -49,4 +49,22 @@ export const SI: Subject = {
   questions: raw as unknown as Question[],
   storage: "si",
   favicon: "/favicon.svg",
+  review: {
+    title: "Repaso final de las siete semanas",
+    blurb: "Los conceptos más importantes del curso en un solo video, con los resultados de aprendizaje y resúmenes al final y un quiz de cierre.",
+    dur: "39:38",
+    src: "/media/videos/final/index.m3u8",
+    subs: "/media/subs/final.vtt",
+    poster: "/media/videos/final/poster.webp",
+    chapters: [
+      { t: 24, label: "La inteligencia artificial", sub: "Week 1" },
+      { t: 247, label: "Machine learning y datos", sub: "Week 2" },
+      { t: 779, label: "Algoritmos y tipos de aprendizaje", sub: "Week 4" },
+      { t: 1140, label: "Explorar datos con Pandas", sub: "Week 5" },
+      { t: 1451, label: "Regresión y NumPy", sub: "Week 6" },
+      { t: 1764, label: "Error, métricas y más Pandas", sub: "Week 7" },
+      { t: 2199, label: "Resultados de aprendizaje y resúmenes", sub: "Weeks 1–7" },
+      { t: 2288, label: "Quiz final", sub: "5 preguntas" },
+    ],
+  },
 };

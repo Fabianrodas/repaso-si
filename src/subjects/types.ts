@@ -4,6 +4,17 @@ export type SubjectId = "si" | "is2";
 
 export type VideoMeta = { u: number; dur: string; seconds: number };
 
+/** Video de repaso de toda la materia, destacado en la página principal. */
+export type Review = {
+  title: string;
+  blurb: string;
+  dur: string;
+  src: string;
+  subs: string;
+  poster: string;
+  chapters: { t: number; label: string; sub: string }[];
+};
+
 /** Todo lo que cambia entre materias: unidades, videos, diapositivas, preguntas y claves de almacenamiento. */
 export type Subject = {
   id: SubjectId;
@@ -35,6 +46,7 @@ export type Subject = {
   /** Prefijo de las claves de localStorage. */
   storage: string;
   favicon: string;
+  review?: Review;
 };
 
 export const pad3 = (n: number) => String(n).padStart(3, "0");

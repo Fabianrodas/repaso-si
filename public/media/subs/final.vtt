@@ -1,0 +1,2370 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:04.179
+Este es el repaso final de Sistemas
+Inteligentes: los conceptos
+
+00:00:04.179 --> 00:00:07.391
+más importantes de las siete
+semanas, en un solo video.
+
+00:00:07.861 --> 00:00:11.444
+Vamos en siete partes: qué es la
+inteligencia artificial; machine
+
+00:00:11.444 --> 00:00:15.303
+learning y tipos de datos; algoritmos,
+modelos y tipos de aprendizaje;
+
+00:00:15.303 --> 00:00:18.335
+Pandas; regresión y NumPy; y
+el error con sus métricas.
+
+00:00:18.588 --> 00:00:23.217
+Al final repasamos los resultados de
+aprendizaje y los resúmenes de cada semana.
+
+00:00:24.267 --> 00:00:26.465
+Parte uno: la inteligencia artificial.
+
+00:00:27.515 --> 00:00:31.958
+La definición del curso es de John McCarthy:
+la IA es la ciencia y la ingeniería
+
+00:00:31.958 --> 00:00:36.624
+de crear máquinas inteligentes, especialmente
+programas de computadora inteligentes.
+
+00:00:37.094 --> 00:00:40.005
+Y no tiene que limitarse a
+métodos que se observen en
+
+00:00:40.005 --> 00:00:43.025
+la biología: un avión vuela
+sin aletear como un pájaro.
+
+00:00:44.075 --> 00:00:46.478
+Una pista práctica para saber si algo es IA:
+
+00:00:46.478 --> 00:00:49.045
+¿aprende de datos, o solo
+sigue una regla fija?
+
+00:00:49.515 --> 00:00:52.737
+Una calculadora o una alarma
+siguen reglas: no son IA.
+
+00:00:53.207 --> 00:00:56.127
+El filtro de spam o el
+desbloqueo facial aprendieron
+
+00:00:56.127 --> 00:00:58.092
+de miles de ejemplos: eso sí es IA.
+
+00:00:59.142 --> 00:01:01.828
+La historia tuvo dos
+inviernos: épocas en que el
+
+00:01:01.828 --> 00:01:04.625
+interés y el dinero para
+investigar se congelaron.
+
+00:01:05.095 --> 00:01:08.162
+El primero, en los setenta:
+expectativas incumplidas,
+
+00:01:08.162 --> 00:01:11.345
+poca capacidad de cómputo y
+recortes de financiamiento.
+
+00:01:11.815 --> 00:01:15.291
+El segundo, a finales de los
+ochenta: los sistemas expertos
+
+00:01:15.291 --> 00:01:18.471
+resultaron caros, inflexibles
+y difíciles de mantener.
+
+00:01:19.521 --> 00:01:22.359
+El patrón siempre fue el
+mismo: grandes promesas,
+
+00:01:22.359 --> 00:01:25.196
+resultados pobres, decepción
+y recorte de fondos.
+
+00:01:26.246 --> 00:01:30.897
+La evolución tiene tres etapas, y se ve
+bien con un mismo problema: detectar spam.
+
+00:01:31.367 --> 00:01:35.096
+De 1950 a 1980, IA clásica con reglas escritas
+
+00:01:35.096 --> 00:01:38.663
+a mano: si el correo dice «gratis», es spam.
+
+00:01:38.910 --> 00:01:41.939
+Pero basta escribir «gratis»
+con un cuatro para engañarla.
+
+00:01:42.409 --> 00:01:45.673
+De 1980 a 2010, machine learning: el algoritmo
+
+00:01:45.673 --> 00:01:48.510
+aprende de miles de correos etiquetados.
+
+00:01:48.980 --> 00:01:52.647
+Y desde 2010, deep learning:
+redes neuronales de muchas capas
+
+00:01:52.647 --> 00:01:56.554
+que captan el contexto, a cambio
+de muchos datos y mucho cómputo.
+
+00:01:57.604 --> 00:02:01.422
+Una idea que sirve para todo el
+curso: círculos, uno dentro de otro.
+
+00:02:01.702 --> 00:02:05.184
+El más grande es la inteligencia
+artificial: cualquier técnica
+
+00:02:05.184 --> 00:02:08.891
+para que una máquina haga tareas
+inteligentes, incluso con reglas.
+
+00:02:09.361 --> 00:02:11.498
+Dentro está el machine learning: la parte
+
+00:02:11.498 --> 00:02:13.948
+de la IA donde la máquina
+aprende de los datos.
+
+00:02:14.418 --> 00:02:18.151
+Dentro de él, el deep learning, con
+redes neuronales de muchas capas.
+
+00:02:18.621 --> 00:02:22.077
+Y en el centro, la IA generativa,
+que se apoya en el deep learning.
+
+00:02:22.358 --> 00:02:24.519
+Todo deep learning es machine learning, pero
+
+00:02:24.519 --> 00:02:26.582
+no todo machine learning es deep learning.
+
+00:02:27.632 --> 00:02:32.636
+Alan Turing propuso en 1950 su famosa
+prueba: en vez de preguntar si una máquina
+
+00:02:32.636 --> 00:02:37.765
+piensa, preguntó si puede comportarse de
+forma que no la distingamos de un humano.
+
+00:02:38.815 --> 00:02:41.482
+Si el interrogador no
+distingue a la máquina mejor
+
+00:02:41.482 --> 00:02:44.149
+que adivinando al azar, la
+máquina pasa la prueba.
+
+00:02:44.619 --> 00:02:48.800
+Pero ojo: pasarla demuestra que imita
+bien una conversación, no que entienda.
+
+00:02:49.850 --> 00:02:54.415
+La IA tradicional clasifica o predice:
+ve la foto de un gato y responde «gato».
+
+00:02:54.885 --> 00:02:57.874
+La IA generativa crea algo
+nuevo: un gato astronauta
+
+00:02:57.874 --> 00:03:01.093
+en acuarela que nunca existió,
+o texto, música y código.
+
+00:03:02.143 --> 00:03:04.426
+La ética de la IA tiene cinco dilemas.
+
+00:03:04.726 --> 00:03:07.894
+Sesgos: una herramienta de
+reclutamiento de Amazon penalizaba
+
+00:03:07.894 --> 00:03:11.425
+hojas de vida de mujeres, porque
+aprendió de contrataciones pasadas.
+
+00:03:11.895 --> 00:03:15.244
+Toma de decisiones: si un auto
+autónomo falla, ¿quién responde?
+
+00:03:15.714 --> 00:03:18.851
+Privacidad y propiedad
+intelectual: fotos recopiladas
+
+00:03:18.851 --> 00:03:22.285
+sin permiso, e imágenes usadas
+para entrenar sin licencia.
+
+00:03:22.755 --> 00:03:27.256
+Y el impacto ambiental: entrenar modelos
+grandes consume mucha energía y agua.
+
+00:03:27.726 --> 00:03:29.817
+La lección: un modelo aprende lo que ve.
+
+00:03:30.071 --> 00:03:32.844
+Si los datos tienen sesgos,
+el modelo los repite.
+
+00:03:33.894 --> 00:03:36.448
+Por ejemplo, Google
+Translate traducía del turco
+
+00:03:36.448 --> 00:03:38.737
+«o bir doktor» siempre como «él es doctor».
+
+00:03:39.207 --> 00:03:43.473
+Después de corregirlo, muestra las dos
+opciones: «ella es doctora» y «él es doctor».
+
+00:03:44.523 --> 00:03:47.332
+Y sus implicaciones: los
+deepfakes hacen cada vez
+
+00:03:47.332 --> 00:03:50.198
+más difícil distinguir un
+video real de uno falso.
+
+00:03:51.248 --> 00:03:54.682
+Una IA puede adivinar
+contraseñas escuchando el sonido
+
+00:03:54.682 --> 00:03:57.989
+del teclado, con cerca del
+95 por ciento de acierto.
+
+00:03:59.039 --> 00:04:01.773
+Y en Corea del Sur, un
+robot industrial confundió
+
+00:04:01.773 --> 00:04:04.117
+a un trabajador con una caja y lo aplastó.
+
+00:04:04.380 --> 00:04:06.151
+La seguridad no es opcional.
+
+00:04:07.201 --> 00:04:09.377
+Parte dos: machine learning y los datos.
+
+00:04:10.427 --> 00:04:13.350
+El filósofo John Searle
+propuso la habitación china.
+
+00:04:13.820 --> 00:04:17.724
+Adentro hay una persona que no sabe
+chino, con un manual de instrucciones.
+
+00:04:18.009 --> 00:04:22.404
+Afuera, alguien le envía mensajes en chino,
+y ella responde siguiendo el manual.
+
+00:04:23.454 --> 00:04:27.849
+La persona solo compara formas: si ves
+estos símbolos, devuelve estos otros.
+
+00:04:28.319 --> 00:04:30.580
+Desde afuera, la respuesta es perfecta.
+
+00:04:30.861 --> 00:04:33.144
+Desde adentro, no hay ninguna comprensión.
+
+00:04:33.614 --> 00:04:36.835
+La conclusión de Searle: procesar
+símbolos no es comprender.
+
+00:04:37.119 --> 00:04:39.715
+Una máquina puede parecer inteligente, incluso
+
+00:04:39.715 --> 00:04:42.367
+pasar la prueba de Turing,
+sin tener una mente.
+
+00:04:43.417 --> 00:04:47.428
+Más en detalle: la IA débil se enfoca
+en realizar tareas específicas…
+
+00:04:47.898 --> 00:04:51.418
+…como los chatbots, los filtros de
+spam, Google Maps, Siri o Alexa.
+
+00:04:51.686 --> 00:04:54.096
+Brilla en lo suyo, y fuera de eso no sirve.
+
+00:04:55.146 --> 00:04:58.034
+La IA fuerte actuaría como
+una persona: resolvería
+
+00:04:58.034 --> 00:05:01.269
+problemas y aprendería
+habilidades nuevas por su cuenta…
+
+00:05:01.739 --> 00:05:06.219
+…y las usaría en tareas distintas,
+adaptándose a situaciones que nadie previó.
+
+00:05:07.269 --> 00:05:09.317
+De ahí sale la primera distinción.
+
+00:05:09.567 --> 00:05:12.283
+La IA débil, o estrecha,
+hace una tarea específica
+
+00:05:12.283 --> 00:05:14.837
+muy bien: Siri, el filtro
+de spam, Google Maps.
+
+00:05:15.307 --> 00:05:17.440
+Pero si le cambias la tarea, no puede.
+
+00:05:17.910 --> 00:05:20.935
+La IA fuerte haría cualquier
+tarea intelectual humana:
+
+00:05:20.935 --> 00:05:24.353
+aprender sola habilidades nuevas
+y adaptarse a lo imprevisto.
+
+00:05:24.823 --> 00:05:25.761
+¿Existe hoy?
+
+00:05:26.155 --> 00:05:27.840
+No: toda la IA real es débil.
+
+00:05:28.082 --> 00:05:30.109
+La fuerte sigue siendo hipotética.
+
+00:05:30.579 --> 00:05:34.824
+Para recordarlo: la débil es un
+especialista; la fuerte sería un todólogo.
+
+00:05:35.874 --> 00:05:39.520
+Esto pertenece a la filosofía de
+la IA: la disciplina que estudia
+
+00:05:39.520 --> 00:05:43.447
+la naturaleza de la IA y sus
+implicaciones legales, sociales y éticas.
+
+00:05:43.917 --> 00:05:46.714
+Pregunta, por ejemplo, si
+una máquina puede actuar de
+
+00:05:46.714 --> 00:05:49.827
+forma inteligente, si su
+inteligencia es igual a la humana…
+
+00:05:50.297 --> 00:05:53.518
+…y si puede tener mente,
+estados mentales y conciencia.
+
+00:05:54.568 --> 00:05:56.915
+¿Cómo encaja la IA con otras disciplinas?
+
+00:05:57.313 --> 00:06:00.705
+La inteligencia artificial y la
+ciencia de datos se superponen…
+
+00:06:01.175 --> 00:06:03.970
+…y justo en la intersección
+está el machine learning.
+
+00:06:04.440 --> 00:06:07.198
+Alrededor están la
+estadística, las matemáticas,
+
+00:06:07.198 --> 00:06:09.496
+la robótica y la visión por computadora.
+
+00:06:10.546 --> 00:06:14.279
+La ciencia de datos abarca recolectar,
+preparar y analizar datos.
+
+00:06:14.749 --> 00:06:18.973
+La IA es la tecnología para que las
+máquinas entiendan, aprendan y decidan.
+
+00:06:19.443 --> 00:06:21.901
+Y el machine learning es
+un subconjunto de la IA
+
+00:06:21.901 --> 00:06:24.563
+y, a la vez, una herramienta
+de la ciencia de datos.
+
+00:06:25.613 --> 00:06:29.496
+El machine learning es un subcampo de
+la IA que se enfoca en la estadística.
+
+00:06:29.966 --> 00:06:34.147
+La computadora aprende de datos y usa
+esa experiencia en situaciones nuevas.
+
+00:06:34.617 --> 00:06:38.649
+Y lo clave: mejora en una tarea a
+medida que acumula experiencia o datos.
+
+00:06:39.699 --> 00:06:44.051
+En la programación tradicional das los
+datos y las reglas, y obtienes respuestas.
+
+00:06:44.521 --> 00:06:47.304
+En machine learning das los
+datos y las respuestas,
+
+00:06:47.304 --> 00:06:49.215
+y el algoritmo descubre las reglas.
+
+00:06:49.685 --> 00:06:52.714
+Con más ejemplos, mejora:
+eso significa que «aprende».
+
+00:06:53.764 --> 00:06:57.033
+La ciencia de datos es
+multidisciplinaria: combina machine
+
+00:06:57.033 --> 00:06:59.908
+learning, estadística y
+ciencias de la computación.
+
+00:07:00.378 --> 00:07:02.924
+Su objetivo es analizar grandes volúmenes de
+
+00:07:02.924 --> 00:07:05.818
+datos para extraer información
+y tomar decisiones.
+
+00:07:06.126 --> 00:07:08.597
+El machine learning es
+una de sus herramientas;
+
+00:07:08.597 --> 00:07:10.648
+la ciencia de datos es todo el proceso.
+
+00:07:11.698 --> 00:07:15.474
+Por ejemplo, una tienda pregunta por
+qué bajaron sus ventas en agosto.
+
+00:07:15.944 --> 00:07:18.846
+Recolecta ventas, clima y
+promociones, y los limpia.
+
+00:07:19.316 --> 00:07:22.208
+Al analizar, descubre que
+las ventas caen los días de
+
+00:07:22.208 --> 00:07:25.481
+lluvia sin promoción, y un modelo
+predice la próxima semana.
+
+00:07:25.951 --> 00:07:29.066
+Con eso decide: promociones
+en línea los días lluviosos.
+
+00:07:30.116 --> 00:07:34.276
+Un dato es una representación simbólica
+que, sola, no tiene significado.
+
+00:07:34.746 --> 00:07:39.204
+La información son datos procesados e
+interpretados que transmiten un mensaje.
+
+00:07:40.254 --> 00:07:44.030
+La información es dato más contexto,
+por ejemplo la unidad de medida.
+
+00:07:44.500 --> 00:07:49.215
+En 1.50 metros, 1.50 es el
+dato y metros el contexto.
+
+00:07:49.504 --> 00:07:52.448
+En 6 perros, 6 es el dato
+y perros el contexto.
+
+00:07:53.498 --> 00:07:57.637
+En fórmula: información es igual a
+dato, más contexto, más significado.
+
+00:07:58.687 --> 00:08:01.876
+El mismo dato cambia según el contexto: 38.5
+
+00:08:01.876 --> 00:08:05.428
+como temperatura de un
+paciente significa fiebre.
+
+00:08:05.898 --> 00:08:10.079
+Y un dato no tiene que ser un número:
+«rojo» en un semáforo significa «detente».
+
+00:08:11.129 --> 00:08:14.279
+Los tipos de datos estadísticos
+son dos: cuantitativos,
+
+00:08:14.279 --> 00:08:16.399
+que pueden ser discretos o continuos…
+
+00:08:16.869 --> 00:08:19.877
+…y cualitativos, que pueden
+ser nominales u ordinales.
+
+00:08:20.927 --> 00:08:23.890
+Los cuantitativos son valores
+numéricos con los que sí
+
+00:08:23.890 --> 00:08:26.964
+puedes sacar estadísticas,
+como promedios y percentiles.
+
+00:08:27.434 --> 00:08:30.567
+Los cualitativos son atributos:
+pueden tener un número,
+
+00:08:30.567 --> 00:08:33.301
+pero ese número no tiene
+significado matemático.
+
+00:08:34.351 --> 00:08:39.087
+Los cuantitativos, o numéricos, son discretos
+si son enteros, como 15 estudiantes…
+
+00:08:39.557 --> 00:08:42.714
+…o continuos si tienen decimales, como 3.15.
+
+00:08:43.016 --> 00:08:46.451
+Un truco: si lo cuentas, es
+discreto; si lo mides, es continuo.
+
+00:08:47.501 --> 00:08:51.853
+Los cualitativos, o categóricos, son
+nominales si no tienen orden, como el género…
+
+00:08:52.323 --> 00:08:55.331
+…u ordinales si tienen orden,
+como bajo, medio y alto.
+
+00:08:55.639 --> 00:08:59.394
+Aunque tengan número, ese número
+no tiene significado matemático.
+
+00:09:00.444 --> 00:09:04.433
+Ejemplos cuantitativos: el peso, la
+estatura, el número de estudiantes.
+
+00:09:04.675 --> 00:09:06.723
+Sacar un promedio tiene sentido.
+
+00:09:07.193 --> 00:09:10.095
+Cualitativos: el género,
+la etnia, la ciudad natal.
+
+00:09:10.391 --> 00:09:12.439
+El promedio de ciudades no existe.
+
+00:09:13.489 --> 00:09:17.905
+En una encuesta: la edad en años cumplidos
+es discreta, y la estatura, continua.
+
+00:09:18.375 --> 00:09:21.797
+La ciudad de origen es nominal,
+y el número de celular también:
+
+00:09:21.797 --> 00:09:24.839
+es un número, pero no tiene
+sentido sacarle un promedio.
+
+00:09:25.309 --> 00:09:28.402
+El nivel de inglés o la talla
+de camiseta son ordinales.
+
+00:09:29.452 --> 00:09:32.780
+Para clasificar cualquier
+variable, dos preguntas en orden.
+
+00:09:33.035 --> 00:09:35.339
+Primera: ¿tiene sentido sacar el promedio?
+
+00:09:35.809 --> 00:09:37.174
+Si no, es cualitativa.
+
+00:09:37.466 --> 00:09:40.197
+Y si se puede ordenar, es
+ordinal; si no, nominal.
+
+00:09:40.667 --> 00:09:42.160
+Si sí, es cuantitativa.
+
+00:09:42.417 --> 00:09:46.279
+Y si puede tener decimales, es
+continua; si solo enteros, discreta.
+
+00:09:46.749 --> 00:09:49.720
+Por ejemplo: la talla de
+camiseta es ordinal, el número
+
+00:09:49.720 --> 00:09:52.530
+de celular es nominal, y la
+temperatura es continua.
+
+00:09:53.580 --> 00:09:57.377
+Para nominales se recomienda el gráfico
+de pastel; para ordinales, barras.
+
+00:09:57.847 --> 00:10:00.521
+Para discretos, también
+barras; y para continuos,
+
+00:10:00.521 --> 00:10:03.522
+el histograma, donde cada
+barra es un rango de valores.
+
+00:10:04.572 --> 00:10:07.452
+Cada tipo tiene su gráfico:
+nominales en pastel…
+
+00:10:07.922 --> 00:10:10.375
+…ordinales en barras que respetan el orden…
+
+00:10:10.845 --> 00:10:12.765
+…discretos en barras separadas…
+
+00:10:13.235 --> 00:10:17.310
+…y continuos en histograma, con barras
+pegadas porque representan rangos.
+
+00:10:18.360 --> 00:10:22.755
+Los estructurados vienen de encuestas,
+formularios, hojas de Excel o bases de datos…
+
+00:10:23.225 --> 00:10:26.467
+…y son fáciles de manejar porque
+están en filas y columnas.
+
+00:10:27.517 --> 00:10:30.034
+Los no estructurados están en redes sociales,
+
+00:10:30.034 --> 00:10:32.829
+videos, comentarios o
+transcripciones de llamadas…
+
+00:10:33.299 --> 00:10:36.990
+…y requieren más esfuerzo: primero
+hay que darles alguna estructura.
+
+00:10:38.040 --> 00:10:41.304
+Los semiestructurados usan
+etiquetas para organizar
+
+00:10:41.304 --> 00:10:44.504
+los datos y crear jerarquías:
+correos, JSON y XML.
+
+00:10:44.974 --> 00:10:49.369
+Un JSON está organizado, pero con
+etiquetas, no con filas y columnas fijas.
+
+00:10:49.617 --> 00:10:52.156
+Por eso es semiestructurado,
+y no estructurado.
+
+00:10:53.206 --> 00:10:56.388
+Según su estructura, los datos
+pueden ser estructurados:
+
+00:10:56.388 --> 00:10:59.798
+tablas con filas y columnas,
+como Excel o una base de datos.
+
+00:11:00.268 --> 00:11:03.269
+Semiestructurados: usan
+etiquetas para organizar
+
+00:11:03.269 --> 00:11:06.582
+y crear jerarquías, como un
+JSON, un XML o un correo.
+
+00:11:07.052 --> 00:11:09.801
+Y no estructurados: un
+mensaje de WhatsApp, videos
+
+00:11:09.801 --> 00:11:12.770
+o comentarios, que hay que
+procesar antes de analizar.
+
+00:11:13.240 --> 00:11:15.970
+La regla: más estructura,
+más fácil de analizar.
+
+00:11:17.020 --> 00:11:21.970
+Según cómo se recolectan, los datos son
+observacionales: se observa sin alterar nada…
+
+00:11:22.440 --> 00:11:25.981
+…o experimentales: en condiciones
+controladas, como un test A/B.
+
+00:11:26.451 --> 00:11:30.611
+La diferencia es una sola: si el
+investigador interviene o solo observa.
+
+00:11:31.661 --> 00:11:34.792
+Si una tienda muestra un botón
+gris a una mitad y uno rojo
+
+00:11:34.792 --> 00:11:37.869
+a la otra, la diferencia en
+compras se atribuye al botón.
+
+00:11:38.339 --> 00:11:42.286
+Observar te dice qué pasa;
+experimentar te ayuda a saber por qué.
+
+00:11:43.336 --> 00:11:46.779
+El estudio transversal observa
+distintos grupos en un momento
+
+00:11:46.779 --> 00:11:50.504
+específico, como la frecuencia de
+una enfermedad en una población.
+
+00:11:50.974 --> 00:11:54.003
+Es rápido y barato, pero no
+muestra cambios en el tiempo.
+
+00:11:55.053 --> 00:11:58.238
+El de casos y controles compara
+un grupo con la enfermedad
+
+00:11:58.238 --> 00:12:01.368
+y otro sin ella, para encontrar
+qué factores contribuyen.
+
+00:12:01.838 --> 00:12:04.667
+Parte del resultado y mira
+hacia atrás, por ejemplo,
+
+00:12:04.667 --> 00:12:07.768
+revisando la dieta de personas
+con y sin cáncer de colon.
+
+00:12:08.818 --> 00:12:13.405
+El de cohorte sigue a un grupo a lo largo
+del tiempo, dividido según sus exposiciones.
+
+00:12:13.875 --> 00:12:16.499
+Parte de la exposición y mira hacia adelante.
+
+00:12:17.549 --> 00:12:20.834
+Y el longitudinal observa al
+mismo grupo durante años, para
+
+00:12:20.834 --> 00:12:24.397
+encontrar cambios y tendencias,
+como qué ayuda a envejecer bien.
+
+00:12:24.867 --> 00:12:28.366
+Si el transversal es una foto,
+el longitudinal es una película.
+
+00:12:29.416 --> 00:12:32.125
+Y hay cuatro tipos de
+estudios observacionales.
+
+00:12:32.426 --> 00:12:36.927
+Con una pregunta: ¿las redes sociales
+afectan el sueño de los universitarios?
+
+00:12:37.397 --> 00:12:41.472
+Transversal: se encuesta a 500
+estudiantes una sola vez, como una foto.
+
+00:12:41.779 --> 00:12:44.217
+Casos y controles: se compara a quienes tienen
+
+00:12:44.217 --> 00:12:46.601
+insomnio con quienes no, mirando hacia atrás.
+
+00:12:47.071 --> 00:12:50.996
+Cohorte: se sigue a un grupo según su
+exposición, mirando hacia adelante.
+
+00:12:51.271 --> 00:12:55.090
+Longitudinal: se mide al mismo grupo
+durante años, como una película.
+
+00:12:55.560 --> 00:12:58.099
+Ninguno interviene: todos son observacionales.
+
+00:12:59.149 --> 00:13:02.349
+Parte tres: algoritmos, modelos
+y tipos de aprendizaje.
+
+00:13:03.399 --> 00:13:05.942
+Un algoritmo es el
+procedimiento que se ejecuta
+
+00:13:05.942 --> 00:13:08.540
+sobre un conjunto de datos
+para crear un modelo…
+
+00:13:09.010 --> 00:13:11.442
+…reconoce patrones y aprende de los datos…
+
+00:13:11.912 --> 00:13:15.965
+…como la regresión lineal, la regresión
+logística o las redes neuronales.
+
+00:13:17.015 --> 00:13:21.517
+El modelo es el resultado del algoritmo
+después de ejecutarse sobre un dataset…
+
+00:13:21.987 --> 00:13:24.717
+…la representación matemática de lo aprendido…
+
+00:13:25.187 --> 00:13:28.430
+…y por eso depende de los datos:
+otros datos, otro modelo.
+
+00:13:29.480 --> 00:13:31.635
+Algoritmo y modelo no son lo mismo.
+
+00:13:31.879 --> 00:13:34.164
+El algoritmo es el procedimiento que aprende
+
+00:13:34.164 --> 00:13:36.657
+patrones de los datos,
+como la regresión lineal.
+
+00:13:36.954 --> 00:13:39.681
+Con casas de una ciudad,
+produce un modelo: precio
+
+00:13:39.681 --> 00:13:42.245
+igual a mil por metro
+cuadrado, más veinte mil.
+
+00:13:42.715 --> 00:13:46.235
+Con datos de otra ciudad, el mismo
+algoritmo produce otro modelo.
+
+00:13:46.530 --> 00:13:49.303
+El modelo es el resultado,
+y depende de los datos.
+
+00:13:49.773 --> 00:13:52.461
+La analogía: el algoritmo
+es la receta, los datos
+
+00:13:52.461 --> 00:13:55.149
+los ingredientes, y el
+modelo el plato terminado.
+
+00:13:56.199 --> 00:13:59.139
+Y un modelo debe evaluarse
+con datos diferentes a los
+
+00:13:59.139 --> 00:14:02.301
+de entrenamiento, para saber
+cómo le va con casos nuevos.
+
+00:14:03.351 --> 00:14:07.831
+Las técnicas son ocho: regresión,
+clasificación, clustering y asociaciones…
+
+00:14:08.301 --> 00:14:10.817
+…detección de anomalías,
+minería de secuencias,
+
+00:14:10.817 --> 00:14:13.549
+reducción de dimensión y
+sistemas de recomendación.
+
+00:14:14.599 --> 00:14:17.530
+Las técnicas de machine
+learning: regresión, predecir
+
+00:14:17.530 --> 00:14:20.572
+un precio; clasificación,
+decidir si un correo es spam.
+
+00:14:21.042 --> 00:14:24.069
+Clustering, agrupar clientes
+parecidos; asociaciones,
+
+00:14:24.069 --> 00:14:26.525
+quien compra pan suele comprar mantequilla.
+
+00:14:26.995 --> 00:14:29.560
+Detección de anomalías, una compra rara con tu
+
+00:14:29.560 --> 00:14:32.349
+tarjeta; minería de
+secuencias, patrones en orden.
+
+00:14:32.819 --> 00:14:35.676
+Reducción de dimensión,
+resumir muchas variables
+
+00:14:35.676 --> 00:14:38.771
+en pocas; y sistemas de
+recomendación, como Spotify.
+
+00:14:39.241 --> 00:14:42.605
+La pista: si la respuesta es un
+número, regresión; si es una
+
+00:14:42.605 --> 00:14:46.473
+categoría, clasificación; si buscas
+grupos sin respuesta, clustering.
+
+00:14:47.523 --> 00:14:50.745
+Para crear un modelo, el dataset
+se divide en tres partes.
+
+00:14:51.215 --> 00:14:53.439
+Entrenamiento, donde el modelo aprende; su
+
+00:14:53.439 --> 00:14:55.823
+calidad depende de la calidad de estos datos.
+
+00:14:56.293 --> 00:15:00.319
+Validación, para elegir el mejor
+modelo y ajustar los hiperparámetros;
+
+00:15:00.319 --> 00:15:04.058
+y prueba, para saber qué tan bueno
+es realmente con casos nuevos.
+
+00:15:05.108 --> 00:15:07.911
+El dataset de entrenamiento
+son datos ya analizados
+
+00:15:07.911 --> 00:15:10.164
+y limpios, con los que el modelo aprende.
+
+00:15:10.634 --> 00:15:15.562
+Si entrenas con datos malos, el modelo aprende
+cosas malas: basura entra, basura sale.
+
+00:15:16.612 --> 00:15:19.172
+El de validación se parece
+al de entrenamiento…
+
+00:15:19.642 --> 00:15:23.482
+…sirve para revisar la precisión y
+el error antes de la prueba final…
+
+00:15:23.952 --> 00:15:28.283
+…y para ajustar los hiperparámetros, las
+perillas que se fijan antes de entrenar.
+
+00:15:29.333 --> 00:15:32.191
+Y el de prueba evalúa el
+modelo con casos nuevos…
+
+00:15:32.661 --> 00:15:34.283
+…dando su precisión real.
+
+00:15:34.591 --> 00:15:37.492
+No se toca hasta el final,
+para que el examen sea justo.
+
+00:15:38.542 --> 00:15:42.268
+La analogía del estudiante, con mil
+fotos: setecientas para entrenar,
+
+00:15:42.268 --> 00:15:45.561
+ciento cincuenta para validar y
+ciento cincuenta para probar.
+
+00:15:46.031 --> 00:15:47.546
+Entrenar son los deberes.
+
+00:15:48.016 --> 00:15:50.938
+Validar es el simulacro,
+para ajustar cómo estudias.
+
+00:15:51.408 --> 00:15:55.885
+Y la prueba es el examen final,
+con preguntas nunca vistas:
+
+00:15:55.885 --> 00:16:00.134
+si acierta 138 de 150, tiene
+92 por ciento de precisión.
+
+00:16:00.604 --> 00:16:03.676
+Si el examen repitiera los
+deberes, solo medirías memoria.
+
+00:16:04.726 --> 00:16:07.898
+Los pasos para crear un modelo
+son cuatro: gestionar los
+
+00:16:07.898 --> 00:16:11.126
+datos, es decir, recolectar,
+limpiar, preparar y dividir…
+
+00:16:11.596 --> 00:16:15.265
+…entrenar, eligiendo la tarea, las
+características y el algoritmo…
+
+00:16:15.735 --> 00:16:17.100
+…evaluar y comparar…
+
+00:16:17.570 --> 00:16:19.746
+…y desplegar, monitorear y mejorar.
+
+00:16:20.010 --> 00:16:22.591
+Con datos nuevos, el ciclo vuelve a empezar.
+
+00:16:23.641 --> 00:16:27.930
+En producción el flujo tiene más detalle:
+requisitos, recolección, etiquetado,
+
+00:16:27.930 --> 00:16:32.328
+limpieza, ingeniería de características,
+entrenamiento, evaluación, despliegue y
+
+00:16:32.328 --> 00:16:32.878
+monitoreo.
+
+00:16:33.928 --> 00:16:36.886
+Por ejemplo, una app que
+predice el tiempo de entrega:
+
+00:16:36.886 --> 00:16:39.624
+se reúnen y limpian cincuenta
+mil pedidos pasados.
+
+00:16:40.094 --> 00:16:43.023
+Como el tiempo es un número,
+la tarea es regresión, con
+
+00:16:43.023 --> 00:16:46.217
+la distancia, la hora pico y la
+lluvia como características.
+
+00:16:46.687 --> 00:16:50.954
+Al evaluar, el modelo A se equivoca unos
+nueve minutos y el B, cuatro: gana el B.
+
+00:16:51.424 --> 00:16:55.456
+Y al desplegarlo, se monitorea y se
+reentrena cuando cambian los datos.
+
+00:16:56.506 --> 00:16:58.468
+Hay tres tipos de machine learning.
+
+00:16:58.773 --> 00:17:01.141
+El supervisado usa datos etiquetados…
+
+00:17:01.611 --> 00:17:04.619
+…cada ejemplo trae la entrada
+y la respuesta correcta…
+
+00:17:05.089 --> 00:17:09.164
+…y busca una función que asigne la
+etiqueta correcta a una entrada nueva.
+
+00:17:10.214 --> 00:17:12.497
+La clasificación predice categorías…
+
+00:17:12.967 --> 00:17:15.079
+…y la regresión, valores continuos.
+
+00:17:16.129 --> 00:17:20.139
+Tiene dos tipos, y la clave es la
+respuesta: ¿la casa se venderá en un mes?
+
+00:17:20.570 --> 00:17:22.063
+Sí o no: clasificación.
+
+00:17:22.355 --> 00:17:23.294
+¿A qué precio?
+
+00:17:23.721 --> 00:17:25.022
+Un número: regresión.
+
+00:17:25.492 --> 00:17:28.254
+Las dos aprenden de ejemplos
+con respuesta; solo
+
+00:17:28.254 --> 00:17:31.188
+cambia si la etiqueta es
+una categoría o un número.
+
+00:17:32.238 --> 00:17:36.291
+En el diagrama, los datos de entrenamiento
+traen etiquetas: aves y peces.
+
+00:17:36.761 --> 00:17:39.748
+Ante una foto nueva de un
+ave, el modelo predice: ave.
+
+00:17:40.798 --> 00:17:44.204
+Sin etiquetas, el modelo separa
+fotos de perros y gatos en dos
+
+00:17:44.204 --> 00:17:47.774
+grupos por parecido, aunque no
+sabe que se llaman perros y gatos.
+
+00:17:48.824 --> 00:17:53.453
+El no supervisado entrena con datos sin
+etiquetas, para agrupar o detectar anomalías.
+
+00:17:53.749 --> 00:17:57.567
+Por ejemplo, setenta y cinco
+clientes con sus visitas y su gasto.
+
+00:17:58.037 --> 00:18:00.384
+El modelo encuentra grupos por parecido…
+
+00:18:00.854 --> 00:18:02.859
+…y luego una persona los interpreta.
+
+00:18:03.104 --> 00:18:06.773
+Es menos preciso, porque no hay
+respuestas correctas para comparar.
+
+00:18:07.823 --> 00:18:10.895
+El aprendizaje por refuerzo
+no necesita un dataset…
+
+00:18:11.365 --> 00:18:16.336
+…aprende por experiencia: un agente observa
+su entorno, actúa y recibe una recompensa.
+
+00:18:16.630 --> 00:18:20.427
+Lo que aprende, qué acción conviene
+en cada situación, se llama política.
+
+00:18:21.477 --> 00:18:24.212
+En un laberinto: el agente
+es el robot, el entorno
+
+00:18:24.212 --> 00:18:26.618
+es el laberinto, y las acciones son moverse.
+
+00:18:27.088 --> 00:18:31.739
+Gana diez puntos al llegar a la meta, pierde
+diez en una trampa y uno por cada paso.
+
+00:18:31.998 --> 00:18:35.625
+Nadie le dice la respuesta: la
+descubre con premios y castigos.
+
+00:18:36.675 --> 00:18:41.366
+Los tres tipos lado a lado: el supervisado
+aprende con datos que traen la respuesta;
+
+00:18:41.366 --> 00:18:45.498
+el no supervisado, con datos sin
+respuesta; y el de refuerzo, de su propia
+
+00:18:45.498 --> 00:18:46.168
+experiencia.
+
+00:18:46.638 --> 00:18:50.471
+El supervisado aprende una función
+de la entrada a la etiqueta; el no
+
+00:18:50.471 --> 00:18:54.916
+supervisado encuentra grupos y anomalías;
+y el de refuerzo aprende una política.
+
+00:18:55.386 --> 00:18:59.780
+Ejemplos: el filtro de spam, la segmentación
+de clientes y el robot del laberinto.
+
+00:19:00.830 --> 00:19:03.348
+Parte cuatro: explorar datos con Pandas.
+
+00:19:04.398 --> 00:19:08.942
+Python trae librerías para distintos
+propósitos, como estadística o matemáticas…
+
+00:19:09.412 --> 00:19:13.358
+…pero hay que importarlas con import,
+o con import y un alias usando as.
+
+00:19:14.408 --> 00:19:17.190
+Un módulo es una caja de
+herramientas, e import
+
+00:19:17.190 --> 00:19:19.912
+la trae: con import math usas math punto sqrt.
+
+00:19:20.382 --> 00:19:23.881
+Con import statistics as st
+usas un alias, un apodo corto.
+
+00:19:24.351 --> 00:19:27.444
+Y con from math import pi
+traes solo lo que necesitas.
+
+00:19:28.494 --> 00:19:31.339
+Pandas es la librería para
+manejar y analizar datos,
+
+00:19:31.339 --> 00:19:34.020
+muy usada en ciencia de
+datos y machine learning.
+
+00:19:34.276 --> 00:19:35.684
+Se importa como pd.
+
+00:19:36.734 --> 00:19:39.529
+El método read_csv lee un archivo CSV…
+
+00:19:39.999 --> 00:19:41.705
+…y devuelve un DataFrame…
+
+00:19:42.175 --> 00:19:44.466
+…recibiendo la ruta, que puede ser un enlace,
+
+00:19:44.466 --> 00:19:46.655
+y el separador, que por defecto es la coma.
+
+00:19:47.705 --> 00:19:51.033
+read_csv lee un archivo de
+valores separados por comas…
+
+00:19:51.503 --> 00:19:54.472
+…y devuelve un DataFrame:
+como una hoja de Excel dentro
+
+00:19:54.472 --> 00:19:57.818
+de Python, con columnas con nombre
+y un índice para las filas.
+
+00:19:58.288 --> 00:20:01.061
+Si el archivo usa punto y
+coma, se indica con sep.
+
+00:20:02.111 --> 00:20:05.930
+Los métodos para conocer la tabla:
+info, con la información general…
+
+00:20:06.400 --> 00:20:08.876
+…describe, con estadísticas básicas: conteo,
+
+00:20:08.876 --> 00:20:11.520
+promedio, desviación
+estándar, mínimo y máximo…
+
+00:20:11.990 --> 00:20:16.577
+…unique, los valores únicos de una columna,
+y count, cuántas celdas no están vacías.
+
+00:20:17.627 --> 00:20:21.872
+Con seis estudiantes, a Sofía le falta
+la nota: Pandas lo muestra como NaN.
+
+00:20:22.342 --> 00:20:26.809
+info muestra las filas, las
+columnas, el tipo de cada una y sus
+
+00:20:26.809 --> 00:20:31.771
+valores no vacíos. object es texto,
+int64 enteros y float64 decimales.
+
+00:20:32.241 --> 00:20:34.567
+Y count da solo el conteo de no vacíos.
+
+00:20:35.617 --> 00:20:39.670
+describe solo trabaja con columnas
+numéricas, y no cuenta los vacíos.
+
+00:20:40.140 --> 00:20:44.791
+std es qué tan separados están los
+datos, y el 50 por ciento es la mediana.
+
+00:20:45.261 --> 00:20:50.295
+Y sirve para detectar errores: una edad
+máxima de 200 delata un dato mal escrito.
+
+00:20:51.345 --> 00:20:54.067
+En el dataset real de
+salarios, los encabezados
+
+00:20:54.067 --> 00:20:56.615
+eran las preguntas completas del formulario.
+
+00:20:56.900 --> 00:20:59.247
+Se crea un diccionario con nombres cortos…
+
+00:20:59.717 --> 00:21:02.874
+…y se aplica rename con columns
+igual a ese diccionario.
+
+00:21:03.924 --> 00:21:06.685
+Para cambiar los encabezados
+se usa rename, con un
+
+00:21:06.685 --> 00:21:09.556
+diccionario que lleva cada
+nombre viejo a uno nuevo.
+
+00:21:10.026 --> 00:21:14.122
+Y hay que guardar el resultado con df
+igual a; si no, el cambio se pierde.
+
+00:21:15.172 --> 00:21:18.008
+info sobre ese dataset:
+veintiocho mil doscientas
+
+00:21:18.008 --> 00:21:20.207
+veintiséis filas y dieciocho columnas…
+
+00:21:20.677 --> 00:21:22.149
+…casi todas de texto.
+
+00:21:23.199 --> 00:21:25.674
+describe da las estadísticas del salario…
+
+00:21:26.144 --> 00:21:30.069
+…y su máximo, seis mil millones al
+año, delata un dato mal ingresado.
+
+00:21:31.119 --> 00:21:33.914
+head muestra las primeras
+filas, cinco por defecto…
+
+00:21:34.384 --> 00:21:35.770
+…y tail, las últimas.
+
+00:21:36.079 --> 00:21:37.551
+El índice se conserva.
+
+00:21:38.601 --> 00:21:42.054
+En ese dataset se eliminó la
+columna timestamp con drop, axis
+
+00:21:42.054 --> 00:21:45.620
+igual a 1 e inplace igual a True,
+porque no aporta al análisis.
+
+00:21:46.670 --> 00:21:51.000
+drop borra columnas con axis igual
+a 1, o filas con axis igual a 0.
+
+00:21:51.470 --> 00:21:54.201
+Pero devuelve una copia:
+el original sigue igual…
+
+00:21:54.671 --> 00:21:58.170
+…salvo que uses inplace igual a
+True, o guardes el resultado.
+
+00:21:59.220 --> 00:22:01.929
+isnull punto sum cuenta
+los vacíos por columna…
+
+00:22:02.399 --> 00:22:06.324
+…y muestra, por ejemplo, que casi
+nadie llenó la columna currency other.
+
+00:22:07.374 --> 00:22:10.916
+Para los vacíos: Pandas marca
+None y NaN como valores vacíos.
+
+00:22:11.386 --> 00:22:13.997
+isna o isnull, que son
+lo mismo, marcan True en
+
+00:22:13.997 --> 00:22:16.996
+cada vacío; e isnull punto
+sum los cuenta por columna.
+
+00:22:17.466 --> 00:22:20.197
+Funciona porque True vale 1 y False vale 0.
+
+00:22:21.247 --> 00:22:24.426
+value_counts cuenta cuántas
+veces aparece cada valor…
+
+00:22:24.896 --> 00:22:27.498
+…la industria más común es Computing or Tech…
+
+00:22:27.968 --> 00:22:32.107
+…y el resultado es una tabla de frecuencias,
+ideal para un gráfico de barras.
+
+00:22:33.157 --> 00:22:34.928
+unique sobre la columna country…
+
+00:22:35.398 --> 00:22:38.491
+…muestra Estados Unidos
+escrito de muchísimas formas.
+
+00:22:38.748 --> 00:22:41.458
+Para la computadora, cada
+una es un país distinto.
+
+00:22:42.508 --> 00:22:45.469
+Con str punto replace se
+unifican, aunque limpiar
+
+00:22:45.469 --> 00:22:47.948
+datos reales siempre toma varias pasadas.
+
+00:22:48.998 --> 00:22:51.776
+Para limpiar: df de una
+columna la selecciona, y
+
+00:22:51.776 --> 00:22:54.843
+value_counts cuenta cuántas
+veces aparece cada valor.
+
+00:22:55.095 --> 00:22:57.762
+Aquí Ecuador aparece escrito de cuatro formas.
+
+00:22:58.232 --> 00:23:01.098
+strip quita los espacios,
+replace cambia un texto
+
+00:23:01.098 --> 00:23:03.672
+por otro, y title pone la mayúscula inicial.
+
+00:23:04.142 --> 00:23:05.955
+Después, el conteo es correcto.
+
+00:23:06.206 --> 00:23:09.982
+En el dataset real de salarios
+pasaba lo mismo con United States.
+
+00:23:11.032 --> 00:23:15.213
+iloc obtiene un valor por su posición:
+número de fila y número de columna…
+
+00:23:15.683 --> 00:23:17.027
+…contando desde cero.
+
+00:23:18.077 --> 00:23:22.386
+Para seleccionar por posición se usa
+iloc, con números que empiezan en cero.
+
+00:23:22.856 --> 00:23:25.587
+iloc de 0 y 2 es la fila 0, columna 2.
+
+00:23:26.057 --> 00:23:28.980
+Con rangos, el final no se
+incluye, como en el slicing.
+
+00:23:30.030 --> 00:23:33.098
+Y con loc se filtran filas
+por condición: por ejemplo,
+
+00:23:33.098 --> 00:23:35.598
+las personas que respondieron desde Ecuador.
+
+00:23:36.648 --> 00:23:39.434
+Y loc selecciona por condición o por etiqueta:
+
+00:23:39.434 --> 00:23:41.917
+los que tienen nota mayor o igual que 70.
+
+00:23:42.387 --> 00:23:45.320
+La diferencia: iloc usa
+posiciones numéricas; loc
+
+00:23:45.320 --> 00:23:48.254
+usa etiquetas, nombres de
+columnas y condiciones.
+
+00:23:49.304 --> 00:23:51.181
+Ordenemos Pandas como un kit.
+
+00:23:51.445 --> 00:23:54.539
+Primero, ¿cómo es la tabla?
+info, describe, head y tail.
+
+00:23:55.009 --> 00:23:57.761
+Segundo, ¿qué falta? isna, o isnull punto sum.
+
+00:23:58.231 --> 00:24:00.769
+Tercero, ¿qué valores hay?
+unique y value_counts.
+
+00:24:01.239 --> 00:24:03.949
+Cuarto, limpiar: rename,
+drop, strip y replace.
+
+00:24:04.419 --> 00:24:07.248
+Y quinto, seleccionar: una
+columna con corchetes,
+
+00:24:07.248 --> 00:24:10.136
+iloc por posición, y loc
+por etiqueta o condición.
+
+00:24:11.186 --> 00:24:13.191
+Parte cinco: regresión y NumPy.
+
+00:24:14.241 --> 00:24:18.593
+Feature, o característica: las propiedades
+de los datos, como la edad o el peso.
+
+00:24:19.063 --> 00:24:21.623
+Label, o etiqueta: lo que queremos predecir.
+
+00:24:22.093 --> 00:24:24.141
+Y predicción: la salida del modelo.
+
+00:24:25.191 --> 00:24:27.922
+Tres conceptos básicos, en una tabla de casas.
+
+00:24:28.224 --> 00:24:31.701
+Las features son lo que conocemos:
+metros, habitaciones, años.
+
+00:24:32.171 --> 00:24:34.923
+El label es lo que queremos
+predecir: el precio.
+
+00:24:35.393 --> 00:24:38.678
+Y la predicción es la salida
+del modelo para una casa nueva.
+
+00:24:39.148 --> 00:24:41.435
+Features, lo que sabes; label, lo que quieres
+
+00:24:41.435 --> 00:24:43.671
+saber; predicción, lo que el modelo adivina.
+
+00:24:44.721 --> 00:24:49.329
+Si a cada valor de X le corresponde uno
+o más valores de Y, Y es función de X…
+
+00:24:49.799 --> 00:24:51.954
+…y se escribe Y igual a f de X.
+
+00:24:52.255 --> 00:24:56.201
+La independiente va en el eje horizontal
+y la dependiente en el vertical.
+
+00:24:57.251 --> 00:25:01.121
+Si Y depende de X, X es la variable
+independiente y Y la dependiente:
+
+00:25:01.121 --> 00:25:04.206
+las horas de estudio y la
+nota, los metros y el precio.
+
+00:25:04.676 --> 00:25:06.745
+Prueba rápida: di «Y depende de X».
+
+00:25:06.990 --> 00:25:10.147
+La nota depende de las horas,
+sí; al revés no tiene sentido.
+
+00:25:11.197 --> 00:25:14.428
+En un dataset, las features son
+las columnas: las medidas de
+
+00:25:14.428 --> 00:25:17.874
+cada flor, con las que un modelo
+aprende a reconocer la especie.
+
+00:25:18.924 --> 00:25:21.904
+En el aprendizaje supervisado,
+la entrada X son las
+
+00:25:21.904 --> 00:25:25.175
+variables independientes, y
+la salida Y, la dependiente.
+
+00:25:25.645 --> 00:25:27.800
+El modelo es una función de la entrada…
+
+00:25:28.270 --> 00:25:30.808
+…más un error, porque
+ningún modelo es perfecto.
+
+00:25:31.858 --> 00:25:36.082
+La fórmula completa: f de la entrada,
+más un error, es igual a la salida.
+
+00:25:36.352 --> 00:25:39.253
+Ese error es lo que la semana
+siete aprende a medir.
+
+00:25:40.303 --> 00:25:43.354
+La regresión predice una
+variable continua, un número…
+
+00:25:43.824 --> 00:25:46.790
+…con la dependiente en el eje
+vertical, la independiente
+
+00:25:46.790 --> 00:25:50.074
+en el horizontal, y una recta
+que mejor representa los puntos.
+
+00:25:51.124 --> 00:25:54.201
+Se usa para pronosticar ventas,
+estimar el precio de una
+
+00:25:54.201 --> 00:25:57.332
+vivienda o un salario: siempre
+la respuesta es un número.
+
+00:25:58.382 --> 00:26:01.604
+La regresión simple usa una
+sola variable independiente…
+
+00:26:02.074 --> 00:26:03.631
+…y la múltiple, más de una.
+
+00:26:04.681 --> 00:26:07.785
+La regresión simple usa una
+sola variable independiente:
+
+00:26:07.785 --> 00:26:10.889
+precio igual a mil doscientos
+por metro, más quince mil.
+
+00:26:11.359 --> 00:26:14.452
+La múltiple usa varias:
+metros, habitaciones y años.
+
+00:26:14.922 --> 00:26:17.534
+Y el signo de cada peso
+dice cómo influye: cada
+
+00:26:17.534 --> 00:26:19.978
+habitación sube el precio, cada año lo baja.
+
+00:26:21.028 --> 00:26:23.828
+El modelo de regresión
+lineal describe la relación
+
+00:26:23.828 --> 00:26:26.404
+con una recta, y busca la que mejor se ajusta.
+
+00:26:26.874 --> 00:26:31.013
+Si el dato real dice 12 y el modelo
+14, esa diferencia es el error.
+
+00:26:32.063 --> 00:26:35.498
+En la regresión lineal: la
+predicción es la salida del modelo…
+
+00:26:35.968 --> 00:26:38.677
+…los pesos multiplican a cada característica…
+
+00:26:39.147 --> 00:26:41.195
+…y el bias es un valor constante.
+
+00:26:41.487 --> 00:26:44.623
+Predicción igual a peso por
+característica, más bias.
+
+00:26:45.673 --> 00:26:49.598
+La pendiente es la inclinación de la
+recta: el peso de la característica.
+
+00:26:50.068 --> 00:26:53.140
+El intercepto es donde cruza
+el eje vertical: el bias.
+
+00:26:53.610 --> 00:26:56.938
+Y entrenar es ajustar ambos,
+desde una recta inicial plana.
+
+00:26:57.988 --> 00:27:03.471
+En la recta Y igual a 2X más 1, la pendiente
+es 2: cada vez que X sube 1, Y sube 2.
+
+00:27:03.718 --> 00:27:05.361
+La pendiente es el peso.
+
+00:27:05.831 --> 00:27:09.351
+Y el intercepto es 1: donde la
+recta cruza el eje vertical.
+
+00:27:09.615 --> 00:27:11.258
+El intercepto es el bias.
+
+00:27:11.728 --> 00:27:14.757
+Entrenar es ajustar esa
+pendiente y ese intercepto.
+
+00:27:15.807 --> 00:27:20.671
+Veámoslo en movimiento: la recta Y igual
+a 2X más 1, con el intercepto en azul.
+
+00:27:21.141 --> 00:27:25.258
+Si cambio solo la pendiente, la recta
+gira; el intercepto no se mueve.
+
+00:27:25.728 --> 00:27:29.931
+Y si cambio solo el bias, la recta sube
+o baja sin cambiar su inclinación.
+
+00:27:30.184 --> 00:27:33.277
+Entrenar es encontrar la
+combinación justa de los dos.
+
+00:27:34.327 --> 00:27:37.698
+Para gráficos se usa
+Matplotlib, importada como plt.
+
+00:27:38.000 --> 00:27:45.403
+Aquí, np punto polyfit calcula la mejor
+recta: pendiente 4.71 y bias 46.29.
+
+00:27:45.873 --> 00:27:50.075
+plt punto scatter dibuja los
+datos, y plt punto plot, la recta.
+
+00:27:50.545 --> 00:27:55.303
+Con 9 horas de estudio, el
+modelo predice unos 88.7 puntos.
+
+00:27:56.353 --> 00:27:59.169
+NumPy es la librería para
+trabajar con arreglos…
+
+00:27:59.639 --> 00:28:04.311
+…creada por Travis Oliphant en 2005;
+su nombre viene de Numerical Python.
+
+00:28:05.361 --> 00:28:09.990
+NumPy es la librería para trabajar con
+arreglos, o arrays, y se importa como np.
+
+00:28:10.460 --> 00:28:13.767
+Son más rápidos que las listas
+y traen métodos para operar.
+
+00:28:14.237 --> 00:28:17.010
+Hay vectores, de una
+dimensión, y matrices, de dos.
+
+00:28:18.060 --> 00:28:21.260
+Con una lista, multiplicar
+por 2 repite los elementos.
+
+00:28:21.730 --> 00:28:24.159
+Con un array, multiplica cada elemento: las
+
+00:28:24.159 --> 00:28:26.701
+operaciones se aplican elemento por elemento.
+
+00:28:27.751 --> 00:28:30.432
+np punto array crea un
+arreglo desde una lista;
+
+00:28:30.432 --> 00:28:32.828
+zeros y ones, arreglos de ceros y de unos.
+
+00:28:33.298 --> 00:28:38.162
+arange crea valores con un paso fijo, y
+linspace, números igualmente espaciados.
+
+00:28:39.212 --> 00:28:41.964
+reshape cambia la forma sin cambiar los datos…
+
+00:28:42.434 --> 00:28:46.637
+…ravel aplana a una dimensión, y
+transpose intercambia filas y columnas.
+
+00:28:47.687 --> 00:28:51.377
+Funciones útiles: zeros y ones
+crean arreglos de ceros y de unos.
+
+00:28:51.847 --> 00:28:55.528
+arange avanza con un paso fijo,
+sin incluir el final; linspace
+
+00:28:55.528 --> 00:28:58.674
+genera una cantidad de números
+igualmente espaciados.
+
+00:28:59.144 --> 00:29:03.880
+reshape cambia la forma, ravel aplana, y
+transpose intercambia filas y columnas.
+
+00:29:04.930 --> 00:29:08.194
+Con la matriz B de dos filas
+y tres columnas, size es 6…
+
+00:29:08.664 --> 00:29:11.053
+…ndim es 2, y shape es 2 coma 3.
+
+00:29:12.103 --> 00:29:15.901
+Para las notas de 3 estudiantes
+en 4 parciales: ndim es 2…
+
+00:29:16.371 --> 00:29:18.781
+…shape es 3 coma 4, y size es 12.
+
+00:29:19.251 --> 00:29:23.603
+shape dice qué forma tiene, size cuántos
+datos hay, y ndim cuántas dimensiones.
+
+00:29:24.653 --> 00:29:27.405
+Parte seis: el error, las
+métricas y más Pandas.
+
+00:29:28.455 --> 00:29:30.354
+¿Cómo encontramos la mejor recta?
+
+00:29:30.804 --> 00:29:34.196
+Con una métrica que mida su
+precisión: la función de pérdida.
+
+00:29:34.666 --> 00:29:39.146
+La pérdida es la diferencia entre los datos
+reales y los que predice la regresión.
+
+00:29:40.196 --> 00:29:44.292
+El error, o residuo, de un punto es
+el valor observado menos el predicho.
+
+00:29:44.762 --> 00:29:47.578
+Si el punto es veinte,
+diez, el valor real es 10…
+
+00:29:48.048 --> 00:29:49.755
+…y el modelo predice 5…
+
+00:29:50.225 --> 00:29:52.294
+…el error es 10 menos 5: 5.
+
+00:29:52.538 --> 00:29:54.416
+Siempre real menos predicción.
+
+00:29:55.466 --> 00:29:57.578
+¿Por qué no sumar los errores tal cual?
+
+00:29:57.982 --> 00:30:00.841
+Más 2, menos 1, más 2 y menos 1 suman 2…
+
+00:30:01.311 --> 00:30:04.106
+…pero el modelo falló por 6 unidades en total.
+
+00:30:04.576 --> 00:30:09.397
+Los positivos y los negativos se cancelan:
+una recta malísima podría sumar cero.
+
+00:30:09.867 --> 00:30:14.368
+Por eso se les quita el signo: elevándolos
+al cuadrado o con el valor absoluto.
+
+00:30:15.418 --> 00:30:19.685
+La mejor recta es la que hace mínimo el
+error entre lo observado y lo predicho.
+
+00:30:20.155 --> 00:30:22.505
+Cada línea vertical es un error: buscamos
+
+00:30:22.505 --> 00:30:25.083
+que, en conjunto, sean lo más cortas posible.
+
+00:30:26.133 --> 00:30:30.890
+Dos rectas sobre los mismos
+datos: la A tiene un MSE de 2.67…
+
+00:30:31.360 --> 00:30:33.771
+…y la B, de 0.53.
+
+00:30:34.076 --> 00:30:36.274
+Menor error, mejor ajuste: gana la B.
+
+00:30:37.324 --> 00:30:40.225
+La función de pérdida es el
+error de una sola muestra.
+
+00:30:40.695 --> 00:30:45.260
+La función de costo es el promedio de la
+pérdida en todo el conjunto de entrenamiento.
+
+00:30:46.310 --> 00:30:51.452
+Una analogía: lanzas cuatro dardos que
+caen a 3, 1, 2 y 2 centímetros del centro.
+
+00:30:51.922 --> 00:30:55.100
+La distancia de cada dardo
+es la pérdida: un solo tiro.
+
+00:30:55.570 --> 00:30:59.837
+Y el promedio, 2 centímetros, es el
+costo: un número que resume cómo juegas.
+
+00:31:00.887 --> 00:31:03.799
+Con errores de más 2, menos 1, más 2 y menos
+
+00:31:03.799 --> 00:31:06.711
+1, las pérdidas al cuadrado son 4, 1, 4 y 1.
+
+00:31:07.181 --> 00:31:10.552
+El costo es su promedio: 10 entre 4, 2.5.
+
+00:31:10.844 --> 00:31:13.895
+Ese promedio de errores al cuadrado es el MSE.
+
+00:31:14.365 --> 00:31:18.183
+La pérdida es tu nota en un deber;
+el costo, tu promedio del parcial.
+
+00:31:19.233 --> 00:31:24.076
+Para medir la calidad del ajuste hay
+cinco métricas: MAE, MSE y RMSE…
+
+00:31:24.546 --> 00:31:26.743
+…y las relativas, RAE y RSE.
+
+00:31:27.793 --> 00:31:32.508
+El error absoluto es la suma de las distancias
+verticales entre la recta y los puntos.
+
+00:31:32.978 --> 00:31:36.647
+Una recta lejana deja distancias
+largas; una cercana, cortas.
+
+00:31:37.117 --> 00:31:40.979
+El valor absoluto quita el signo,
+así que los errores no se cancelan.
+
+00:31:42.029 --> 00:31:46.039
+Dividido para la cantidad de datos,
+da el MAE: el error absoluto medio…
+
+00:31:46.509 --> 00:31:49.048
+…una métrica menos sensible a los outliers…
+
+00:31:49.518 --> 00:31:53.401
+…cuya fórmula es el promedio de los
+valores absolutos de los errores.
+
+00:31:54.451 --> 00:31:58.355
+Con los mismos cuatro datos y la recta
+ye gorro igual a dos equis más uno:
+
+00:31:58.825 --> 00:32:04.115
+el MAE es el promedio de los errores
+en valor absoluto: 6 entre 4, 1.5.
+
+00:32:04.585 --> 00:32:09.556
+El MSE, el promedio de los errores
+al cuadrado: 10 entre 4, 2.5.
+
+00:32:10.026 --> 00:32:13.973
+Y el RMSE es la raíz del MSE: 1.58.
+
+00:32:14.443 --> 00:32:20.096
+El MAE y el RMSE están en las mismas unidades
+que ye; el MSE, en unidades al cuadrado.
+
+00:32:21.146 --> 00:32:24.410
+El error cuadrático suma los
+cuadrados de esas distancias…
+
+00:32:24.880 --> 00:32:27.717
+…y así castiga mucho más
+a los errores grandes.
+
+00:32:28.767 --> 00:32:31.818
+Su promedio es el MSE, el
+error cuadrático medio…
+
+00:32:32.288 --> 00:32:36.277
+…muy sensible a los outliers, porque
+eleva al cuadrado antes de promediar…
+
+00:32:36.747 --> 00:32:39.606
+…con la misma fórmula del
+MAE, pero con cuadrados.
+
+00:32:40.656 --> 00:32:45.691
+Dos modelos: A falla 1 en cada uno de cinco
+datos; B acierta cuatro y falla 5 en uno.
+
+00:32:46.161 --> 00:32:49.595
+El MAE es 1 en los dos: es
+poco sensible a los outliers.
+
+00:32:50.065 --> 00:32:53.666
+Pero el MSE de B es 5,
+porque ese error al cuadrado
+
+00:32:53.666 --> 00:32:57.127
+aporta 25: el MSE es muy
+sensible a los outliers.
+
+00:32:58.177 --> 00:33:01.291
+El RMSE indica el ajuste absoluto del modelo…
+
+00:33:01.761 --> 00:33:04.428
+…usa la misma unidad que
+la variable de salida…
+
+00:33:04.898 --> 00:33:06.583
+…y cuanto más bajo, mejor.
+
+00:33:06.842 --> 00:33:08.975
+Es la raíz cuadrada del MSE.
+
+00:33:10.025 --> 00:33:13.144
+Con precios de casas, el MSE da 450 miles de
+
+00:33:13.144 --> 00:33:16.617
+dólares al cuadrado, algo
+difícil de interpretar…
+
+00:33:17.087 --> 00:33:20.167
+…mientras que el RMSE, la raíz, da unos 21.2:
+
+00:33:20.167 --> 00:33:23.658
+el modelo se equivoca en
+unos veintiún mil dólares.
+
+00:33:23.946 --> 00:33:27.124
+Usa la misma unidad que la
+salida, y cuanto menor, mejor.
+
+00:33:28.174 --> 00:33:32.740
+El RAE compara el error absoluto total del
+modelo con el de un modelo más simple…
+
+00:33:33.210 --> 00:33:35.727
+…va de 0 a 1, y lo bueno es cerca de 0…
+
+00:33:36.197 --> 00:33:39.226
+…porque abajo está el error de
+predecir siempre el promedio.
+
+00:33:40.276 --> 00:33:44.927
+El RSE hace lo mismo con cuadrados,
+y se usa para calcular el R²…
+
+00:33:45.397 --> 00:33:47.928
+…divide el error cuadrático para la diferencia
+
+00:33:47.928 --> 00:33:50.240
+al cuadrado entre los datos y su promedio…
+
+00:33:50.710 --> 00:33:52.502
+…y también va de 0 a 1.
+
+00:33:53.552 --> 00:33:56.626
+El RAE y el RSE comparan el modelo contra uno
+
+00:33:56.626 --> 00:33:59.973
+muy simple, que siempre
+predice el promedio: 6.5.
+
+00:34:00.443 --> 00:34:03.942
+RAE, con valores absolutos: 0.75.
+
+00:34:04.195 --> 00:34:07.480
+RSE, con cuadrados: 0.59.
+
+00:34:07.723 --> 00:34:10.539
+Ambos van de 0 a 1, y lo bueno es cerca de 0.
+
+00:34:11.009 --> 00:34:16.598
+Y el R², coeficiente de determinación,
+es 1 menos el RSE: 0.41.
+
+00:34:17.648 --> 00:34:20.315
+El R², o coeficiente de determinación…
+
+00:34:20.785 --> 00:34:24.326
+…representa la fuerza de la relación
+lineal entre dos variables…
+
+00:34:24.796 --> 00:34:28.769
+…va de 0 a 1: un R² de 0.3
+significa que el 30 por ciento
+
+00:34:28.769 --> 00:34:32.882
+de la variable dependiente se
+predice con la independiente…
+
+00:34:33.352 --> 00:34:35.229
+…y es 1 menos el RSE.
+
+00:34:36.279 --> 00:34:40.604
+El R² mide la fuerza de la
+relación lineal: 0.9 explica
+
+00:34:40.604 --> 00:34:44.535
+el 90 por ciento de la
+variación; 0.3, solo el 30.
+
+00:34:45.005 --> 00:34:49.101
+0 es como predecir siempre el promedio,
+y 1, una predicción perfecta.
+
+00:34:49.571 --> 00:34:54.371
+En MAE, MSE y RMSE lo bueno es
+bajo; en R², lo bueno es alto.
+
+00:34:55.421 --> 00:34:58.690
+Valores bajos de MAE, MSE y RMSE significan
+
+00:34:58.690 --> 00:35:02.034
+más precisión; en R² se busca un valor alto.
+
+00:35:02.504 --> 00:35:07.603
+Y para comparar modelos de regresión,
+el RMSE es más apropiado que el R².
+
+00:35:08.653 --> 00:35:10.765
+Esta tabla resume las seis métricas.
+
+00:35:11.235 --> 00:35:14.845
+Y para comparar modelos de
+regresión, las diapositivas
+
+00:35:14.845 --> 00:35:17.251
+recomiendan el RMSE antes que el R².
+
+00:35:18.301 --> 00:35:20.813
+Una Series es un arreglo de una dimensión con
+
+00:35:20.813 --> 00:35:23.549
+etiquetas, que guarda
+enteros, decimales o texto…
+
+00:35:24.019 --> 00:35:26.536
+…y es, también, una sola
+columna de un DataFrame.
+
+00:35:27.586 --> 00:35:32.024
+Se crea con pd punto Series, pasando una
+lista y un índice con las etiquetas.
+
+00:35:33.074 --> 00:35:35.903
+Una Series de Pandas es un
+arreglo de una dimensión
+
+00:35:35.903 --> 00:35:38.620
+con etiquetas, que guarda
+cualquier tipo de dato.
+
+00:35:39.090 --> 00:35:42.973
+A cada valor se accede por su
+etiqueta: ser1 de ye devuelve 7.
+
+00:35:43.443 --> 00:35:46.067
+Y cada columna de un DataFrame es una Series.
+
+00:35:47.117 --> 00:35:49.613
+El DataFrame tiene su propio método plot…
+
+00:35:50.083 --> 00:35:52.947
+…con título, kind igual a
+bar, figsize y la etiqueta
+
+00:35:52.947 --> 00:35:55.480
+del eje: el resultado es un gráfico de barras…
+
+00:35:55.950 --> 00:36:00.345
+…figsize va en pulgadas, y Pandas soporta
+barras, cajas, pastel y dispersión.
+
+00:36:01.395 --> 00:36:05.790
+Pandas también grafica: df.plot con
+kind igual a bar dibuja barras.
+
+00:36:06.260 --> 00:36:08.478
+kind elige el tipo: line, bar, hist…
+
+00:36:08.948 --> 00:36:12.468
+…box, pie y scatter. figsize da
+el ancho y el alto en pulgadas.
+
+00:36:13.518 --> 00:36:17.998
+El box plot se dibuja con df.plot
+y kind igual a box, o con boxplot…
+
+00:36:18.468 --> 00:36:21.476
+…y muestra una caja, una línea
+en el medio y dos bigotes.
+
+00:36:22.526 --> 00:36:26.692
+El box plot se lee con
+describe: mínimo 20, primer
+
+00:36:26.692 --> 00:36:31.358
+cuartil 22, mediana 23, tercer
+cuartil 24.5 y máximo 26.
+
+00:36:31.828 --> 00:36:34.902
+Los bigotes marcan el mínimo
+y el máximo, la caja va del
+
+00:36:34.902 --> 00:36:38.250
+primer al tercer cuartil, y la
+línea del medio es la mediana.
+
+00:36:39.300 --> 00:36:43.865
+Y la última parte: los resultados de
+aprendizaje y los resúmenes de cada semana.
+
+00:36:44.915 --> 00:36:47.987
+Semana uno: definir qué es
+la inteligencia artificial…
+
+00:36:48.457 --> 00:36:50.718
+…y describir los eventos de su historia.
+
+00:36:51.768 --> 00:36:55.672
+El resumen: definición, historia,
+casos de uso y problemas éticos.
+
+00:36:56.722 --> 00:36:59.666
+Semana dos: la diferencia
+entre IA débil y fuerte…
+
+00:37:00.136 --> 00:37:03.187
+…los tipos de datos estadísticos
+y según su estructura…
+
+00:37:03.657 --> 00:37:05.769
+…y los métodos para recolectar datos.
+
+00:37:06.819 --> 00:37:08.986
+El resumen: machine learning y ciencia de
+
+00:37:08.986 --> 00:37:11.470
+datos, tipos de datos y
+métodos de recolección.
+
+00:37:12.520 --> 00:37:17.021
+Semana cuatro: distinguir algoritmo y modelo,
+y describir los datasets de un modelo…
+
+00:37:17.491 --> 00:37:20.350
+…listar las técnicas de
+machine learning y definir
+
+00:37:20.350 --> 00:37:23.038
+el aprendizaje supervisado
+y el no supervisado.
+
+00:37:24.088 --> 00:37:26.547
+El resumen: algoritmos y modelos, la división
+
+00:37:26.547 --> 00:37:28.952
+del dataset y los tipos de machine learning.
+
+00:37:30.002 --> 00:37:32.306
+Semana cinco: qué es un módulo de Python…
+
+00:37:32.776 --> 00:37:35.848
+…y las funciones de Pandas
+para explorar un dataset real.
+
+00:37:36.898 --> 00:37:40.716
+El resumen: módulos, introducción
+a Pandas y análisis de un dataset.
+
+00:37:41.766 --> 00:37:46.097
+Semana seis: variables dependientes e
+independientes, y gráficos en Python…
+
+00:37:46.567 --> 00:37:49.852
+…arreglos con NumPy y los términos
+de un modelo de regresión.
+
+00:37:50.902 --> 00:37:55.020
+El resumen: variables, Matplotlib,
+NumPy e introducción a la regresión.
+
+00:37:56.070 --> 00:37:59.440
+Semana siete: pérdida contra
+costo, y las métricas de ajuste…
+
+00:37:59.910 --> 00:38:02.086
+…las Series y los gráficos con Pandas.
+
+00:38:03.136 --> 00:38:06.934
+Y el resumen: pérdida y costo, calidad
+del ajuste, Series y gráficos.
+
+00:38:07.984 --> 00:38:10.501
+Antes de terminar, cinco preguntas rápidas.
+
+00:38:10.806 --> 00:38:13.174
+Pausa el video si necesitas más tiempo.
+
+00:38:13.436 --> 00:38:17.617
+Primera pregunta: Siri, el filtro de spam
+y Google Maps, ¿son IA débil o fuerte?
+
+00:38:22.237 --> 00:38:24.690
+Débil: cada uno hace una tarea específica.
+
+00:38:24.982 --> 00:38:27.009
+La IA fuerte todavía no existe.
+
+00:38:27.479 --> 00:38:30.999
+Siguiente: el número de celular de
+un estudiante, ¿qué tipo de dato es?
+
+00:38:35.619 --> 00:38:40.269
+Cualitativo nominal: es un número, pero
+no tiene significado matemático ni orden.
+
+00:38:40.739 --> 00:38:45.155
+Siguiente: predecir si un cliente comprará
+o no, ¿es clasificación o regresión?
+
+00:38:49.775 --> 00:38:52.783
+Clasificación, porque la
+respuesta es una categoría.
+
+00:38:53.047 --> 00:38:55.393
+Si fuera cuánto gastará, sería regresión.
+
+00:38:55.863 --> 00:38:58.509
+Siguiente: ¿qué diferencia
+hay entre iloc y loc?
+
+00:39:03.129 --> 00:39:07.097
+iloc usa posiciones numéricas;
+loc usa etiquetas y condiciones.
+
+00:39:07.567 --> 00:39:10.809
+Y la última: tres errores
+de más 1, menos 1 y más 4.
+
+00:39:11.067 --> 00:39:13.222
+¿Cuánto valen el MAE y el MSE?
+
+00:39:19.842 --> 00:39:22.167
+El MAE es 6 entre 3, igual a 2.
+
+00:39:22.457 --> 00:39:25.273
+El MSE es 18 entre 3, igual a 6.
+
+00:39:26.323 --> 00:39:29.552
+Y eso es todo: de la definición
+de inteligencia artificial
+
+00:39:29.552 --> 00:39:32.169
+hasta las métricas de
+error, en un solo repaso.
+
+00:39:32.450 --> 00:39:36.418
+Repasa las preguntas de cada semana en
+la app, y ¡mucho éxito en tu examen!
+

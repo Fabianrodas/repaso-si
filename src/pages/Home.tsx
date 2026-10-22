@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Play, Slides } from "../components/Icons";
 import { Modal } from "../components/Modal";
+import { ReviewBlock } from "../components/Review";
 import { Bubble } from "../components/Sheet";
 import { navigate, useLinkClick } from "../lib/router";
 import { useSubject } from "../subjects";
@@ -41,6 +42,8 @@ export default function Home() {
           </div>
         </div>
       ) : null}
+
+      {s.review ? <ReviewBlock r={s.review} storage={s.storage} /> : null}
 
       <section className="lessons" aria-labelledby="lessons-title">
         <h2 id="lessons-title" className="sec-title">Lección por {s.unitWord} {allSame ? <span>{lessonN} preguntas</span> : null}</h2>
